@@ -1,3 +1,10 @@
+// Capture Chrome's install prompt so we can trigger it from our own button
+var deferredInstallPrompt = null;
+window.addEventListener('beforeinstallprompt', function (e) {
+  e.preventDefault();
+  deferredInstallPrompt = e;
+});
+
 // Mobile nav toggle
 document.addEventListener('DOMContentLoaded', function () {
   var toggle = document.querySelector('.nav-toggle');
@@ -289,6 +296,36 @@ document.addEventListener('DOMContentLoaded', function () {
       navigator.serviceWorker.register(swPath).catch(function () {
         // Fails silently — install prompt just won't be available, no impact on the site itself.
       });
+    });
+  }
+
+  // One-tap install button (install.html)
+  var installBtn = document.getElementById('install-btn');
+  if (installBtn) {
+    var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    var installNote = document.getElementById('install-note');
+
+    installBtn.addEventListener('click', function () {
+      if (deferredInstallPrompt) {
+        // Android/Chrome: opens the native install dialog directly
+        deferredInstallPrompt.prompt();
+        deferredInstallPrompt.userChoice.finally(function () {
+          deferredInstallPrompt = null;
+        });
+      } else if (isIOS) {
+        // iOS gives no way to trigger this programmatically — Safari restricts it
+        if (installNote) {
+          installNote.style.display = 'block';
+          installNote.textContent = 'On iPhone, tap the Share button (square with an arrow, at the bottom of Safari), then scroll down and tap "Add to Home Screen".';
+          installNote.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      } else {
+        if (installNote) {
+          installNote.style.display = 'block';
+          installNote.textContent = 'One-tap install isn\'t available in this browser yet. Look for "Add to Home Screen" or "Install app" in your browser\'s menu (usually the three-dot icon or share icon).';
+          installNote.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
     });
   }
 });
