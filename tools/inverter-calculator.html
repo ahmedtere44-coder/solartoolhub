@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inverter Size Calculator — What Size Inverter Do You Need? | SolarToolHub</title>
+<meta name="description" content="Free inverter size calculator. Check off your appliances to find the right inverter size, accounting for motor starting surge.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html" class="active">Tools</a></li>
+      <li><a href="../articles.html">Guides</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../tools.html">Tools</a> / Inverter calculator</div>
+    <h1>Inverter size calculator</h1>
+    <p class="lede">Check off the appliances you'll run and we'll size the inverter — including the extra surge power that motors need to start.</p>
+  </div>
+</div>
+
+<div class="calc-layout">
+  <div class="container">
+    <div class="calc-card" style="max-width:720px;">
+      <table class="data-table calc-table" id="inverter-table">
+        <thead>
+          <tr>
+            <th style="width:36px;"></th>
+            <th>Appliance</th>
+            <th>Running W</th>
+            <th>Qty</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-surge="3">
+            <td><input type="checkbox" class="app-include" checked></td>
+            <td>Refrigerator <span class="surge-note">(×3 surge)</span></td>
+            <td><input type="number" class="app-watts" value="150" min="0"></td>
+            <td><input type="number" class="app-qty" value="1" min="0"></td>
+          </tr>
+          <tr data-surge="3">
+            <td><input type="checkbox" class="app-include" checked></td>
+            <td>Air conditioner (1 ton) <span class="surge-note">(×3 surge)</span></td>
+            <td><input type="number" class="app-watts" value="1200" min="0"></td>
+            <td><input type="number" class="app-qty" value="1" min="0"></td>
+          </tr>
+          <tr data-surge="2">
+            <td><input type="checkbox" class="app-include"></td>
+            <td>Washing machine <span class="surge-note">(×2 surge)</span></td>
+            <td><input type="number" class="app-watts" value="500" min="0"></td>
+            <td><input type="number" class="app-qty" value="1" min="0"></td>
+          </tr>
+          <tr data-surge="3">
+            <td><input type="checkbox" class="app-include"></td>
+            <td>Water pump <span class="surge-note">(×3 surge)</span></td>
+            <td><input type="number" class="app-watts" value="750" min="0"></td>
+            <td><input type="number" class="app-qty" value="1" min="0"></td>
+          </tr>
+          <tr data-surge="1">
+            <td><input type="checkbox" class="app-include" checked></td>
+            <td>LED lighting <span class="surge-note">(per bulb)</span></td>
+            <td><input type="number" class="app-watts" value="10" min="0"></td>
+            <td><input type="number" class="app-qty" value="8" min="0"></td>
+          </tr>
+          <tr data-surge="1">
+            <td><input type="checkbox" class="app-include" checked></td>
+            <td>TV <span class="surge-note">(no surge)</span></td>
+            <td><input type="number" class="app-watts" value="100" min="0"></td>
+            <td><input type="number" class="app-qty" value="1" min="0"></td>
+          </tr>
+          <tr data-surge="1">
+            <td><input type="checkbox" class="app-include"></td>
+            <td>Electric water heater <span class="surge-note">(no surge)</span></td>
+            <td><input type="number" class="app-watts" value="1500" min="0"></td>
+            <td><input type="number" class="app-qty" value="1" min="0"></td>
+          </tr>
+          <tr data-surge="1">
+            <td><input type="checkbox" class="app-include" checked></td>
+            <td>Laptop / phone charging <span class="surge-note">(no surge)</span></td>
+            <td><input type="number" class="app-watts" value="60" min="0"></td>
+            <td><input type="number" class="app-qty" value="2" min="0"></td>
+          </tr>
+          <tr data-surge="1">
+            <td><input type="checkbox" class="app-include"></td>
+            <td>Iron <span class="surge-note">(no surge)</span></td>
+            <td><input type="number" class="app-watts" value="1200" min="0"></td>
+            <td><input type="number" class="app-qty" value="1" min="0"></td>
+          </tr>
+          <tr data-surge="3">
+            <td><input type="checkbox" class="app-include"></td>
+            <td>Freezer <span class="surge-note">(×3 surge)</span></td>
+            <td><input type="number" class="app-watts" value="200" min="0"></td>
+            <td><input type="number" class="app-qty" value="1" min="0"></td>
+          </tr>
+          <tr data-surge="2">
+            <td><input type="checkbox" class="app-include"></td>
+            <td>Evaporative cooler <span class="surge-note">(×2 surge)</span></td>
+            <td><input type="number" class="app-watts" value="400" min="0"></td>
+            <td><input type="number" class="app-qty" value="1" min="0"></td>
+          </tr>
+          <tr data-surge="1">
+            <td><input type="checkbox" class="app-include"></td>
+            <td>Electric kettle <span class="surge-note">(no surge)</span></td>
+            <td><input type="number" class="app-watts" value="1500" min="0"></td>
+            <td><input type="number" class="app-qty" value="1" min="0"></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="calc-result">
+        <div>
+          <span class="num" id="inverter-running-result">0</span>
+          <span class="lbl">total running watts</span>
+        </div>
+        <div>
+          <span class="num" id="inverter-size-result">0</span>
+          <span class="lbl">recommended inverter</span>
+        </div>
+      </div>
+      <p class="helper-text">Recommendation includes a 20% safety margin and accounts for the single largest motor-starting surge among your checked appliances.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <article class="article">
+
+    <p>Picking an inverter size is where a lot of DIY solar and backup-power plans go wrong. It's tempting to just add up the wattage printed on your appliances and buy an inverter that covers the total — but that number alone can leave you with an inverter that trips or shuts down the moment your refrigerator or air conditioner switches on.</p>
+
+    <h2>Running watts vs. starting watts</h2>
+    <p>Every electrical load falls into one of two categories:</p>
+    <ul>
+      <li><strong>Resistive loads</strong> — things like lighting, TVs, laptops, and electric heaters. They draw a steady amount of power with no significant spike when switched on.</li>
+      <li><strong>Motor-driven loads</strong> — refrigerators, air conditioners, washing machines, and water pumps. These draw a short burst of extra current — often 2 to 3 times their normal running wattage — for a second or two while the motor spins up. This is called the starting watts or surge watts.</li>
+    </ul>
+    <p>An inverter has to be sized for the highest combined demand it will ever face at once — which usually happens when your biggest motor-driven appliance starts up while everything else is already running. That's exactly what the calculator above accounts for: it adds up your steady running load, then adds the extra surge from whichever single appliance has the largest starting spike.</p>
+
+    <h2>Grid-tied vs. off-grid inverter sizing</h2>
+    <p>This calculator is built around off-grid and hybrid backup scenarios, where the inverter has to directly power your appliances from batteries. If you're planning a standard grid-tied solar system with no battery backup, the inverter is sized differently — based on your solar array's total output (see our panel calculator), not your appliance load, since the grid handles demand spikes for you automatically.</p>
+
+    <h2>Typical power draw by appliance category</h2>
+    <p>If you're checking your own appliances against the calculator's defaults, here's a broader reference range for common household loads. Actual figures vary by brand, size, and age of the unit, so check the nameplate rating on your specific appliance when possible:</p>
+    <table class="data-table">
+      <thead>
+        <tr><th>Category</th><th>Typical running watts</th><th>Starting surge</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Refrigerator / freezer</td><td>100–250W</td><td>×2–3</td></tr>
+        <tr><td>Air conditioner (window/split, per ton)</td><td>900–1,500W</td><td>×3</td></tr>
+        <tr><td>Washing machine (top or front load)</td><td>350–700W</td><td>×2</td></tr>
+        <tr><td>Water pump (shallow well)</td><td>500–1,000W</td><td>×3</td></tr>
+        <tr><td>Microwave</td><td>800–1,500W</td><td>×1 (resistive)</td></tr>
+        <tr><td>LED lighting (per bulb)</td><td>5–15W</td><td>×1</td></tr>
+        <tr><td>Ceiling or standing fan</td><td>50–100W</td><td>×2</td></tr>
+      </tbody>
+    </table>
+    <p>Notice that resistive loads like microwaves and water heaters draw a lot of running power but have no surge — while smaller motors like fans still carry a starting multiplier despite modest running wattage. Sizing correctly means weighing both numbers, not just the running watts printed on the box.</p>
+
+    <div class="field-experience">
+      <span class="tag">Field note</span>
+      <p>On one residential project, an engineering oversight left a 2-ton air conditioner out of the load calculation before the system was wired up — the inverter was pushed well beyond its rated capacity and failed. I've seen this exact mistake happen more than once: poor load estimation before connecting the system is one of the most common causes of inverter failure in the field, and it's almost always avoidable with a proper checklist like the one above.</p>
+    </div>
+
+    <h2>Why the 20% safety margin matters</h2>
+    <p>Even after accounting for starting surge, sizing an inverter right at your calculated peak leaves no room for error. A 20% buffer above your calculated peak load is standard practice for a few reasons:</p>
+    <ul>
+      <li>Appliance nameplate wattage is often a rough figure, and real-world draw can run slightly higher, especially on older or poorly maintained motors.</li>
+      <li>Running an inverter consistently near 100% of its rated capacity shortens its lifespan and increases heat buildup.</li>
+      <li>It leaves headroom to add a small appliance later without needing to replace the whole inverter.</li>
+    </ul>
+    <p>This is why the calculator rounds your peak requirement up by 20% before matching it to the nearest standard inverter size.</p>
+
+    <h2>Pure sine wave vs. modified sine wave</h2>
+    <p>Inverter sizing isn't just about wattage — the waveform type matters just as much for certain appliances:</p>
+    <table class="data-table">
+      <thead>
+        <tr><th>Inverter type</th><th>Best suited for</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Pure sine wave</td><td>Motors, refrigerators, air conditioners, sensitive electronics, medical equipment — anything with a compressor or precision circuitry</td></tr>
+        <tr><td>Modified sine wave</td><td>Basic resistive loads like simple lighting or heating elements, where cost matters more than efficiency</td></tr>
+      </tbody>
+    </table>
+    <p>Running a motor-driven appliance on a modified sine wave inverter often causes it to run hotter, less efficiently, and with a shorter lifespan — sometimes it won't start at all. For any home system with a refrigerator or air conditioner, a pure sine wave inverter is worth the extra cost.</p>
+
+    <h2>A worked example</h2>
+    <p>Take the default selections in the calculator above: a refrigerator (150W, ×3 surge), an air conditioner (1200W, ×3 surge), 8 LED bulbs (10W each), a TV (100W), and two phone chargers (60W each). Running watts add up to 150 + 1200 + 80 + 100 + 120 = 1,650W. The air conditioner has the largest surge addition (1200W × 2 extra = 2,400W), so peak load is 1,650 + 2,400 = 4,050W. Adding the 20% margin brings that to 4,860W, which rounds up to a 5,000W inverter — exactly what the calculator returns.</p>
+
+    <h2>Frequently asked questions</h2>
+    <h3>Can I run two motor-driven appliances at the same time on this sizing?</h3>
+    <p>Yes, as long as they don't both start at the exact same instant. The calculator assumes your other motor-driven appliances are already running steadily (contributing only their running watts) when the single largest one starts up. If you frequently start two large motors simultaneously — like an AC and a water pump — size up further for extra headroom.</p>
+    <h3>Do solar panels need to match the inverter size exactly?</h3>
+    <p>No. Inverter size is based on your load (what you're powering), while panel count is based on your energy generation needs. The two are related but sized independently — check our panel calculator for the generation side of the equation.</p>
+    <h3>What's the difference between an inverter's continuous and surge rating?</h3>
+    <p>The continuous (or running) rating is what the inverter can sustain indefinitely. The surge rating — usually listed separately by manufacturers, often double the continuous rating for a few seconds — is what it can handle briefly during motor start-up. When comparing inverters, check both numbers against your calculated running and peak loads.</p>
+    <h3>Does inverter efficiency affect how much battery or panel capacity I need?</h3>
+    <p>Yes. Inverters aren't 100% efficient — typically 90–95% for a good pure sine wave unit — meaning a small percentage of the power drawn from your battery is lost as heat during conversion from DC to AC. When sizing your battery bank or panel array, add this loss on top of your appliance load rather than assuming a 1:1 conversion.</p>
+    <h3>Can I oversize my inverter without any downside?</h3>
+    <p>A larger inverter gives you more headroom, but it's not free of trade-offs. Bigger inverters cost more upfront, and most units run less efficiently at very low load — so an oversized inverter powering just a few small appliances may waste more energy on standby draw than a correctly sized one would.</p>
+
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="panel-calculator.html">Panel calculator</a></li>
+          <li><a href="inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="battery-calculator.html">Battery calculator</a></li>
+          <li><a href="cable-calculator.html">Cable calculator</a></li>
+          <li><a href="roi-calculator.html">ROI calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solar ROI Calculator — Payback Period &amp; Savings | SolarToolHub</title>
+<meta name="description" content="Free solar ROI calculator. Find your payback period and total savings over the system's lifetime, with optional electricity price escalation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html" class="active">Tools</a></li>
+      <li><a href="../articles.html">Guides</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../tools.html">Tools</a> / ROI calculator</div>
+    <h1>Solar ROI calculator</h1>
+    <p class="lede">Enter your system cost and expected monthly savings — see your payback period and total savings over the system's lifetime.</p>
+  </div>
+</div>
+
+<div class="calc-layout">
+  <div class="container">
+    <div class="calc-card">
+      <form id="roi-calc-form">
+        <div class="field-group">
+          <label for="roi-cost">Total system cost ($)</label>
+          <input type="number" id="roi-cost" value="3000" min="0" step="50">
+        </div>
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="roi-monthly-savings">Monthly electricity bill savings</label>
+            <input type="number" id="roi-monthly-savings" value="50" min="0" step="5">
+          </div>
+          <div class="field-group">
+            <label for="roi-escalation">Annual electricity price increase</label>
+            <select id="roi-escalation">
+              <option value="0" selected>0% — no increase</option>
+              <option value="3">3% per year</option>
+              <option value="5">5% per year</option>
+              <option value="8">8% per year</option>
+            </select>
+          </div>
+        </div>
+      </form>
+      <div class="calc-result">
+        <div>
+          <span class="num num-text" id="roi-payback-result">0 yrs</span>
+          <span class="lbl">payback period</span>
+        </div>
+        <div>
+          <span class="num num-text" id="roi-net25-result">0</span>
+          <span class="lbl">net savings over 25 years</span>
+        </div>
+      </div>
+      <p class="helper-text">Assumes a 25-year system lifetime. Does not include financing interest, incentives, or rebates — see notes below.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <article class="article">
+
+    <p>Every other calculator on this site answers "how much equipment do I need." This one answers a different question: "is it actually worth it?" Payback period and long-term savings are what turn a technical sizing exercise into a financial decision — and they're usually the numbers people care about most before committing to a purchase.</p>
+
+    <h2>How payback period is calculated</h2>
+    <p>At its simplest, payback period is your total system cost divided by how much you save each year on electricity:</p>
+    <p style="font-family:var(--font-mono); background:var(--bg-soft); padding:14px 18px; border-radius:8px; font-size:0.95rem;">Payback period (years) = System cost ÷ Annual savings</p>
+    <p>If you enable the electricity price escalation option, the calculation gets more realistic: instead of assuming your savings stay flat every year, it assumes your monthly bill — and therefore your savings — grows by a fixed percentage annually, since utility rates have historically trended upward almost everywhere over time. This means your system pays for itself slightly faster than the simple flat-rate calculation would suggest, because each year's savings are worth a bit more than the last.</p>
+
+    <h2>What this calculator doesn't include</h2>
+    <p>To keep the tool simple and broadly applicable, a few real-world factors are intentionally left out. Keep these in mind when comparing the result to an actual quote:</p>
+    <ul>
+      <li><strong>Incentives and rebates</strong> — government subsidies, tax credits, or net-metering program specifics vary heavily by country and even by utility. If they apply to you, your real payback period will be shorter than the calculator shows.</li>
+      <li><strong>Financing costs</strong> — if you're financing the system with a loan rather than paying upfront, interest adds to your effective cost and extends the real payback period.</li>
+      <li><strong>Panel degradation</strong> — panels lose roughly 0.5% output per year, which very slightly reduces your savings over time. Over a 25-year system life this is a modest effect, but it's part of why real-world figures can differ slightly from the simplified calculation here.</li>
+      <li><strong>Maintenance and inverter replacement</strong> — most inverters need replacing once during a 25-year system life (typically around year 12–15), which is a cost this calculator doesn't subtract.</li>
+    </ul>
+    <p>Treat this tool as a solid first-pass estimate for comparing options, not a substitute for a detailed financial quote from an installer who knows your local incentives and rates.</p>
+
+    <h2>Why the payback period varies so much between countries</h2>
+    <p>The same solar system can have a payback period of 4 years in one country and 12 in another, mainly because of two factors that vary widely by region: local electricity prices (higher grid prices mean more savings per kWh generated) and equipment/installation costs (which vary with local labor costs, import duties, and market competition). This is exactly why the calculator asks for your own numbers rather than assuming a fixed regional average — the two inputs that matter most are specific to your situation, not your country's averages.</p>
+
+    <h2>A worked example</h2>
+    <p>With the calculator's default values — a $3,000 system saving $50 per month with no price escalation — annual savings come to $600, giving a payback period of exactly 5 years ($3,000 ÷ $600). Over a 25-year system lifetime with the same flat savings rate, total savings reach $15,000, for a net gain of $12,000 after the system has paid for itself. Turning on a 3% annual price escalation shortens the payback slightly and increases the 25-year net savings, since each year's savings are worth a bit more than the year before.</p>
+
+    <h2>Example: a commercial system in Jordan</h2>
+    <p>Payback periods are often much shorter for commercial installations than for homes, because businesses that operate during the day — like a supermarket — consume most of their electricity at exactly the hours solar panels produce the most power, with little energy wasted or exported back to the grid at a lower rate. Take a 10kW rooftop system installed for a supermarket in Jordan at a total cost of around $7,200. With heavy daytime loads from refrigeration, lighting, and air conditioning largely offset by solar output, monthly savings of roughly $300 aren't unusual for a location like this — bringing the payback period down to about 2 years. That's a fraction of the typical residential timeline, purely because commercial daytime usage patterns line up so closely with solar production.</p>
+
+    <h2>Frequently asked questions</h2>
+    <h3>Is a 5-year payback period good?</h3>
+    <p>It's a strong result by most standards — many residential solar installations worldwide fall somewhere between 4 and 10 years. Anything under 7 years is generally considered a solid investment given a 25-year system lifespan, since you're left with 15–20+ years of largely free electricity afterward.</p>
+    <h3>Should I use my full electricity bill or just the solar-offset portion?</h3>
+    <p>Use only the portion of your bill you expect solar to actually offset. If your system is sized to cover 80% of your usage (check our panel calculator), estimate your monthly savings based on that 80%, not your entire bill.</p>
+    <h3>Does a shorter payback period always mean a better investment?</h3>
+    <p>Not necessarily on its own — it depends on total lifetime savings too. A smaller, cheaper system might pay back faster in relative terms but generate less total savings than a larger system with a slightly longer payback period. Compare both numbers together, not payback period in isolation.</p>
+
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="panel-calculator.html">Panel calculator</a></li>
+          <li><a href="inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="battery-calculator.html">Battery calculator</a></li>
+          <li><a href="cable-calculator.html">Cable calculator</a></li>
+          <li><a href="roi-calculator.html">ROI calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

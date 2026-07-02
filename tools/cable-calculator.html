@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cable Size Calculator — Avoid Voltage Drop | SolarToolHub</title>
+<meta name="description" content="Free solar cable size calculator. Enter load, voltage, and distance to find the right cable gauge in mm² and AWG, based on allowable voltage drop.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html" class="active">Tools</a></li>
+      <li><a href="../articles.html">Guides</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../tools.html">Tools</a> / Cable calculator</div>
+    <h1>Cable size calculator</h1>
+    <p class="lede">Enter your load, system voltage, and cable run length — get the right cable size in mm² and AWG, sized to keep voltage drop in check.</p>
+  </div>
+</div>
+
+<div class="calc-layout">
+  <div class="container">
+    <div class="calc-card">
+      <form id="cable-calc-form">
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="cable-watts">Load power (W)</label>
+            <input type="number" id="cable-watts" value="1000" min="0" step="10">
+          </div>
+          <div class="field-group">
+            <label for="cable-voltage">System voltage (V)</label>
+            <select id="cable-voltage">
+              <option value="12">12V</option>
+              <option value="24" selected>24V</option>
+              <option value="48">48V</option>
+            </select>
+          </div>
+        </div>
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="cable-length">One-way cable length (m)</label>
+            <input type="number" id="cable-length" value="10" min="0" step="1">
+            <span class="helper-text">Distance from source to load, one direction only.</span>
+          </div>
+          <div class="field-group">
+            <label for="cable-drop">Max allowed voltage drop</label>
+            <select id="cable-drop">
+              <option value="2">2% (recommended for long runs)</option>
+              <option value="3" selected>3% (standard)</option>
+              <option value="5">5% (short runs only)</option>
+            </select>
+          </div>
+        </div>
+      </form>
+      <div class="calc-result">
+        <div>
+          <span class="num num-text" id="cable-size-result">0 mm²</span>
+          <span class="lbl">recommended cable size</span>
+        </div>
+        <div>
+          <span class="num" id="cable-actual-drop">0%</span>
+          <span class="lbl">actual voltage drop at this size</span>
+        </div>
+      </div>
+      <p class="helper-text">Calculation assumes copper conductor. Round-trip distance (out and back) is already accounted for.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <article class="article">
+
+    <p>Cable sizing is the part of a solar or backup power system that's easiest to get wrong, because an undersized cable won't fail outright the way an undersized inverter would — it just quietly wastes power as heat, and in bad cases, creates a genuine fire risk. Picking the right cable size mostly comes down to one thing: keeping voltage drop within an acceptable limit over the distance the current has to travel.</p>
+
+    <h2>Why voltage drop matters</h2>
+    <p>Every conductor has resistance, and pushing current through that resistance over a distance causes some voltage to be lost along the way — this is voltage drop. The longer the cable run and the higher the current, the more voltage is lost before it reaches your load. Left unchecked, this means:</p>
+    <ul>
+      <li>Appliances and inverters receive less voltage than they need, which can cause poor performance, overheating, or premature failure.</li>
+      <li>The lost energy is converted to heat in the cable itself, which is wasted power and — in more severe cases — a fire hazard.</li>
+      <li>In battery-based systems, excessive voltage drop between the battery and the load or charge controller can trick the system into inaccurate readings, since voltage is often used to estimate battery state.</li>
+    </ul>
+    <p>Industry practice keeps voltage drop under about 3% for most circuits, and often tightens that to 1–2% for long cable runs or highly sensitive equipment.</p>
+
+    <h2>The formula behind the calculator</h2>
+    <p>The calculator uses the standard voltage drop formula for a round-trip circuit:</p>
+    <p style="font-family:var(--font-mono); background:var(--bg-soft); padding:14px 18px; border-radius:8px; font-size:0.95rem;">Cross-sectional area (mm²) = (2 × Length × Current × 0.0175) ÷ Allowed voltage drop (V)</p>
+    <p>The factor of 2 accounts for the fact that current has to travel out to the load and back to the source — the full round-trip distance, not just the one-way distance you measured. The constant 0.0175 is the resistivity of copper in ohm·mm²/m. Once the required area is calculated, the tool rounds up to the next standard cable size, since cables are only manufactured in fixed increments.</p>
+
+    <div class="field-experience">
+      <span class="tag">Field note</span>
+      <p>Cable sizing works differently on the DC side versus the AC side of a system. On the DC side, string cables connecting panels to the inverter or combiner box are typically 8 mm² or 10 mm², depending on the string voltage. On the AC side, the cable size depends on the connected load or, for larger-scale projects, the transformer rating. I've seen this distinction hold consistently across both small residential systems and larger installations in different locations across Jordan — DC and AC sizing simply follow different logic, and mixing up the two is a common mistake on smaller projects.</p>
+    </div>
+
+    <h2>Standard cable sizes: mm² and AWG</h2>
+    <table class="data-table">
+      <thead>
+        <tr><th>mm²</th><th>Closest AWG</th><th>Typical use</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1.5 mm²</td><td>16 AWG</td><td>Low-power sensors, small DC loads</td></tr>
+        <tr><td>2.5 mm²</td><td>14 AWG</td><td>Lighting circuits, small appliances</td></tr>
+        <tr><td>4 mm²</td><td>12 AWG</td><td>General household circuits</td></tr>
+        <tr><td>6 mm²</td><td>10 AWG</td><td>Medium loads, short-to-medium runs</td></tr>
+        <tr><td>10 mm²</td><td>8 AWG</td><td>Higher current loads, panel-to-inverter runs</td></tr>
+        <tr><td>16 mm²</td><td>6 AWG</td><td>Battery interconnects, longer array runs</td></tr>
+        <tr><td>25 mm²+</td><td>4 AWG and larger</td><td>High-current main feeders, long battery-to-inverter runs</td></tr>
+      </tbody>
+    </table>
+    <p>mm² and AWG don't convert to each other with a clean formula — the pairings above are the closest standard equivalents commonly used interchangeably in the industry, which is why the calculator shows both side by side.</p>
+
+    <h2>Copper vs. aluminum cable</h2>
+    <p>This calculator assumes copper, which is the standard choice for most solar and battery wiring due to its lower resistance and better reliability at connection points. Aluminum cable is lighter and cheaper for a given current rating, and is common in large-scale utility wiring, but it requires roughly 1.6 times the cross-sectional area of copper to carry the same current with the same voltage drop, along with special connectors and antioxidant compound to prevent corrosion at terminals. For most home and small commercial solar systems, copper remains the simpler and more reliable choice.</p>
+
+    <h2>A worked example</h2>
+    <p>With the calculator's default values — a 1,000W load at 24V, 10 meters one-way, and a 3% allowed voltage drop — the current works out to about 41.7A. Applying the formula: (2 × 10 × 41.7 × 0.0175) ÷ 0.72V (3% of 24V) gives a required area of roughly 20.3 mm², which rounds up to the next standard size of 25 mm² (4 AWG). At that size, the actual voltage drop comes out slightly under the 3% target — exactly what the calculator returns.</p>
+
+    <h2>Frequently asked questions</h2>
+    <h3>Does this calculator work for AC circuits too?</h3>
+    <p>The core voltage drop formula is the same for both DC and single-phase AC circuits. For three-phase AC systems, the calculation differs slightly due to how phases interact, so treat this tool as accurate for DC and single-phase AC only.</p>
+    <h3>Should I always round up to the next cable size?</h3>
+    <p>Yes. Cables are manufactured in fixed standard sizes, and rounding down would put you over your target voltage drop. When in doubt, sizing one step larger than the calculated minimum adds a safety margin and reduces long-term heat buildup in the cable.</p>
+    <h3>Does cable length include both the positive and negative runs?</h3>
+    <p>Enter only the one-way distance from source to load — the calculator already doubles it internally to account for the return path, since current has to travel both directions to complete the circuit.</p>
+
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="panel-calculator.html">Panel calculator</a></li>
+          <li><a href="inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="battery-calculator.html">Battery calculator</a></li>
+          <li><a href="cable-calculator.html">Cable calculator</a></li>
+          <li><a href="roi-calculator.html">ROI calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

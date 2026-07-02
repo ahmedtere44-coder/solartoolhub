@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SolarToolHub — Free Solar Calculators &amp; Sizing Tools</title>
+<meta name="description" content="Free solar panel, inverter, battery, cable and ROI calculators. Simple tools to plan your solar system, built from real field experience.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/>
+          <rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/>
+          <rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/>
+          <rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/>
+        </svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="tools.html" class="active">Tools</a></li>
+      <li><a href="articles.html">Guides</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="tools/panel-calculator.html" class="btn btn-primary" style="padding:10px 22px; font-size:0.88rem;">Open calculator</a>
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="reveal">
+      <span class="eyebrow"><span class="dot"></span>The solar engineering reference</span>
+      <h1>Solar tools that give you a straight answer.</h1>
+      <p class="hero-sub">Professional-grade calculators for sizing panels, inverters, batteries and cable — built on real installation engineering, not a lead-generation funnel.</p>
+      <div class="hero-actions">
+        <a href="tools.html" class="btn btn-accent">Browse all tools</a>
+        <a href="about.html" class="btn btn-secondary">Why SolarToolHub</a>
+      </div>
+      <div class="hero-meta">
+        <div><span class="num">5</span><span class="lbl">Engineering calculators</span></div>
+        <div><span class="num">100%</span><span class="lbl">Free, no signup</span></div>
+        <div><span class="num">0</span><span class="lbl">Sales calls, ever</span></div>
+      </div>
+    </div>
+    <div class="calc-widget reveal">
+      <div class="calc-widget-inner">
+        <div class="calc-widget-head">
+          <span class="calc-widget-label">Panel calculator</span>
+          <span class="live-dot">Live</span>
+        </div>
+        <h3>How many panels do I need?</h3>
+        <form id="mini-calc-form">
+          <div class="field-group">
+            <label for="mini-usage">Monthly electricity usage (kWh)</label>
+            <input type="number" id="mini-usage" value="600" min="0" step="10">
+          </div>
+          <div class="field-group">
+            <label for="mini-sun">Peak sun hours in your area</label>
+            <select id="mini-sun">
+              <option value="6.5">High sun region (6–7 hrs/day)</option>
+              <option value="4.5" selected>Moderate sun region (4–5 hrs/day)</option>
+              <option value="2.5">Low sun region (2–3 hrs/day)</option>
+            </select>
+          </div>
+        </form>
+        <div class="mini-result">
+          <span class="num" id="mini-result-num">0</span>
+          <span class="lbl">400W panels needed (estimate)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="trust-strip">
+  <div class="container">
+    <p class="label">Formulas cross-checked against real field engineering practice</p>
+    <div class="trust-logos">
+      <span>IEC 62548</span>
+      <span>NEC 690</span>
+      <span>IEEE 1547</span>
+      <span>MEEDC Jordan</span>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span>Featured calculators</span>
+      <h2>Pick a calculator</h2>
+      <p>Every tool below is free to use, works on mobile, and takes under a minute.</p>
+    </div>
+    <div class="grid-3">
+
+      <div class="tool-card reveal">
+        <div class="tool-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <span class="tool-cat">Sizing</span>
+        <h3>Solar panel calculator</h3>
+        <p>Find out how many panels you need based on your monthly electricity usage.</p>
+        <a href="tools/panel-calculator.html" class="tool-link">Open calculator →</a>
+      </div>
+
+      <div class="tool-card reveal">
+        <div class="tool-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+        </div>
+        <span class="tool-cat">Sizing</span>
+        <h3>Inverter size calculator</h3>
+        <p>Match the right inverter size to your appliances and total system load.</p>
+        <a href="tools/inverter-calculator.html" class="tool-link">Open calculator →</a>
+      </div>
+
+      <div class="tool-card reveal">
+        <div class="tool-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="18" height="10" rx="2"/><path d="M22 11v2"/></svg>
+        </div>
+        <span class="tool-cat">Storage</span>
+        <h3>Battery size calculator</h3>
+        <p>Compare Lithium and Lead-acid capacity requirements for backup hours.</p>
+        <a href="tools/battery-calculator.html" class="tool-link">Open calculator →</a>
+      </div>
+
+      <div class="tool-card reveal">
+        <div class="tool-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h4l2-3 4 6 2-3h4"/></svg>
+        </div>
+        <span class="tool-cat">Electrical</span>
+        <h3>Cable size calculator</h3>
+        <p>Pick the right cable gauge to avoid voltage drop and overheating.</p>
+        <a href="tools/cable-calculator.html" class="tool-link">Open calculator →</a>
+      </div>
+
+      <div class="tool-card reveal">
+        <div class="tool-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-6 3 4 5-8"/></svg>
+        </div>
+        <span class="tool-cat">Finance</span>
+        <h3>Solar ROI calculator</h3>
+        <p>Estimate your payback period and long-term savings from going solar.</p>
+        <a href="tools/roi-calculator.html" class="tool-link">Open calculator →</a>
+      </div>
+
+      <div class="tool-card reveal" style="justify-content:center; align-items:center; text-align:center; background:var(--bg-soft); border-style:dashed;">
+        <p style="margin-bottom:0;">More tools are added regularly. Check back soon.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="bg-navy">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow" style="background:rgba(250,204,21,0.2);"><span class="dot"></span>Why SolarToolHub</span>
+      <h2>Built for engineers, simple for everyone else</h2>
+      <p>No lead forms, no oversimplified marketing numbers — just the math, explained clearly.</p>
+    </div>
+    <div class="grid-3">
+      <div class="feature-card reveal">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Field-tested formulas</h3>
+        <p>Every calculation is grounded in real installation engineering, not generic textbook averages.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11z"/></svg>
+        </div>
+        <h3>No lead capture</h3>
+        <p>Every tool is free, requires no account, and never sells your contact details to installers.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        </div>
+        <h3>Answers in under a minute</h3>
+        <p>Enter a few numbers and get a clear, explained result instantly — no downloads, no waiting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-soft">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span>How it works</span>
+      <h2>Three steps, no accounts</h2>
+      <p>No downloads, no sign-ups — just answers.</p>
+    </div>
+    <div class="steps">
+      <div class="reveal">
+        <div class="step-num">1</div>
+        <h3>Pick a tool</h3>
+        <p>Choose the calculator that matches what you're trying to size or estimate.</p>
+      </div>
+      <div class="reveal">
+        <div class="step-num">2</div>
+        <h3>Enter your numbers</h3>
+        <p>A few simple inputs — no technical jargon required.</p>
+      </div>
+      <div class="reveal">
+        <div class="step-num">3</div>
+        <h3>Get a clear result</h3>
+        <p>See your answer instantly, plus a short guide explaining how it was calculated.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span>Latest guides</span>
+      <h2>Learn the engineering behind the numbers</h2>
+      <p>In-depth explainers that go further than the calculators.</p>
+    </div>
+    <div class="grid-3">
+      <div class="tool-card reveal">
+        <span class="tool-cat">Sizing guide</span>
+        <h3>How many solar panels do I need?</h3>
+        <p>The full explainer behind our panel calculator — formulas, assumptions, and a worked example.</p>
+        <a href="tools/panel-calculator.html" class="tool-link">Read guide →</a>
+      </div>
+      <div class="tool-card reveal">
+        <span class="tool-cat">Sizing guide</span>
+        <h3>What size inverter do I need?</h3>
+        <p>Running watts, starting surge, and why sine wave type matters — the full guide behind our inverter calculator.</p>
+        <a href="tools/inverter-calculator.html" class="tool-link">Read guide →</a>
+      </div>
+      <div class="tool-card reveal">
+        <span class="tool-cat">Sizing guide</span>
+        <h3>Lithium vs lead-acid: sizing your battery bank</h3>
+        <p>Depth of discharge, cycle life, and a full worked example — the guide behind our battery calculator.</p>
+        <a href="tools/battery-calculator.html" class="tool-link">Read guide →</a>
+      </div>
+      <div class="tool-card reveal">
+        <span class="tool-cat">Electrical guide</span>
+        <h3>How to avoid voltage drop in solar wiring</h3>
+        <p>The formula, standard cable sizes, and a worked example — the guide behind our cable calculator.</p>
+        <a href="tools/cable-calculator.html" class="tool-link">Read guide →</a>
+      </div>
+      <div class="tool-card reveal">
+        <span class="tool-cat">Finance guide</span>
+        <h3>Is solar actually worth it? Payback period explained</h3>
+        <p>How payback period and 25-year savings are calculated — the guide behind our ROI calculator.</p>
+        <a href="tools/roi-calculator.html" class="tool-link">Read guide →</a>
+      </div>
+      <div class="tool-card reveal">
+        <span class="tool-cat">System types</span>
+        <h3>Grid-tied vs off-grid vs hybrid: which is right for you?</h3>
+        <p>How the three main system types differ, what each costs, and how to decide between them.</p>
+        <a href="articles/grid-tied-vs-off-grid-vs-hybrid.html" class="tool-link">Read guide →</a>
+      </div>
+      <div class="tool-card reveal">
+        <span class="tool-cat">Maintenance</span>
+        <h3>How long do solar panels actually last?</h3>
+        <p>Degradation rates, what shortens panel life, and what really happens after the 25-year warranty ends.</p>
+        <a href="articles/solar-panel-lifespan.html" class="tool-link">Read guide →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-soft">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span>FAQ</span>
+      <h2>Common questions</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item open">
+        <button class="faq-question">
+          Are these calculators accurate enough to use for a real installation?
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-answer"><p>They give a solid engineering-grade estimate for planning purposes. A professional site survey will fine-tune the number for shading, roof orientation, and system losses specific to your site.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Do I need to create an account to use SolarToolHub?
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-answer"><p>No. Every calculator works instantly in your browser with no sign-up, no email required, and no data sent to a server.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Is SolarToolHub connected to a solar installation company?
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-answer"><p>No. SolarToolHub is independent. We don't sell equipment, offer installation services, or pass your details to installers.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          What calculators are coming next?
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-answer"><p>Inverter sizing, battery capacity, cable gauge, and ROI/payback period are next, each with a full written guide alongside the tool.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="newsletter-card reveal">
+      <h2>Get new calculators first</h2>
+      <p>A short, occasional email when a new tool or guide goes live. No spam, unsubscribe anytime.</p>
+      <form class="newsletter-form" id="newsletter-form">
+        <input type="email" placeholder="you@example.com" required>
+        <button type="submit" class="btn btn-accent">Subscribe</button>
+      </form>
+      <p class="newsletter-note">No spam. Unsubscribe anytime.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="tools/panel-calculator.html">Panel calculator</a></li>
+          <li><a href="tools/inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="tools/battery-calculator.html">Battery calculator</a></li>
+          <li><a href="tools/cable-calculator.html">Cable calculator</a></li>
+          <li><a href="tools/roi-calculator.html">ROI calculator</a></li>
+          <li><a href="tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
