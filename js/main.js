@@ -280,4 +280,15 @@ document.addEventListener('DOMContentLoaded', function () {
     roiForm.addEventListener('input', calcROI);
     calcROI();
   }
+
+  // Register service worker (enables "Install app" on supported browsers)
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      var isSubPage = location.pathname.indexOf('/tools/') !== -1 || location.pathname.indexOf('/articles/') !== -1;
+      var swPath = isSubPage ? '../sw.js' : 'sw.js';
+      navigator.serviceWorker.register(swPath).catch(function () {
+        // Fails silently — install prompt just won't be available, no impact on the site itself.
+      });
+    });
+  }
 });

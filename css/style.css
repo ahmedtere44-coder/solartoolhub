@@ -210,6 +210,10 @@ p { color: var(--ink-soft); }
 
 .nav-cta { display: flex; align-items: center; gap: 16px; }
 
+@media (max-width: 860px) {
+  .nav-cta .btn-primary { display: none; }
+}
+
 .nav-toggle {
   display: none;
   background: none;
