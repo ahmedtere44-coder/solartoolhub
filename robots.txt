@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ahmedtere44-coder.github.io/solartoolhub/sitemap.xml
