@@ -111,10 +111,45 @@
 </div>
 
 <div class="container">
-  <p style="text-align:center; margin:32px 0;">
-    Want the full breakdown of how this is calculated and a detailed MPPT vs PWM comparison?
-    <a href="../articles/charge-controller-sizing-mppt-vs-pwm.html" class="tool-link">Read the full guide →</a>
-  </p>
+  <article class="article">
+
+    <p>Undersizing a charge controller is one of the fastest ways to shorten its life — or trip its protection circuit at exactly the wrong moment, on the sunniest day of the year when your array is producing at its peak. This calculator gives you the minimum amperage rating to look for, for both major controller types, so you can compare real product options with confidence instead of guessing.</p>
+
+    <h2>MPPT vs PWM: what actually separates them</h2>
+    <p>Both controller types do the same basic job — regulate the flow of power from your solar array into the battery bank, and stop overcharging once the batteries are full. The difference is in how efficiently they do it, and what array configurations they can handle.</p>
+    <ul>
+      <li><strong>PWM (Pulse Width Modulation)</strong> — the simpler, older technology. It works by directly connecting the panel string to the battery, which means the panel's nominal voltage must closely match the battery voltage (e.g. 12V panels for a 12V battery). Any extra panel voltage above the battery voltage is essentially wasted as heat.</li>
+      <li><strong>MPPT (Maximum Power Point Tracking)</strong> — an active DC-to-DC converter that constantly hunts for the panel's optimal operating voltage and steps it down to match the battery, recovering power that a PWM controller would simply throw away. This lets you wire panels in higher-voltage series strings, which reduces the current traveling down your cable run — often meaning thinner, cheaper cable for the same array.</li>
+    </ul>
+
+    <h2>Full comparison</h2>
+    <table class="data-table">
+      <thead>
+        <tr><th>Factor</th><th>MPPT</th><th>PWM</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Efficiency</td><td>Typically 90–99%, recovers mismatched panel voltage</td><td>Typically 65–80% when panel voltage exceeds battery voltage</td></tr>
+        <tr><td>Panel string voltage</td><td>Can be well above battery voltage (allows series strings)</td><td>Must closely match battery voltage</td></tr>
+        <tr><td>Best for</td><td>Larger arrays, cold climates, longer cable runs</td><td>Small systems, tight budgets, simple 12V/24V setups</td></tr>
+        <tr><td>Upfront cost</td><td>Higher</td><td>Lower</td></tr>
+        <tr><td>Wiring cost</td><td>Often lower (higher voltage = lower current = thinner cable)</td><td>Often higher for the same array size</td></tr>
+      </tbody>
+    </table>
+
+    <h2>How the required amperage is calculated</h2>
+    <p>The core formula is the same for both controller types — it's simply the array's total power divided by the battery bank voltage, with a safety margin applied to cover the fact that real sunlight can briefly exceed a panel's rated output (a phenomenon called edge-of-cloud effect):</p>
+    <p><strong>Required amps = (Array watts ÷ battery voltage) × safety margin</strong></p>
+    <p>For example, a 1000W array on a 24V battery bank needs at least (1000 ÷ 24) × 1.25 ≈ 52A. You'd then choose the next standard controller size up — in this case, a 60A controller — rather than one that sits right at the calculated minimum.</p>
+
+    <h2>Frequently asked questions</h2>
+    <h3>Can I connect a bigger array than my controller's rated wattage?</h3>
+    <p>No — exceeding a controller's rated input power or current can damage it or trigger it to shut down to protect itself. Always size the controller for your full array, including any panels you plan to add later.</p>
+    <h3>Do I need MPPT if my panels already match my battery voltage?</h3>
+    <p>Not necessarily — if your panel string voltage is already close to your battery voltage, PWM can work fine and save money. MPPT's advantage shows up mainly when panel voltage is meaningfully higher than battery voltage, or when cold weather pushes panel voltage even higher.</p>
+    <h3>What happens if I undersize the controller?</h3>
+    <p>Most controllers will current-limit or shut down once their rated amperage is exceeded, which caps your system's charging output below what your array is capable of producing — effectively wasting part of your investment in panels.</p>
+
+  </article>
 </div>
 
 <footer class="site-footer">
