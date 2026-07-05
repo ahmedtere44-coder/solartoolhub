@@ -194,6 +194,40 @@ document.addEventListener('DOMContentLoaded', function () {
     calcBattery();
   }
 
+  // Full charge controller calculator — tools/charge-controller-calculator.html
+  var ccForm = document.getElementById('cc-calc-form');
+  if (ccForm) {
+    var ccWatts = document.getElementById('cc-watts');
+    var ccVoltage = document.getElementById('cc-voltage');
+    var ccSafety = document.getElementById('cc-safety');
+    var ccMpptOut = document.getElementById('cc-mppt-amps');
+    var ccPwmOut = document.getElementById('cc-pwm-amps');
+    var ccMpptSizeOut = document.getElementById('cc-mppt-size');
+    var ccPwmSizeOut = document.getElementById('cc-pwm-size');
+    var ccStandardSizes = [10, 20, 30, 40, 50, 60, 80, 100, 120, 150];
+
+    function ccRecommend(amps) {
+      var size = ccStandardSizes.find(function (s) { return s >= amps; });
+      return size ? size + 'A standard size recommended' : 'Multiple controllers or a larger unit required';
+    }
+
+    function calcCC() {
+      var watts = parseFloat(ccWatts.value) || 0;
+      var voltage = parseFloat(ccVoltage.value) || 24;
+      var safety = parseFloat(ccSafety.value) || 1.25;
+
+      var amps = (watts / voltage) * safety;
+
+      ccMpptOut.textContent = amps > 0 ? amps.toFixed(1) : 0;
+      ccPwmOut.textContent = amps > 0 ? amps.toFixed(1) : 0;
+      ccMpptSizeOut.textContent = amps > 0 ? ccRecommend(amps) : '';
+      ccPwmSizeOut.textContent = amps > 0 ? ccRecommend(amps) : '';
+    }
+
+    ccForm.addEventListener('input', calcCC);
+    calcCC();
+  }
+
   // Full cable calculator — tools/cable-calculator.html
   var cableForm = document.getElementById('cable-calc-form');
   if (cableForm) {

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Charge Controller Size Calculator — MPPT vs PWM | SolarToolHub</title>
+<meta name="description" content="Free charge controller sizing calculator. Find the right MPPT or PWM controller amperage for your solar array and battery bank, with a clear comparison of both types.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html" class="active">Tools</a></li>
+      <li><a href="../articles.html">Guides</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../tools.html">Tools</a> / Charge controller calculator</div>
+    <h1>Charge controller size calculator</h1>
+    <p class="lede">Enter your array power and battery voltage — see the minimum controller amperage you need, plus a side-by-side MPPT vs PWM comparison.</p>
+  </div>
+</div>
+
+<div class="calc-layout">
+  <div class="container">
+    <div class="calc-card" style="max-width:680px;">
+      <form id="cc-calc-form">
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="cc-watts">Total solar array power (W)</label>
+            <input type="number" id="cc-watts" value="1000" min="0" step="10">
+            <span class="helper-text">Sum of the rated wattage of all panels in the array.</span>
+          </div>
+          <div class="field-group">
+            <label for="cc-voltage">Battery bank voltage</label>
+            <select id="cc-voltage">
+              <option value="12">12V</option>
+              <option value="24" selected>24V</option>
+              <option value="48">48V</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-group">
+          <label for="cc-safety">Safety margin</label>
+          <select id="cc-safety">
+            <option value="1.25" selected>25% (standard, recommended)</option>
+            <option value="1.3">30% (extra margin for hot climates)</option>
+          </select>
+          <span class="helper-text">Required by most electrical codes to account for peak sun conditions exceeding rated panel output.</span>
+        </div>
+      </form>
+
+      <div class="battery-compare">
+        <div class="battery-col">
+          <h3>MPPT controller</h3>
+          <div class="calc-result" style="grid-template-columns:1fr;">
+            <div>
+              <span class="num" id="cc-mppt-amps">0</span>
+              <span class="lbl">A minimum rating</span>
+            </div>
+          </div>
+          <p class="helper-text" id="cc-mppt-size" style="margin-top:8px;"></p>
+        </div>
+        <div class="battery-col">
+          <h3>PWM controller</h3>
+          <div class="calc-result" style="grid-template-columns:1fr;">
+            <div>
+              <span class="num" id="cc-pwm-amps">0</span>
+              <span class="lbl">A minimum rating</span>
+            </div>
+          </div>
+          <p class="helper-text" id="cc-pwm-size" style="margin-top:8px;"></p>
+        </div>
+      </div>
+      <p class="helper-text">PWM figures assume panel nominal voltage is matched to the battery bank (e.g. 12V panels for a 12V bank). MPPT allows higher-voltage panel strings, which usually means fewer, thinner cable runs for the same array.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <article class="article">
+
+    <p>Undersizing a charge controller is one of the fastest ways to shorten its life — or trip its protection circuit at exactly the wrong moment, on the sunniest day of the year when your array is producing at its peak. This calculator gives you the minimum amperage rating to look for, for both major controller types, so you can compare real product options with confidence instead of guessing.</p>
+
+    <h2>MPPT vs PWM: what actually separates them</h2>
+    <p>Both controller types do the same basic job — regulate the flow of power from your solar array into the battery bank, and stop overcharging once the batteries are full. The difference is in how efficiently they do it, and what array configurations they can handle.</p>
+    <ul>
+      <li><strong>PWM (Pulse Width Modulation)</strong> — the simpler, older technology. It works by directly connecting the panel string to the battery, which means the panel's nominal voltage must closely match the battery voltage (e.g. 12V panels for a 12V battery). Any extra panel voltage above the battery voltage is essentially wasted as heat.</li>
+      <li><strong>MPPT (Maximum Power Point Tracking)</strong> — an active DC-to-DC converter that constantly hunts for the panel's optimal operating voltage and steps it down to match the battery, recovering power that a PWM controller would simply throw away. This lets you wire panels in higher-voltage series strings, which reduces the current traveling down your cable run — often meaning thinner, cheaper cable for the same array.</li>
+    </ul>
+
+    <div class="field-experience">
+      <span class="tag">Field note</span>
+      <p>[اكتب هون تجربتك الشخصية — مثلاً موقف واجهته لما ركبت PWM بدل MPPT وشو الفرق يلي لاحظته بالإنتاج، أو مشكلة صار فيها controller احترق أو تعطل بسبب حجم غير مناسب]</p>
+    </div>
+
+    <h2>Full comparison</h2>
+    <table class="data-table">
+      <thead>
+        <tr><th>Factor</th><th>MPPT</th><th>PWM</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Efficiency</td><td>Typically 90–99%, recovers mismatched panel voltage</td><td>Typically 65–80% when panel voltage exceeds battery voltage</td></tr>
+        <tr><td>Panel string voltage</td><td>Can be well above battery voltage (allows series strings)</td><td>Must closely match battery voltage</td></tr>
+        <tr><td>Best for</td><td>Larger arrays, cold climates, longer cable runs</td><td>Small systems, tight budgets, simple 12V/24V setups</td></tr>
+        <tr><td>Upfront cost</td><td>Higher</td><td>Lower</td></tr>
+        <tr><td>Wiring cost</td><td>Often lower (higher voltage = lower current = thinner cable)</td><td>Often higher for the same array size</td></tr>
+      </tbody>
+    </table>
+
+    <h2>How the required amperage is calculated</h2>
+    <p>The core formula is the same for both controller types — it's simply the array's total power divided by the battery bank voltage, with a safety margin applied to cover the fact that real sunlight can briefly exceed a panel's rated output (a phenomenon called edge-of-cloud effect):</p>
+    <p><strong>Required amps = (Array watts ÷ battery voltage) × safety margin</strong></p>
+    <p>For example, a 1000W array on a 24V battery bank needs at least (1000 ÷ 24) × 1.25 ≈ 52A. You'd then choose the next standard controller size up — in this case, a 60A controller — rather than one that sits right at the calculated minimum.</p>
+
+    <h2>Frequently asked questions</h2>
+    <h3>Can I connect a bigger array than my controller's rated wattage?</h3>
+    <p>No — exceeding a controller's rated input power or current can damage it or trigger it to shut down to protect itself. Always size the controller for your full array, including any panels you plan to add later.</p>
+    <h3>Do I need MPPT if my panels already match my battery voltage?</h3>
+    <p>Not necessarily — if your panel string voltage is already close to your battery voltage, PWM can work fine and save money. MPPT's advantage shows up mainly when panel voltage is meaningfully higher than battery voltage, or when cold weather pushes panel voltage even higher.</p>
+    <h3>What happens if I undersize the controller?</h3>
+    <p>Most controllers will current-limit or shut down once their rated amperage is exceeded, which caps your system's charging output below what your array is capable of producing — effectively wasting part of your investment in panels.</p>
+
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="panel-calculator.html">Panel calculator</a></li>
+          <li><a href="inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="battery-calculator.html">Battery calculator</a></li>
+          <li><a href="cable-calculator.html">Cable calculator</a></li>
+          <li><a href="roi-calculator.html">ROI calculator</a></li>
+          <li><a href="charge-controller-calculator.html">Charge controller calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
