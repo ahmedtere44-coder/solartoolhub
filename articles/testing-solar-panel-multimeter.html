@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Test a Solar Panel with a Multimeter | SolarToolHub</title>
+<meta name="description" content="A step-by-step field guide to testing a solar panel with a multimeter — open-circuit voltage, short-circuit current, and how to spot a failing panel.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html">Tools</a></li>
+      <li><a href="../articles.html" class="active">Guides</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../articles.html">Guides</a> / Testing a panel with a multimeter</div>
+    <h1>How to test a solar panel with a multimeter</h1>
+    <p class="lede">A step-by-step field check for open-circuit voltage, short-circuit current, and the warning signs of a failing panel — using nothing but a basic multimeter.</p>
+  </div>
+</div>
+
+<div class="container">
+  <article class="article">
+
+    <p>Most solar panel problems don't announce themselves with smoke or sparks — they show up as quietly reduced output that's easy to miss until you actually measure something. A basic multimeter, the same $15–30 tool used for household electrical work, is enough to catch the vast majority of panel issues in the field: dead cells, corroded connections, cracked cells, or a panel that's simply underperforming its rated spec.</p>
+
+    <h2>What you'll need</h2>
+    <ul>
+      <li>A digital multimeter capable of reading DC voltage up to at least 50V and DC current up to at least 10A (check your panel's spec sheet first — high-power panels may exceed a basic meter's current range)</li>
+      <li>Insulated test leads with alligator clips or probes, rated for the voltages involved</li>
+      <li>Insulated gloves (recommended, especially for larger arrays or bright daylight testing)</li>
+      <li>The panel's datasheet or rating label, for comparison against your readings</li>
+    </ul>
+
+    <div class="field-experience">
+      <span class="tag">Field note</span>
+      <p>While commissioning a 12kW system, it was time to check the string voltage with a multimeter, and the reading came back wrong compared to the calculated value. We tested each panel individually and found that one panel wasn't producing any voltage at all — the cause turned out to be a fault inside its junction box. The panel was replaced and the string returned to its correct voltage.</p>
+    </div>
+
+    <h2>Step 1: Read the panel's rating label first</h2>
+    <p>Before touching the multimeter, find the panel's rating label (usually on the back) and note three numbers: <strong>Voc</strong> (open-circuit voltage), <strong>Isc</strong> (short-circuit current), and <strong>Vmp/Imp</strong> (voltage and current at maximum power point). These are your reference numbers — every measurement below gets compared against them.</p>
+
+    <h2>Step 2: Measure open-circuit voltage (Voc)</h2>
+    <ol>
+      <li>Disconnect the panel from any load, controller, or battery — it should be completely isolated, with only the panel's own leads exposed.</li>
+      <li>Set the multimeter to DC voltage, on a range above the panel's rated Voc.</li>
+      <li>With the panel in full, direct sunlight, touch the red probe to the positive lead and the black probe to the negative lead.</li>
+      <li>Read the voltage. It should be close to — sometimes slightly above — the panel's rated Voc, since Voc is typically measured at 25°C and rises somewhat in cooler conditions.</li>
+    </ol>
+    <p>A reading significantly below rated Voc (more than roughly 5–10% low) under strong, direct sun points to cell damage, a bad connection inside the junction box, or a failing bypass diode.</p>
+
+    <h2>Step 3: Measure short-circuit current (Isc)</h2>
+    <ol>
+      <li>Set the multimeter to DC current (amps), on a range above the panel's rated Isc — this step requires more caution than the voltage test.</li>
+      <li>With the panel still disconnected from any load, briefly connect the red probe to the positive lead and the black probe to the negative lead, completing a direct short through the meter.</li>
+      <li>Read the current immediately, then disconnect — don't leave the meter connected longer than needed to get a stable reading.</li>
+    </ol>
+    <p>Isc should track closely with sunlight intensity — full, direct midday sun should get you close to the rated figure; hazy conditions or a low sun angle will read proportionally lower, which is normal and not a fault.</p>
+
+    <div class="field-experience">
+      <span class="tag">Field note</span>
+      <p>When measuring current, pay close attention to polarity, and make sure to follow general safety precautions — the same meter that measures voltage is also what you'll use to measure current, so treat the leads and connections with the same care both times.</p>
+    </div>
+
+    <h2>Step 4: Compare readings against the datasheet</h2>
+    <table class="data-table">
+      <thead>
+        <tr><th>Measurement</th><th>Healthy result</th><th>Possible problem indicated</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Voc reads normal, Isc reads low</td><td>—</td><td>Partial shading, dirt/soiling, or a failing bypass diode</td></tr>
+        <tr><td>Voc reads low, Isc reads normal</td><td>—</td><td>Cracked cells or internal cell damage</td></tr>
+        <tr><td>Both Voc and Isc read near zero</td><td>—</td><td>Open circuit — broken internal wiring or a fully failed junction box connection</td></tr>
+        <tr><td>Both readings match the datasheet within ~5%</td><td>Panel is healthy</td><td>—</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Testing a string of panels</h2>
+    <p>To isolate a single underperforming panel in a series string, measure each panel individually rather than the whole string at once — a weak panel's effect gets averaged out and hidden when you only measure total string voltage. Disconnect the string, then test each panel's Voc one at a time; the one reading noticeably lower than its neighbors is your suspect.</p>
+
+    <h2>Safety notes</h2>
+    <ul>
+      <li>Never perform a short-circuit current test on a panel indoors or with makeshift wiring — always use proper insulated test leads rated for the current involved.</li>
+      <li>Cover the panel with an opaque sheet before connecting or disconnecting leads if you want to work without live voltage present, then uncover it once connections are secure.</li>
+      <li>For arrays wired in series, be aware that string voltage can reach into hazardous DC territory (100V+) even though a single panel's Voc feels low — always know what you're actually measuring before touching anything.</li>
+    </ul>
+
+    <h2>Frequently asked questions</h2>
+    <h3>Can I test a panel on a cloudy day?</h3>
+    <p>Yes, but expect proportionally lower current (Isc) readings — voltage (Voc) is less affected by cloud cover and remains a more reliable cloudy-day check.</p>
+    <h3>Why does my multimeter show a different Voc than the datasheet?</h3>
+    <p>Datasheet Voc is measured under Standard Test Conditions (25°C cell temperature, 1000 W/m² irradiance). Real outdoor conditions rarely match this exactly — cooler panels read slightly higher, hot panels read slightly lower. A few percent difference is normal.</p>
+    <h3>Is a clamp meter better than a basic multimeter for this?</h3>
+    <p>A clamp meter is safer and more convenient for current measurements on larger arrays, since it doesn't require breaking the circuit to insert the meter. For occasional single-panel checks, a basic multimeter is perfectly adequate.</p>
+
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="../tools/panel-calculator.html">Panel calculator</a></li>
+          <li><a href="../tools/inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="../tools/battery-calculator.html">Battery calculator</a></li>
+          <li><a href="../tools/cable-calculator.html">Cable calculator</a></li>
+          <li><a href="../tools/roi-calculator.html">ROI calculator</a></li>
+          <li><a href="../tools/charge-controller-calculator.html">Charge controller calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
