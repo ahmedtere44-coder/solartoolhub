@@ -362,4 +362,30 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   }
+
+  // Panel tilt & angle calculator — tools/panel-tilt-calculator.html
+  var tiltForm = document.getElementById('tilt-calc-form');
+  if (tiltForm) {
+    var tiltLat = document.getElementById('tilt-latitude');
+    var tiltHemisphere = document.getElementById('tilt-hemisphere');
+    var tiltYearOut = document.getElementById('tilt-year');
+    var tiltWinterOut = document.getElementById('tilt-winter');
+    var tiltSummerOut = document.getElementById('tilt-summer');
+    var tiltDirectionOut = document.getElementById('tilt-direction');
+
+    function calcTilt() {
+      var lat = parseFloat(tiltLat.value) || 0;
+      var yearAngle = lat;
+      var winterAngle = Math.min(lat + 15, 90);
+      var summerAngle = Math.max(lat - 15, 0);
+
+      tiltYearOut.textContent = yearAngle.toFixed(1);
+      tiltWinterOut.textContent = winterAngle.toFixed(1);
+      tiltSummerOut.textContent = summerAngle.toFixed(1);
+      tiltDirectionOut.textContent = tiltHemisphere.value === 'north' ? 'south' : 'north';
+    }
+
+    tiltForm.addEventListener('input', calcTilt);
+    calcTilt();
+  }
 });
