@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grounding & Earthing Inspection for Solar Systems | SolarToolHub</title>
+<meta name="description" content="Why grounding matters for solar PV systems, what can go wrong without it, and a practical, step-by-step way to inspect and verify your earthing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html">Tools</a></li>
+      <li><a href="../articles.html" class="active">Guides</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../articles.html">Guides</a> / Grounding & earthing inspection</div>
+    <h1>Grounding & earthing inspection</h1>
+    <p class="lede">Why grounding matters on a solar PV system, what actually fails when it's done wrong, and a practical way to inspect and verify it in the field.</p>
+  </div>
+</div>
+
+<div class="container">
+  <article class="article">
+
+    <p>Grounding is the part of a solar installation that never produces a single watt — and it's also the part most likely to be rushed, skipped, or done just well enough to pass a quick glance. That's a problem, because a properly grounded system is what keeps a fault from becoming a fire, a shock, or a destroyed inverter. This guide covers why grounding matters and how to actually verify it, rather than just assuming a cable running to a rod means the job is done.</p>
+
+    <h2>Why grounding matters</h2>
+    <p>A solar PV system's grounding serves two distinct, equally important purposes:</p>
+    <ul>
+      <li><strong>Equipment grounding</strong> — bonds all the non-current-carrying metal parts (panel frames, racking, inverter enclosure, combiner boxes) together and to earth. If insulation fails anywhere and a live conductor touches a frame, equipment grounding gives that fault current a low-resistance path to earth, tripping a breaker or fuse instead of energizing the frame and waiting for a person to complete the circuit.</li>
+      <li><strong>System/functional grounding</strong> — grounds one of the current-carrying conductors (common on some inverter topologies) to stabilize voltage relative to earth and help ground-fault detection circuits work correctly.</li>
+    </ul>
+    <p>Without solid equipment grounding specifically, a single insulation fault can turn every metal surface in the array into a live conductor — with no visible sign until someone touches it.</p>
+
+    <div class="field-experience">
+      <span class="tag">Field note</span>
+      <p>Just like any other electrical system, grounding matters here for two reasons: it protects people's safety, and it prevents anything unexpected from happening by discharging any leakage current safely into the earth. This is done by bonding the entire system to a copper rod driven into the ground — so if a leakage current occurs, it's directed entirely into the earth instead of through anything (or anyone) else.</p>
+    </div>
+
+    <h2>What commonly goes wrong</h2>
+    <table class="data-table">
+      <thead>
+        <tr><th>Issue</th><th>Why it happens</th><th>Consequence</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Loose or corroded grounding lugs</td><td>Dissimilar metals, weather exposure, poor torque</td><td>High-resistance ground path — fault current may not trip protection reliably</td></tr>
+        <tr><td>Missing bonding jumpers between rail sections</td><td>Assumption that rails are electrically continuous through clamps alone</td><td>Isolated ungrounded metal sections</td></tr>
+        <tr><td>Undersized ground rod / poor soil contact</td><td>Rocky, sandy, or very dry soil with high resistivity</td><td>Ground resistance too high to safely dissipate fault current</td></tr>
+        <tr><td>Painted or anodized surfaces under grounding lugs</td><td>Lug installed without removing the coating first</td><td>Coating acts as an insulator, defeating the connection</td></tr>
+      </tbody>
+    </table>
+
+    <h2>How to inspect grounding in the field</h2>
+    <ol>
+      <li><strong>Visual check first.</strong> Follow the grounding conductor from every major component — panels, racking, combiner box, inverter — back to the grounding electrode. Look for corrosion, loose lugs, and any coated surface a lug was clamped onto without prepping.</li>
+      <li><strong>Continuity check.</strong> With the system de-energized, use a multimeter on continuity/resistance mode between two points that should be electrically bonded (e.g. one panel frame and the inverter chassis). A reading close to 0Ω confirms a solid bond; anything reading open or high resistance needs attention.</li>
+      <li><strong>Ground resistance test.</strong> For the grounding electrode itself (rod, plate, or grid), a proper ground resistance tester (using the fall-of-potential or clamp-on method) gives you the actual resistance to earth in ohms — this is the number that matters for code compliance, not just "is it connected."</li>
+      <li><strong>Torque check on accessible lugs.</strong> Many grounding failures are mechanical, not electrical — a lug that was hand-tight will loosen with thermal cycling over months. Torque to the manufacturer's spec where accessible.</li>
+    </ol>
+
+    <h2>What counts as an acceptable ground resistance?</h2>
+    <p>Most electrical codes target 25Ω or less for a single ground electrode (some jurisdictions and equipment manufacturers specify lower, such as 5-10Ω for sensitive electronics). If a single rod can't reach the target in high-resistivity soil, the standard fix is adding more rods spaced at least their own length apart and bonding them together, or using a longer rod, chemical grounding rods, or a ground grid rather than assuming one rod is always enough.</p>
+
+    <h2>Frequently asked questions</h2>
+    <h3>Do off-grid systems need grounding too?</h3>
+    <p>Yes — equipment grounding for shock protection is still necessary even without a utility connection. The specific rules can differ slightly, but the safety principle is unchanged.</p>
+    <h3>Can I test grounding myself, or do I need a professional?</h3>
+    <p>A basic continuity check with a multimeter is within reach for most installers. A proper ground resistance test to earth generally requires a dedicated ground resistance tester — if you don't have access to one, this specific measurement is worth outsourcing to someone who does.</p>
+    <h3>How often should grounding be re-inspected?</h3>
+    <p>An annual visual and continuity check is a reasonable baseline, with more frequent checks in coastal, humid, or highly corrosive environments where connections degrade faster.</p>
+
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="../tools/panel-calculator.html">Panel calculator</a></li>
+          <li><a href="../tools/inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="../tools/battery-calculator.html">Battery calculator</a></li>
+          <li><a href="../tools/cable-calculator.html">Cable calculator</a></li>
+          <li><a href="../tools/roi-calculator.html">ROI calculator</a></li>
+          <li><a href="../tools/charge-controller-calculator.html">Charge controller calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
