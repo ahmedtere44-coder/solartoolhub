@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Read an Inverter Fault Code | SolarToolHub</title>
+<meta name="description" content="A practical guide to the most common solar inverter fault codes — what they mean, what usually causes them, and what to check first before calling for support.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html">Tools</a></li>
+      <li><a href="../articles.html" class="active">Guides</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../articles.html">Guides</a> / Inverter fault codes</div>
+    <h1>How to read an inverter fault code</h1>
+    <p class="lede">What the most common solar inverter fault codes actually mean, what usually causes them, and what to check yourself before calling for support.</p>
+  </div>
+</div>
+
+<div class="container">
+  <article class="article">
+
+    <p>An inverter throwing a fault code isn't always an emergency — most of the time it's the inverter doing exactly what it's designed to do: protecting itself and the rest of the system by shutting down or limiting output the moment something falls outside safe operating conditions. Knowing what the common fault categories mean can save you a wasted service call, or tell you it really is time to call someone.</p>
+
+    <h2>Note on code numbering</h2>
+    <p>Exact fault code numbers and names vary between manufacturers (Growatt, SMA, Fronius, Deye, and others all use their own numbering). This guide groups faults by <em>category</em>, since the underlying causes and fixes are largely the same across brands even when the exact code label differs — always cross-check the specific number against your inverter's manual for the precise definition.</p>
+
+    <h2>Common fault categories</h2>
+    <table class="data-table">
+      <thead>
+        <tr><th>Fault category</th><th>What it means</th><th>Common causes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Over-voltage (grid or PV)</td><td>Voltage at the input or output exceeded the inverter's safe threshold</td><td>Long PV strings in cold weather (voltage rises in cold), unstable grid voltage, undersized cable causing voltage rise</td></tr>
+        <tr><td>Under-voltage</td><td>Voltage dropped below the minimum operating threshold</td><td>Heavy shading, failing panels, loose DC connections, low battery voltage on hybrid units</td></tr>
+        <tr><td>Ground fault / insulation fault</td><td>Detected current leakage to ground</td><td>Damaged cable insulation, water ingress into a junction box, moisture inside the inverter enclosure</td></tr>
+        <tr><td>Over-temperature</td><td>Internal inverter temperature exceeded safe limits</td><td>Poor ventilation, direct sun exposure on the enclosure, blocked cooling fan, high ambient temperature</td></tr>
+        <tr><td>Grid frequency fault</td><td>Grid frequency outside acceptable range</td><td>Usually a genuine grid-side issue, not the inverter — common during grid instability or generator backup switching</td></tr>
+        <tr><td>Anti-islanding / GFCI trip</td><td>Safety system detected an unexpected condition and disconnected</td><td>Often a nuisance trip from a brief grid disturbance; repeated trips point to a real wiring or grid issue</td></tr>
+      </tbody>
+    </table>
+
+    <div class="field-experience">
+      <span class="tag">Field note</span>
+      <p>On one project, after finishing the installation and trying to start the system up, it simply wouldn't run. Checking the inverter, the fault turned out to be an incorrect grid country code. I looked up the correct country code for the inverter, entered it, and the system started up immediately and began producing normal data.</p>
+    </div>
+
+    <h2>What to check before calling for support</h2>
+    <ol>
+      <li><strong>Write down the exact code and any accompanying message</strong> — this is the single most useful piece of information for diagnosing remotely or over the phone.</li>
+      <li><strong>Check the time of day and weather.</strong> A fault that only happens at peak sun on a hot day points toward over-temperature or over-voltage; one that happens at dawn/dusk often points toward under-voltage.</li>
+      <li><strong>Look for a pattern.</strong> A one-time fault that cleared itself after a restart is very different from a fault that recurs every few minutes — the second case needs real investigation, not just a reset.</li>
+      <li><strong>Physically inspect what you can safely reach.</strong> Check for obvious signs: blocked vents, visible moisture, a tripped breaker, or a loose-looking connector — many faults have a visible cause once you know what category to look for.</li>
+      <li><strong>Try a controlled restart only once.</strong> If the fault clears and doesn't return, it may have been a transient condition. If it returns immediately, don't keep cycling power — that's a sign of a real underlying fault, not a glitch.</li>
+    </ol>
+
+    <h2>When it's safe to reset yourself vs when to call a professional</h2>
+    <p>Nuisance trips from brief grid disturbances or a one-off over-temperature event on an unusually hot day are generally safe to clear with a standard restart per the manufacturer's procedure. Faults that recur immediately, any ground fault or insulation fault, or anything accompanied by a burning smell, visible damage, or unusual sounds should not be reset repeatedly — those need a qualified technician before the system is re-energized.</p>
+
+    <h2>Frequently asked questions</h2>
+    <h3>Why does my inverter fault only in the morning or evening?</h3>
+    <p>Low sun angles mean lower PV voltage, which is a common trigger for under-voltage faults — especially on strings that are already sized close to the inverter's minimum input voltage.</p>
+    <h3>Is it normal for an inverter to fault occasionally?</h3>
+    <p>An occasional, non-repeating fault — especially tied to a specific weather event or grid disturbance — is generally normal protective behavior. Frequent or recurring faults of the same type are not normal and warrant investigation.</p>
+    <h3>Can a firmware update fix recurring fault codes?</h3>
+    <p>Sometimes — manufacturers do occasionally adjust fault thresholds or fix false-trip bugs via firmware. It's worth checking for updates, but a firmware update won't fix a genuine underlying electrical issue.</p>
+
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="../tools/panel-calculator.html">Panel calculator</a></li>
+          <li><a href="../tools/inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="../tools/battery-calculator.html">Battery calculator</a></li>
+          <li><a href="../tools/cable-calculator.html">Cable calculator</a></li>
+          <li><a href="../tools/roi-calculator.html">ROI calculator</a></li>
+          <li><a href="../tools/charge-controller-calculator.html">Charge controller calculator</a></li>
+          <li><a href="../tools/panel-tilt-calculator.html">Panel tilt calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
