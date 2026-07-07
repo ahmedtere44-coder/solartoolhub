@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pre-Commissioning Checklist for Solar Systems | SolarToolHub</title>
+<meta name="description" content="A practical pre-commissioning checklist for solar PV systems — what to verify before you flip the switch on a new installation for the first time.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html">Tools</a></li>
+      <li><a href="../articles.html" class="active">Guides</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../articles.html">Guides</a> / Pre-commissioning checklist</div>
+    <h1>Pre-commissioning checklist</h1>
+    <p class="lede">What to verify before you flip the switch on a new solar installation for the first time — a practical, systematic checklist rather than a quick glance-over.</p>
+  </div>
+</div>
+
+<div class="container">
+  <article class="article">
+
+    <p>The moment right before first startup is when a rushed mistake is most expensive to discover — after the system is live, energized, and potentially feeding into a load or the grid. A short, systematic pre-commissioning pass catches the vast majority of installation errors while they're still cheap and safe to fix, instead of finding out the hard way once everything is powered up.</p>
+
+    <h2>Mechanical checks</h2>
+    <ul>
+      <li>All panel mounting hardware torqued to spec, no loose clamps or rails</li>
+      <li>Racking properly grounded and bonded (see our <a href="grounding-earthing-inspection.html">grounding inspection guide</a> for the full process)</li>
+      <li>No visible physical damage to panels, frames, or enclosures from installation</li>
+      <li>Cable runs properly secured and protected from abrasion, UV exposure, and rodent access</li>
+      <li>Combiner boxes and enclosures sealed against water and dust ingress</li>
+    </ul>
+
+    <h2>Electrical checks</h2>
+    <ul>
+      <li>String voltage (Voc) measured and matches expected value for the number of panels in series</li>
+      <li>Polarity verified on every string before connecting to the combiner or charge controller</li>
+      <li>No unintended short circuits or continuity between positive and negative conductors, or between conductors and ground</li>
+      <li>All terminal connections torqued to the manufacturer's specified value — not just hand-tight</li>
+      <li>Overcurrent protection (fuses/breakers) correctly rated for the actual circuit, not oversized "to be safe"</li>
+      <li>Cable sizing verified against actual run length and current — use our <a href="../tools/cable-calculator.html">cable calculator</a> if you haven't already sized it</li>
+    </ul>
+
+    <div class="field-experience">
+      <span class="tag">Field note</span>
+      <p>On a few installations, running through this checklist before startup caught a loose terminal connection that looked perfectly fine at a glance — it only showed up once we actually torque-checked it. Skipping that step and energizing the system first would have meant discovering it later as a hot spot or an intermittent fault, instead of a two-minute fix during commissioning.</p>
+    </div>
+
+    <h2>System configuration checks</h2>
+    <ul>
+      <li>Inverter/charge controller settings match the actual battery type and capacity (for hybrid/off-grid systems)</li>
+      <li>Correct grid country/region code set on grid-tied inverters — an easy-to-miss setting that will simply prevent startup if wrong</li>
+      <li>Charge controller sized correctly for the array — check with our <a href="../tools/charge-controller-calculator.html">charge controller calculator</a></li>
+      <li>System labeling and signage in place (disconnect locations, warning labels) where required by local code</li>
+    </ul>
+
+    <h2>First-startup sequence</h2>
+    <ol>
+      <li>Verify all disconnects are in the correct position and no one is working on the system before energizing anything</li>
+      <li>Bring up DC side first (panels to combiner/charge controller), confirm expected voltage readings</li>
+      <li>Bring up the inverter/charge controller, watching for any immediate fault codes on startup</li>
+      <li>Bring up the AC side or load connections last, confirming correct voltage and, where applicable, correct phase</li>
+      <li>Monitor the system for the first 15-30 minutes of operation rather than walking away immediately — most startup issues show up quickly</li>
+    </ol>
+
+    <h2>Frequently asked questions</h2>
+    <h3>Is a pre-commissioning checklist different from a maintenance checklist?</h3>
+    <p>Yes — pre-commissioning is a one-time verification before a system is first energized, focused on catching installation errors. Maintenance checks happen periodically afterward and focus on wear, corrosion, and performance degradation over time.</p>
+    <h3>Do small residential systems really need this level of checking?</h3>
+    <p>The scale changes, but the risk doesn't disappear — a small system with a wiring error can still cause a fire or shock hazard. The checklist scales down in time required, not in importance.</p>
+    <h3>What's the most commonly skipped item on this list?</h3>
+    <p>Torque-checking terminal connections is probably the most frequently skipped step, since a connection can look fine visually while still being under-torqued — and it's one of the more common causes of early-life failures and hot spots.</p>
+
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="../tools/panel-calculator.html">Panel calculator</a></li>
+          <li><a href="../tools/inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="../tools/battery-calculator.html">Battery calculator</a></li>
+          <li><a href="../tools/cable-calculator.html">Cable calculator</a></li>
+          <li><a href="../tools/roi-calculator.html">ROI calculator</a></li>
+          <li><a href="../tools/charge-controller-calculator.html">Charge controller calculator</a></li>
+          <li><a href="../tools/panel-tilt-calculator.html">Panel tilt calculator</a></li>
+          <li><a href="../tools/generator-sizing-calculator.html">Generator sizing calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
