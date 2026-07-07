@@ -388,4 +388,37 @@ document.addEventListener('DOMContentLoaded', function () {
     tiltForm.addEventListener('input', calcTilt);
     calcTilt();
   }
+
+  // Generator sizing calculator — tools/generator-sizing-calculator.html
+  var genForm = document.getElementById('gen-calc-form');
+  if (genForm) {
+    var genRunning = document.getElementById('gen-running');
+    var genSurge = document.getElementById('gen-surge');
+    var genHeadroom = document.getElementById('gen-headroom');
+    var genPeakOut = document.getElementById('gen-peak');
+    var genRecommendedOut = document.getElementById('gen-recommended');
+    var genStandardSizeOut = document.getElementById('gen-standard-size');
+    var genStandardSizesW = [2000, 3000, 3500, 5000, 6500, 8000, 10000, 12000, 15000, 20000];
+
+    function genRecommend(watts) {
+      var size = genStandardSizesW.find(function (s) { return s >= watts; });
+      return size ? (size / 1000) + ' kW standard size recommended' : 'Multiple units or a custom-sized generator required';
+    }
+
+    function calcGen() {
+      var running = parseFloat(genRunning.value) || 0;
+      var surge = parseFloat(genSurge.value) || 0;
+      var headroom = parseFloat(genHeadroom.value) || 1.25;
+
+      var peak = running + surge;
+      var recommended = peak * headroom;
+
+      genPeakOut.textContent = Math.round(peak);
+      genRecommendedOut.textContent = Math.round(recommended);
+      genStandardSizeOut.textContent = recommended > 0 ? genRecommend(recommended) : '';
+    }
+
+    genForm.addEventListener('input', calcGen);
+    calcGen();
+  }
 });

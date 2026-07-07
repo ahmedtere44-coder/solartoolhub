@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generator Sizing Calculator | SolarToolHub</title>
+<meta name="description" content="Free backup generator sizing calculator. Find the right generator size for your loads, including starting surge from motors, AC units, and pumps.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html" class="active">Tools</a></li>
+      <li><a href="../articles.html">Guides</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../tools.html">Tools</a> / Generator sizing calculator</div>
+    <h1>Generator sizing calculator</h1>
+    <p class="lede">Enter your total running load and the largest motor-driven appliance you need to start — get the minimum generator size, accounting for starting surge.</p>
+  </div>
+</div>
+
+<div class="calc-layout">
+  <div class="container">
+    <div class="calc-card" style="max-width:680px;">
+      <form id="gen-calc-form">
+        <div class="field-group">
+          <label for="gen-running">Total continuous running load (W)</label>
+          <input type="number" id="gen-running" value="2500" min="0" step="50">
+          <span class="helper-text">Sum of the rated running watts of everything that could run at the same time (lights, fridge, pump, electronics).</span>
+        </div>
+        <div class="field-group">
+          <label for="gen-surge">Largest single appliance starting surge (W)</label>
+          <input type="number" id="gen-surge" value="1500" min="0" step="50">
+          <span class="helper-text">The extra watts needed for a split second when your biggest motor-driven load starts — usually an AC unit, well pump, or fridge compressor. Only count the largest one; motors rarely all start at the exact same instant.</span>
+        </div>
+        <div class="field-group">
+          <label for="gen-headroom">Safety headroom</label>
+          <select id="gen-headroom">
+            <option value="1.25" selected>25% (standard, recommended)</option>
+            <option value="1.35">35% (extra margin / frequent generator use)</option>
+          </select>
+          <span class="helper-text">Running a generator consistently near its maximum rated output shortens its life and reduces reliability.</span>
+        </div>
+      </form>
+
+      <div class="calc-result" style="grid-template-columns: repeat(2, 1fr);">
+        <div>
+          <span class="num" id="gen-peak">0</span>
+          <span class="lbl">W peak demand</span>
+        </div>
+        <div>
+          <span class="num" id="gen-recommended">0</span>
+          <span class="lbl">W minimum generator size</span>
+        </div>
+      </div>
+      <p class="helper-text" id="gen-standard-size" style="margin-top:12px; text-align:center;"></p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <article class="article">
+
+    <p>The single biggest generator-sizing mistake is adding up the running wattage of every appliance and stopping there — ignoring that motors, compressors, and pumps momentarily draw far more power the instant they start than they do while running. A generator sized only for steady-state running load will stall, trip its breaker, or shut down the first time your fridge compressor or AC kicks on under load.</p>
+
+    <h2>Running watts vs starting (surge) watts</h2>
+    <p>Every appliance has a running wattage — what it draws once it's up and operating normally. Motor-driven appliances also have a starting wattage, which can be 2-3× the running figure for a fraction of a second as the motor overcomes initial mechanical resistance. Purely resistive loads (lights, heaters, most electronics) don't have this surge — what you see on the label is what you get continuously.</p>
+
+    <h2>Why you only add the largest single surge, not all of them</h2>
+    <p>In real-world use, appliances rarely all start at the exact same instant — your fridge compressor cycling on won't usually coincide perfectly with your AC compressor starting. The standard, practical approach is: size the generator for the total running load of everything running simultaneously, plus the starting surge of only the single largest motor-driven item, since that's the realistic worst-case moment the generator needs to survive.</p>
+
+    <h2>Typical starting surge multipliers</h2>
+    <table class="data-table">
+      <thead>
+        <tr><th>Appliance type</th><th>Typical surge vs running watts</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Refrigerator / freezer compressor</td><td>~2–3×</td></tr>
+        <tr><td>Window or split AC unit</td><td>~2–3×</td></tr>
+        <tr><td>Well pump / submersible pump</td><td>~2–4×</td></tr>
+        <tr><td>Power tools (drills, saws)</td><td>~2×</td></tr>
+        <tr><td>Lights, TVs, most electronics</td><td>~1× (no meaningful surge)</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Why the safety headroom matters</h2>
+    <p>Running a generator flat-out at its maximum rated capacity for extended periods accelerates wear and increases the risk of nuisance shutdowns from small load fluctuations. Sizing with 25-35% headroom above your calculated peak demand keeps the generator operating in a healthier range and gives you room to add a load later without immediately overloading it.</p>
+
+    <h2>Frequently asked questions</h2>
+    <h3>Do I need to size for every appliance in the house running at once?</h3>
+    <p>No — size for what will realistically run simultaneously during an outage. Most homes don't run every appliance at once; a generator sized for realistic simultaneous use is both cheaper and more practical than one sized for a scenario that never happens.</p>
+    <h3>What happens if I undersize the generator?</h3>
+    <p>The generator will typically overload and shut down, or its breaker will trip, the moment the largest motor tries to start — usually right when you need power most.</p>
+    <h3>Should I size a generator to also charge my solar batteries?</h3>
+    <p>Yes — if the generator will also run a battery charger or hybrid inverter's charging function, add that charger's rated input wattage to your running load total before sizing.</p>
+
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="panel-calculator.html">Panel calculator</a></li>
+          <li><a href="inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="battery-calculator.html">Battery calculator</a></li>
+          <li><a href="cable-calculator.html">Cable calculator</a></li>
+          <li><a href="roi-calculator.html">ROI calculator</a></li>
+          <li><a href="charge-controller-calculator.html">Charge controller calculator</a></li>
+          <li><a href="panel-tilt-calculator.html">Panel tilt calculator</a></li>
+          <li><a href="generator-sizing-calculator.html">Generator sizing calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
