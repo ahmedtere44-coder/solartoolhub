@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Energy Load Calculator | SolarToolHub</title>
+<meta name="description" content="Free daily energy load calculator. Add every appliance in your home or system to get your total daily energy use, monthly usage, and peak simultaneous load.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html" class="active">Tools</a></li>
+      <li><a href="../articles.html">Guides</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../tools.html">Tools</a> / Daily energy load calculator</div>
+    <h1>Daily energy load calculator</h1>
+    <p class="lede">Add every appliance you plan to run — get your total daily energy use, monthly usage, and peak simultaneous load in one place. The natural starting point before sizing panels, batteries, or an inverter.</p>
+  </div>
+</div>
+
+<div class="calc-layout">
+  <div class="container">
+    <div class="calc-card" style="max-width:820px;">
+
+      <table class="data-table calc-table" id="load-table">
+        <thead>
+          <tr>
+            <th>Appliance</th>
+            <th>Watts</th>
+            <th>Hours/day</th>
+            <th>Daily Wh</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="load-table-body"></tbody>
+      </table>
+
+      <button type="button" id="load-add-btn" class="btn btn-secondary" style="margin-bottom:8px;">+ Add appliance</button>
+
+      <div class="calc-result" style="grid-template-columns: repeat(3, 1fr); margin-top:30px;">
+        <div>
+          <span class="num" id="load-daily-kwh">0</span>
+          <span class="lbl">kWh per day</span>
+        </div>
+        <div>
+          <span class="num" id="load-monthly-kwh">0</span>
+          <span class="lbl">kWh per month</span>
+        </div>
+        <div>
+          <span class="num" id="load-peak-watts">0</span>
+          <span class="lbl">W peak simultaneous load</span>
+        </div>
+      </div>
+      <p class="helper-text" style="margin-top:14px;">Peak load assumes every appliance listed could run at the same time — useful for sizing your inverter. Daily/monthly energy is what actually drives panel and battery sizing.</p>
+
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <article class="article">
+
+    <p>Every solar system design starts from the same question: how much energy does this place actually use? Get this number right and every other calculation — panels, battery bank, inverter, even the charge controller — follows naturally. Get it wrong, and you're sizing an expensive system around a guess.</p>
+
+    <h2>Why track every appliance individually</h2>
+    <p>A single "average daily usage" number from a utility bill tells you the past, but not the shape of your actual load — and shape matters for solar sizing. Two homes using the same total daily energy can need very different systems: one running everything in daylight hours is easy to serve directly from panels, while one running most of its load at night needs a battery bank sized around it.</p>
+
+    <h2>Daily energy vs peak load — two different numbers, two different jobs</h2>
+    <table class="data-table">
+      <thead>
+        <tr><th>Number</th><th>What it drives</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Daily energy (kWh/day)</td><td>Panel array size and battery bank capacity — how much energy you need to generate and store</td></tr>
+        <tr><td>Peak simultaneous load (W)</td><td>Inverter sizing — how much instantaneous power the system needs to deliver at once</td></tr>
+      </tbody>
+    </table>
+    <p>It's common to have a modest daily energy total but a surprisingly high peak load, if a few high-wattage appliances (AC, water heater, power tools) happen to run at the same time as everything else. This calculator tracks both so neither gets overlooked.</p>
+
+    <h2>Where to find accurate wattage numbers</h2>
+    <ul>
+      <li><strong>Rating label.</strong> Most appliances list rated wattage (or amps × volts) on a label, usually on the back or bottom.</li>
+      <li><strong>Actual measurement.</strong> A plug-in power meter gives real-world wattage, which is often lower than the rated "maximum" figure for things like fridges and AC units that cycle on and off.</li>
+      <li><strong>Manufacturer specs.</strong> If the label is worn or missing, the manufacturer's website or manual usually lists power consumption.</li>
+    </ul>
+
+    <h2>Common mistakes when estimating daily load</h2>
+    <ul>
+      <li><strong>Using nameplate max instead of typical running watts</strong> for appliances that cycle (fridges, AC units) — this overestimates daily energy, though the nameplate figure is still useful for peak load.</li>
+      <li><strong>Forgetting small, always-on loads</strong> — routers, security cameras, standby power on electronics. These run 24 hours a day and add up more than their small wattage suggests.</li>
+      <li><strong>Guessing hours of use</strong> instead of tracking actual habits for a few days first, especially for seasonal loads like AC or heating.</li>
+    </ul>
+
+    <h2>Frequently asked questions</h2>
+    <h3>Should I add a safety margin on top of this total?</h3>
+    <p>Yes — most system designers add 20-25% to the calculated daily energy total to account for inverter/battery losses, future load growth, and days of lower-than-expected sun. Our other calculators already build in their own safety margins where relevant.</p>
+    <h3>How does this relate to my utility bill?</h3>
+    <p>Your utility bill's monthly kWh figure is a good sanity check — if this calculator's monthly total is wildly different from your bill, double-check appliance wattage or hours of use for errors.</p>
+    <h3>What if my usage varies a lot by season?</h3>
+    <p>Build this list for your highest-usage season (typically summer with AC, or winter with heating) if you're sizing an off-grid system — designing around the peak season avoids under-sizing for the months that matter most.</p>
+
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="panel-calculator.html">Panel calculator</a></li>
+          <li><a href="inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="battery-calculator.html">Battery calculator</a></li>
+          <li><a href="cable-calculator.html">Cable calculator</a></li>
+          <li><a href="roi-calculator.html">ROI calculator</a></li>
+          <li><a href="charge-controller-calculator.html">Charge controller calculator</a></li>
+          <li><a href="panel-tilt-calculator.html">Panel tilt calculator</a></li>
+          <li><a href="generator-sizing-calculator.html">Generator sizing calculator</a></li>
+          <li><a href="daily-load-calculator.html">Daily energy load calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

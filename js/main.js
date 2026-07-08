@@ -421,4 +421,137 @@ document.addEventListener('DOMContentLoaded', function () {
     genForm.addEventListener('input', calcGen);
     calcGen();
   }
+
+  // Daily energy load calculator — tools/daily-load-calculator.html
+  var loadTableBody = document.getElementById('load-table-body');
+  if (loadTableBody) {
+    var loadAddBtn = document.getElementById('load-add-btn');
+    var loadDailyKwhOut = document.getElementById('load-daily-kwh');
+    var loadMonthlyKwhOut = document.getElementById('load-monthly-kwh');
+    var loadPeakWattsOut = document.getElementById('load-peak-watts');
+
+    var loadAppliances = [
+      { name: 'LED lighting', watts: 40, hours: 5 },
+      { name: 'Refrigerator', watts: 150, hours: 24 },
+      { name: 'TV / laptop', watts: 100, hours: 4 }
+    ];
+
+    function renderLoadTable() {
+      loadTableBody.innerHTML = '';
+      loadAppliances.forEach(function (app, i) {
+        var tr = document.createElement('tr');
+
+        var nameTd = document.createElement('td');
+        var nameInput = document.createElement('input');
+        nameInput.type = 'text';
+        nameInput.className = 'load-name';
+        nameInput.setAttribute('data-index', i);
+        nameInput.value = app.name;
+        nameInput.placeholder = 'e.g. Refrigerator';
+        nameTd.appendChild(nameInput);
+
+        var wattsTd = document.createElement('td');
+        var wattsInput = document.createElement('input');
+        wattsInput.type = 'number';
+        wattsInput.className = 'load-watts app-watts';
+        wattsInput.setAttribute('data-index', i);
+        wattsInput.min = '0';
+        wattsInput.step = '5';
+        wattsInput.value = app.watts;
+        wattsTd.appendChild(wattsInput);
+
+        var hoursTd = document.createElement('td');
+        var hoursInput = document.createElement('input');
+        hoursInput.type = 'number';
+        hoursInput.className = 'load-hours app-hours';
+        hoursInput.setAttribute('data-index', i);
+        hoursInput.min = '0';
+        hoursInput.max = '24';
+        hoursInput.step = '0.5';
+        hoursInput.value = app.hours;
+        hoursTd.appendChild(hoursInput);
+
+        var dailyWhTd = document.createElement('td');
+        dailyWhTd.className = 'load-daily-wh';
+        dailyWhTd.textContent = Math.round(app.watts * app.hours);
+
+        var removeTd = document.createElement('td');
+        var removeBtn = document.createElement('button');
+        removeBtn.type = 'button';
+        removeBtn.className = 'load-remove-btn';
+        removeBtn.setAttribute('data-index', i);
+        removeBtn.setAttribute('aria-label', 'Remove appliance');
+        removeBtn.textContent = '\u00d7';
+        removeTd.appendChild(removeBtn);
+
+        tr.appendChild(nameTd);
+        tr.appendChild(wattsTd);
+        tr.appendChild(hoursTd);
+        tr.appendChild(dailyWhTd);
+        tr.appendChild(removeTd);
+        loadTableBody.appendChild(tr);
+      });
+    }
+
+    function calcLoadTotals() {
+      var totalWh = 0;
+      var peakWatts = 0;
+      loadAppliances.forEach(function (app) {
+        totalWh += app.watts * app.hours;
+        peakWatts += app.watts;
+      });
+      var dailyKwh = totalWh / 1000;
+      var monthlyKwh = dailyKwh * 30;
+
+      loadDailyKwhOut.textContent = dailyKwh.toFixed(2);
+      loadMonthlyKwhOut.textContent = monthlyKwh.toFixed(1);
+      loadPeakWattsOut.textContent = Math.round(peakWatts);
+    }
+
+    function updateRowDailyWh(index) {
+      var row = loadTableBody.children[index];
+      if (row) {
+        var app = loadAppliances[index];
+        row.querySelector('.load-daily-wh').textContent = Math.round(app.watts * app.hours);
+      }
+    }
+
+    loadTableBody.addEventListener('input', function (e) {
+      var index = parseInt(e.target.getAttribute('data-index'), 10);
+      if (isNaN(index)) return;
+
+      if (e.target.classList.contains('load-name')) {
+        loadAppliances[index].name = e.target.value;
+      } else if (e.target.classList.contains('load-watts')) {
+        loadAppliances[index].watts = parseFloat(e.target.value) || 0;
+        updateRowDailyWh(index);
+      } else if (e.target.classList.contains('load-hours')) {
+        loadAppliances[index].hours = parseFloat(e.target.value) || 0;
+        updateRowDailyWh(index);
+      }
+      calcLoadTotals();
+    });
+
+    loadTableBody.addEventListener('click', function (e) {
+      if (e.target.classList.contains('load-remove-btn')) {
+        var index = parseInt(e.target.getAttribute('data-index'), 10);
+        if (!isNaN(index)) {
+          loadAppliances.splice(index, 1);
+          renderLoadTable();
+          calcLoadTotals();
+        }
+      }
+    });
+
+    if (loadAddBtn) {
+      loadAddBtn.addEventListener('click', function () {
+        loadAppliances.push({ name: '', watts: 0, hours: 0 });
+        renderLoadTable();
+        calcLoadTotals();
+      });
+    }
+
+    renderLoadTable();
+    calcLoadTotals();
+  }
 });
