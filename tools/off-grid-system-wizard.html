@@ -158,7 +158,7 @@
 
         <div class="wizard-nav">
           <button type="button" class="btn btn-secondary" data-back="2">← Back</button>
-          <span></span>
+          <button type="button" id="wiz-pdf-btn" class="btn btn-accent">⬇️ Download PDF</button>
         </div>
       </div>
 
@@ -262,5 +262,56 @@
 </footer>
 
 <script src="../js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script>
+  var wizPdfBtn = document.getElementById('wiz-pdf-btn');
+  if (wizPdfBtn) {
+    wizPdfBtn.addEventListener('click', function () {
+      var dailyKwh = document.getElementById('wiz-daily-kwh').value;
+      var peakWatts = document.getElementById('wiz-peak-watts').value;
+      var sunHours = document.getElementById('wiz-sun-hours').value;
+      var voltageSelect = document.getElementById('wiz-battery-voltage');
+      var voltage = voltageSelect.options[voltageSelect.selectedIndex].text;
+      var batteryTypeSelect = document.getElementById('wiz-battery-type');
+      var batteryType = batteryTypeSelect.options[batteryTypeSelect.selectedIndex].text;
+      var autonomySelect = document.getElementById('wiz-autonomy');
+      var autonomy = autonomySelect.options[autonomySelect.selectedIndex].text;
+
+      var panelWatts = document.getElementById('wiz-panel-watts').textContent;
+      var panelCount = document.getElementById('wiz-panel-count').textContent;
+      var batteryAh = document.getElementById('wiz-battery-ah').textContent;
+      var batteryKwh = document.getElementById('wiz-battery-kwh').textContent;
+      var inverterWatts = document.getElementById('wiz-inverter-watts').textContent;
+      var controllerAmps = document.getElementById('wiz-charge-controller-amps').textContent;
+
+      generateSolarToolHubResultsPDF({
+        subtitle: 'Off-Grid System Sizing — Full Recommendation',
+        inputs: [
+          ['Daily energy use', dailyKwh + ' kWh'],
+          ['Peak simultaneous load', peakWatts + ' W'],
+          ['Peak sun hours', sunHours + ' h'],
+          ['Battery bank voltage', voltage],
+          ['Battery type', batteryType],
+          ['Days of autonomy', autonomy]
+        ],
+        resultsHeaders: ['Component', 'Recommendation'],
+        results: [
+          ['Panel array', panelWatts + ' W (~' + panelCount + ' panels)'],
+          ['Battery bank', batteryAh + ' Ah (' + batteryKwh + ' kWh usable)'],
+          ['Inverter', inverterWatts + ' W'],
+          ['Charge controller', controllerAmps + ' A']
+        ],
+        nextSteps: {
+          text: 'Fine-tune any single component with our dedicated calculators:',
+          linkText: 'Panel, Battery, Inverter & Charge Controller Calculators',
+          url: 'https://ahmedtere44-coder.github.io/solartoolhub/tools.html'
+        },
+        filename: 'solartoolhub-off-grid-system-results.pdf'
+      });
+    });
+  }
+</script>
 </body>
 </html>

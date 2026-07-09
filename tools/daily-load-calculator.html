@@ -88,6 +88,7 @@
         </div>
       </div>
       <p class="helper-text" style="margin-top:14px;">Peak load assumes every appliance listed could run at the same time — useful for sizing your inverter. Daily/monthly energy is what actually drives panel and battery sizing.</p>
+      <button type="button" id="load-pdf-btn" class="btn btn-accent" style="margin-top:20px;">⬇️ Download results as PDF</button>
 
     </div>
   </div>
@@ -188,5 +189,46 @@
 </footer>
 
 <script src="../js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script>
+  var loadPdfBtn = document.getElementById('load-pdf-btn');
+  if (loadPdfBtn) {
+    loadPdfBtn.addEventListener('click', function () {
+      var rows = document.querySelectorAll('#load-table-body tr');
+      var appliances = [];
+      rows.forEach(function (row) {
+        var name = row.querySelector('.load-name').value || '(unnamed)';
+        var watts = row.querySelector('.load-watts').value;
+        var hours = row.querySelector('.load-hours').value;
+        var dailyWh = row.querySelector('.load-daily-wh').textContent;
+        appliances.push([name, watts + ' W', hours + ' h', dailyWh + ' Wh']);
+      });
+
+      var dailyKwh = document.getElementById('load-daily-kwh').textContent;
+      var monthlyKwh = document.getElementById('load-monthly-kwh').textContent;
+      var peakWatts = document.getElementById('load-peak-watts').textContent;
+
+      generateSolarToolHubResultsPDF({
+        subtitle: 'Daily Energy Load — Results',
+        inputsHeaders: ['Appliance', 'Watts', 'Hours/day', 'Daily Wh'],
+        inputs: appliances.length ? appliances : [['No appliances added', '', '', '']],
+        resultsHeaders: ['Metric', 'Value'],
+        results: [
+          ['Daily energy use', dailyKwh + ' kWh'],
+          ['Monthly energy use', monthlyKwh + ' kWh'],
+          ['Peak simultaneous load', peakWatts + ' W']
+        ],
+        nextSteps: {
+          text: 'Next, size your full off-grid system based on this energy use:',
+          linkText: 'Off-Grid System Wizard',
+          url: 'https://ahmedtere44-coder.github.io/solartoolhub/tools/off-grid-system-wizard.html'
+        },
+        filename: 'solartoolhub-daily-load-results.pdf'
+      });
+    });
+  }
+</script>
 </body>
 </html>

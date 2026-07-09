@@ -98,6 +98,7 @@
           <span class="lbl">actual voltage drop at this size</span>
         </div>
       </div>
+      <button type="button" id="cable-pdf-btn" class="btn btn-accent" style="margin-top:20px;">⬇️ Download results as PDF</button>
       <p class="helper-text">Calculation assumes copper conductor. Round-trip distance (out and back) is already accounted for.</p>
     </div>
   </div>
@@ -207,5 +208,44 @@
 </footer>
 
 <script src="../js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script>
+  var cablePdfBtn = document.getElementById('cable-pdf-btn');
+  if (cablePdfBtn) {
+    cablePdfBtn.addEventListener('click', function () {
+      var watts = document.getElementById('cable-watts').value;
+      var voltageSelect = document.getElementById('cable-voltage');
+      var voltage = voltageSelect.options[voltageSelect.selectedIndex].text;
+      var length = document.getElementById('cable-length').value;
+      var dropSelect = document.getElementById('cable-drop');
+      var dropText = dropSelect.options[dropSelect.selectedIndex].text;
+      var cableSize = document.getElementById('cable-size-result').textContent;
+      var actualDrop = document.getElementById('cable-actual-drop').textContent;
+
+      generateSolarToolHubResultsPDF({
+        subtitle: 'Cable Size — Results',
+        inputs: [
+          ['Load power', watts + ' W'],
+          ['System voltage', voltage],
+          ['One-way cable length', length + ' m'],
+          ['Max allowed voltage drop', dropText]
+        ],
+        resultsHeaders: ['Metric', 'Value'],
+        results: [
+          ['Recommended cable size', cableSize],
+          ['Actual voltage drop', actualDrop]
+        ],
+        nextSteps: {
+          text: 'Next, make sure your charge controller is sized correctly for this array:',
+          linkText: 'Charge Controller Calculator',
+          url: 'https://ahmedtere44-coder.github.io/solartoolhub/tools/charge-controller-calculator.html'
+        },
+        filename: 'solartoolhub-cable-results.pdf'
+      });
+    });
+  }
+</script>
 </body>
 </html>

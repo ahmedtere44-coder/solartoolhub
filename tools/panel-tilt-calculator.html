@@ -102,6 +102,7 @@
         </div>
       </div>
       <p class="helper-text">Facing direction: point panels due <strong id="tilt-direction">south</strong> for maximum output at this latitude.</p>
+      <button type="button" id="tilt-pdf-btn" class="btn btn-accent" style="margin-top:20px;">⬇️ Download results as PDF</button>
     </div>
   </div>
 </div>
@@ -200,5 +201,43 @@
 </footer>
 
 <script src="../js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script>
+  var tiltPdfBtn = document.getElementById('tilt-pdf-btn');
+  if (tiltPdfBtn) {
+    tiltPdfBtn.addEventListener('click', function () {
+      var latitude = document.getElementById('tilt-latitude').value;
+      var hemisphereSelect = document.getElementById('tilt-hemisphere');
+      var hemisphereText = hemisphereSelect.options[hemisphereSelect.selectedIndex].text;
+      var yearAngle = document.getElementById('tilt-year').textContent;
+      var winterAngle = document.getElementById('tilt-winter').textContent;
+      var summerAngle = document.getElementById('tilt-summer').textContent;
+      var direction = document.getElementById('tilt-direction').textContent;
+
+      generateSolarToolHubResultsPDF({
+        subtitle: 'Panel Tilt & Angle — Results',
+        inputs: [
+          ['Latitude', latitude + '°'],
+          ['Hemisphere', hemisphereText]
+        ],
+        resultsHeaders: ['Optimization', 'Angle from Horizontal'],
+        results: [
+          ['Year-round (fixed)', yearAngle + '°'],
+          ['Winter-optimized', winterAngle + '°'],
+          ['Summer-optimized', summerAngle + '°'],
+          ['Facing direction', 'Due ' + direction]
+        ],
+        nextSteps: {
+          text: 'Next, size your panel array:',
+          linkText: 'Panel Sizing Calculator',
+          url: 'https://ahmedtere44-coder.github.io/solartoolhub/tools/panel-calculator.html'
+        },
+        filename: 'solartoolhub-panel-tilt-results.pdf'
+      });
+    });
+  }
+</script>
 </body>
 </html>

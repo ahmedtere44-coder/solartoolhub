@@ -88,6 +88,7 @@
           <span class="lbl">net savings over 25 years</span>
         </div>
       </div>
+      <button type="button" id="roi-pdf-btn" class="btn btn-accent" style="margin-top:20px;">⬇️ Download results as PDF</button>
       <p class="helper-text">Assumes a 25-year system lifetime. Does not include financing interest, incentives, or rebates — see notes below.</p>
     </div>
   </div>
@@ -179,5 +180,41 @@
 </footer>
 
 <script src="../js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script>
+  var roiPdfBtn = document.getElementById('roi-pdf-btn');
+  if (roiPdfBtn) {
+    roiPdfBtn.addEventListener('click', function () {
+      var cost = document.getElementById('roi-cost').value;
+      var monthlySavings = document.getElementById('roi-monthly-savings').value;
+      var escalationSelect = document.getElementById('roi-escalation');
+      var escalationText = escalationSelect.options[escalationSelect.selectedIndex].text;
+      var payback = document.getElementById('roi-payback-result').textContent;
+      var net25 = document.getElementById('roi-net25-result').textContent;
+
+      generateSolarToolHubResultsPDF({
+        subtitle: 'Solar ROI & Payback — Results',
+        inputs: [
+          ['Total system cost', '$' + cost],
+          ['Monthly electricity bill savings', '$' + monthlySavings],
+          ['Annual electricity price increase', escalationText]
+        ],
+        resultsHeaders: ['Metric', 'Value'],
+        results: [
+          ['Payback period', payback],
+          ['Net savings over 25 years', net25]
+        ],
+        nextSteps: {
+          text: 'Want to double-check your system size assumptions?',
+          linkText: 'Panel Sizing Calculator',
+          url: 'https://ahmedtere44-coder.github.io/solartoolhub/tools/panel-calculator.html'
+        },
+        filename: 'solartoolhub-roi-results.pdf'
+      });
+    });
+  }
+</script>
 </body>
 </html>

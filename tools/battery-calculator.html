@@ -112,6 +112,7 @@
           </div>
         </div>
       </div>
+      <button type="button" id="battery-pdf-btn" class="btn btn-accent" style="margin-top:20px;">⬇️ Download results as PDF</button>
       <p class="helper-text">Lithium is sized assuming a 90% usable depth of discharge; lead-acid is sized assuming a 50% depth of discharge to protect battery lifespan.</p>
     </div>
   </div>
@@ -222,5 +223,44 @@
 </footer>
 
 <script src="../js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script>
+  var batteryPdfBtn = document.getElementById('battery-pdf-btn');
+  if (batteryPdfBtn) {
+    batteryPdfBtn.addEventListener('click', function () {
+      var usage = document.getElementById('battery-usage').value;
+      var voltageSelect = document.getElementById('battery-voltage');
+      var voltage = voltageSelect.options[voltageSelect.selectedIndex].text;
+      var backupSelect = document.getElementById('battery-backup-pct');
+      var backupText = backupSelect.options[backupSelect.selectedIndex].text;
+      var liKwh = document.getElementById('li-kwh').textContent;
+      var liAh = document.getElementById('li-ah').textContent;
+      var laKwh = document.getElementById('la-kwh').textContent;
+      var laAh = document.getElementById('la-ah').textContent;
+
+      generateSolarToolHubResultsPDF({
+        subtitle: 'Battery Bank Sizing — Results',
+        inputs: [
+          ['Daily electricity usage', usage + ' kWh'],
+          ['System voltage', voltage],
+          ['Backup coverage target', backupText]
+        ],
+        resultsHeaders: ['Battery Type', 'kWh Nominal', 'Ah at Chosen Voltage'],
+        results: [
+          ['Lithium (LiFePO4)', liKwh, liAh],
+          ['Lead-acid', laKwh, laAh]
+        ],
+        nextSteps: {
+          text: 'Next, size the charge controller for your panel array and this battery bank:',
+          linkText: 'Charge Controller Calculator',
+          url: 'https://ahmedtere44-coder.github.io/solartoolhub/tools/charge-controller-calculator.html'
+        },
+        filename: 'solartoolhub-battery-results.pdf'
+      });
+    });
+  }
+</script>
 </body>
 </html>

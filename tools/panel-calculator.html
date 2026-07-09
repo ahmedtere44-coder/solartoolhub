@@ -95,6 +95,7 @@
           <span class="lbl">m² of roof space</span>
         </div>
       </div>
+      <button type="button" id="panel-pdf-btn" class="btn btn-accent" style="margin-top:20px;">⬇️ Download results as PDF</button>
     </div>
   </div>
 </div>
@@ -245,5 +246,42 @@
 </footer>
 
 <script src="../js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script>
+  var panelPdfBtn = document.getElementById('panel-pdf-btn');
+  if (panelPdfBtn) {
+    panelPdfBtn.addEventListener('click', function () {
+      var usage = document.getElementById('panel-usage').value;
+      var wattSelect = document.getElementById('panel-watt');
+      var wattText = wattSelect.options[wattSelect.selectedIndex].text;
+      var sunSelect = document.getElementById('panel-sun');
+      var sunText = sunSelect.options[sunSelect.selectedIndex].text;
+      var panelCount = document.getElementById('panel-count-result').textContent;
+      var panelArea = document.getElementById('panel-area-result').textContent;
+
+      generateSolarToolHubResultsPDF({
+        subtitle: 'Solar Panel Sizing — Results',
+        inputs: [
+          ['Monthly electricity usage', usage + ' kWh'],
+          ['Panel wattage', wattText],
+          ['Peak sun hours', sunText]
+        ],
+        resultsHeaders: ['Metric', 'Value'],
+        results: [
+          ['Panels needed', panelCount],
+          ['Roof space required', panelArea + ' m²']
+        ],
+        nextSteps: {
+          text: 'Next, size the inverter for this array:',
+          linkText: 'Inverter Size Calculator',
+          url: 'https://ahmedtere44-coder.github.io/solartoolhub/tools/inverter-calculator.html'
+        },
+        filename: 'solartoolhub-panel-results.pdf'
+      });
+    });
+  }
+</script>
 </body>
 </html>

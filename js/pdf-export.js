@@ -45,7 +45,7 @@ function generateSolarToolHubResultsPDF(config) {
     doc.text('Inputs', 14, cursorY);
     doc.autoTable({
       startY: cursorY + 4,
-      head: [['Field', 'Value']],
+      head: [config.inputsHeaders || ['Field', 'Value']],
       body: config.inputs,
       theme: 'plain',
       styles: { fontSize: 10, cellPadding: 3 },

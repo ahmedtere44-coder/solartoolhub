@@ -89,6 +89,7 @@
         </div>
       </div>
       <p class="helper-text" id="gen-standard-size" style="margin-top:12px; text-align:center;"></p>
+      <button type="button" id="gen-pdf-btn" class="btn btn-accent" style="margin-top:20px;">⬇️ Download results as PDF</button>
     </div>
   </div>
 </div>
@@ -181,5 +182,43 @@
 </footer>
 
 <script src="../js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script>
+  var genPdfBtn = document.getElementById('gen-pdf-btn');
+  if (genPdfBtn) {
+    genPdfBtn.addEventListener('click', function () {
+      var running = document.getElementById('gen-running').value;
+      var surge = document.getElementById('gen-surge').value;
+      var headroomSelect = document.getElementById('gen-headroom');
+      var headroomText = headroomSelect.options[headroomSelect.selectedIndex].text;
+      var peak = document.getElementById('gen-peak').textContent;
+      var recommended = document.getElementById('gen-recommended').textContent;
+      var standardSize = document.getElementById('gen-standard-size').textContent;
+
+      generateSolarToolHubResultsPDF({
+        subtitle: 'Generator Sizing — Results',
+        inputs: [
+          ['Total continuous running load', running + ' W'],
+          ['Largest single appliance starting surge', surge + ' W'],
+          ['Safety headroom', headroomText]
+        ],
+        resultsHeaders: ['Metric', 'Value'],
+        results: [
+          ['Peak demand', peak + ' W'],
+          ['Minimum generator size', recommended + ' W'],
+          ['Recommended standard size', standardSize]
+        ],
+        nextSteps: {
+          text: 'Planning to also charge batteries from this generator?',
+          linkText: 'Battery Bank Calculator',
+          url: 'https://ahmedtere44-coder.github.io/solartoolhub/tools/battery-calculator.html'
+        },
+        filename: 'solartoolhub-generator-results.pdf'
+      });
+    });
+  }
+</script>
 </body>
 </html>

@@ -152,6 +152,7 @@
         </div>
       </div>
       <p class="helper-text">Recommendation includes a 20% safety margin and accounts for the single largest motor-starting surge among your checked appliances.</p>
+      <button type="button" id="inverter-pdf-btn" class="btn btn-accent" style="margin-top:20px;">⬇️ Download results as PDF</button>
     </div>
   </div>
 </div>
@@ -281,5 +282,47 @@
 </footer>
 
 <script src="../js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script>
+  var inverterPdfBtn = document.getElementById('inverter-pdf-btn');
+  if (inverterPdfBtn) {
+    inverterPdfBtn.addEventListener('click', function () {
+      var rows = document.querySelectorAll('#inverter-table tbody tr');
+      var includedAppliances = [];
+      rows.forEach(function (row) {
+        var checkbox = row.querySelector('.app-include');
+        if (checkbox && checkbox.checked) {
+          var nameCell = row.querySelectorAll('td')[1];
+          var name = nameCell.childNodes[0].textContent.trim();
+          var watts = row.querySelector('.app-watts').value;
+          var qty = row.querySelector('.app-qty').value;
+          includedAppliances.push([name, watts + ' W', qty]);
+        }
+      });
+
+      var runningWatts = document.getElementById('inverter-running-result').textContent;
+      var inverterSize = document.getElementById('inverter-size-result').textContent;
+
+      generateSolarToolHubResultsPDF({
+        subtitle: 'Inverter Sizing — Results',
+        inputsHeaders: ['Appliance', 'Watts', 'Qty'],
+        inputs: includedAppliances.length ? includedAppliances : [['No appliances selected', '', '']],
+        resultsHeaders: ['Metric', 'Value'],
+        results: [
+          ['Total running watts', runningWatts + ' W'],
+          ['Recommended inverter size', inverterSize + ' W']
+        ],
+        nextSteps: {
+          text: 'Next, size your battery bank for these loads:',
+          linkText: 'Battery Bank Calculator',
+          url: 'https://ahmedtere44-coder.github.io/solartoolhub/tools/battery-calculator.html'
+        },
+        filename: 'solartoolhub-inverter-results.pdf'
+      });
+    });
+  }
+</script>
 </body>
 </html>
