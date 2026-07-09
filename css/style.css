@@ -834,3 +834,32 @@ table.calc-table .surge-note { font-size: 0.78rem; color: var(--ink-faint); }
 .content-page h2 { margin: 34px 0 14px; }
 .content-page p { margin-bottom: 15px; }
 .content-page ul { margin: 0 0 15px 22px; color: var(--ink-soft); }
+
+/* PDF / print export */
+.pdf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  background: var(--navy);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 12px 20px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.pdf-btn:hover { background: var(--navy-soft); }
+.print-only { display: none; }
+
+@media print {
+  .site-header, .nav-cta, .breadcrumb, .pdf-btn, footer.site-footer, .article { display: none !important; }
+  body { background: #fff; }
+  .page-header { padding: 0 0 20px; }
+  .calc-layout { padding: 0; }
+  .calc-card { box-shadow: none; border: 1px solid #ccc; }
+  .print-only { display: block; margin-top: 24px; font-size: 0.8rem; color: #777; text-align: center; }
+}
