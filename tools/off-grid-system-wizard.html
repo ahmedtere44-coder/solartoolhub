@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Off-Grid System Sizing Wizard | SolarToolHub</title>
+<meta name="description" content="Free off-grid solar system sizing wizard. Answer a few questions about your energy use and location to get a full recommendation: panels, batteries, inverter, and charge controller.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html" class="active">Tools</a></li>
+      <li><a href="../articles.html">Guides</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../tools.html">Tools</a> / Off-grid system wizard</div>
+    <h1>Off-grid system sizing wizard</h1>
+    <p class="lede">Answer a few questions about your energy use and location — get a complete system recommendation: panels, battery bank, inverter, and charge controller, all in one place.</p>
+  </div>
+</div>
+
+<div class="calc-layout">
+  <div class="container">
+    <div class="calc-card" style="max-width:720px;">
+
+      <div class="wizard-progress">
+        <div class="wizard-progress-dot active" data-dot="1"></div>
+        <div class="wizard-progress-dot" data-dot="2"></div>
+        <div class="wizard-progress-dot" data-dot="3"></div>
+      </div>
+
+      <!-- Step 1: Energy needs -->
+      <div class="wizard-step active" data-step="1">
+        <div class="wizard-step-label">Step 1 of 3 — Energy needs</div>
+        <div class="field-group">
+          <label for="wiz-daily-kwh">Total daily energy use (kWh)</label>
+          <input type="number" id="wiz-daily-kwh" value="5" min="0" step="0.1">
+          <span class="helper-text">Not sure? Use our <a href="daily-load-calculator.html" target="_blank">daily energy load calculator</a> first, then come back with the total.</span>
+        </div>
+        <div class="field-group">
+          <label for="wiz-peak-watts">Peak simultaneous load (W)</label>
+          <input type="number" id="wiz-peak-watts" value="1200" min="0" step="50">
+          <span class="helper-text">The highest wattage that could be running all at once — drives inverter sizing.</span>
+        </div>
+        <div class="wizard-nav">
+          <span></span>
+          <button type="button" class="btn" data-next="2">Next →</button>
+        </div>
+      </div>
+
+      <!-- Step 2: Location & system -->
+      <div class="wizard-step" data-step="2">
+        <div class="wizard-step-label">Step 2 of 3 — Location & system type</div>
+        <div class="field-group">
+          <label for="wiz-sun-hours">Average peak sun hours per day</label>
+          <input type="number" id="wiz-sun-hours" value="5.5" min="1" max="10" step="0.1">
+          <span class="helper-text">Typical values: 4-5h temperate climates, 5-6h Mediterranean/Levant, 6-7h desert regions.</span>
+        </div>
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="wiz-battery-voltage">Battery bank voltage</label>
+            <select id="wiz-battery-voltage">
+              <option value="12">12V</option>
+              <option value="24" selected>24V</option>
+              <option value="48">48V</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label for="wiz-battery-type">Battery type</label>
+            <select id="wiz-battery-type">
+              <option value="0.8" selected>LiFePO4 (80% usable depth of discharge)</option>
+              <option value="0.5">Lead-acid / AGM (50% usable depth of discharge)</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-group">
+          <label for="wiz-autonomy">Days of autonomy (backup with no sun)</label>
+          <select id="wiz-autonomy">
+            <option value="1">1 day</option>
+            <option value="2" selected>2 days</option>
+            <option value="3">3 days</option>
+          </select>
+          <span class="helper-text">How many cloudy days in a row the battery bank alone should cover.</span>
+        </div>
+        <div class="wizard-nav">
+          <button type="button" class="btn btn-secondary" data-back="1">← Back</button>
+          <button type="button" class="btn" data-next="3">See my system →</button>
+        </div>
+      </div>
+
+      <!-- Step 3: Results -->
+      <div class="wizard-step" data-step="3">
+        <div class="wizard-step-label">Step 3 of 3 — Your recommended system</div>
+
+        <div class="wizard-summary-grid">
+          <div class="wizard-summary-card">
+            <span class="num" id="wiz-panel-watts">0</span>
+            <span class="lbl">W total panel array</span>
+          </div>
+          <div class="wizard-summary-card">
+            <span class="num" id="wiz-panel-count">0</span>
+            <span class="lbl">panels (approx., 400W each)</span>
+          </div>
+          <div class="wizard-summary-card">
+            <span class="num" id="wiz-battery-ah">0</span>
+            <span class="lbl">Ah battery bank capacity</span>
+          </div>
+          <div class="wizard-summary-card">
+            <span class="num" id="wiz-battery-kwh">0</span>
+            <span class="lbl">kWh usable battery capacity</span>
+          </div>
+          <div class="wizard-summary-card">
+            <span class="num" id="wiz-inverter-watts">0</span>
+            <span class="lbl">W inverter size</span>
+          </div>
+          <div class="wizard-summary-card">
+            <span class="num" id="wiz-charge-controller-amps">0</span>
+            <span class="lbl">A charge controller</span>
+          </div>
+        </div>
+
+        <p class="helper-text" style="margin-top:18px;">These are starting-point recommendations with standard safety margins built in. For a deeper look at any single component, use our <a href="panel-calculator.html">panel</a>, <a href="battery-calculator.html">battery</a>, <a href="inverter-calculator.html">inverter</a>, or <a href="charge-controller-calculator.html">charge controller</a> calculators.</p>
+
+        <div class="wizard-nav">
+          <button type="button" class="btn btn-secondary" data-back="2">← Back</button>
+          <span></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <article class="article">
+
+    <p>Sizing an off-grid solar system by hand means juggling four interconnected calculations at once — and a mistake in the first one (energy use) throws off every calculation that follows it. This wizard walks through the same logic a designer would use, in order, so each component is sized against your actual numbers rather than a generic assumption.</p>
+
+    <h2>The sizing logic, step by step</h2>
+    <ol>
+      <li><strong>Daily energy use</strong> sets the foundation — it determines how much the panel array needs to generate and how much the battery bank needs to store.</li>
+      <li><strong>Peak simultaneous load</strong> is independent of daily energy — a system can have modest daily use but a high peak if several things run at once, and that peak is what the inverter has to survive.</li>
+      <li><strong>Sun hours and battery autonomy</strong> together determine how oversized the panel array and battery bank need to be to comfortably ride out real-world weather, not just a perfect sunny day.</li>
+      <li><strong>Panel array size</strong> then drives the <strong>charge controller</strong> size, since the controller has to handle the full array's output current.</li>
+    </ol>
+
+    <h2>How each number is calculated</h2>
+    <table class="data-table">
+      <thead>
+        <tr><th>Component</th><th>Formula</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Panel array (W)</td><td>Daily Wh ÷ (peak sun hours × 0.75 system efficiency)</td></tr>
+        <tr><td>Battery bank (Ah)</td><td>(Daily Wh × autonomy days) ÷ (depth of discharge × battery voltage)</td></tr>
+        <tr><td>Inverter (W)</td><td>Peak simultaneous load × 1.25 safety margin, rounded to a standard size</td></tr>
+        <tr><td>Charge controller (A)</td><td>(Panel array W ÷ battery voltage) × 1.25 safety margin, rounded to a standard size</td></tr>
+      </tbody>
+    </table>
+    <p>The 0.75 system efficiency factor for the panel array accounts for real-world losses — wiring resistance, temperature effects, dust, and inverter/charge controller conversion losses — that always separate a panel's rated wattage from what actually reaches your battery bank.</p>
+
+    <h2>What this wizard doesn't replace</h2>
+    <ul>
+      <li><strong>Site-specific shading and orientation analysis</strong> — sun hours here are a regional average, not a measurement of your specific roof or ground-mount location.</li>
+      <li><strong>Local code requirements</strong> — grounding, disconnects, and wiring methods still need to follow your local electrical code regardless of what this wizard recommends.</li>
+      <li><strong>Professional design review</strong> for larger systems — this is a solid starting point for planning and budgeting, not a substitute for a licensed designer's sign-off on a system that will be permitted or inspected.</li>
+    </ul>
+
+    <h2>Frequently asked questions</h2>
+    <h3>Why does battery type change the recommended capacity so much?</h3>
+    <p>Depth of discharge is the practical reason — a lead-acid battery bank needs roughly 60% more total capacity than an equivalent LiFePO4 bank to deliver the same usable energy, since only about half of a lead-acid bank's capacity can be used regularly without shortening its life.</p>
+    <h3>Should I size for my average day or my worst day?</h3>
+    <p>For an off-grid system, size for your highest-usage season and factor in realistic autonomy days for your local weather patterns — designing around an unusually good day is the most common way off-grid systems end up under-sized.</p>
+    <h3>Can I use this for a grid-tied hybrid system too?</h3>
+    <p>The panel and inverter math still applies, but battery autonomy matters less on a hybrid system since the grid can cover gaps — you may reasonably choose fewer autonomy days than a true off-grid design would need.</p>
+
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="panel-calculator.html">Panel calculator</a></li>
+          <li><a href="inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="battery-calculator.html">Battery calculator</a></li>
+          <li><a href="cable-calculator.html">Cable calculator</a></li>
+          <li><a href="roi-calculator.html">ROI calculator</a></li>
+          <li><a href="charge-controller-calculator.html">Charge controller calculator</a></li>
+          <li><a href="panel-tilt-calculator.html">Panel tilt calculator</a></li>
+          <li><a href="generator-sizing-calculator.html">Generator sizing calculator</a></li>
+          <li><a href="daily-load-calculator.html">Daily energy load calculator</a></li>
+          <li><a href="off-grid-system-wizard.html">Off-grid system wizard</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

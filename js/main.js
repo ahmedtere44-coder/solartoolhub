@@ -554,4 +554,70 @@ document.addEventListener('DOMContentLoaded', function () {
     renderLoadTable();
     calcLoadTotals();
   }
+
+  // Off-grid system sizing wizard — tools/off-grid-system-wizard.html
+  var wizardSteps = document.querySelectorAll('.wizard-step');
+  if (wizardSteps.length) {
+    var wizardDots = document.querySelectorAll('.wizard-progress-dot');
+
+    function goToWizardStep(stepNum) {
+      wizardSteps.forEach(function (step) {
+        step.classList.toggle('active', step.getAttribute('data-step') === String(stepNum));
+      });
+      wizardDots.forEach(function (dot) {
+        var dotNum = parseInt(dot.getAttribute('data-dot'), 10);
+        dot.classList.toggle('active', dotNum === stepNum);
+        dot.classList.toggle('done', dotNum < stepNum);
+      });
+      if (stepNum === 3) calcWizardResults();
+    }
+
+    document.querySelectorAll('[data-next]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        goToWizardStep(parseInt(btn.getAttribute('data-next'), 10));
+      });
+    });
+    document.querySelectorAll('[data-back]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        goToWizardStep(parseInt(btn.getAttribute('data-back'), 10));
+      });
+    });
+
+    var wizStandardPanelW = 400;
+    var wizStandardInverterSizes = [500, 1000, 1500, 2000, 3000, 5000, 6000, 8000, 10000];
+    var wizStandardControllerAmps = [10, 20, 30, 40, 50, 60, 80, 100, 120, 150];
+
+    function wizRoundUp(value, standardSizes) {
+      var match = standardSizes.find(function (s) { return s >= value; });
+      return match || standardSizes[standardSizes.length - 1];
+    }
+
+    function calcWizardResults() {
+      var dailyKwh = parseFloat(document.getElementById('wiz-daily-kwh').value) || 0;
+      var peakWatts = parseFloat(document.getElementById('wiz-peak-watts').value) || 0;
+      var sunHours = parseFloat(document.getElementById('wiz-sun-hours').value) || 5;
+      var batteryVoltage = parseFloat(document.getElementById('wiz-battery-voltage').value) || 24;
+      var dod = parseFloat(document.getElementById('wiz-battery-type').value) || 0.8;
+      var autonomyDays = parseFloat(document.getElementById('wiz-autonomy').value) || 2;
+
+      var dailyWh = dailyKwh * 1000;
+
+      var panelWatts = dailyWh / (sunHours * 0.75);
+      var panelCount = Math.ceil(panelWatts / wizStandardPanelW);
+
+      var batteryAh = (dailyWh * autonomyDays) / (dod * batteryVoltage);
+      var batteryUsableKwh = (batteryAh * batteryVoltage * dod) / 1000;
+
+      var inverterWatts = wizRoundUp(peakWatts * 1.25, wizStandardInverterSizes);
+
+      var controllerAmps = wizRoundUp((panelWatts / batteryVoltage) * 1.25, wizStandardControllerAmps);
+
+      document.getElementById('wiz-panel-watts').textContent = Math.round(panelWatts);
+      document.getElementById('wiz-panel-count').textContent = panelCount;
+      document.getElementById('wiz-battery-ah').textContent = Math.round(batteryAh);
+      document.getElementById('wiz-battery-kwh').textContent = batteryUsableKwh.toFixed(1);
+      document.getElementById('wiz-inverter-watts').textContent = inverterWatts;
+      document.getElementById('wiz-charge-controller-amps').textContent = controllerAmps;
+    }
+  }
 });

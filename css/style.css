@@ -706,6 +706,18 @@ section { padding: 88px 0; }
   margin-top: 4px;
 }
 .helper-text { font-size: 0.8rem; color: var(--ink-faint); margin-top: 6px; }
+.wizard-step { display: none; }
+.wizard-step.active { display: block; }
+.wizard-progress { display: flex; gap: 8px; margin-bottom: 28px; }
+.wizard-progress-dot { flex: 1; height: 4px; border-radius: 2px; background: var(--line-strong); transition: background 0.2s ease; }
+.wizard-progress-dot.active, .wizard-progress-dot.done { background: var(--orange); }
+.wizard-step-label { font-size: 0.8rem; color: var(--ink-faint); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; }
+.wizard-nav { display: flex; justify-content: space-between; margin-top: 28px; gap: 12px; }
+.wizard-summary-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 20px; }
+@media (max-width: 560px) { .wizard-summary-grid { grid-template-columns: 1fr; } }
+.wizard-summary-card { background: var(--bg-soft); border-radius: var(--radius-sm); padding: 20px; text-align: center; }
+.wizard-summary-card .num { display: block; font-family: var(--font-mono); font-size: 1.7rem; font-weight: 700; color: var(--navy); }
+.wizard-summary-card .lbl { font-size: 0.82rem; color: var(--ink-faint); }
 .calc-result .num.num-text { font-size: 1.5rem; }
 
 .article { max-width: 720px; margin: 0 auto; padding: 8px 0 72px; }
