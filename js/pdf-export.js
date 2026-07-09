@@ -98,3 +98,188 @@ function generateSolarToolHubResultsPDF(config) {
 
   doc.save(config.filename);
 }
+
+/* Generic article exporter — walks the .article DOM (headings, paragraphs,
+   lists, tables, field-note boxes) and renders it as a formatted PDF. */
+function generateSolarToolHubArticlePDF(config) {
+  var articleEl = document.querySelector(config.articleSelector || '.article');
+  if (!articleEl) return;
+
+  var jsPDFCtor = window.jspdf.jsPDF;
+  var doc = new jsPDFCtor();
+  var pageWidth = doc.internal.pageSize.getWidth();
+  var pageHeight = doc.internal.pageSize.getHeight();
+  var marginLeft = 14;
+  var marginRight = 14;
+  var contentWidth = pageWidth - marginLeft - marginRight;
+  var cursorY = 0;
+
+  function sanitize(text) {
+    return (text || '').replace(/\u2192/g, '-').replace(/\s+/g, ' ').trim();
+  }
+
+  function ensureSpace(neededHeight) {
+    if (cursorY + neededHeight > pageHeight - 24) {
+      doc.addPage();
+      cursorY = 20;
+    }
+  }
+
+  // Header: logo + wordmark (same as calculator PDFs)
+  try {
+    doc.addImage(STH_LOGO_BASE64, 'PNG', marginLeft, 12, 12, 12);
+  } catch (e) { /* logo optional */ }
+
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(16);
+  doc.setTextColor(30, 58, 138);
+  doc.text('Solar', marginLeft + 16, 21);
+  var solarWidth = doc.getTextWidth('Solar');
+  doc.setTextColor(249, 115, 22);
+  doc.text('Tool', marginLeft + 16 + solarWidth, 21);
+  var toolWidth = doc.getTextWidth('Tool');
+  doc.setTextColor(30, 58, 138);
+  doc.text('Hub', marginLeft + 16 + solarWidth + toolWidth, 21);
+
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(9);
+  doc.setTextColor(120, 120, 120);
+  var now = new Date();
+  doc.text('Generated ' + now.toLocaleDateString() + ' at ' + now.toLocaleTimeString(), marginLeft, 39);
+
+  doc.setDrawColor(220, 220, 220);
+  doc.line(marginLeft, 44, pageWidth - marginRight, 44);
+  cursorY = 54;
+
+  // Article title + subtitle (lede)
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(16);
+  doc.setTextColor(20, 20, 20);
+  var titleLines = doc.splitTextToSize(sanitize(config.title), contentWidth);
+  ensureSpace(titleLines.length * 7 + 4);
+  doc.text(titleLines, marginLeft, cursorY);
+  cursorY += titleLines.length * 7 + 2;
+
+  if (config.subtitle) {
+    doc.setFont('helvetica', 'italic');
+    doc.setFontSize(10.5);
+    doc.setTextColor(90, 90, 90);
+    var subLines = doc.splitTextToSize(sanitize(config.subtitle), contentWidth);
+    ensureSpace(subLines.length * 5 + 6);
+    doc.text(subLines, marginLeft, cursorY);
+    cursorY += subLines.length * 5 + 8;
+  }
+
+  // Walk the article's direct children
+  var children = articleEl.children;
+  for (var i = 0; i < children.length; i++) {
+    var el = children[i];
+    var tag = el.tagName;
+
+    if (tag === 'H2') {
+      cursorY += 4;
+      ensureSpace(12);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(13);
+      doc.setTextColor(30, 58, 138);
+      var h2Lines = doc.splitTextToSize(sanitize(el.textContent), contentWidth);
+      doc.text(h2Lines, marginLeft, cursorY);
+      cursorY += h2Lines.length * 6 + 4;
+
+    } else if (tag === 'H3') {
+      cursorY += 2;
+      ensureSpace(10);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(11);
+      doc.setTextColor(20, 20, 20);
+      var h3Lines = doc.splitTextToSize(sanitize(el.textContent), contentWidth);
+      doc.text(h3Lines, marginLeft, cursorY);
+      cursorY += h3Lines.length * 5.5 + 3;
+
+    } else if (tag === 'P') {
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(10);
+      doc.setTextColor(50, 50, 50);
+      var pLines = doc.splitTextToSize(sanitize(el.textContent), contentWidth);
+      ensureSpace(pLines.length * 5 + 4);
+      doc.text(pLines, marginLeft, cursorY);
+      cursorY += pLines.length * 5 + 5;
+
+    } else if (tag === 'UL' || tag === 'OL') {
+      var items = el.querySelectorAll(':scope > li');
+      items.forEach(function (li, idx) {
+        var bullet = tag === 'OL' ? (idx + 1) + '.' : '-';
+        var text = bullet + ' ' + sanitize(li.textContent);
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(10);
+        doc.setTextColor(50, 50, 50);
+        var liLines = doc.splitTextToSize(text, contentWidth - 4);
+        ensureSpace(liLines.length * 5 + 2);
+        doc.text(liLines, marginLeft + 2, cursorY);
+        cursorY += liLines.length * 5 + 2;
+      });
+      cursorY += 3;
+
+    } else if (tag === 'TABLE') {
+      var headCells = el.querySelectorAll('thead th');
+      var head = [];
+      headCells.forEach(function (th) { head.push(sanitize(th.textContent)); });
+      var bodyRows = [];
+      el.querySelectorAll('tbody tr').forEach(function (tr) {
+        var row = [];
+        tr.querySelectorAll('td').forEach(function (td) { row.push(sanitize(td.textContent)); });
+        bodyRows.push(row);
+      });
+      ensureSpace(20);
+      doc.autoTable({
+        startY: cursorY,
+        head: head.length ? [head] : undefined,
+        body: bodyRows,
+        theme: 'striped',
+        styles: { fontSize: 9, cellPadding: 3 },
+        headStyles: { fillColor: [30, 58, 138], textColor: [255, 255, 255], fontStyle: 'bold' },
+        margin: { left: marginLeft, right: marginRight }
+      });
+      cursorY = doc.lastAutoTable.finalY + 8;
+
+    } else if (tag === 'DIV' && el.classList.contains('field-experience')) {
+      var tagEl = el.querySelector('.tag');
+      var tagText = tagEl ? sanitize(tagEl.textContent) : 'Field note';
+      var noteParas = el.querySelectorAll('p');
+      var noteText = '';
+      noteParas.forEach(function (p) { noteText += sanitize(p.textContent) + ' '; });
+      if (!noteText.trim()) { noteText = sanitize(el.textContent.replace(tagText, '')); }
+
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(9.5);
+      doc.setTextColor(16, 185, 129);
+      ensureSpace(8);
+      doc.text(tagText.toUpperCase(), marginLeft, cursorY);
+      cursorY += 5;
+
+      doc.setFont('helvetica', 'italic');
+      doc.setFontSize(10);
+      doc.setTextColor(60, 60, 60);
+      var noteLines = doc.splitTextToSize(noteText.trim(), contentWidth - 4);
+      ensureSpace(noteLines.length * 5 + 6);
+      doc.text(noteLines, marginLeft + 2, cursorY);
+      cursorY += noteLines.length * 5 + 8;
+    }
+  }
+
+  // Footer on every page
+  var pageCount = doc.internal.getNumberOfPages();
+  for (var p = 1; p <= pageCount; p++) {
+    doc.setPage(p);
+    doc.setDrawColor(230, 230, 230);
+    doc.line(marginLeft, pageHeight - 20, pageWidth - marginRight, pageHeight - 20);
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(8);
+    doc.setTextColor(150, 150, 150);
+    doc.text('Generated by SolarToolHub — free solar engineering guides and calculators.', marginLeft, pageHeight - 14);
+    doc.setTextColor(30, 58, 138);
+    doc.textWithLink('https://ahmedtere44-coder.github.io/solartoolhub/', marginLeft, pageHeight - 9, { url: 'https://ahmedtere44-coder.github.io/solartoolhub/' });
+  }
+
+  doc.save(config.filename);
+}

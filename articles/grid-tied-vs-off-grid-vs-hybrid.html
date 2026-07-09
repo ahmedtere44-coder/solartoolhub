@@ -51,6 +51,7 @@
     <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../articles.html">Guides</a> / Grid-tied vs off-grid vs hybrid</div>
     <h1>Grid-tied vs off-grid vs hybrid: which solar system is right for you?</h1>
     <p class="lede">The type of system you choose affects everything else — how many panels you need, whether you need batteries at all, and how much the whole project costs. Here's how the three main options actually differ.</p>
+    <button type="button" id="article-pdf-btn" class="btn btn-accent" style="margin-top:18px;">⬇️ Download article as PDF</button>
   </div>
 </div>
 
@@ -172,6 +173,22 @@
   </div>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/pdf-export.js"></script>
 <script src="../js/main.js"></script>
+<script>
+  var articlePdfBtn = document.getElementById('article-pdf-btn');
+  if (articlePdfBtn) {
+    articlePdfBtn.addEventListener('click', function () {
+      generateSolarToolHubArticlePDF({
+        title: document.querySelector('h1').textContent.trim(),
+        subtitle: document.querySelector('.lede') ? document.querySelector('.lede').textContent.trim() : '',
+        articleSelector: '.article',
+        filename: 'solartoolhub-grid-tied-vs-off-grid-vs-hybrid.pdf'
+      });
+    });
+  }
+</script>
 </body>
 </html>

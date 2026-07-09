@@ -51,6 +51,7 @@
     <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../articles.html">Guides</a> / Annual maintenance checklist</div>
     <h1>Annual maintenance checklist</h1>
     <p class="lede">A yearly systematic pass over the parts of a solar system most likely to quietly degrade — connections, cables, grounding, and overall performance.</p>
+    <button type="button" id="article-pdf-btn" class="btn btn-accent" style="margin-top:18px;">⬇️ Download article as PDF</button>
   </div>
 </div>
 
@@ -161,6 +162,22 @@
   </div>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/pdf-export.js"></script>
 <script src="../js/main.js"></script>
+<script>
+  var articlePdfBtn = document.getElementById('article-pdf-btn');
+  if (articlePdfBtn) {
+    articlePdfBtn.addEventListener('click', function () {
+      generateSolarToolHubArticlePDF({
+        title: document.querySelector('h1').textContent.trim(),
+        subtitle: document.querySelector('.lede') ? document.querySelector('.lede').textContent.trim() : '',
+        articleSelector: '.article',
+        filename: 'solartoolhub-annual-maintenance-checklist.pdf'
+      });
+    });
+  }
+</script>
 </body>
 </html>

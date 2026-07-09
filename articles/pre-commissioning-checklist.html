@@ -51,6 +51,7 @@
     <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../articles.html">Guides</a> / Pre-commissioning checklist</div>
     <h1>Pre-commissioning checklist</h1>
     <p class="lede">What to verify before you flip the switch on a new solar installation for the first time — a practical, systematic checklist rather than a quick glance-over.</p>
+    <button type="button" id="article-pdf-btn" class="btn btn-accent" style="margin-top:18px;">⬇️ Download article as PDF</button>
   </div>
 </div>
 
@@ -159,6 +160,22 @@
   </div>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/pdf-export.js"></script>
 <script src="../js/main.js"></script>
+<script>
+  var articlePdfBtn = document.getElementById('article-pdf-btn');
+  if (articlePdfBtn) {
+    articlePdfBtn.addEventListener('click', function () {
+      generateSolarToolHubArticlePDF({
+        title: document.querySelector('h1').textContent.trim(),
+        subtitle: document.querySelector('.lede') ? document.querySelector('.lede').textContent.trim() : '',
+        articleSelector: '.article',
+        filename: 'solartoolhub-pre-commissioning-checklist.pdf'
+      });
+    });
+  }
+</script>
 </body>
 </html>
