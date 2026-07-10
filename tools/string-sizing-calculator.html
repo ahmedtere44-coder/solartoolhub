@@ -23,6 +23,38 @@
   gtag("js", new Date());
   gtag("config", "G-JEKFL7NKZE");
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What temperature should I use for \"record low\"?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use the lowest recorded ambient temperature for your specific location, not a global average — local meteorological records or a nearby weather station's historical extreme minimum are the standard reference. Using a national average instead of your actual site's extreme can leave a string dangerously oversized for a rare but real cold snap."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is module temperature so much higher than air temperature in the hot-weather calculation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Solar panels absorb sunlight and heat up well beyond the surrounding air temperature, especially with limited airflow behind the module (e.g. roof-mounted with a small standoff gap). A commonly used rule of thumb is ambient temperature plus 25-30°C on a still, sunny day, though rooftop mounts with poor ventilation can run even hotter."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I run strings of different lengths in parallel on the same MPPT input?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This is generally not recommended. Mismatched string voltages on a shared MPPT input cause the tracker to operate at a compromise point that isn't optimal for either string, reducing total harvest. Keep all strings on the same MPPT input at equal length whenever possible."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -208,6 +240,10 @@
           <li><a href="cable-calculator.html">Cable calculator</a></li>
           <li><a href="roi-calculator.html">ROI calculator</a></li>
           <li><a href="charge-controller-calculator.html">Charge controller calculator</a></li>
+          <li><a href="panel-tilt-calculator.html">Panel tilt calculator</a></li>
+          <li><a href="generator-sizing-calculator.html">Generator sizing calculator</a></li>
+          <li><a href="daily-load-calculator.html">Daily energy load calculator</a></li>
+          <li><a href="off-grid-system-wizard.html">Off-grid system wizard</a></li>
           <li><a href="string-sizing-calculator.html">String sizing calculator</a></li>
           <li><a href="../tools.html">All tools</a></li>
         </ul>

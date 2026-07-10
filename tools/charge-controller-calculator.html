@@ -23,6 +23,38 @@
   gtag("js", new Date());
   gtag("config", "G-JEKFL7NKZE");
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I connect a bigger array than my controller's rated wattage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — exceeding a controller's rated input power or current can damage it or trigger it to shut down to protect itself. Always size the controller for your full array, including any panels you plan to add later."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need MPPT if my panels already match my battery voltage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not necessarily — if your panel string voltage is already close to your battery voltage, PWM can work fine and save money. MPPT's advantage shows up mainly when panel voltage is meaningfully higher than battery voltage, or when cold weather pushes panel voltage even higher."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if I undersize the controller?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most controllers will current-limit or shut down once their rated amperage is exceeded, which caps your system's charging output below what your array is capable of producing — effectively wasting part of your investment in panels."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -174,6 +206,11 @@
           <li><a href="cable-calculator.html">Cable calculator</a></li>
           <li><a href="roi-calculator.html">ROI calculator</a></li>
           <li><a href="charge-controller-calculator.html">Charge controller calculator</a></li>
+          <li><a href="panel-tilt-calculator.html">Panel tilt calculator</a></li>
+          <li><a href="generator-sizing-calculator.html">Generator sizing calculator</a></li>
+          <li><a href="daily-load-calculator.html">Daily energy load calculator</a></li>
+          <li><a href="off-grid-system-wizard.html">Off-grid system wizard</a></li>
+          <li><a href="string-sizing-calculator.html">String sizing calculator</a></li>
           <li><a href="../tools.html">All tools</a></li>
         </ul>
       </div>

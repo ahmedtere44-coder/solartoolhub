@@ -23,6 +23,38 @@
   gtag("js", new Date());
   gtag("config", "G-JEKFL7NKZE");
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I test a panel on a cloudy day?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, but expect proportionally lower current (Isc) readings — voltage (Voc) is less affected by cloud cover and remains a more reliable cloudy-day check."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my multimeter show a different Voc than the datasheet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Datasheet Voc is measured under Standard Test Conditions (25°C cell temperature, 1000 W/m² irradiance). Real outdoor conditions rarely match this exactly — cooler panels read slightly higher, hot panels read slightly lower. A few percent difference is normal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a clamp meter better than a basic multimeter for this?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A clamp meter is safer and more convenient for current measurements on larger arrays, since it doesn't require breaking the circuit to insert the meter. For occasional single-panel checks, a basic multimeter is perfectly adequate."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -153,6 +185,11 @@
           <li><a href="../tools/cable-calculator.html">Cable calculator</a></li>
           <li><a href="../tools/roi-calculator.html">ROI calculator</a></li>
           <li><a href="../tools/charge-controller-calculator.html">Charge controller calculator</a></li>
+          <li><a href="../tools/panel-tilt-calculator.html">Panel tilt calculator</a></li>
+          <li><a href="../tools/generator-sizing-calculator.html">Generator sizing calculator</a></li>
+          <li><a href="../tools/daily-load-calculator.html">Daily energy load calculator</a></li>
+          <li><a href="../tools/off-grid-system-wizard.html">Off-grid system wizard</a></li>
+          <li><a href="../tools/string-sizing-calculator.html">String sizing calculator</a></li>
           <li><a href="../tools.html">All tools</a></li>
         </ul>
       </div>
