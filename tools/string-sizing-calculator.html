@@ -141,7 +141,6 @@
       <p class="helper-text" id="str-suggestion" style="margin-top:8px;"></p>
 
       <button type="button" id="str-pdf-btn" class="btn btn-accent" style="margin-top:20px;">⬇️ Download results as PDF</button>
-      <button type="button" id="str-article-pdf-btn" class="btn btn-secondary" style="margin-top:12px;">⬇️ Download article as PDF</button>
     </div>
   </div>
 </div>
@@ -347,18 +346,6 @@
             url: 'https://ahmedtere44-coder.github.io/solartoolhub/tools/charge-controller-calculator.html'
           },
           filename: 'solartoolhub-string-sizing-results.pdf'
-        });
-      });
-    }
-
-    var strArticlePdfBtn = document.getElementById('str-article-pdf-btn');
-    if (strArticlePdfBtn) {
-      strArticlePdfBtn.addEventListener('click', function () {
-        generateSolarToolHubArticlePDF({
-          title: document.querySelector('h1').textContent.trim(),
-          subtitle: document.querySelector('.lede') ? document.querySelector('.lede').textContent.trim() : '',
-          articleSelector: '.article',
-          filename: 'solartoolhub-string-sizing-article.pdf'
         });
       });
     }
