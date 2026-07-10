@@ -3,112 +3,189 @@
 
   <url>
     <loc>https://ahmedtere44-coder.github.io/solartoolhub/</loc>
-    <lastmod>2026-07-04</lastmod>
+    <lastmod>2026-07-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://ahmedtere44-coder.github.io/solartoolhub/tools.html</loc>
-    <lastmod>2026-07-04</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-10</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://ahmedtere44-coder.github.io/solartoolhub/articles.html</loc>
-    <lastmod>2026-07-04</lastmod>
+    <lastmod>2026-07-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://ahmedtere44-coder.github.io/solartoolhub/tools/panel-calculator.html</loc>
-    <lastmod>2026-07-04</lastmod>
+    <lastmod>2026-07-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://ahmedtere44-coder.github.io/solartoolhub/tools/inverter-calculator.html</loc>
-    <lastmod>2026-07-04</lastmod>
+    <lastmod>2026-07-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://ahmedtere44-coder.github.io/solartoolhub/tools/battery-calculator.html</loc>
-    <lastmod>2026-07-04</lastmod>
+    <lastmod>2026-07-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://ahmedtere44-coder.github.io/solartoolhub/tools/cable-calculator.html</loc>
-    <lastmod>2026-07-04</lastmod>
+    <lastmod>2026-07-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://ahmedtere44-coder.github.io/solartoolhub/tools/roi-calculator.html</loc>
-    <lastmod>2026-07-04</lastmod>
+    <lastmod>2026-07-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ahmedtere44-coder.github.io/solartoolhub/tools/charge-controller-calculator.html</loc>
+    <lastmod>2026-07-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ahmedtere44-coder.github.io/solartoolhub/tools/panel-tilt-calculator.html</loc>
+    <lastmod>2026-07-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ahmedtere44-coder.github.io/solartoolhub/tools/generator-sizing-calculator.html</loc>
+    <lastmod>2026-07-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ahmedtere44-coder.github.io/solartoolhub/tools/daily-load-calculator.html</loc>
+    <lastmod>2026-07-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ahmedtere44-coder.github.io/solartoolhub/tools/off-grid-system-wizard.html</loc>
+    <lastmod>2026-07-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ahmedtere44-coder.github.io/solartoolhub/tools/string-sizing-calculator.html</loc>
+    <lastmod>2026-07-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://ahmedtere44-coder.github.io/solartoolhub/articles/grid-tied-vs-off-grid-vs-hybrid.html</loc>
-    <lastmod>2026-07-04</lastmod>
+    <lastmod>2026-07-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://ahmedtere44-coder.github.io/solartoolhub/articles/solar-panel-lifespan.html</loc>
-    <lastmod>2026-07-04</lastmod>
+    <lastmod>2026-07-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://ahmedtere44-coder.github.io/solartoolhub/articles/solar-panel-maintenance.html</loc>
-    <lastmod>2026-07-04</lastmod>
+    <lastmod>2026-07-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://ahmedtere44-coder.github.io/solartoolhub/articles/common-installation-mistakes.html</loc>
-    <lastmod>2026-07-04</lastmod>
+    <lastmod>2026-07-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://ahmedtere44-coder.github.io/solartoolhub/articles/testing-solar-panel-multimeter.html</loc>
+    <lastmod>2026-07-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://ahmedtere44-coder.github.io/solartoolhub/articles/grounding-earthing-inspection.html</loc>
+    <lastmod>2026-07-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://ahmedtere44-coder.github.io/solartoolhub/articles/inverter-fault-codes.html</loc>
+    <lastmod>2026-07-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://ahmedtere44-coder.github.io/solartoolhub/articles/pre-commissioning-checklist.html</loc>
+    <lastmod>2026-07-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://ahmedtere44-coder.github.io/solartoolhub/articles/annual-maintenance-checklist.html</loc>
+    <lastmod>2026-07-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://ahmedtere44-coder.github.io/solartoolhub/about.html</loc>
-    <lastmod>2026-07-04</lastmod>
+    <lastmod>2026-07-10</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <url>
     <loc>https://ahmedtere44-coder.github.io/solartoolhub/contact.html</loc>
-    <lastmod>2026-07-04</lastmod>
+    <lastmod>2026-07-10</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
 
   <url>
     <loc>https://ahmedtere44-coder.github.io/solartoolhub/install.html</loc>
-    <lastmod>2026-07-04</lastmod>
+    <lastmod>2026-07-10</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
 
   <url>
     <loc>https://ahmedtere44-coder.github.io/solartoolhub/privacy.html</loc>
-    <lastmod>2026-07-04</lastmod>
+    <lastmod>2026-07-10</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
