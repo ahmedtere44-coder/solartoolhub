@@ -278,12 +278,27 @@ document.addEventListener('DOMContentLoaded', function () {
     var rEscalation = document.getElementById('roi-escalation');
     var rPaybackOut = document.getElementById('roi-payback-result');
     var rNetOut = document.getElementById('roi-net25-result');
+    var rMonthlyKwh = document.getElementById('roi-monthly-kwh');
+    var rRate = document.getElementById('roi-rate');
 
-    function calcROI() {
+    function calcROI(e) {
       var cost = parseFloat(rCost.value) || 0;
-      var monthlySavings = parseFloat(rMonthly.value) || 0;
       var escalation = parseFloat(rEscalation.value) || 0;
       var currency = '$';
+
+      // If the user fills both optional fields (kWh offset + rate), auto-fill
+      // the monthly savings field for them. Editing monthly savings directly
+      // still works and takes precedence.
+      if (rMonthlyKwh && rRate) {
+        var kwh = parseFloat(rMonthlyKwh.value);
+        var rate = parseFloat(rRate.value);
+        var editingAuto = e && (e.target === rMonthlyKwh || e.target === rRate);
+        if (editingAuto && !isNaN(kwh) && !isNaN(rate)) {
+          rMonthly.value = (kwh * rate).toFixed(2);
+        }
+      }
+
+      var monthlySavings = parseFloat(rMonthly.value) || 0;
 
       var annualSavings = monthlySavings * 12;
 

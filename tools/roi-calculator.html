@@ -134,6 +134,7 @@
           <div class="field-group">
             <label for="roi-monthly-savings">Monthly electricity bill savings</label>
             <input type="number" id="roi-monthly-savings" value="50" min="0" step="5">
+            <span class="helper-text">Enter this directly, or let it calculate automatically from the two optional fields below.</span>
           </div>
           <div class="field-group">
             <label for="roi-escalation">Annual electricity price increase</label>
@@ -145,6 +146,22 @@
             </select>
           </div>
         </div>
+
+        <details style="margin-top:6px;">
+          <summary style="cursor:pointer; font-weight:600; color:var(--navy); font-size:0.95rem;">Not sure of your monthly savings? Calculate it automatically</summary>
+          <div class="calc-grid" style="margin-top:14px;">
+            <div class="field-group">
+              <label for="roi-monthly-kwh">Monthly kWh offset by solar</label>
+              <input type="number" id="roi-monthly-kwh" placeholder="e.g. 400" min="0" step="10">
+              <span class="helper-text">How many kWh/month your system covers. Not sure? Use the <a href="energy-production-calculator.html">energy production calculator</a> first.</span>
+            </div>
+            <div class="field-group">
+              <label for="roi-rate">Electricity rate (per kWh)</label>
+              <input type="number" id="roi-rate" placeholder="e.g. 0.12" min="0" step="0.01">
+              <span class="helper-text">Your utility price per kilowatt-hour.</span>
+            </div>
+          </div>
+        </details>
       </form>
       <div class="calc-result">
         <div>
@@ -228,6 +245,7 @@
           <li><a href="daily-load-calculator.html">Daily energy load calculator</a></li>
           <li><a href="off-grid-system-wizard.html">Off-grid system wizard</a></li>
           <li><a href="string-sizing-calculator.html">String sizing calculator</a></li>
+          <li><a href="energy-production-calculator.html">Energy production calculator</a></li>
           <li><a href="../tools.html">All tools</a></li>
         </ul>
       </div>
