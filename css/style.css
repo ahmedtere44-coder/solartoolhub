@@ -839,7 +839,10 @@ table.calc-table .surge-note { font-size: 0.78rem; color: var(--ink-faint); }
 .calc-diagram {
   max-width: 680px;
   margin: 0 auto 36px;
-  padding: 0 4px;
+  padding: 24px 20px;
+  border: 1px solid #1F2937;
+  border-radius: 12px;
+  background: #fff;
 }
 .calc-diagram figure { margin: 0; }
 .calc-diagram svg { width: 100%; height: auto; display: block; }
@@ -854,7 +857,10 @@ table.calc-table .surge-note { font-size: 0.78rem; color: var(--ink-faint); }
 .calc-chart {
   max-width: 680px;
   margin: 0 auto 40px;
-  padding: 0 4px;
+  padding: 24px 20px;
+  border: 1px solid #1F2937;
+  border-radius: 12px;
+  background: #fff;
 }
 .calc-chart-title { font-size: 1.15rem; margin: 0 0 6px; color: var(--navy); }
 .calc-chart-intro { font-size: 0.95rem; color: var(--ink-soft); margin: 0 0 18px; }
