@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solar Panel Tilt & Angle Calculator | SolarToolHub</title>
+<meta name="description" content="Free solar panel tilt angle calculator. Find the optimal panel angle for your latitude, year-round or optimized for winter/summer production.">
+<link rel="canonical" href="https://ahmedtere44-coder.github.io/solartoolhub/tools/panel-tilt-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SolarToolHub">
+<meta property="og:title" content="Solar Panel Tilt & Angle Calculator | SolarToolHub">
+<meta property="og:description" content="Free solar panel tilt angle calculator. Find the optimal panel angle for your latitude, year-round or optimized for winter/summer production.">
+<meta property="og:url" content="https://ahmedtere44-coder.github.io/solartoolhub/tools/panel-tilt-calculator.html">
+<meta property="og:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Solar Panel Tilt & Angle Calculator | SolarToolHub">
+<meta name="twitter:description" content="Free solar panel tilt angle calculator. Find the optimal panel angle for your latitude, year-round or optimized for winter/summer production.">
+<meta name="twitter:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does the facing direction matter as much as the angle?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Generally, yes — a panel facing directly toward the equator (south in the northern hemisphere, north in the southern) at a moderately wrong angle will usually outperform a panel at the perfect angle but facing the wrong direction. Get the direction right first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if my roof angle doesn't match the calculated optimum?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Being off by 10-15° from the ideal angle typically costs only a few percent of annual output — it's rarely worth a costly re-angling structure just to chase the last couple of percent on a standard rooftop system."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I adjust the tilt angle manually through the year?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It's only worth the effort on systems where seasonal output actually matters for your use case — like off-grid setups sized around winter production. For a standard grid-tied rooftop system, the added complexity usually isn't worth the modest gain."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/index.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Panel tilt calculator",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools/panel-tilt-calculator.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html" class="active">Tools</a></li>
+      <li><a href="../articles.html">Guides</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../tools.html">Tools</a> / Panel tilt calculator</div>
+    <h1>Panel tilt & angle calculator</h1>
+    <p class="lede">Enter your location's latitude — get the optimal panel tilt angle for year-round production, plus separate angles optimized for winter or summer.</p>
+  </div>
+</div>
+
+<div class="calc-layout">
+  <div class="container">
+    <div class="calc-card" style="max-width:680px;">
+      <form id="tilt-calc-form">
+        <div class="field-group">
+          <label for="tilt-latitude">Latitude of your location (°)</label>
+          <input type="number" id="tilt-latitude" value="32" min="0" max="90" step="0.1">
+          <span class="helper-text">Use a positive number regardless of hemisphere — you'll select the direction separately. Find your latitude with any map app.</span>
+        </div>
+        <div class="field-group">
+          <label for="tilt-hemisphere">Hemisphere</label>
+          <select id="tilt-hemisphere">
+            <option value="north" selected>Northern (panels face south)</option>
+            <option value="south">Southern (panels face north)</option>
+          </select>
+        </div>
+      </form>
+
+      <div class="battery-compare">
+        <div class="battery-col">
+          <h3>Year-round (fixed)</h3>
+          <div class="calc-result" style="grid-template-columns:1fr;">
+            <div>
+              <span class="num" id="tilt-year">0</span>
+              <span class="lbl">degrees from horizontal</span>
+            </div>
+          </div>
+        </div>
+        <div class="battery-col">
+          <h3>Winter-optimized</h3>
+          <div class="calc-result" style="grid-template-columns:1fr;">
+            <div>
+              <span class="num" id="tilt-winter">0</span>
+              <span class="lbl">degrees from horizontal</span>
+            </div>
+          </div>
+        </div>
+        <div class="battery-col">
+          <h3>Summer-optimized</h3>
+          <div class="calc-result" style="grid-template-columns:1fr;">
+            <div>
+              <span class="num" id="tilt-summer">0</span>
+              <span class="lbl">degrees from horizontal</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="helper-text">Facing direction: point panels due <strong id="tilt-direction">south</strong> for maximum output at this latitude.</p>
+      <button type="button" id="tilt-pdf-btn" class="btn btn-accent" style="margin-top:20px;">⬇️ Download results as PDF</button>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="calc-diagram">
+    <figure>
+      <svg viewBox="0 0 380 300" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="tl-title tl-desc">
+        <title id="tl-title">How the panel tilt calculator works</title>
+        <desc id="tl-desc">Your latitude sets the year-round tilt angle; adding 15 degrees favors winter and subtracting 15 favors summer.</desc>
+        <defs>
+          <marker id="tlArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <text x="190" y="26" text-anchor="middle" font-family="Manrope, sans-serif" font-size="14" font-weight="700" fill="#111827">What you enter</text>
+
+        <g>
+          <rect x="115" y="40" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="190" y="60" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1E3A8A">Your latitude</text>
+          <text x="190" y="78" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">degrees from equator</text>
+        </g>
+
+        <line x1="190" y1="92" x2="190" y2="122" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#tlArrow)"/>
+
+        <g>
+          <rect x="70" y="124" width="240" height="46" rx="8" fill="#FEF9C3" stroke="#CA8A04" stroke-width="0.75"/>
+          <text x="190" y="151" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#854D0E">Year-round tilt = your latitude</text>
+        </g>
+
+        <line x1="130" y1="170" x2="110" y2="210" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#tlArrow)"/>
+        <line x1="250" y1="170" x2="270" y2="210" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#tlArrow)"/>
+
+        <g>
+          <rect x="20" y="212" width="160" height="52" rx="8" fill="#E9FBF4" stroke="#10B981" stroke-width="0.75"/>
+          <text x="100" y="232" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#065F46">Winter tilt</text>
+          <text x="100" y="250" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#065F46">latitude + 15°</text>
+        </g>
+        <g>
+          <rect x="200" y="212" width="160" height="52" rx="8" fill="#E9FBF4" stroke="#10B981" stroke-width="0.75"/>
+          <text x="280" y="232" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#065F46">Summer tilt</text>
+          <text x="280" y="250" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#065F46">latitude − 15°</text>
+        </g>
+      </svg>
+      <figcaption>How the calculator turns your latitude into three tilt options.</figcaption>
+    </figure>
+  </div>
+
+  <div class="calc-chart">
+    <h2 class="calc-chart-title">Tilt angle vs your latitude</h2>
+    <p class="calc-chart-intro">This curve updates with your inputs above. It shows the three recommended tilt angles across a range of latitudes — year-round, winter-optimized, and summer-optimized.</p>
+    <div class="calc-chart-canvas-wrap">
+      <canvas id="tilt-curve" role="img" aria-label="Line chart showing year-round, winter, and summer tilt angles rising with latitude.">Recommended tilt angles rise with latitude; winter tilt is steeper, summer tilt is shallower.</canvas>
+    </div>
+  </div>
+
+  <article class="article">
+
+    <p>Panel tilt angle is one of the few completely free performance gains in a solar system — get it right and you can pick up meaningfully more annual output from the exact same panels, with zero extra hardware cost on a fixed-mount system. This calculator gives you three angle options depending on what you're optimizing for.</p>
+
+    <h2>The basic rule of thumb</h2>
+    <p>For a fixed panel angle optimized across the whole year, the long-standing rule of thumb is: <strong>tilt angle ≈ your location's latitude</strong>. A location at 32° latitude gets close to its best year-round average output with panels tilted at roughly 32° from horizontal.</p>
+
+    <h2>Why winter and summer angles differ</h2>
+    <p>The sun sits lower in the sky during winter and higher during summer. If you want to squeeze out extra production in one season at the expense of the other, the standard adjustments are:</p>
+    <ul>
+      <li><strong>Winter-optimized:</strong> latitude + 15° — a steeper angle that faces the panels more directly into the lower winter sun path.</li>
+      <li><strong>Summer-optimized:</strong> latitude − 15° — a flatter angle that matches the sun's higher summer arc.</li>
+    </ul>
+    <p>This matters most for off-grid systems where winter production is often the bottleneck for the whole year's design — in that case, biasing toward the winter angle (or building in seasonal adjustability) can matter more than maximizing the annual total.</p>
+
+    <h2>Fixed vs adjustable vs tracking mounts</h2>
+    <table class="data-table">
+      <thead>
+        <tr><th>Mount type</th><th>Typical annual gain vs flat</th><th>Best for</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Fixed at latitude angle</td><td>Baseline (this calculator's "year-round" figure)</td><td>Most residential and small commercial rooftops</td></tr>
+        <tr><td>Seasonally adjustable (2 positions/year)</td><td>+3–5% over fixed</td><td>Off-grid systems where winter output matters most</td></tr>
+        <tr><td>Single-axis tracking</td><td>+15–25% over fixed</td><td>Larger ground-mount systems where the added mechanical cost is justified</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Other factors that override the pure math</h2>
+    <ul>
+      <li><strong>Roof pitch.</strong> On a fixed roof, you're often working with whatever angle the roof already has — repositioning panels to a completely different angle usually isn't practical or cost-effective for typical rooftop installs.</li>
+      <li><strong>Snow shedding.</strong> In snowy climates, a steeper angle than the pure-math optimum helps snow slide off instead of blocking the array for days after a storm.</li>
+      <li><strong>Wind loading.</strong> Steeper tilt angles catch more wind — racking and mounting hardware need to be rated for the angle you choose, especially on open ground-mount arrays.</li>
+    </ul>
+
+    <h2>Frequently asked questions</h2>
+    <h3>Does the facing direction matter as much as the angle?</h3>
+    <p>Generally, yes — a panel facing directly toward the equator (south in the northern hemisphere, north in the southern) at a moderately wrong angle will usually outperform a panel at the perfect angle but facing the wrong direction. Get the direction right first.</p>
+    <h3>What if my roof angle doesn't match the calculated optimum?</h3>
+    <p>Being off by 10-15° from the ideal angle typically costs only a few percent of annual output — it's rarely worth a costly re-angling structure just to chase the last couple of percent on a standard rooftop system.</p>
+    <h3>Should I adjust the tilt angle manually through the year?</h3>
+    <p>It's only worth the effort on systems where seasonal output actually matters for your use case — like off-grid setups sized around winter production. For a standard grid-tied rooftop system, the added complexity usually isn't worth the modest gain.</p>
+
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="panel-calculator.html">Panel calculator</a></li>
+          <li><a href="inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="battery-calculator.html">Battery calculator</a></li>
+          <li><a href="cable-calculator.html">Cable calculator</a></li>
+          <li><a href="roi-calculator.html">ROI calculator</a></li>
+          <li><a href="charge-controller-calculator.html">Charge controller calculator</a></li>
+          <li><a href="panel-tilt-calculator.html">Panel tilt calculator</a></li>
+          <li><a href="generator-sizing-calculator.html">Generator sizing calculator</a></li>
+          <li><a href="daily-load-calculator.html">Daily energy load calculator</a></li>
+          <li><a href="off-grid-system-wizard.html">Off-grid system wizard</a></li>
+          <li><a href="string-sizing-calculator.html">String sizing calculator</a></li>
+          <li><a href="energy-production-calculator.html">Energy production calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script>
+  var tiltPdfBtn = document.getElementById('tilt-pdf-btn');
+  if (tiltPdfBtn) {
+    tiltPdfBtn.addEventListener('click', function () {
+      var latitude = document.getElementById('tilt-latitude').value;
+      var hemisphereSelect = document.getElementById('tilt-hemisphere');
+      var hemisphereText = hemisphereSelect.options[hemisphereSelect.selectedIndex].text;
+      var yearAngle = document.getElementById('tilt-year').textContent;
+      var winterAngle = document.getElementById('tilt-winter').textContent;
+      var summerAngle = document.getElementById('tilt-summer').textContent;
+      var direction = document.getElementById('tilt-direction').textContent;
+
+      generateSolarToolHubResultsPDF({
+        subtitle: 'Panel Tilt & Angle — Results',
+        inputs: [
+          ['Latitude', latitude + '°'],
+          ['Hemisphere', hemisphereText]
+        ],
+        resultsHeaders: ['Optimization', 'Angle from Horizontal'],
+        results: [
+          ['Year-round (fixed)', yearAngle + '°'],
+          ['Winter-optimized', winterAngle + '°'],
+          ['Summer-optimized', summerAngle + '°'],
+          ['Facing direction', 'Due ' + direction]
+        ],
+        nextSteps: {
+          text: 'Next, size your panel array:',
+          linkText: 'Panel Sizing Calculator',
+          url: 'https://ahmedtere44-coder.github.io/solartoolhub/tools/panel-calculator.html'
+        },
+        filename: 'solartoolhub-panel-tilt-results.pdf'
+      });
+    });
+  }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+  (function () {
+    var canvas = document.getElementById('tilt-curve');
+    if (!canvas || typeof Chart === 'undefined') return;
+
+    var latEl = document.getElementById('tilt-latitude');
+    var latSteps = [0, 10, 20, 30, 40, 50, 60];
+
+    function series(kind) {
+      return latSteps.map(function (lat) {
+        if (kind === 'year') return Math.round(lat * 10) / 10;
+        if (kind === 'winter') return Math.round(Math.min(lat + 15, 90) * 10) / 10;
+        return Math.round(Math.max(lat - 15, 0) * 10) / 10;
+      });
+    }
+
+    var chart = new Chart(canvas, {
+      type: 'line',
+      data: {
+        labels: latSteps.map(function (l) { return l + '°'; }),
+        datasets: [
+          { label: 'Year-round', data: series('year'), borderColor: '#1E3A8A', borderWidth: 2, fill: false, tension: 0.2, pointBackgroundColor: '#1E3A8A', pointRadius: 3 },
+          { label: 'Winter', data: series('winter'), borderColor: '#10B981', borderWidth: 2, fill: false, tension: 0.2, borderDash: [5,4], pointBackgroundColor: '#10B981', pointRadius: 3 },
+          { label: 'Summer', data: series('summer'), borderColor: '#CA8A04', borderWidth: 2, fill: false, tension: 0.2, borderDash: [2,3], pointBackgroundColor: '#CA8A04', pointRadius: 3 }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: true, labels: { color: '#4B5563', boxWidth: 14 } } },
+        scales: {
+          x: { title: { display: true, text: 'Latitude', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, grid: { display: false } },
+          y: { title: { display: true, text: 'Tilt angle (°)', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, beginAtZero: true }
+        }
+      }
+    });
+
+    function markCurrentLat() {
+      // subtle: no vertical annotation lib, chart is illustrative across latitudes
+    }
+    if (latEl) latEl.addEventListener('input', markCurrentLat);
+  })();
+</script>
+</body>
+</html>
