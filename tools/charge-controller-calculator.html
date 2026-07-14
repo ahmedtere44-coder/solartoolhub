@@ -181,6 +181,65 @@
 </div>
 
 <div class="container">
+  <div class="calc-diagram">
+    <figure>
+      <svg viewBox="0 0 380 374" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="cc-title cc-desc">
+        <title id="cc-title">How the charge controller calculator works</title>
+        <desc id="cc-desc">Array power divided by battery voltage gives the current, times a safety margin, rounded up to the next standard controller amp rating.</desc>
+        <defs>
+          <marker id="ccArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <text x="190" y="26" text-anchor="middle" font-family="Manrope, sans-serif" font-size="14" font-weight="700" fill="#111827">What you enter</text>
+
+        <g>
+          <rect x="30" y="40" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="105" y="60" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1E3A8A">Array power</text>
+          <text x="105" y="78" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">total solar watts</text>
+        </g>
+        <g>
+          <rect x="200" y="40" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="275" y="60" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1E3A8A">Battery voltage</text>
+          <text x="275" y="78" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">12 / 24 / 48 V</text>
+        </g>
+
+        <line x1="105" y1="92" x2="160" y2="140" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#ccArrow)"/>
+        <line x1="275" y1="92" x2="220" y2="140" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#ccArrow)"/>
+
+        <g>
+          <rect x="70" y="142" width="240" height="52" rx="8" fill="#FEF9C3" stroke="#CA8A04" stroke-width="0.75"/>
+          <text x="190" y="162" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#854D0E">Current = watts ÷ volts</text>
+          <text x="190" y="180" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#854D0E">amps the controller must handle</text>
+        </g>
+
+        <line x1="190" y1="194" x2="190" y2="224" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#ccArrow)"/>
+
+        <g>
+          <rect x="70" y="226" width="240" height="52" rx="8" fill="#FEF9C3" stroke="#CA8A04" stroke-width="0.75"/>
+          <text x="190" y="246" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#854D0E">Add safety margin</text>
+          <text x="190" y="264" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#854D0E">× 1.25 (25%)</text>
+        </g>
+
+        <line x1="190" y1="278" x2="190" y2="308" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#ccArrow)"/>
+
+        <g>
+          <rect x="45" y="310" width="290" height="44" rx="8" fill="#E9FBF4" stroke="#10B981" stroke-width="0.75"/>
+          <text x="190" y="332" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#065F46">Next standard controller amp size</text>
+        </g>
+      </svg>
+      <figcaption>How the calculator turns array power into a controller amp rating.</figcaption>
+    </figure>
+  </div>
+
+  <div class="calc-chart">
+    <h2 class="calc-chart-title">How array size drives controller amps</h2>
+    <p class="calc-chart-intro">This curve updates with your inputs above. It shows the controller current needed as your solar array grows — and why a higher battery voltage lets you use a smaller controller.</p>
+    <div class="calc-chart-canvas-wrap">
+      <canvas id="cc-curve" role="img" aria-label="Line chart showing required charge controller amps rising as array power increases, at the selected battery voltage.">Required controller amps rise as array power grows.</canvas>
+    </div>
+  </div>
+
   <article class="article">
 
     <p>Undersizing a charge controller is one of the fastest ways to shorten its life — or trip its protection circuit at exactly the wrong moment, on the sunniest day of the year when your array is producing at its peak. This calculator gives you the minimum amperage rating to look for, for both major controller types, so you can compare real product options with confidence instead of guessing.</p>
@@ -313,6 +372,51 @@
       });
     });
   }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+  (function () {
+    var canvas = document.getElementById('cc-curve');
+    if (!canvas || typeof Chart === 'undefined') return;
+
+    var wattsEl = document.getElementById('cc-watts');
+    var voltageEl = document.getElementById('cc-voltage');
+    var safetyEl = document.getElementById('cc-safety');
+    var wattSteps = [200, 400, 600, 800, 1000, 1500, 2000, 3000];
+
+    function ampsData() {
+      var voltage = parseFloat(voltageEl.value) || 24;
+      var safety = parseFloat(safetyEl.value) || 1.25;
+      return wattSteps.map(function (w) { return Math.round((w / voltage) * safety * 10) / 10; });
+    }
+
+    var chart = new Chart(canvas, {
+      type: 'line',
+      data: {
+        labels: wattSteps.map(function (w) { return w + 'W'; }),
+        datasets: [{
+          label: 'Controller amps needed',
+          data: ampsData(),
+          borderColor: '#1E3A8A',
+          backgroundColor: 'rgba(30,58,138,0.10)',
+          borderWidth: 2, fill: true, tension: 0.3,
+          pointBackgroundColor: '#FACC15', pointRadius: 4
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { title: { display: true, text: 'Solar array power (W)', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, grid: { display: false } },
+          y: { title: { display: true, text: 'Controller amps (A)', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, beginAtZero: true }
+        }
+      }
+    });
+
+    function refresh() { chart.data.datasets[0].data = ampsData(); chart.update(); }
+    [wattsEl, voltageEl, safetyEl].forEach(function (el) { if (el) el.addEventListener('input', refresh); });
+  })();
 </script>
 </body>
 </html>
