@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solar Water Pump Sizing Calculator — Pump Power & Array Size | SolarToolHub</title>
+<meta name="description" content="Free solar water pump sizing calculator. Enter your flow rate and total head to find the hydraulic power, pump power, and the solar array size needed to run a water pump off solar.">
+<link rel="canonical" href="https://ahmedtere44-coder.github.io/solartoolhub/tools/solar-water-pump-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SolarToolHub">
+<meta property="og:title" content="Solar Water Pump Sizing Calculator — Pump Power & Array Size | SolarToolHub">
+<meta property="og:description" content="Free solar water pump sizing calculator. Enter your flow rate and total head to find the hydraulic power, pump power, and the solar array size needed to run a water pump off solar.">
+<meta property="og:url" content="https://ahmedtere44-coder.github.io/solartoolhub/tools/solar-water-pump-calculator.html">
+<meta property="og:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Solar Water Pump Sizing Calculator — Pump Power & Array Size | SolarToolHub">
+<meta name="twitter:description" content="Free solar water pump sizing calculator. Enter your flow rate and total head to find the hydraulic power, pump power, and the solar array size needed to run a water pump off solar.">
+<meta name="twitter:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I size a solar water pump?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Start with two numbers: the flow rate you need (how many cubic meters or liters of water per hour) and the total head (the total vertical lift plus friction losses in meters). These give the hydraulic power required. Divide that by the pump efficiency to get the pump's electrical power, then divide by the overall system efficiency and apply a safety margin to get the solar array size needed. This calculator does all of that automatically."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is total head in a water pumping system?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Total head (also called total dynamic head) is the total resistance the pump must work against, measured in meters. It combines the static head — the vertical distance from the water source up to the discharge point — plus friction losses in the pipe. As a rough starting point, add about 5 to 10 percent to the static height to account for pipe friction, or more for long or narrow pipe runs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many solar panels do I need to run a water pump?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on the pump's power and your local sunlight. A small pump lifting a modest flow a few meters might need only 300 to 600 watts of panels, while a deep borehole pump moving large volumes can need several kilowatts. Enter your flow and head above and the calculator estimates the array size in watts, which you can then convert to a panel count with our panel calculator."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a solar pump work without batteries?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Many solar water pumping systems run direct — the panels power the pump during daylight and the water is stored in a tank instead of storing energy in batteries. This is usually cheaper and simpler for irrigation and livestock. Batteries are only needed if you must pump at night or want a constant flow regardless of sun."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Solar water pump calculator",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools/solar-water-pump-calculator.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html" class="active">Tools</a></li>
+      <li><a href="../articles.html">Guides</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../tools.html">Tools</a> / Solar water pump calculator</div>
+    <h1>Solar water pump sizing calculator</h1>
+    <p class="lede">Enter the flow rate you need and the total head the pump must lift against — get the hydraulic power, the pump power, and the solar array size needed to run it straight from the sun.</p>
+  </div>
+</div>
+
+<div class="calc-layout">
+  <div class="container">
+    <div class="calc-card" style="max-width:680px;">
+      <form id="pump-calc-form">
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="pump-flow">Flow rate needed (m³/hour)</label>
+            <input type="number" id="pump-flow" value="5" min="0" step="0.1">
+            <span class="helper-text">Volume of water per hour. 1 m³ = 1,000 litres. Example: a small farm might need 3-8 m³/h.</span>
+          </div>
+          <div class="field-group">
+            <label for="pump-head">Total head (m)</label>
+            <input type="number" id="pump-head" value="30" min="0" step="1">
+            <span class="helper-text">Vertical lift from water level to discharge, plus pipe friction. Add ~10% to the static height for friction.</span>
+          </div>
+        </div>
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="pump-eff">Pump + motor efficiency (%)</label>
+            <input type="number" id="pump-eff" value="45" min="10" max="90" step="1">
+            <span class="helper-text">Typical solar pump wire-to-water efficiency is 35-55%. 45% is a safe default.</span>
+          </div>
+          <div class="field-group">
+            <label for="pump-sun-hours">Peak sun hours per day</label>
+            <input type="number" id="pump-sun-hours" value="5.5" min="0" step="0.1">
+            <span class="helper-text">Daily average for your location. MENA region: ~5.5-6.5. See our energy production guide.</span>
+          </div>
+        </div>
+        <div class="field-group">
+          <label for="pump-hours">Hours of pumping needed per day</label>
+          <input type="number" id="pump-hours" value="6" min="0" step="0.5">
+          <span class="helper-text">How many hours per day you need this flow. For direct solar pumping this is usually close to your peak sun hours.</span>
+        </div>
+      </form>
+
+      <div class="calc-result" style="grid-template-columns: repeat(3, 1fr); margin-top:30px;">
+        <div>
+          <span class="label">Hydraulic power</span>
+          <span class="num" id="pump-hydraulic">0</span>
+          <span class="unit">W</span>
+        </div>
+        <div>
+          <span class="label">Pump power needed</span>
+          <span class="num" id="pump-power">0</span>
+          <span class="unit">W</span>
+        </div>
+        <div>
+          <span class="label">Solar array size</span>
+          <span class="num" id="pump-array">0</span>
+          <span class="unit">W</span>
+        </div>
+      </div>
+      <p class="helper-text" id="pump-daily-summary" style="margin-top:16px; font-weight:600;"></p>
+
+      <button type="button" id="pump-pdf-btn" class="btn btn-accent" style="margin-top:20px;">⬇️ Download results as PDF</button>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="calc-diagram">
+    <figure>
+      <svg viewBox="0 0 380 374" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="pmp-title pmp-desc">
+        <title id="pmp-title">How the solar water pump calculator works</title>
+        <desc id="pmp-desc">Flow rate and total head give the hydraulic power; dividing by pump and system efficiency gives the pump power and the solar array size needed.</desc>
+        <defs>
+          <marker id="pmpArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <text x="190" y="26" text-anchor="middle" font-family="Manrope, sans-serif" font-size="14" font-weight="700" fill="#111827">What you enter</text>
+
+        <g>
+          <rect x="30" y="40" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="105" y="60" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1E3A8A">Flow rate</text>
+          <text x="105" y="78" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">m³ per hour</text>
+        </g>
+        <g>
+          <rect x="200" y="40" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="275" y="60" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1E3A8A">Total head</text>
+          <text x="275" y="78" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">lift in metres</text>
+        </g>
+
+        <line x1="105" y1="92" x2="160" y2="140" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#pmpArrow)"/>
+        <line x1="275" y1="92" x2="220" y2="140" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#pmpArrow)"/>
+
+        <g>
+          <rect x="70" y="142" width="240" height="52" rx="8" fill="#FEF9C3" stroke="#CA8A04" stroke-width="0.75"/>
+          <text x="190" y="162" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#854D0E">Hydraulic power</text>
+          <text x="190" y="180" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#854D0E">flow × head × gravity</text>
+        </g>
+
+        <line x1="190" y1="194" x2="190" y2="224" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#pmpArrow)"/>
+
+        <g>
+          <rect x="70" y="226" width="240" height="52" rx="8" fill="#FEF9C3" stroke="#CA8A04" stroke-width="0.75"/>
+          <text x="190" y="246" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#854D0E">Divide by efficiencies</text>
+          <text x="190" y="264" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#854D0E">pump + system losses</text>
+        </g>
+
+        <line x1="190" y1="278" x2="190" y2="308" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#pmpArrow)"/>
+
+        <g>
+          <rect x="45" y="310" width="290" height="44" rx="8" fill="#E9FBF4" stroke="#10B981" stroke-width="0.75"/>
+          <text x="190" y="332" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#065F46">Solar array size needed (W)</text>
+        </g>
+      </svg>
+      <figcaption>How the calculator turns your water needs into a solar array size.</figcaption>
+    </figure>
+  </div>
+
+  <div class="calc-chart">
+    <h2 class="calc-chart-title">How lift height drives the array size</h2>
+    <p class="calc-chart-intro">This curve updates with your inputs above. It shows how the solar array size you need grows as the total head (lift height) increases — deeper wells and higher tanks need much bigger arrays.</p>
+    <div class="calc-chart-canvas-wrap">
+      <canvas id="pump-curve" role="img" aria-label="Line chart showing the required solar array size in watts increasing as the total head in meters increases.">Required solar array size rises as the total head increases.</canvas>
+    </div>
+  </div>
+
+  <article class="article">
+
+    <p>Pumping water is one of the most practical and rewarding uses of solar power — especially for irrigation, livestock, and off-grid homes where running a grid line to a well is expensive or impossible. Because a solar pump usually runs during the day and fills a tank, it often needs no batteries at all, which keeps the system simple and affordable. The key to a system that actually delivers the water you need is sizing it correctly, and that comes down to two numbers: how much water you need per hour, and how high you have to lift it.</p>
+
+    <h2>The two numbers that decide everything</h2>
+    <p>Every pump sizing calculation starts here:</p>
+    <ul>
+      <li><strong>Flow rate</strong> — how much water you need per hour, in cubic meters (m³/h) or liters. This is driven by your use: irrigation area, number of animals, or household demand.</li>
+      <li><strong>Total head</strong> — the total vertical distance the pump lifts water, in meters, plus friction losses in the pipe. A deep borehole with an elevated tank has high head; moving water across flat ground has low head.</li>
+    </ul>
+    <p>Multiply these together (with gravity and water density) and you get the <strong>hydraulic power</strong> — the pure physical work of lifting that water. Everything else is about how much electrical power it takes to deliver that work.</p>
+
+    <h2>The formula</h2>
+    <p>The hydraulic power in watts is:</p>
+    <p style="font-family:monospace; background:var(--bg-soft); padding:14px 18px; border-radius:8px; font-size:0.95rem;">Hydraulic power (W) = Flow (m³/h) × Head (m) × 1000 × 9.81 ÷ 3600</p>
+    <p>That's the ideal power. A real pump and motor aren't 100% efficient, so the actual electrical power the pump draws is higher:</p>
+    <p style="font-family:monospace; background:var(--bg-soft); padding:14px 18px; border-radius:8px; font-size:0.95rem;">Pump power (W) = Hydraulic power ÷ Pump efficiency</p>
+    <p>And because the solar side has its own losses (controller, wiring, heat, panel derating), the solar array is sized a step larger again, with a safety margin so the pump reaches full flow even in less-than-perfect sun:</p>
+    <p style="font-family:monospace; background:var(--bg-soft); padding:14px 18px; border-radius:8px; font-size:0.95rem;">Array size (W) = Pump power ÷ System efficiency × safety margin</p>
+
+    <h2>A worked example</h2>
+    <p>Say a small farm needs 5 m³ of water per hour, lifted a total head of 30 meters:</p>
+    <ul>
+      <li>Hydraulic power = 5 × 30 × 1000 × 9.81 ÷ 3600 ≈ <strong>409 W</strong></li>
+      <li>At 45% pump efficiency: 409 ÷ 0.45 ≈ <strong>908 W</strong> of pump power</li>
+      <li>With system losses and margin, the solar array needed is roughly <strong>1,300-1,400 W</strong></li>
+    </ul>
+    <p>So this farm would need around 1.3-1.4 kW of panels — about three to four modern panels — running direct into the pump during daylight, filling a tank for use through the day.</p>
+
+    <h2>Why head matters more than people expect</h2>
+    <p>Flow and head both increase the power needed, but head is the one people underestimate. Doubling the lift height doubles the power required, and every meter of pipe friction adds to it. Deep boreholes are the classic case: a pump moving a modest flow from 80 meters down needs far more power than one moving the same flow from a shallow well. The chart above shows this relationship directly for your own numbers.</p>
+
+    <h2>Do you need batteries?</h2>
+    <p>Usually not. The most common and cost-effective approach is <strong>direct solar pumping</strong>: the panels drive the pump whenever the sun is out, and water is stored in a tank rather than storing energy in batteries. A day or two of tank storage is far cheaper than a battery bank. You only need batteries if you must pump at night or need a guaranteed constant flow regardless of weather.</p>
+
+    <h2>Turning the array size into panels</h2>
+    <p>Once you have the array size in watts, our <a href="panel-calculator.html">solar panel calculator</a> converts it into a panel count for the wattage you plan to use, and the <a href="energy-production-calculator.html">energy production calculator</a> shows how much energy that array delivers across the day. If you decide you do want battery backup for night pumping, the <a href="battery-calculator.html">battery calculator</a> will size the bank.</p>
+
+    <h2>Frequently asked questions</h2>
+    <h3>How do I size a solar water pump?</h3>
+    <p>Start with the flow rate you need and the total head the pump lifts against. These give the hydraulic power. Divide by pump efficiency to get the pump's electrical power, then divide by system efficiency and apply a safety margin to get the solar array size. This calculator does all of that for you.</p>
+    <h3>What is total head in a water pumping system?</h3>
+    <p>Total head is the total resistance the pump works against, in meters — the vertical lift from water source to discharge, plus pipe friction losses. As a starting point, add about 5 to 10 percent to the static height for friction, more for long or narrow pipe runs.</p>
+    <h3>How many solar panels do I need to run a water pump?</h3>
+    <p>It depends on the pump power and your sunlight. A small pump lifting a modest flow a few meters might need only 300 to 600 watts of panels, while a deep borehole pump can need several kilowatts. Enter your flow and head above and the calculator estimates the array size, which you can convert to a panel count with our panel calculator.</p>
+    <h3>Can a solar pump work without batteries?</h3>
+    <p>Yes. Many solar pumping systems run direct — panels power the pump during daylight and water is stored in a tank instead of storing energy in batteries. This is cheaper and simpler for irrigation and livestock. Batteries are only needed if you must pump at night.</p>
+
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="panel-calculator.html">Panel calculator</a></li>
+          <li><a href="inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="battery-calculator.html">Battery calculator</a></li>
+          <li><a href="cable-calculator.html">Cable calculator</a></li>
+          <li><a href="roi-calculator.html">ROI calculator</a></li>
+          <li><a href="charge-controller-calculator.html">Charge controller calculator</a></li>
+          <li><a href="panel-tilt-calculator.html">Panel tilt calculator</a></li>
+          <li><a href="generator-sizing-calculator.html">Generator sizing calculator</a></li>
+          <li><a href="daily-load-calculator.html">Daily energy load calculator</a></li>
+          <li><a href="off-grid-system-wizard.html">Off-grid system wizard</a></li>
+          <li><a href="string-sizing-calculator.html">String sizing calculator</a></li>
+          <li><a href="energy-production-calculator.html">Energy production calculator</a></li>
+          <li><a href="solar-water-pump-calculator.html">Solar water pump calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script>
+  (function () {
+    var form = document.getElementById('pump-calc-form');
+    if (!form) return;
+
+    var GRAVITY = 9.81;
+    var WATER_DENSITY = 1000;
+    var SYSTEM_EFF = 0.85;   // controller + wiring + derate on the solar side
+    var SAFETY_MARGIN = 1.25;
+
+    function fmt(n) {
+      return n.toLocaleString(undefined, { maximumFractionDigits: 0 });
+    }
+
+    function calcPump() {
+      var flow = parseFloat(document.getElementById('pump-flow').value) || 0;
+      var head = parseFloat(document.getElementById('pump-head').value) || 0;
+      var pumpEff = (parseFloat(document.getElementById('pump-eff').value) || 0) / 100;
+      var hours = parseFloat(document.getElementById('pump-hours').value) || 0;
+
+      var hydraulic = (flow * head * WATER_DENSITY * GRAVITY) / 3600;
+      var pumpPower = pumpEff > 0 ? hydraulic / pumpEff : 0;
+      var arraySize = (pumpPower / SYSTEM_EFF) * SAFETY_MARGIN;
+
+      document.getElementById('pump-hydraulic').textContent = fmt(hydraulic);
+      document.getElementById('pump-power').textContent = fmt(pumpPower);
+      document.getElementById('pump-array').textContent = fmt(arraySize);
+
+      var summaryEl = document.getElementById('pump-daily-summary');
+      if (flow > 0 && hours > 0) {
+        var dailyVolume = flow * hours;
+        summaryEl.textContent = 'At this flow for ' + hours + ' h/day you move about ' + fmt(dailyVolume) + ' m³ (' + fmt(dailyVolume * 1000) + ' litres) of water per day.';
+      } else {
+        summaryEl.textContent = '';
+      }
+    }
+
+    form.addEventListener('input', calcPump);
+    calcPump();
+
+    var pumpPdfBtn = document.getElementById('pump-pdf-btn');
+    if (pumpPdfBtn) {
+      pumpPdfBtn.addEventListener('click', function () {
+        var flow = document.getElementById('pump-flow').value;
+        var head = document.getElementById('pump-head').value;
+        var pumpEff = document.getElementById('pump-eff').value;
+        var sunHours = document.getElementById('pump-sun-hours').value;
+        var hours = document.getElementById('pump-hours').value;
+        var hydraulic = document.getElementById('pump-hydraulic').textContent;
+        var pumpPower = document.getElementById('pump-power').textContent;
+        var arraySize = document.getElementById('pump-array').textContent;
+        var summary = document.getElementById('pump-daily-summary').textContent;
+
+        var inputs = [
+          ['Flow rate needed', flow + ' m3/h'],
+          ['Total head', head + ' m'],
+          ['Pump + motor efficiency', pumpEff + ' %'],
+          ['Peak sun hours/day', sunHours],
+          ['Pumping hours/day', hours]
+        ];
+
+        var results = [
+          ['Hydraulic power', hydraulic + ' W'],
+          ['Pump power needed', pumpPower + ' W'],
+          ['Solar array size', arraySize + ' W']
+        ];
+        if (summary) { results.push(['Daily water moved', summary.replace('At this flow for ' + hours + ' h/day you move about ', '').replace(/\.$/, '')]); }
+
+        generateSolarToolHubResultsPDF({
+          subtitle: 'Solar Water Pump — Results',
+          inputs: inputs,
+          resultsHeaders: ['Metric', 'Value'],
+          results: results,
+          nextSteps: {
+            text: 'To turn the array size into a panel count, run it through our:',
+            linkText: 'Solar Panel Calculator',
+            url: 'https://ahmedtere44-coder.github.io/solartoolhub/tools/panel-calculator.html'
+          },
+          filename: 'solartoolhub-solar-water-pump-results.pdf'
+        });
+      });
+    }
+  })();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+  (function () {
+    var canvas = document.getElementById('pump-curve');
+    if (!canvas || typeof Chart === 'undefined') return;
+
+    var flowEl = document.getElementById('pump-flow');
+    var effEl = document.getElementById('pump-eff');
+    var headSteps = [10, 20, 30, 40, 50, 70, 90, 120];
+    var GRAVITY = 9.81, WATER_DENSITY = 1000, SYSTEM_EFF = 0.85, SAFETY_MARGIN = 1.25;
+
+    function arrayData() {
+      var flow = parseFloat(flowEl.value) || 0;
+      var pumpEff = (parseFloat(effEl.value) || 0) / 100;
+      return headSteps.map(function (h) {
+        var hydraulic = (flow * h * WATER_DENSITY * GRAVITY) / 3600;
+        var pumpPower = pumpEff > 0 ? hydraulic / pumpEff : 0;
+        return Math.round((pumpPower / SYSTEM_EFF) * SAFETY_MARGIN);
+      });
+    }
+
+    var chart = new Chart(canvas, {
+      type: 'line',
+      data: {
+        labels: headSteps.map(function (h) { return h + 'm'; }),
+        datasets: [{
+          label: 'Solar array size (W)',
+          data: arrayData(),
+          borderColor: '#1E3A8A',
+          backgroundColor: 'rgba(30,58,138,0.10)',
+          borderWidth: 2, fill: true, tension: 0.3,
+          pointBackgroundColor: '#FACC15', pointRadius: 4
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { title: { display: true, text: 'Total head (m)', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, grid: { display: false } },
+          y: { title: { display: true, text: 'Solar array size (W)', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, beginAtZero: true }
+        }
+      }
+    });
+
+    function refresh() { chart.data.datasets[0].data = arrayData(); chart.update(); }
+    [flowEl, effEl].forEach(function (el) { if (el) el.addEventListener('input', refresh); });
+  })();
+</script>
+</body>
+</html>
