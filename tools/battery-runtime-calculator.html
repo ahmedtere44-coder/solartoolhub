@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Battery Runtime Calculator — How Long Will My Battery Last? | SolarToolHub</title>
+<meta name="description" content="Free battery runtime calculator. Enter your battery capacity and your load to find out how many hours your battery bank will actually last before it needs recharging.">
+<link rel="canonical" href="https://ahmedtere44-coder.github.io/solartoolhub/tools/battery-runtime-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SolarToolHub">
+<meta property="og:title" content="Battery Runtime Calculator — How Long Will My Battery Last? | SolarToolHub">
+<meta property="og:description" content="Free battery runtime calculator. Enter your battery capacity and your load to find out how many hours your battery bank will actually last before it needs recharging.">
+<meta property="og:url" content="https://ahmedtere44-coder.github.io/solartoolhub/tools/battery-runtime-calculator.html">
+<meta property="og:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Battery Runtime Calculator — How Long Will My Battery Last? | SolarToolHub">
+<meta name="twitter:description" content="Free battery runtime calculator. Enter your battery capacity and your load to find out how many hours your battery bank will actually last before it needs recharging.">
+<meta name="twitter:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I calculate how long my battery will last?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Take your usable battery energy — the battery's total capacity in kilowatt-hours multiplied by its depth of discharge — then account for inverter losses and divide by your load in kilowatts. The result is the runtime in hours. For example, a 5 kWh lithium battery at 90% depth of discharge with a 95% efficient inverter delivers about 4.3 kWh, so running a 0.5 kW load it lasts roughly 8.5 hours. This calculator does the full calculation automatically."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is depth of discharge and why does it matter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depth of discharge (DoD) is how much of a battery's capacity you can safely use. Lithium (LiFePO4) batteries allow about 80 to 90 percent, while lead-acid should only be discharged about 50 percent to avoid shortening its life. This means a lead-acid battery of the same rated capacity delivers far fewer usable hours than a lithium one, which is why DoD is central to any runtime estimate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my battery last less than its rated capacity suggests?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three things reduce real runtime below the simple capacity-divided-by-load figure: depth of discharge (you can't use 100% of the battery), inverter and wiring losses (typically 5 to 10 percent), and the fact that higher discharge rates slightly reduce usable capacity. A realistic estimate always applies depth of discharge and an efficiency factor, which is what this calculator does."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Battery runtime calculator",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools/battery-runtime-calculator.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html" class="active">Tools</a></li>
+      <li><a href="../articles.html">Guides</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../tools.html">Tools</a> / Battery runtime calculator</div>
+    <h1>Battery runtime calculator</h1>
+    <p class="lede">Already have a battery bank? Enter its capacity and the load you want to run — this tells you how many hours it will realistically last before it needs recharging, after depth of discharge and inverter losses.</p>
+  </div>
+</div>
+
+<div class="calc-layout">
+  <div class="container">
+    <div class="calc-card" style="max-width:680px;">
+      <form id="rt-calc-form">
+        <div class="field-group">
+          <label for="rt-capacity">Battery capacity (kWh)</label>
+          <input type="number" id="rt-capacity" value="5" min="0" step="0.1">
+          <span class="helper-text">Total rated energy of your battery bank. For Ah batteries: kWh = (Ah × Volts) ÷ 1000. Example: 100 Ah × 48 V = 4.8 kWh.</span>
+        </div>
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="rt-load">Load / power draw (W)</label>
+            <input type="number" id="rt-load" value="500" min="0" step="10">
+            <span class="helper-text">Total watts of the appliances running at once. Not sure? Build it up with the daily load calculator.</span>
+          </div>
+          <div class="field-group">
+            <label for="rt-dod">Depth of discharge (%)</label>
+            <select id="rt-dod">
+              <option value="90">Lithium (LiFePO4) — 90%</option>
+              <option value="80">Lithium conservative — 80%</option>
+              <option value="50" selected>Lead-acid — 50%</option>
+              <option value="100">Full capacity — 100%</option>
+            </select>
+            <span class="helper-text">How much of the battery you can safely use. Lead-acid ~50%, lithium ~80-90%.</span>
+          </div>
+        </div>
+        <div class="field-group">
+          <label for="rt-eff">Inverter efficiency (%)</label>
+          <input type="number" id="rt-eff" value="95" min="50" max="100" step="1">
+          <span class="helper-text">Energy lost converting DC to AC. 90-95% is typical for a good inverter. Use 100% for a pure DC load.</span>
+        </div>
+      </form>
+
+      <div class="calc-result" style="grid-template-columns: repeat(2, 1fr); margin-top:30px;">
+        <div>
+          <span class="label">Usable energy</span>
+          <span class="num" id="rt-usable">0</span>
+          <span class="unit">kWh</span>
+        </div>
+        <div>
+          <span class="label">Estimated runtime</span>
+          <span class="num" id="rt-runtime">0</span>
+          <span class="unit">hours</span>
+        </div>
+      </div>
+      <p class="helper-text" id="rt-summary" style="margin-top:16px; font-weight:600;"></p>
+
+      <button type="button" id="rt-pdf-btn" class="btn btn-accent" style="margin-top:20px;">⬇️ Download results as PDF</button>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="calc-diagram">
+    <figure>
+      <svg viewBox="0 0 380 374" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="rt-title rt-desc">
+        <title id="rt-title">How the battery runtime calculator works</title>
+        <desc id="rt-desc">Battery capacity times depth of discharge times inverter efficiency gives usable energy, divided by the load to get runtime in hours.</desc>
+        <defs>
+          <marker id="rtArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <text x="190" y="26" text-anchor="middle" font-family="Manrope, sans-serif" font-size="14" font-weight="700" fill="#111827">What you enter</text>
+
+        <g>
+          <rect x="30" y="40" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="105" y="60" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1E3A8A">Battery capacity</text>
+          <text x="105" y="78" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">kWh</text>
+        </g>
+        <g>
+          <rect x="200" y="40" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="275" y="60" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1E3A8A">Your load</text>
+          <text x="275" y="78" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">watts</text>
+        </g>
+
+        <line x1="105" y1="92" x2="160" y2="140" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#rtArrow)"/>
+        <line x1="275" y1="92" x2="220" y2="140" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#rtArrow)"/>
+
+        <g>
+          <rect x="70" y="142" width="240" height="52" rx="8" fill="#FEF9C3" stroke="#CA8A04" stroke-width="0.75"/>
+          <text x="190" y="162" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#854D0E">Usable energy</text>
+          <text x="190" y="180" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#854D0E">capacity × DoD × efficiency</text>
+        </g>
+
+        <line x1="190" y1="194" x2="190" y2="224" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#rtArrow)"/>
+
+        <g>
+          <rect x="70" y="226" width="240" height="52" rx="8" fill="#FEF9C3" stroke="#CA8A04" stroke-width="0.75"/>
+          <text x="190" y="246" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#854D0E">Divide by the load</text>
+          <text x="190" y="264" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#854D0E">usable energy ÷ power draw</text>
+        </g>
+
+        <line x1="190" y1="278" x2="190" y2="308" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#rtArrow)"/>
+
+        <g>
+          <rect x="55" y="310" width="270" height="44" rx="8" fill="#E9FBF4" stroke="#10B981" stroke-width="0.75"/>
+          <text x="190" y="332" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#065F46">Runtime in hours</text>
+        </g>
+      </svg>
+      <figcaption>How the calculator turns your battery and load into real runtime.</figcaption>
+    </figure>
+  </div>
+
+  <div class="calc-chart">
+    <h2 class="calc-chart-title">How runtime falls as the load grows</h2>
+    <p class="calc-chart-intro">This curve updates with your inputs above. It shows how the number of hours your battery lasts drops as the load you put on it increases — a bigger load drains the same battery much faster.</p>
+    <div class="calc-chart-canvas-wrap">
+      <canvas id="rt-curve" role="img" aria-label="Line chart showing battery runtime in hours decreasing as the load in watts increases, for your battery's usable energy.">Battery runtime in hours falls as the load in watts rises.</canvas>
+    </div>
+  </div>
+
+  <article class="article">
+
+    <p>Sizing a battery and knowing how long an existing battery will last are two different questions. Our <a href="battery-calculator.html">battery size calculator</a> answers the first — how big a bank you need for your usage. This tool answers the second, which is the one people ask in the moment: "I have this battery and this load — how many hours do I actually get?" It's the question that matters during a power cut, when planning an off-grid night, or when deciding whether your bank can carry a specific appliance.</p>
+
+    <h2>The simple version, and why it's wrong</h2>
+    <p>The naive calculation is just capacity divided by load: a 5 kWh battery running a 500 W (0.5 kW) load looks like it should last 10 hours. But that number is always too optimistic, for three reasons: you can't safely use 100% of a battery, the inverter wastes some energy converting DC to AC, and higher loads slightly reduce usable capacity. A realistic estimate has to account for the first two, which is what this calculator does.</p>
+
+    <h2>The formula</h2>
+    <p>First, find the <strong>usable energy</strong> — not the rated capacity, but what you can actually draw:</p>
+    <p style="font-family:monospace; background:var(--bg-soft); padding:14px 18px; border-radius:8px; font-size:0.95rem;">Usable energy (kWh) = Capacity × Depth of discharge × Inverter efficiency</p>
+    <p>Then divide by the load to get the runtime:</p>
+    <p style="font-family:monospace; background:var(--bg-soft); padding:14px 18px; border-radius:8px; font-size:0.95rem;">Runtime (hours) = Usable energy (kWh) ÷ Load (kW)</p>
+
+    <h2>A worked example</h2>
+    <p>Take a 5 kWh lithium battery running a 500 W load:</p>
+    <ul>
+      <li>Usable energy = 5 × 0.90 (DoD) × 0.95 (inverter) = <strong>4.28 kWh</strong></li>
+      <li>Runtime = 4.28 ÷ 0.5 = <strong>about 8.5 hours</strong></li>
+    </ul>
+    <p>So the real answer is 8.5 hours, not the 10 the naive math suggested. If that same battery were lead-acid at 50% depth of discharge, the usable energy would drop to about 2.4 kWh and the runtime to under 5 hours — from the same rated capacity. That gap is why battery chemistry matters so much.</p>
+
+    <h2>Why depth of discharge is the big lever</h2>
+    <p>Depth of discharge (DoD) is how much of the battery you can safely use without shortening its life. Lead-acid should only go to about 50%, while lithium (LiFePO4) handles 80-90% comfortably. This single factor often makes the difference between a bank that carries you through the night and one that taps out early. When comparing batteries, always compare usable energy, not rated capacity.</p>
+
+    <h2>Getting the numbers right</h2>
+    <p>If your battery is rated in amp-hours (Ah) rather than kWh, convert it first: kWh = (Ah × system voltage) ÷ 1000. And if you're not sure of your total load, our <a href="daily-load-calculator.html">daily load calculator</a> helps you add it up appliance by appliance. Once you know how long your bank lasts, the <a href="battery-calculator.html">battery size calculator</a> helps if you decide you need more capacity, and the <a href="off-grid-system-wizard.html">off-grid system wizard</a> sizes a complete system.</p>
+
+    <h2>Frequently asked questions</h2>
+    <h3>How do I calculate how long my battery will last?</h3>
+    <p>Take your usable energy — capacity in kWh times depth of discharge — account for inverter losses, then divide by your load in kW. The result is runtime in hours. A 5 kWh lithium battery at 90% DoD with a 95% inverter delivers about 4.3 kWh, so a 0.5 kW load lasts roughly 8.5 hours. This calculator does it automatically.</p>
+    <h3>What is depth of discharge and why does it matter?</h3>
+    <p>Depth of discharge is how much of a battery's capacity you can safely use. Lithium allows about 80 to 90 percent, while lead-acid should only be discharged about 50 percent. A lead-acid battery of the same rated capacity therefore delivers far fewer usable hours than lithium.</p>
+    <h3>Why does my battery last less than its rated capacity suggests?</h3>
+    <p>Three things reduce real runtime: depth of discharge (you can't use 100%), inverter and wiring losses (5 to 10 percent), and higher discharge rates slightly reducing usable capacity. A realistic estimate always applies depth of discharge and an efficiency factor.</p>
+
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="panel-calculator.html">Panel calculator</a></li>
+          <li><a href="inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="battery-calculator.html">Battery calculator</a></li>
+          <li><a href="battery-runtime-calculator.html">Battery runtime calculator</a></li>
+          <li><a href="cable-calculator.html">Cable calculator</a></li>
+          <li><a href="roi-calculator.html">ROI calculator</a></li>
+          <li><a href="charge-controller-calculator.html">Charge controller calculator</a></li>
+          <li><a href="panel-tilt-calculator.html">Panel tilt calculator</a></li>
+          <li><a href="generator-sizing-calculator.html">Generator sizing calculator</a></li>
+          <li><a href="daily-load-calculator.html">Daily energy load calculator</a></li>
+          <li><a href="off-grid-system-wizard.html">Off-grid system wizard</a></li>
+          <li><a href="string-sizing-calculator.html">String sizing calculator</a></li>
+          <li><a href="energy-production-calculator.html">Energy production calculator</a></li>
+          <li><a href="solar-water-pump-calculator.html">Solar water pump calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script>
+  (function () {
+    var form = document.getElementById('rt-calc-form');
+    if (!form) return;
+
+    function fmt(n) {
+      return n.toLocaleString(undefined, { maximumFractionDigits: 1 });
+    }
+
+    function hoursToText(hours) {
+      if (!isFinite(hours) || hours <= 0) return '';
+      var h = Math.floor(hours);
+      var m = Math.round((hours - h) * 60);
+      if (m === 60) { h += 1; m = 0; }
+      return 'That is about ' + h + ' h ' + (m > 0 ? m + ' min' : '') + ' of runtime at this load.';
+    }
+
+    function calcRuntime() {
+      var capacity = parseFloat(document.getElementById('rt-capacity').value) || 0;
+      var loadW = parseFloat(document.getElementById('rt-load').value) || 0;
+      var dod = (parseFloat(document.getElementById('rt-dod').value) || 0) / 100;
+      var eff = (parseFloat(document.getElementById('rt-eff').value) || 0) / 100;
+
+      var usable = capacity * dod * eff;
+      var loadKw = loadW / 1000;
+      var runtime = loadKw > 0 ? usable / loadKw : 0;
+
+      document.getElementById('rt-usable').textContent = fmt(usable);
+      document.getElementById('rt-runtime').textContent = fmt(runtime);
+      document.getElementById('rt-summary').textContent = hoursToText(runtime);
+    }
+
+    form.addEventListener('input', calcRuntime);
+    calcRuntime();
+
+    var rtPdfBtn = document.getElementById('rt-pdf-btn');
+    if (rtPdfBtn) {
+      rtPdfBtn.addEventListener('click', function () {
+        var capacity = document.getElementById('rt-capacity').value;
+        var loadW = document.getElementById('rt-load').value;
+        var dodSel = document.getElementById('rt-dod');
+        var dodText = dodSel.options[dodSel.selectedIndex].text;
+        var eff = document.getElementById('rt-eff').value;
+        var usable = document.getElementById('rt-usable').textContent;
+        var runtime = document.getElementById('rt-runtime').textContent;
+
+        var inputs = [
+          ['Battery capacity', capacity + ' kWh'],
+          ['Load / power draw', loadW + ' W'],
+          ['Depth of discharge', dodText],
+          ['Inverter efficiency', eff + ' %']
+        ];
+
+        var results = [
+          ['Usable energy', usable + ' kWh'],
+          ['Estimated runtime', runtime + ' hours']
+        ];
+
+        generateSolarToolHubResultsPDF({
+          subtitle: 'Battery Runtime — Results',
+          inputs: inputs,
+          resultsHeaders: ['Metric', 'Value'],
+          results: results,
+          nextSteps: {
+            text: 'Need a bigger bank? Size one from your usage with our:',
+            linkText: 'Battery Size Calculator',
+            url: 'https://ahmedtere44-coder.github.io/solartoolhub/tools/battery-calculator.html'
+          },
+          filename: 'solartoolhub-battery-runtime-results.pdf'
+        });
+      });
+    }
+  })();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+  (function () {
+    var canvas = document.getElementById('rt-curve');
+    if (!canvas || typeof Chart === 'undefined') return;
+
+    var capEl = document.getElementById('rt-capacity');
+    var dodEl = document.getElementById('rt-dod');
+    var effEl = document.getElementById('rt-eff');
+    var loadSteps = [100, 250, 500, 750, 1000, 1500, 2000, 3000];
+
+    function runtimeData() {
+      var capacity = parseFloat(capEl.value) || 0;
+      var dod = (parseFloat(dodEl.value) || 0) / 100;
+      var eff = (parseFloat(effEl.value) || 0) / 100;
+      var usable = capacity * dod * eff;
+      return loadSteps.map(function (w) {
+        var kw = w / 1000;
+        return kw > 0 ? Math.round((usable / kw) * 10) / 10 : 0;
+      });
+    }
+
+    var chart = new Chart(canvas, {
+      type: 'line',
+      data: {
+        labels: loadSteps.map(function (w) { return w + 'W'; }),
+        datasets: [{
+          label: 'Runtime (hours)',
+          data: runtimeData(),
+          borderColor: '#1E3A8A',
+          backgroundColor: 'rgba(30,58,138,0.10)',
+          borderWidth: 2, fill: true, tension: 0.3,
+          pointBackgroundColor: '#FACC15', pointRadius: 4
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { title: { display: true, text: 'Load (W)', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, grid: { display: false } },
+          y: { title: { display: true, text: 'Runtime (hours)', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, beginAtZero: true }
+        }
+      }
+    });
+
+    function refresh() { chart.data.datasets[0].data = runtimeData(); chart.update(); }
+    [capEl, dodEl, effEl].forEach(function (el) { if (el) el.addEventListener('input', refresh); });
+  })();
+</script>
+</body>
+</html>
