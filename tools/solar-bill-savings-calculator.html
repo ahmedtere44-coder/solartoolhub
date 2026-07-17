@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solar Bill Savings Calculator — How Much Will Solar Save Me? | SolarToolHub</title>
+<meta name="description" content="Free solar bill savings calculator. Estimate how much you'll save on your electricity bill each month, each year, and over 25 years — including rising electricity prices and how much of your bill solar covers.">
+<link rel="canonical" href="https://ahmedtere44-coder.github.io/solartoolhub/tools/solar-bill-savings-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SolarToolHub">
+<meta property="og:title" content="Solar Bill Savings Calculator — How Much Will Solar Save Me? | SolarToolHub">
+<meta property="og:description" content="Free solar bill savings calculator. Estimate how much you'll save on your electricity bill each month, each year, and over 25 years — including rising electricity prices and how much of your bill solar covers.">
+<meta property="og:url" content="https://ahmedtere44-coder.github.io/solartoolhub/tools/solar-bill-savings-calculator.html">
+<meta property="og:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Solar Bill Savings Calculator — How Much Will Solar Save Me? | SolarToolHub">
+<meta name="twitter:description" content="Free solar bill savings calculator. Estimate how much you'll save on your electricity bill each month, each year, and over 25 years — including rising electricity prices and how much of your bill solar covers.">
+<meta name="twitter:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much will solar save me on my electricity bill?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your monthly saving is the amount of grid electricity your solar system replaces, valued at your electricity rate. If solar offsets 400 kWh per month and you pay 0.12 per kWh, that's about 48 saved per month, or 576 in the first year. Over 25 years the total is much larger because electricity prices keep rising — this calculator adds that escalation in so you see the real lifetime figure."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do my solar savings grow every year?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because electricity prices rise over time. Every unit of power your solar system produces is a unit you don't buy from the grid, so as grid prices climb, the value of that self-produced energy climbs with them. A system saving 600 in its first year can save well over double that per year two decades later, even though it's producing roughly the same energy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between bill savings and payback period?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bill savings is how much money the solar system keeps in your pocket — per month, per year, and over its lifetime. Payback period is how long it takes those savings to equal what you paid for the system. This calculator focuses on the savings themselves; to find your payback period and long-term return on investment, use our separate solar ROI calculator."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What percentage of my electricity bill can solar cover?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on how your system is sized relative to your usage. A system that produces as much energy as you use over a year can offset most or all of your bill, though you may still pay fixed grid connection fees. Enter your current monthly bill and this calculator shows what share of it your solar offset covers."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Solar bill savings calculator",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools/solar-bill-savings-calculator.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html" class="active">Tools</a></li>
+      <li><a href="../articles.html">Guides</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../tools.html">Tools</a> / Solar bill savings calculator</div>
+    <h1>Solar bill savings calculator</h1>
+    <p class="lede">See how much solar takes off your electricity bill — this month, this year, and across 25 years — including the effect of rising electricity prices and how much of your current bill it covers.</p>
+  </div>
+</div>
+
+<div class="calc-layout">
+  <div class="container">
+    <div class="calc-card" style="max-width:680px;">
+      <form id="bs-calc-form">
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="bs-kwh">Monthly kWh offset by solar</label>
+            <input type="number" id="bs-kwh" value="400" min="0" step="10">
+            <span class="helper-text">How many units (kWh) per month your solar covers. Not sure? Estimate it with the energy production calculator.</span>
+          </div>
+          <div class="field-group">
+            <label for="bs-rate">Electricity rate (per kWh)</label>
+            <input type="number" id="bs-rate" value="0.12" min="0" step="0.01">
+            <span class="helper-text">Your tariff per kWh, in your local currency. Check a recent bill.</span>
+          </div>
+        </div>
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="bs-bill">Current monthly bill (optional)</label>
+            <input type="number" id="bs-bill" value="80" min="0" step="5">
+            <span class="helper-text">Your typical monthly electricity bill — used to show what share solar covers.</span>
+          </div>
+          <div class="field-group">
+            <label for="bs-escalation">Annual electricity price increase</label>
+            <select id="bs-escalation">
+              <option value="0">0% — stays flat</option>
+              <option value="2">2% per year</option>
+              <option value="3" selected>3% per year (typical)</option>
+              <option value="5">5% per year</option>
+              <option value="7">7% per year</option>
+            </select>
+            <span class="helper-text">Grid prices tend to rise every year, which grows your savings over time.</span>
+          </div>
+        </div>
+      </form>
+
+      <div class="calc-result" style="grid-template-columns: repeat(3, 1fr); margin-top:30px;">
+        <div>
+          <span class="label">Monthly saving</span>
+          <span class="num" id="bs-monthly">0</span>
+          <span class="unit">/ month</span>
+        </div>
+        <div>
+          <span class="label">First-year saving</span>
+          <span class="num" id="bs-yearly">0</span>
+          <span class="unit">/ year</span>
+        </div>
+        <div>
+          <span class="label">25-year total</span>
+          <span class="num" id="bs-lifetime">0</span>
+          <span class="unit">saved</span>
+        </div>
+      </div>
+      <p class="helper-text" id="bs-coverage" style="margin-top:16px; font-weight:600;"></p>
+
+      <button type="button" id="bs-pdf-btn" class="btn btn-accent" style="margin-top:20px;">⬇️ Download results as PDF</button>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="calc-diagram">
+    <figure>
+      <svg viewBox="0 0 380 374" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="bs-title bs-desc">
+        <title id="bs-title">How the solar bill savings calculator works</title>
+        <desc id="bs-desc">Monthly kWh offset times your electricity rate gives the monthly saving, scaled to a year, then projected across 25 years with rising prices.</desc>
+        <defs>
+          <marker id="bsArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <text x="190" y="26" text-anchor="middle" font-family="Manrope, sans-serif" font-size="14" font-weight="700" fill="#111827">What you enter</text>
+
+        <g>
+          <rect x="30" y="40" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="105" y="60" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1E3A8A">kWh offset</text>
+          <text x="105" y="78" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">per month</text>
+        </g>
+        <g>
+          <rect x="200" y="40" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="275" y="60" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1E3A8A">Electricity rate</text>
+          <text x="275" y="78" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">per kWh</text>
+        </g>
+
+        <line x1="105" y1="92" x2="160" y2="140" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#bsArrow)"/>
+        <line x1="275" y1="92" x2="220" y2="140" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#bsArrow)"/>
+
+        <g>
+          <rect x="70" y="142" width="240" height="52" rx="8" fill="#FEF9C3" stroke="#CA8A04" stroke-width="0.75"/>
+          <text x="190" y="162" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#854D0E">Monthly saving</text>
+          <text x="190" y="180" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#854D0E">kWh × rate</text>
+        </g>
+
+        <line x1="190" y1="194" x2="190" y2="224" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#bsArrow)"/>
+
+        <g>
+          <rect x="70" y="226" width="240" height="52" rx="8" fill="#FEF9C3" stroke="#CA8A04" stroke-width="0.75"/>
+          <text x="190" y="246" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#854D0E">Scale up + escalate</text>
+          <text x="190" y="264" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#854D0E">× 12 months, rising prices</text>
+        </g>
+
+        <line x1="190" y1="278" x2="190" y2="308" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#bsArrow)"/>
+
+        <g>
+          <rect x="45" y="310" width="290" height="44" rx="8" fill="#E9FBF4" stroke="#10B981" stroke-width="0.75"/>
+          <text x="190" y="332" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#065F46">Lifetime savings (25 yr)</text>
+        </g>
+      </svg>
+      <figcaption>How the calculator turns your usage and rate into lifetime savings.</figcaption>
+    </figure>
+  </div>
+
+  <div class="calc-chart">
+    <h2 class="calc-chart-title">How your yearly saving grows over time</h2>
+    <p class="calc-chart-intro">This curve updates with your inputs above. It shows your annual saving climbing year after year as electricity prices rise — the same solar energy is worth more every year the grid gets more expensive.</p>
+    <div class="calc-chart-canvas-wrap">
+      <canvas id="bs-curve" role="img" aria-label="Line chart showing annual solar savings increasing year over year across 25 years as electricity prices escalate.">Annual solar savings rise each year as electricity prices increase.</canvas>
+    </div>
+  </div>
+
+  <article class="article">
+
+    <p>"How much will solar actually save me?" is usually the first question anyone asks before going solar — and it's a different question from "how long until it pays for itself." This calculator answers the savings question directly: the money that stays in your pocket each month, each year, and across the system's 25-year life. If you want the payback period and return on investment instead, our <a href="roi-calculator.html">solar ROI calculator</a> handles that side.</p>
+
+    <h2>How solar savings actually work</h2>
+    <p>Every kilowatt-hour (kWh) your panels produce is a kilowatt-hour you don't buy from the grid. So your saving isn't really about the panels — it's about the grid electricity you avoid paying for. That makes the calculation simple at its core:</p>
+    <p style="font-family:monospace; background:var(--bg-soft); padding:14px 18px; border-radius:8px; font-size:0.95rem;">Monthly saving = kWh offset by solar × your electricity rate</p>
+    <p>If your system covers 400 kWh a month and you pay 0.12 per unit, that's about 48 a month, or 576 in the first year. Straightforward — but the first year is only the beginning of the story.</p>
+
+    <h2>Why savings grow every single year</h2>
+    <p>Electricity prices almost never stay flat. They creep up most years, and that steady climb is what makes solar savings grow over time. Your system keeps producing roughly the same energy, but each unit it produces is worth more as grid prices rise. A system saving 576 in year one might save well over 1,000 a year two decades later — for the same energy. That's why the 25-year total is far larger than simply multiplying the first year by 25, and why the chart above curves upward. This calculator lets you set an annual price increase (a few percent is typical) so the lifetime figure reflects reality rather than a flat guess.</p>
+
+    <h2>What share of your bill does solar cover?</h2>
+    <p>Savings only tell half the story — the other half is how much of your bill disappears. If you enter your current monthly bill, this calculator shows what percentage of it your solar offset covers. A well-sized system can wipe out most of a bill, though you'll often still pay fixed grid connection or standing charges that solar can't touch. Seeing the coverage percentage helps set realistic expectations: "solar covers about 70% of my bill" is a more honest picture than "solar eliminates my bill."</p>
+
+    <h2>Getting your numbers right</h2>
+    <p>The two inputs that matter most are the monthly kWh your system offsets and your electricity rate. If you don't know how much energy your system will produce, estimate it first with our <a href="energy-production-calculator.html">energy production calculator</a>, which turns system size and local sun hours into monthly kWh. For your rate, check a recent bill — divide the total by the kWh used to get your real effective rate, which is often higher than the headline tariff once fees are included.</p>
+
+    <h2>Savings vs payback — use both tools</h2>
+    <p>This calculator and the <a href="roi-calculator.html">ROI calculator</a> are two sides of the same decision. Bill savings answers "how much will I save?"; ROI answers "how long until the system pays for itself, and what's my total return?" Together they give you the full financial picture. Most people find it clearest to look at the savings first — the number is motivating and easy to grasp — then check the payback period to confirm the investment makes sense.</p>
+
+    <h2>Frequently asked questions</h2>
+    <h3>How much will solar save me on my electricity bill?</h3>
+    <p>Your monthly saving is the grid electricity your system replaces, valued at your rate. Offset 400 kWh a month at 0.12 per kWh and that's about 48 per month, or 576 the first year. The 25-year total is much larger because prices keep rising, which this calculator factors in.</p>
+    <h3>Why do my solar savings grow every year?</h3>
+    <p>Because electricity prices rise over time. Every unit your system produces is a unit you don't buy, so as grid prices climb, the value of your self-produced energy climbs too. A system saving 600 in year one can save more than double that per year two decades later.</p>
+    <h3>What is the difference between bill savings and payback period?</h3>
+    <p>Bill savings is the money the system keeps in your pocket over time. Payback period is how long those savings take to equal what you paid. This tool focuses on the savings; use the ROI calculator for payback and long-term return.</p>
+    <h3>What percentage of my electricity bill can solar cover?</h3>
+    <p>It depends on system size versus your usage. A system producing as much as you use over a year can offset most or all of your bill, though fixed grid fees may remain. Enter your current bill above to see the share your solar offset covers.</p>
+
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="panel-calculator.html">Panel calculator</a></li>
+          <li><a href="inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="battery-calculator.html">Battery calculator</a></li>
+          <li><a href="battery-runtime-calculator.html">Battery runtime calculator</a></li>
+          <li><a href="cable-calculator.html">Cable calculator</a></li>
+          <li><a href="roi-calculator.html">ROI calculator</a></li>
+          <li><a href="solar-bill-savings-calculator.html">Bill savings calculator</a></li>
+          <li><a href="charge-controller-calculator.html">Charge controller calculator</a></li>
+          <li><a href="panel-tilt-calculator.html">Panel tilt calculator</a></li>
+          <li><a href="generator-sizing-calculator.html">Generator sizing calculator</a></li>
+          <li><a href="daily-load-calculator.html">Daily energy load calculator</a></li>
+          <li><a href="off-grid-system-wizard.html">Off-grid system wizard</a></li>
+          <li><a href="string-sizing-calculator.html">String sizing calculator</a></li>
+          <li><a href="energy-production-calculator.html">Energy production calculator</a></li>
+          <li><a href="solar-water-pump-calculator.html">Solar water pump calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script>
+  (function () {
+    var form = document.getElementById('bs-calc-form');
+    if (!form) return;
+
+    var YEARS = 25;
+
+    function fmt(n) {
+      return n.toLocaleString(undefined, { maximumFractionDigits: 0 });
+    }
+    function fmt2(n) {
+      return n.toLocaleString(undefined, { maximumFractionDigits: 2 });
+    }
+
+    function lifetimeTotal(firstYear, esc) {
+      // sum of a geometric series: firstYear * (1 + esc)^i for i=0..YEARS-1
+      var total = 0;
+      for (var i = 0; i < YEARS; i++) {
+        total += firstYear * Math.pow(1 + esc, i);
+      }
+      return total;
+    }
+
+    function calcSavings() {
+      var kwh = parseFloat(document.getElementById('bs-kwh').value) || 0;
+      var rate = parseFloat(document.getElementById('bs-rate').value) || 0;
+      var bill = parseFloat(document.getElementById('bs-bill').value) || 0;
+      var esc = (parseFloat(document.getElementById('bs-escalation').value) || 0) / 100;
+
+      var monthly = kwh * rate;
+      var firstYear = monthly * 12;
+      var lifetime = lifetimeTotal(firstYear, esc);
+
+      document.getElementById('bs-monthly').textContent = fmt2(monthly);
+      document.getElementById('bs-yearly').textContent = fmt(firstYear);
+      document.getElementById('bs-lifetime').textContent = fmt(lifetime);
+
+      var coverageEl = document.getElementById('bs-coverage');
+      if (bill > 0 && monthly > 0) {
+        var pct = Math.min(100, (monthly / bill) * 100);
+        var extra = pct >= 100 ? ' Solar covers your entire usage-based bill (fixed grid fees may still apply).' : '';
+        coverageEl.textContent = 'Solar covers about ' + Math.round(pct) + '% of your current monthly bill.' + extra;
+      } else {
+        coverageEl.textContent = '';
+      }
+    }
+
+    form.addEventListener('input', calcSavings);
+    calcSavings();
+
+    var bsPdfBtn = document.getElementById('bs-pdf-btn');
+    if (bsPdfBtn) {
+      bsPdfBtn.addEventListener('click', function () {
+        var kwh = document.getElementById('bs-kwh').value;
+        var rate = document.getElementById('bs-rate').value;
+        var bill = document.getElementById('bs-bill').value;
+        var escSel = document.getElementById('bs-escalation');
+        var escText = escSel.options[escSel.selectedIndex].text;
+        var monthly = document.getElementById('bs-monthly').textContent;
+        var yearly = document.getElementById('bs-yearly').textContent;
+        var lifetime = document.getElementById('bs-lifetime').textContent;
+        var coverage = document.getElementById('bs-coverage').textContent;
+
+        var inputs = [
+          ['Monthly kWh offset', kwh + ' kWh'],
+          ['Electricity rate', rate + ' per kWh'],
+          ['Current monthly bill', bill],
+          ['Annual price increase', escText]
+        ];
+
+        var results = [
+          ['Monthly saving', monthly],
+          ['First-year saving', yearly],
+          ['25-year total saved', lifetime]
+        ];
+        if (coverage) { results.push(['Bill coverage', coverage.replace('Solar covers about ', '').replace(/ of your current monthly bill\..*$/, ' of current bill')]); }
+
+        generateSolarToolHubResultsPDF({
+          subtitle: 'Solar Bill Savings — Results',
+          inputs: inputs,
+          resultsHeaders: ['Metric', 'Value'],
+          results: results,
+          nextSteps: {
+            text: 'To find your payback period and total return, use our:',
+            linkText: 'Solar ROI Calculator',
+            url: 'https://ahmedtere44-coder.github.io/solartoolhub/tools/roi-calculator.html'
+          },
+          filename: 'solartoolhub-solar-bill-savings-results.pdf'
+        });
+      });
+    }
+  })();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+  (function () {
+    var canvas = document.getElementById('bs-curve');
+    if (!canvas || typeof Chart === 'undefined') return;
+
+    var kwhEl = document.getElementById('bs-kwh');
+    var rateEl = document.getElementById('bs-rate');
+    var escEl = document.getElementById('bs-escalation');
+    var YEARS = 25;
+
+    function yearlyData() {
+      var kwh = parseFloat(kwhEl.value) || 0;
+      var rate = parseFloat(rateEl.value) || 0;
+      var esc = (parseFloat(escEl.value) || 0) / 100;
+      var firstYear = kwh * rate * 12;
+      var arr = [];
+      for (var i = 0; i < YEARS; i++) {
+        arr.push(Math.round(firstYear * Math.pow(1 + esc, i)));
+      }
+      return arr;
+    }
+
+    var labels = [];
+    for (var y = 1; y <= YEARS; y++) { labels.push('Y' + y); }
+
+    var chart = new Chart(canvas, {
+      type: 'line',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Annual saving',
+          data: yearlyData(),
+          borderColor: '#1E3A8A',
+          backgroundColor: 'rgba(30,58,138,0.10)',
+          borderWidth: 2, fill: true, tension: 0.3,
+          pointBackgroundColor: '#FACC15', pointRadius: 2
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { title: { display: true, text: 'Year', color: '#4B5563' }, ticks: { color: '#9CA3AF', maxTicksLimit: 8 }, grid: { display: false } },
+          y: { title: { display: true, text: 'Annual saving', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, beginAtZero: true }
+        }
+      }
+    });
+
+    function refresh() { chart.data.datasets[0].data = yearlyData(); chart.update(); }
+    [kwhEl, rateEl, escEl].forEach(function (el) { if (el) el.addEventListener('input', refresh); });
+  })();
+</script>
+</body>
+</html>
