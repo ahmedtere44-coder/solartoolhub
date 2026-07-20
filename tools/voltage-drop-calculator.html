@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voltage Drop Calculator — Cable Voltage Loss in Volts & % | SolarToolHub</title>
+<meta name="description" content="Free voltage drop calculator. Enter your cable size, length, current, and system voltage to find the actual voltage drop in volts and percent — and whether it's within safe limits.">
+<link rel="canonical" href="https://ahmedtere44-coder.github.io/solartoolhub/tools/voltage-drop-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SolarToolHub">
+<meta property="og:title" content="Voltage Drop Calculator — Cable Voltage Loss in Volts & % | SolarToolHub">
+<meta property="og:description" content="Free voltage drop calculator. Enter your cable size, length, current, and system voltage to find the actual voltage drop in volts and percent — and whether it's within safe limits.">
+<meta property="og:url" content="https://ahmedtere44-coder.github.io/solartoolhub/tools/voltage-drop-calculator.html">
+<meta property="og:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Voltage Drop Calculator — Cable Voltage Loss in Volts & % | SolarToolHub">
+<meta name="twitter:description" content="Free voltage drop calculator. Enter your cable size, length, current, and system voltage to find the actual voltage drop in volts and percent — and whether it's within safe limits.">
+<meta name="twitter:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I calculate voltage drop in a cable?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Voltage drop equals 2 times the one-way cable length, times the current, times the resistivity of the conductor, divided by the cable's cross-sectional area. The factor of 2 accounts for the current traveling out and back. For copper the resistivity is about 0.0175 ohm-mm-squared per meter. Divide the resulting voltage drop by the system voltage to get the drop as a percentage. This calculator does all of this for you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is an acceptable voltage drop for solar cables?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The common rule of thumb is to keep voltage drop at or below 3 percent for the main power-carrying cables, and below 5 percent total including all runs. Lower is always better because any voltage lost in the cable is energy wasted as heat. On low-voltage DC systems, such as 12V and 24V battery wiring, keeping drop low is especially important because a small voltage loss is a large percentage of the system voltage."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does voltage drop matter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Voltage drop wastes energy as heat in the cable, reduces the voltage delivered to your equipment, and can cause devices to underperform or shut off. In solar systems it directly reduces the power reaching your batteries or loads, and excessive drop can cause overheating of undersized cables, which is a safety hazard. Keeping drop within limits protects both performance and safety."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I reduce voltage drop?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There are three main ways to reduce voltage drop: use a thicker cable with a larger cross-sectional area, shorten the cable run, or raise the system voltage so the same power is carried at a lower current. Increasing cable size is the most common fix. Raising system voltage is very effective because voltage drop percentage falls sharply at higher voltages for the same power."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Voltage drop calculator",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools/voltage-drop-calculator.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html" class="active">Tools</a></li>
+      <li><a href="../articles.html">Guides</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../tools.html">Tools</a> / Voltage drop calculator</div>
+    <h1>Voltage drop calculator</h1>
+    <p class="lede">Already know your cable size? Enter it along with the length, current, and system voltage to find the actual voltage drop — in volts and as a percentage — and see whether it's within safe limits.</p>
+  </div>
+</div>
+
+<div class="calc-layout">
+  <div class="container">
+    <div class="calc-card" style="max-width:680px;">
+      <form id="vd-calc-form">
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="vd-size">Cable size (mm²)</label>
+            <input type="number" id="vd-size" value="6" min="0.1" step="0.1">
+            <span class="helper-text">Cross-sectional area of your conductor. Common sizes: 2.5, 4, 6, 10, 16, 25 mm².</span>
+          </div>
+          <div class="field-group">
+            <label for="vd-length">One-way cable length (m)</label>
+            <input type="number" id="vd-length" value="10" min="0" step="0.5">
+            <span class="helper-text">Distance one way from source to load. The round trip is handled automatically.</span>
+          </div>
+        </div>
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="vd-current">Current (A)</label>
+            <input type="number" id="vd-current" value="20" min="0" step="1">
+            <span class="helper-text">Current flowing through the cable in amps. If you know watts: A = W ÷ V.</span>
+          </div>
+          <div class="field-group">
+            <label for="vd-voltage">System voltage (V)</label>
+            <select id="vd-voltage">
+              <option value="12">12 V</option>
+              <option value="24">24 V</option>
+              <option value="48" selected>48 V</option>
+              <option value="120">120 V</option>
+              <option value="230">230 V</option>
+            </select>
+            <span class="helper-text">Your system's nominal voltage — used to express the drop as a percentage.</span>
+          </div>
+        </div>
+        <div class="field-group">
+          <label for="vd-material">Conductor material</label>
+          <select id="vd-material">
+            <option value="0.0175" selected>Copper</option>
+            <option value="0.0282">Aluminium</option>
+          </select>
+          <span class="helper-text">Copper is standard. Aluminium has higher resistance so more drop for the same size.</span>
+        </div>
+      </form>
+
+      <div class="calc-result">
+        <div>
+          <span class="num" id="vd-volts">0 V</span>
+          <span class="lbl">voltage drop</span>
+        </div>
+        <div>
+          <span class="num" id="vd-percent">0%</span>
+          <span class="lbl">of system voltage</span>
+        </div>
+      </div>
+      <p class="helper-text" id="vd-verdict" style="margin-top:16px; font-weight:600;"></p>
+
+      <button type="button" id="vd-pdf-btn" class="btn btn-accent" style="margin-top:20px;">⬇️ Download results as PDF</button>
+      <p class="helper-text">Round-trip distance (out and back) is already accounted for. Copper resistivity 0.0175, aluminium 0.0282 Ω·mm²/m.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="calc-diagram">
+    <figure>
+      <svg viewBox="0 0 380 374" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="vd-title vd-desc">
+        <title id="vd-title">How the voltage drop calculator works</title>
+        <desc id="vd-desc">Cable length, current, and cross-sectional area combine to give the voltage drop in volts, which divided by system voltage gives the percentage drop.</desc>
+        <defs>
+          <marker id="vdArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <text x="190" y="26" text-anchor="middle" font-family="Manrope, sans-serif" font-size="14" font-weight="700" fill="#111827">What you enter</text>
+
+        <g>
+          <rect x="24" y="40" width="104" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="76" y="61" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E3A8A">Length</text>
+          <text x="76" y="79" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">metres</text>
+        </g>
+        <g>
+          <rect x="138" y="40" width="104" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="190" y="61" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E3A8A">Current</text>
+          <text x="190" y="79" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">amps</text>
+        </g>
+        <g>
+          <rect x="252" y="40" width="104" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="304" y="61" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E3A8A">Cable size</text>
+          <text x="304" y="79" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">mm²</text>
+        </g>
+
+        <line x1="76" y1="92" x2="165" y2="140" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#vdArrow)"/>
+        <line x1="190" y1="92" x2="190" y2="140" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#vdArrow)"/>
+        <line x1="304" y1="92" x2="215" y2="140" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#vdArrow)"/>
+
+        <g>
+          <rect x="70" y="142" width="240" height="52" rx="8" fill="#FEF9C3" stroke="#CA8A04" stroke-width="0.75"/>
+          <text x="190" y="162" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#854D0E">Voltage drop (V)</text>
+          <text x="190" y="180" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#854D0E">2 × L × I × ρ ÷ area</text>
+        </g>
+
+        <line x1="190" y1="194" x2="190" y2="224" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#vdArrow)"/>
+
+        <g>
+          <rect x="70" y="226" width="240" height="52" rx="8" fill="#FEF9C3" stroke="#CA8A04" stroke-width="0.75"/>
+          <text x="190" y="246" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#854D0E">Divide by system voltage</text>
+          <text x="190" y="264" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#854D0E">drop ÷ V × 100</text>
+        </g>
+
+        <line x1="190" y1="278" x2="190" y2="308" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#vdArrow)"/>
+
+        <g>
+          <rect x="55" y="310" width="270" height="44" rx="8" fill="#E9FBF4" stroke="#10B981" stroke-width="0.75"/>
+          <text x="190" y="332" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#065F46">Voltage drop as %</text>
+        </g>
+      </svg>
+      <figcaption>How the calculator turns your cable details into voltage drop.</figcaption>
+    </figure>
+  </div>
+
+  <div class="calc-chart">
+    <h2 class="calc-chart-title">How voltage drop grows with cable length</h2>
+    <p class="calc-chart-intro">This curve updates with your inputs above. It shows how the voltage drop percentage rises as the cable run gets longer — the further the power has to travel, the more voltage is lost along the way.</p>
+    <div class="calc-chart-canvas-wrap">
+      <canvas id="vd-curve" role="img" aria-label="Line chart showing voltage drop percentage increasing as the one-way cable length increases.">Voltage drop percentage rises as cable length increases.</canvas>
+    </div>
+  </div>
+
+  <article class="article">
+
+    <p>Voltage drop is the quiet performance-killer of solar and DC wiring. Every cable has some resistance, and pushing current through that resistance loses a bit of voltage along the way — energy that turns into heat instead of reaching your batteries, inverter, or loads. Our <a href="cable-calculator.html">cable size calculator</a> works the other direction (it picks a cable size for an allowable drop); this tool is for when you already have a cable in mind and want to know the actual drop it will produce.</p>
+
+    <h2>The formula</h2>
+    <p>For a DC or single-phase run, voltage drop is:</p>
+    <p style="font-family:monospace; background:var(--bg-soft); padding:14px 18px; border-radius:8px; font-size:0.95rem;">Voltage drop (V) = 2 × L × I × ρ ÷ A</p>
+    <p>Where <strong>L</strong> is the one-way cable length in meters, <strong>I</strong> is the current in amps, <strong>ρ</strong> (rho) is the conductor resistivity (0.0175 Ω·mm²/m for copper, 0.0282 for aluminium), and <strong>A</strong> is the cable's cross-sectional area in mm². The <strong>× 2</strong> accounts for the current traveling out to the load and back. To express it as a percentage, divide by the system voltage and multiply by 100.</p>
+
+    <h2>A worked example</h2>
+    <p>Take a 6 mm² copper cable, 10 m one-way, carrying 20 A on a 48 V system:</p>
+    <ul>
+      <li>Voltage drop = 2 × 10 × 20 × 0.0175 ÷ 6 = <strong>1.17 V</strong></li>
+      <li>As a percentage = 1.17 ÷ 48 × 100 = <strong>2.4%</strong></li>
+    </ul>
+    <p>That's within the common 3% guideline, so this cable is fine for this run. If you dropped to a 4 mm² cable, the drop would rise to about 3.5% — over the limit, and a sign you'd want the thicker conductor.</p>
+
+    <h2>What counts as acceptable?</h2>
+    <p>The widely used rule of thumb is <strong>3% or less</strong> for main power cables, and <strong>5% maximum</strong> for the total across all runs. Lower is always better — every bit of dropped voltage is wasted energy. On low-voltage systems (12 V and 24 V) voltage drop is especially punishing, because even a small voltage loss is a big percentage of the system voltage. This is one of the strongest arguments for wiring larger systems at 48 V.</p>
+
+    <h2>Three ways to reduce voltage drop</h2>
+    <ul>
+      <li><strong>Use a thicker cable.</strong> Doubling the cross-sectional area roughly halves the drop. This is the most common fix.</li>
+      <li><strong>Shorten the run.</strong> Drop is directly proportional to length — moving equipment closer helps directly.</li>
+      <li><strong>Raise the system voltage.</strong> Carrying the same power at a higher voltage means less current, and less current means dramatically less drop. Going from 24 V to 48 V is a big improvement.</li>
+    </ul>
+
+    <h2>Related tools</h2>
+    <p>If the drop you get here is too high, use the <a href="cable-calculator.html">cable size calculator</a> to find the correct size for your target drop. To work out the current from your load, the <a href="daily-load-calculator.html">daily load calculator</a> and <a href="panel-calculator.html">panel calculator</a> can help you understand your system's power and current draw.</p>
+
+    <h2>Frequently asked questions</h2>
+    <h3>How do I calculate voltage drop in a cable?</h3>
+    <p>Voltage drop = 2 × one-way length × current × resistivity ÷ cross-sectional area. The ×2 covers the out-and-back path. For copper, resistivity is about 0.0175 Ω·mm²/m. Divide by system voltage for the percentage. This calculator does it all automatically.</p>
+    <h3>What is an acceptable voltage drop for solar cables?</h3>
+    <p>Keep it at or below 3% for main cables, and under 5% total. Lower is better since dropped voltage is wasted energy. Low-voltage 12V/24V systems need extra care because a small drop is a big percentage.</p>
+    <h3>Why does voltage drop matter?</h3>
+    <p>It wastes energy as heat, reduces voltage delivered to equipment, and can cause devices to underperform. Excessive drop on undersized cable also causes overheating — a safety hazard.</p>
+    <h3>How can I reduce voltage drop?</h3>
+    <p>Use a thicker cable, shorten the run, or raise the system voltage. Thicker cable is the usual fix; higher voltage is very effective because it lowers the current for the same power.</p>
+
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="panel-calculator.html">Panel calculator</a></li>
+          <li><a href="battery-calculator.html">Battery calculator</a></li>
+          <li><a href="inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="cable-calculator.html">Cable calculator</a></li>
+          <li><a href="roi-calculator.html">ROI calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script>
+  (function () {
+    var form = document.getElementById('vd-calc-form');
+    if (!form) return;
+
+    function calcVD() {
+      var area = parseFloat(document.getElementById('vd-size').value) || 0;
+      var length = parseFloat(document.getElementById('vd-length').value) || 0;
+      var current = parseFloat(document.getElementById('vd-current').value) || 0;
+      var voltage = parseFloat(document.getElementById('vd-voltage').value) || 0;
+      var rho = parseFloat(document.getElementById('vd-material').value) || 0.0175;
+
+      var drop = area > 0 ? (2 * length * current * rho) / area : 0;
+      var pct = voltage > 0 ? (drop / voltage) * 100 : 0;
+
+      document.getElementById('vd-volts').textContent = drop.toFixed(2) + ' V';
+      document.getElementById('vd-percent').textContent = pct.toFixed(1) + '%';
+
+      var verdict = document.getElementById('vd-verdict');
+      if (pct === 0) {
+        verdict.textContent = '';
+      } else if (pct <= 3) {
+        verdict.textContent = '✓ Within the recommended 3% limit — this cable is fine for this run.';
+        verdict.style.color = '#059669';
+      } else if (pct <= 5) {
+        verdict.textContent = '⚠ Between 3% and 5% — acceptable but not ideal. Consider a thicker cable.';
+        verdict.style.color = '#CA8A04';
+      } else {
+        verdict.textContent = '✗ Over 5% — too high. Use a thicker cable, shorten the run, or raise the voltage.';
+        verdict.style.color = '#DC2626';
+      }
+    }
+
+    form.addEventListener('input', calcVD);
+    calcVD();
+
+    var vdPdfBtn = document.getElementById('vd-pdf-btn');
+    if (vdPdfBtn) {
+      vdPdfBtn.addEventListener('click', function () {
+        var area = document.getElementById('vd-size').value;
+        var length = document.getElementById('vd-length').value;
+        var current = document.getElementById('vd-current').value;
+        var voltSel = document.getElementById('vd-voltage');
+        var voltage = voltSel.options[voltSel.selectedIndex].text;
+        var matSel = document.getElementById('vd-material');
+        var material = matSel.options[matSel.selectedIndex].text;
+        var volts = document.getElementById('vd-volts').textContent;
+        var percent = document.getElementById('vd-percent').textContent;
+        var verdict = document.getElementById('vd-verdict').textContent;
+
+        var inputs = [
+          ['Cable size', area + ' mm2'],
+          ['One-way length', length + ' m'],
+          ['Current', current + ' A'],
+          ['System voltage', voltage],
+          ['Conductor', material]
+        ];
+
+        var results = [
+          ['Voltage drop', volts],
+          ['Drop percentage', percent]
+        ];
+        if (verdict) { results.push(['Assessment', verdict.replace(/^[^\w]+/, '')]); }
+
+        generateSolarToolHubResultsPDF({
+          subtitle: 'Voltage Drop — Results',
+          inputs: inputs,
+          resultsHeaders: ['Metric', 'Value'],
+          results: results,
+          nextSteps: {
+            text: 'If the drop is too high, find the right cable size with our:',
+            linkText: 'Cable Size Calculator',
+            url: 'https://ahmedtere44-coder.github.io/solartoolhub/tools/cable-calculator.html'
+          },
+          filename: 'solartoolhub-voltage-drop-results.pdf'
+        });
+      });
+    }
+  })();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+  (function () {
+    var canvas = document.getElementById('vd-curve');
+    if (!canvas || typeof Chart === 'undefined') return;
+
+    var sizeEl = document.getElementById('vd-size');
+    var currentEl = document.getElementById('vd-current');
+    var voltageEl = document.getElementById('vd-voltage');
+    var materialEl = document.getElementById('vd-material');
+    var lengthSteps = [5, 10, 15, 20, 30, 40, 50, 70];
+
+    function pctData() {
+      var area = parseFloat(sizeEl.value) || 0;
+      var current = parseFloat(currentEl.value) || 0;
+      var voltage = parseFloat(voltageEl.value) || 0;
+      var rho = parseFloat(materialEl.value) || 0.0175;
+      return lengthSteps.map(function (L) {
+        if (area <= 0 || voltage <= 0) return 0;
+        var drop = (2 * L * current * rho) / area;
+        return Math.round((drop / voltage) * 100 * 10) / 10;
+      });
+    }
+
+    var chart = new Chart(canvas, {
+      type: 'line',
+      data: {
+        labels: lengthSteps.map(function (L) { return L + 'm'; }),
+        datasets: [{
+          label: 'Voltage drop (%)',
+          data: pctData(),
+          borderColor: '#1E3A8A',
+          backgroundColor: 'rgba(30,58,138,0.10)',
+          borderWidth: 2, fill: true, tension: 0.3,
+          pointBackgroundColor: '#FACC15', pointRadius: 4
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { title: { display: true, text: 'One-way cable length (m)', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, grid: { display: false } },
+          y: { title: { display: true, text: 'Voltage drop (%)', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, beginAtZero: true }
+        }
+      }
+    });
+
+    function refresh() { chart.data.datasets[0].data = pctData(); chart.update(); }
+    [sizeEl, currentEl, voltageEl, materialEl].forEach(function (el) { if (el) el.addEventListener('input', refresh); });
+  })();
+</script>
+</body>
+</html>
