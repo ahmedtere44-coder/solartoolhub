@@ -305,6 +305,8 @@
     <p>Min panels = ceil( MPPT minimum voltage ÷ Vmp(corrected) )</p>
     <p>Any string length between the minimum and maximum is electrically safe and stays within the MPPT tracking window. Within that range, longer strings generally mean fewer parallel strings and simpler combiner wiring — but always leave a small safety buffer below the absolute maximum rather than designing right up against it.</p>
 
+    <p>String voltage must match your <a href="charge-controller-calculator.html">charge controller</a> or inverter's MPPT window, so check both together. Since temperature drives the voltage swings this calculator accounts for, our guide on <a href="../articles/solar-panels-hot-climates.html">solar panels in hot climates</a> explains why the temperature coefficient matters so much. Start with your <a href="panel-calculator.html">panel count</a> first.</p>
+
     <h2>Frequently asked questions</h2>
     <h3>What temperature should I use for "record low"?</h3>
     <p>Use the lowest recorded ambient temperature for your specific location, not a global average — local meteorological records or a nearby weather station's historical extreme minimum are the standard reference. Using a national average instead of your actual site's extreme can leave a string dangerously oversized for a rare but real cold snap.</p>
