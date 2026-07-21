@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Off-Grid Solar System Guide — Sizing, Components & Planning | SolarToolHub</title>
+<meta name="description" content="A complete off-grid solar system guide: how off-grid systems work, the components you need, and step-by-step sizing with free calculators for load, panels, battery, charge controller, and inverter.">
+<link rel="canonical" href="https://ahmedtere44-coder.github.io/solartoolhub/articles/off-grid-solar-system-guide.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SolarToolHub">
+<meta property="og:title" content="Off-Grid Solar System Guide — Sizing, Components & Planning | SolarToolHub">
+<meta property="og:description" content="A complete off-grid solar system guide: how off-grid systems work, the components you need, and step-by-step sizing with free calculators for load, panels, battery, charge controller, and inverter.">
+<meta property="og:url" content="https://ahmedtere44-coder.github.io/solartoolhub/articles/off-grid-solar-system-guide.html">
+<meta property="og:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Off-Grid Solar System Guide — Sizing, Components & Planning | SolarToolHub">
+<meta name="twitter:description" content="A complete off-grid solar system guide: how off-grid systems work, the components you need, and step-by-step sizing with free calculators.">
+<meta name="twitter:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What do I need for an off-grid solar system?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An off-grid solar system needs five core components: solar panels to generate power, a charge controller to safely charge the batteries, a battery bank to store energy for night and cloudy days, an inverter to convert DC to the AC your appliances use, and the correctly sized cables and protection to tie it all together. Sizing starts from your daily energy consumption and works outward to each component."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I size an off-grid solar system?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Start by adding up your daily energy use in watt-hours, then size the battery bank to store one to three days of that energy, size the solar array to replace it during available sun hours, size the charge controller to the array's current, and size the inverter to your peak simultaneous load. Each step has a dedicated calculator on this page, or you can use the all-in-one off-grid system wizard."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do off-grid systems need batteries?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Unlike grid-tied systems that use the utility grid as backup, an off-grid system has no grid to fall back on, so a battery bank is essential to provide power at night and during cloudy weather. The battery bank is usually the most expensive part of an off-grid system, which is why sizing it accurately matters so much."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ahmedtere44-coder.github.io/solartoolhub/" },
+    { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://ahmedtere44-coder.github.io/solartoolhub/articles.html" },
+    { "@type": "ListItem", "position": 3, "name": "Off-grid solar system guide", "item": "https://ahmedtere44-coder.github.io/solartoolhub/articles/off-grid-solar-system-guide.html" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html">Tools</a></li>
+      <li><a href="../articles.html" class="active">Guides</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../articles.html">Guides</a> / Off-grid solar system guide</div>
+    <h1>The complete off-grid solar system guide</h1>
+    <p class="lede">Everything you need to plan an off-grid solar system — how it works, the components involved, and a step-by-step sizing path with a free calculator for each stage. Start at the top, or jump to the tool you need.</p>
+  </div>
+</div>
+
+<div class="container">
+  <article class="article" style="padding-top:48px;">
+
+    <p>Going off-grid means building a power system that stands completely on its own — no utility connection to lean on. That makes it one of the most rewarding solar projects to plan, and also the one where correct sizing matters most, because every component has to carry its share with no grid as a safety net. This guide walks through the whole picture, then points you to the exact calculator for each decision.</p>
+
+    <h2>How an off-grid system works</h2>
+    <p>An off-grid system follows a simple energy flow: the <strong>solar panels</strong> generate DC power during daylight, a <strong>charge controller</strong> regulates that power to safely charge a <strong>battery bank</strong>, and an <strong>inverter</strong> converts the stored DC into the AC electricity your appliances use — day or night. Because there's no grid to absorb surplus or cover shortfalls, the battery bank is the heart of the system, storing enough energy to carry you through nights and cloudy days. If you're still deciding between system types, our <a href="grid-tied-vs-off-grid-vs-hybrid.html">grid-tied vs off-grid vs hybrid guide</a> compares all three.</p>
+
+    <h2>The five core components</h2>
+    <p>Every off-grid system is built from the same five building blocks. Size them in the right order — starting from how much energy you actually use — and the system will be balanced, safe, and reliable:</p>
+  </article>
+
+  <section style="max-width:960px; margin:0 auto 8px;">
+    <div class="grid-3">
+      <div class="tool-card">
+        <div class="tool-cat">Step 1</div>
+        <h3>Daily energy load</h3>
+        <p>Add up how many watt-hours you use per day — the number every other component is sized from. Start here.</p>
+        <a href="../tools/daily-load-calculator.html" class="tool-link">Daily load calculator →</a>
+      </div>
+      <div class="tool-card">
+        <div class="tool-cat">Step 2</div>
+        <h3>Battery bank</h3>
+        <p>Size the battery to store one to three days of your load, accounting for depth of discharge and chemistry.</p>
+        <a href="../tools/battery-calculator.html" class="tool-link">Battery calculator →</a>
+      </div>
+      <div class="tool-card">
+        <div class="tool-cat">Step 3</div>
+        <h3>Solar array</h3>
+        <p>Size the panels to replace a full day's energy during your location's available peak sun hours.</p>
+        <a href="../tools/panel-calculator.html" class="tool-link">Panel calculator →</a>
+      </div>
+      <div class="tool-card">
+        <div class="tool-cat">Step 4</div>
+        <h3>Charge controller</h3>
+        <p>Match the controller to your array's current and battery voltage, with a safety margin.</p>
+        <a href="../tools/charge-controller-calculator.html" class="tool-link">Charge controller calculator →</a>
+      </div>
+      <div class="tool-card">
+        <div class="tool-cat">Step 5</div>
+        <h3>Inverter</h3>
+        <p>Size the inverter to your peak simultaneous AC load, including appliance surge on startup.</p>
+        <a href="../tools/inverter-calculator.html" class="tool-link">Inverter calculator →</a>
+      </div>
+      <div class="tool-card">
+        <div class="tool-cat">All-in-one</div>
+        <h3>Off-grid wizard</h3>
+        <p>Prefer to do it all at once? The wizard combines every step into one full system recommendation.</p>
+        <a href="../tools/off-grid-system-wizard.html" class="tool-link">Off-grid system wizard →</a>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <h2>The sizing order (and why it matters)</h2>
+    <p>The sequence above isn't arbitrary — each step feeds the next. Your <a href="../tools/daily-load-calculator.html">daily load</a> determines how big a <a href="../tools/battery-calculator.html">battery bank</a> you need. The battery capacity and your local sun hours set the size of the <a href="../tools/panel-calculator.html">solar array</a>. The array's output current sizes the <a href="../tools/charge-controller-calculator.html">charge controller</a>. And your peak simultaneous load sizes the <a href="../tools/inverter-calculator.html">inverter</a>. Skip ahead or guess at the load, and every downstream number is off. That's why "how much do you actually use?" is always the first question.</p>
+
+    <h2>Wiring and protection</h2>
+    <p>Once the main components are sized, the cables between them have to be sized too — undersized wiring wastes energy as heat and can be a fire risk. Use the <a href="../tools/cable-calculator.html">cable calculator</a> to pick the right conductor size for each run, and the <a href="../tools/voltage-drop-calculator.html">voltage drop calculator</a> to confirm an existing cable stays within safe limits. For panels wired in series, the <a href="../tools/string-sizing-calculator.html">string sizing calculator</a> keeps your array voltage inside the controller's window.</p>
+
+    <h2>Battery bank: the part to get right</h2>
+    <p>In an off-grid system the battery bank is usually the biggest cost and the component most sensitive to correct sizing. Too small and you'll run out of power on cloudy days; too large and you've overspent on capacity you rarely use. Depth of discharge and chemistry make a huge difference — lithium delivers far more usable energy than lead-acid of the same rating. To see how long a given bank will actually last on a specific load, use the <a href="../tools/battery-runtime-calculator.html">battery runtime calculator</a>.</p>
+
+    <h2>Keeping it running</h2>
+    <p>An off-grid system is only as good as its upkeep, since there's no grid to mask problems. Regular checks catch loose connections and declining batteries before they leave you in the dark — our <a href="annual-maintenance-checklist.html">annual maintenance checklist</a> covers what to inspect and when.</p>
+
+    <h2>Frequently asked questions</h2>
+    <h3>What do I need for an off-grid solar system?</h3>
+    <p>Five core components: solar panels, a charge controller, a battery bank, an inverter, and correctly sized cables with protection. Sizing starts from your daily energy consumption and works outward to each component.</p>
+    <h3>How do I size an off-grid solar system?</h3>
+    <p>Add up your daily watt-hours, size the battery for one to three days of storage, size the array to replace that energy during your sun hours, size the charge controller to the array current, and size the inverter to your peak load. Use the calculators above, or the all-in-one wizard.</p>
+    <h3>Do off-grid systems need batteries?</h3>
+    <p>Yes — with no grid to fall back on, a battery bank is essential for power at night and during cloudy weather. It's usually the most expensive part, so accurate sizing matters most here.</p>
+
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="../tools/panel-calculator.html">Panel calculator</a></li>
+          <li><a href="../tools/battery-calculator.html">Battery calculator</a></li>
+          <li><a href="../tools/inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="../tools/cable-calculator.html">Cable calculator</a></li>
+          <li><a href="../tools/roi-calculator.html">ROI calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
