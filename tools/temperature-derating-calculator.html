@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solar Panel Temperature Derating Calculator — Power Loss from Heat | SolarToolHub</title>
+<meta name="description" content="Free solar panel temperature derating calculator. See how much power your panels lose on hot days based on cell temperature and the panel's temperature coefficient — with your effective output in watts.">
+<link rel="canonical" href="https://ahmedtere44-coder.github.io/solartoolhub/tools/temperature-derating-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SolarToolHub">
+<meta property="og:title" content="Solar Panel Temperature Derating Calculator — Power Loss from Heat | SolarToolHub">
+<meta property="og:description" content="See how much power your solar panels lose on hot days from the temperature coefficient — with your effective output in watts.">
+<meta property="og:url" content="https://ahmedtere44-coder.github.io/solartoolhub/tools/temperature-derating-calculator.html">
+<meta property="og:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Solar Panel Temperature Derating Calculator | SolarToolHub">
+<meta name="twitter:description" content="See how much power your solar panels lose on hot days from the temperature coefficient.">
+<meta name="twitter:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much power do solar panels lose in heat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Solar panels lose roughly 0.3% to 0.5% of their power for every degree Celsius their cell temperature rises above the 25C standard test condition. On a hot day, cell temperature can reach 60-70C, so a panel with a -0.4% per degree coefficient can lose 15-18% of its rated power. This is why hot, sunny regions don't always produce as much as their strong sunlight suggests."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the temperature coefficient of a solar panel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The temperature coefficient of power (Pmax) tells you how much a panel's output changes per degree Celsius above 25C. It's a negative number, typically between -0.3% and -0.5% per degree C. A smaller magnitude (closer to zero) is better because it means the panel loses less power as it heats up. You'll find it on the panel's datasheet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I reduce temperature power loss?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can't stop panels heating up, but you can reduce the loss: leave an air gap behind the panels for airflow (roof-mounted panels run hotter than ground or pole mounts), choose panels with a low temperature coefficient, and avoid dark, unventilated mounting surfaces. Good airflow alone can lower cell temperature by several degrees and recover a meaningful share of the lost power."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ahmedtere44-coder.github.io/solartoolhub/" },
+    { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools.html" },
+    { "@type": "ListItem", "position": 3, "name": "Temperature derating calculator", "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools/temperature-derating-calculator.html" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html" class="active">Tools</a></li>
+      <li><a href="../articles.html">Guides</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../tools.html">Tools</a> / Temperature derating calculator</div>
+    <h1>Solar panel temperature derating calculator</h1>
+    <p class="lede">Panels are rated at a cool 25°C, but in the real world they run much hotter — and hotter means less power. Enter your panel's rating, temperature coefficient, and expected cell temperature to see the actual output you'll get on a hot day.</p>
+  </div>
+</div>
+
+<div class="calc-layout">
+  <div class="container">
+    <div class="calc-card" style="max-width:680px;">
+      <form id="tmp-calc-form">
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="tmp-rated">Panel rated power (W)</label>
+            <input type="number" id="tmp-rated" value="450" min="0" step="10">
+            <span class="helper-text">The panel's nameplate wattage at standard test conditions (25°C).</span>
+          </div>
+          <div class="field-group">
+            <label for="tmp-coeff">Temperature coefficient (%/°C)</label>
+            <input type="number" id="tmp-coeff" value="-0.40" max="0" step="0.01">
+            <span class="helper-text">From the datasheet (Pmax). Negative — typically −0.30 to −0.50 %/°C.</span>
+          </div>
+        </div>
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="tmp-cell">Expected cell temperature (°C)</label>
+            <input type="number" id="tmp-cell" value="60" step="1">
+            <span class="helper-text">Real cell temp on a hot day is often 25–30°C above air temp — 60–70°C is common.</span>
+          </div>
+          <div class="field-group">
+            <label for="tmp-count">Number of panels</label>
+            <input type="number" id="tmp-count" value="1" min="1" step="1">
+            <span class="helper-text">Set to your array size to see total effective output.</span>
+          </div>
+        </div>
+      </form>
+
+      <div class="calc-result">
+        <div>
+          <span class="num" id="tmp-loss">0%</span>
+          <span class="lbl">power lost to heat</span>
+        </div>
+        <div>
+          <span class="num" id="tmp-effective">0</span>
+          <span class="lbl">effective output per panel (W)</span>
+        </div>
+      </div>
+      <div class="calc-result" style="margin-top:14px;">
+        <div>
+          <span class="num num-text" id="tmp-array">0</span>
+          <span class="lbl">total array output at this temp (W)</span>
+        </div>
+      </div>
+
+      <button type="button" id="tmp-pdf-btn" class="btn btn-accent" style="margin-top:20px;">⬇️ Download results as PDF</button>
+      <p class="helper-text">Loss = coefficient × (cell temp − 25°C). Panels are rated at 25°C, so any temperature above that reduces output.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="calc-diagram">
+    <figure>
+      <svg viewBox="0 0 380 300" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="tmp-title tmp-desc">
+        <title id="tmp-title">How the temperature derating calculator works</title>
+        <desc id="tmp-desc">The cell temperature above 25 degrees, multiplied by the temperature coefficient, gives the percentage power lost, which reduces the panel's rated output to its effective output.</desc>
+        <text x="190" y="26" text-anchor="middle" font-family="Manrope, sans-serif" font-size="14" font-weight="700" fill="#111827">What you enter</text>
+        <g>
+          <rect x="30" y="42" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="105" y="63" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E3A8A">Cell temp − 25°C</text>
+          <text x="105" y="81" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">°C above rating</text>
+        </g>
+        <g>
+          <rect x="200" y="42" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="275" y="63" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E3A8A">Temp coefficient</text>
+          <text x="275" y="81" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">%/°C</text>
+        </g>
+        <line x1="105" y1="94" x2="180" y2="128" stroke="#9CA3AF" stroke-width="1.5"/>
+        <line x1="275" y1="94" x2="200" y2="128" stroke="#9CA3AF" stroke-width="1.5"/>
+        <g>
+          <rect x="90" y="130" width="200" height="52" rx="8" fill="#FEF9C3" stroke="#CA8A04" stroke-width="0.75"/>
+          <text x="190" y="151" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#854D0E">Power lost (%)</text>
+          <text x="190" y="169" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#854D0E">ΔT × coefficient</text>
+        </g>
+        <line x1="190" y1="182" x2="190" y2="212" stroke="#9CA3AF" stroke-width="1.5"/>
+        <g>
+          <rect x="70" y="214" width="240" height="52" rx="8" fill="#E9FBF4" stroke="#10B981" stroke-width="0.75"/>
+          <text x="190" y="235" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#065F46">Effective output (W)</text>
+          <text x="190" y="253" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#065F46">rated × (1 − loss)</text>
+        </g>
+      </svg>
+      <figcaption>How the calculator turns cell temperature into real-world power output.</figcaption>
+    </figure>
+  </div>
+
+  <div class="calc-chart">
+    <h2 class="calc-chart-title">Output as cell temperature rises</h2>
+    <p class="calc-chart-intro">This curve updates with your inputs above. It shows how a panel's output falls as its cell temperature climbs above the 25°C rating point.</p>
+    <div class="calc-chart-canvas-wrap">
+      <canvas id="tmp-curve" role="img" aria-label="Line chart showing panel output declining as cell temperature rises above 25 degrees Celsius.">Panel output falls as cell temperature rises.</canvas>
+    </div>
+  </div>
+
+  <article class="article">
+
+    <p>Here's a fact that surprises many people: solar panels produce <em>less</em> power when they get hot. Their rated wattage is measured in a lab at 25°C, but out in the sun a panel's cells can easily reach 60–70°C — and every degree above 25 shaves a little off the output. This calculator shows exactly how much, so you know the real power to expect on a hot day.</p>
+
+    <h2>How the calculation works</h2>
+    <p>The formula is straightforward:</p>
+    <p style="font-family:monospace; background:var(--bg-soft); padding:14px 18px; border-radius:8px; font-size:0.95rem;">Power lost (%) = temperature coefficient × (cell temp − 25°C)</p>
+    <p>The temperature coefficient is a negative number from the panel's datasheet, typically around −0.4%/°C. So if the cell reaches 60°C, that's 35°C above the 25°C rating, and at −0.4%/°C the panel loses 35 × 0.4 = 14% of its power. A 450 W panel effectively delivers about 387 W in that moment.</p>
+
+    <h2>What is the temperature coefficient?</h2>
+    <p>The temperature coefficient of power (Pmax) tells you how sensitive a panel is to heat. It's always negative, usually between −0.3% and −0.5% per °C. <strong>Closer to zero is better</strong> — a panel at −0.30%/°C loses far less in heat than one at −0.50%/°C. If you live somewhere hot, this single datasheet number is worth paying attention to when choosing panels.</p>
+
+    <h2>Why cell temperature is higher than air temperature</h2>
+    <p>The number that matters is the <em>cell</em> temperature, not the air temperature — and the cells run much hotter than the surrounding air because they're absorbing sunlight. On a 35°C day, roof-mounted panel cells can sit at 60–65°C. Mounting style matters a lot here: panels with an air gap behind them run cooler than those flush against a hot dark roof.</p>
+
+    <h2>How to reduce the loss</h2>
+    <p>You can't stop panels heating up, but you can limit the damage: leave an air gap for airflow behind the panels, choose panels with a low (near-zero) temperature coefficient, and avoid dark, unventilated mounting surfaces. Good airflow alone can drop cell temperature by several degrees and recover a meaningful slice of the lost power. Our guide on <a href="../articles/solar-panels-hot-climates.html">solar panels in hot climates</a> goes deeper on this.</p>
+
+    <h2>Related tools</h2>
+    <p>Temperature also affects string voltage, which matters for wiring panels in series — see the <a href="string-sizing-calculator.html">string sizing calculator</a>. To estimate overall production including losses, use the <a href="energy-production-calculator.html">energy production calculator</a>, and to size an array from scratch, the <a href="panel-calculator.html">panel calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <h3>How much power do solar panels lose in heat?</h3>
+    <p>Roughly 0.3–0.5% per °C above 25°C. On a hot day cells can hit 60–70°C, so a −0.4%/°C panel can lose 15–18% of its rated power.</p>
+    <h3>What is the temperature coefficient of a solar panel?</h3>
+    <p>It's how much output changes per °C above 25°C — a negative number, typically −0.3% to −0.5%/°C. Closer to zero is better. Find it on the datasheet.</p>
+    <h3>How do I reduce temperature power loss?</h3>
+    <p>Leave an air gap for airflow, pick panels with a low coefficient, and avoid dark unventilated surfaces. Airflow alone can recover several percent.</p>
+
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="panel-calculator.html">Panel calculator</a></li>
+          <li><a href="battery-calculator.html">Battery calculator</a></li>
+          <li><a href="inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="cable-calculator.html">Cable calculator</a></li>
+          <li><a href="roi-calculator.html">ROI calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script>
+  (function () {
+    var form = document.getElementById('tmp-calc-form');
+    if (!form) return;
+
+    function calcTmp() {
+      var rated = parseFloat(document.getElementById('tmp-rated').value) || 0;
+      var coeff = parseFloat(document.getElementById('tmp-coeff').value) || 0;
+      var cell = parseFloat(document.getElementById('tmp-cell').value);
+      if (isNaN(cell)) cell = 25;
+      var count = parseInt(document.getElementById('tmp-count').value) || 1;
+
+      var deltaT = cell - 25;
+      var lossPct = coeff * deltaT; // negative coeff × positive deltaT = negative (a loss)
+      var effective = rated * (1 + lossPct / 100);
+      if (effective < 0) effective = 0;
+      var array = effective * count;
+
+      document.getElementById('tmp-loss').textContent = Math.abs(lossPct).toFixed(1) + '%';
+      document.getElementById('tmp-effective').textContent = Math.round(effective).toLocaleString();
+      document.getElementById('tmp-array').textContent = Math.round(array).toLocaleString();
+    }
+
+    form.addEventListener('input', calcTmp);
+    calcTmp();
+
+    var pdfBtn = document.getElementById('tmp-pdf-btn');
+    if (pdfBtn) {
+      pdfBtn.addEventListener('click', function () {
+        var inputs = [
+          ['Rated power', document.getElementById('tmp-rated').value + ' W'],
+          ['Temp coefficient', document.getElementById('tmp-coeff').value + ' %/C'],
+          ['Cell temperature', document.getElementById('tmp-cell').value + ' C'],
+          ['Number of panels', document.getElementById('tmp-count').value]
+        ];
+        var results = [
+          ['Power lost to heat', document.getElementById('tmp-loss').textContent],
+          ['Effective output per panel', document.getElementById('tmp-effective').textContent + ' W'],
+          ['Total array output', document.getElementById('tmp-array').textContent + ' W']
+        ];
+        generateSolarToolHubResultsPDF({
+          subtitle: 'Temperature Derating — Results',
+          inputs: inputs,
+          resultsHeaders: ['Metric', 'Value'],
+          results: results,
+          nextSteps: {
+            text: 'Learn more about heat and output in our:',
+            linkText: 'Solar Panels in Hot Climates guide',
+            url: 'https://ahmedtere44-coder.github.io/solartoolhub/articles/solar-panels-hot-climates.html'
+          },
+          filename: 'solartoolhub-temperature-derating-results.pdf'
+        });
+      });
+    }
+  })();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+  (function () {
+    var canvas = document.getElementById('tmp-curve');
+    if (!canvas || typeof Chart === 'undefined') return;
+
+    var ratedEl = document.getElementById('tmp-rated');
+    var coeffEl = document.getElementById('tmp-coeff');
+    var temps = [25, 35, 45, 55, 65, 75];
+
+    function outData() {
+      var rated = parseFloat(ratedEl.value) || 0;
+      var coeff = parseFloat(coeffEl.value) || 0;
+      return temps.map(function (t) {
+        var eff = rated * (1 + (coeff * (t - 25)) / 100);
+        return Math.max(0, Math.round(eff));
+      });
+    }
+
+    var chart = new Chart(canvas, {
+      type: 'line',
+      data: {
+        labels: temps.map(function (t) { return t + '°C'; }),
+        datasets: [{
+          label: 'Output (W)',
+          data: outData(),
+          borderColor: '#CA8A04',
+          backgroundColor: 'rgba(250,204,21,0.15)',
+          borderWidth: 2, fill: true, tension: 0.3,
+          pointBackgroundColor: '#1E3A8A', pointRadius: 4
+        }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { title: { display: true, text: 'Cell temperature', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, grid: { display: false } },
+          y: { title: { display: true, text: 'Output (W)', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, beginAtZero: false }
+        }
+      }
+    });
+
+    function refresh() { chart.data.datasets[0].data = outData(); chart.update(); }
+    [ratedEl, coeffEl].forEach(function (el) { if (el) el.addEventListener('input', refresh); });
+  })();
+</script>
+</body>
+</html>
