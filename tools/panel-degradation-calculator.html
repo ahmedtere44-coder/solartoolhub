@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solar Panel Degradation Calculator — Output After 10, 20 & 25 Years | SolarToolHub</title>
+<meta name="description" content="Free solar panel degradation calculator. See how your panels' output declines year by year, what they'll produce after 10, 20, and 25 years, and the total lifetime energy — based on the annual degradation rate.">
+<link rel="canonical" href="https://ahmedtere44-coder.github.io/solartoolhub/tools/panel-degradation-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SolarToolHub">
+<meta property="og:title" content="Solar Panel Degradation Calculator — Output After 10, 20 & 25 Years | SolarToolHub">
+<meta property="og:description" content="See how your solar panels' output declines year by year and what they'll produce after 10, 20, and 25 years.">
+<meta property="og:url" content="https://ahmedtere44-coder.github.io/solartoolhub/tools/panel-degradation-calculator.html">
+<meta property="og:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Solar Panel Degradation Calculator | SolarToolHub">
+<meta name="twitter:description" content="See how your solar panels' output declines year by year and their output after 10, 20, and 25 years.">
+<meta name="twitter:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much do solar panels degrade each year?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most modern solar panels degrade by about 0.5% of their output per year, though the exact rate depends on the panel type and quality. Premium panels can be as low as 0.25% per year, while older or budget panels may be 0.7% or higher. Manufacturers typically guarantee at least 80% to 87% of the original output at 25 years."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much output will my solar panels lose after 25 years?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "At a typical 0.5% annual degradation rate, panels retain roughly 88% of their original output after 25 years. At 0.7% per year they retain about 84%, and at a premium 0.25% per year they retain about 94%. So even after 25 years, good panels still produce the large majority of their original power."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do solar panels stop working after 25 years?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The 25-year figure is the warranty period, not the end of life. Panels keep producing power well beyond 25 years — just at a gradually reduced output. Many systems installed decades ago are still generating a useful amount of electricity, which is why solar is considered a long-term investment."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ahmedtere44-coder.github.io/solartoolhub/" },
+    { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools.html" },
+    { "@type": "ListItem", "position": 3, "name": "Panel degradation calculator", "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools/panel-degradation-calculator.html" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html" class="active">Tools</a></li>
+      <li><a href="../articles.html">Guides</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../tools.html">Tools</a> / Panel degradation calculator</div>
+    <h1>Solar panel degradation calculator</h1>
+    <p class="lede">Solar panels lose a little output every year. Enter your starting production and degradation rate to see what your panels will produce after 10, 20, and 25 years — and the total energy they'll deliver over their lifetime.</p>
+  </div>
+</div>
+
+<div class="calc-layout">
+  <div class="container">
+    <div class="calc-card" style="max-width:680px;">
+      <form id="deg-calc-form">
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="deg-start">Year-1 production (kWh/year)</label>
+            <input type="number" id="deg-start" value="7500" min="0" step="100">
+            <span class="helper-text">What your system produces in its first year. Not sure? Use the energy production calculator.</span>
+          </div>
+          <div class="field-group">
+            <label for="deg-rate">Annual degradation rate (%)</label>
+            <input type="number" id="deg-rate" value="0.5" min="0" max="3" step="0.05">
+            <span class="helper-text">Typical 0.5%/yr. Premium panels ~0.25%, budget/older ~0.7%.</span>
+          </div>
+        </div>
+        <div class="field-group">
+          <label for="deg-years">Period to analyse (years)</label>
+          <input type="number" id="deg-years" value="25" min="1" max="40" step="1">
+          <span class="helper-text">Panel warranties usually cover 25 years, but panels keep working beyond that.</span>
+        </div>
+      </form>
+
+      <div class="calc-result">
+        <div>
+          <span class="num" id="deg-final-pct">0%</span>
+          <span class="lbl">of original output at end of period</span>
+        </div>
+        <div>
+          <span class="num" id="deg-final-kwh">0</span>
+          <span class="lbl">production in final year (kWh)</span>
+        </div>
+      </div>
+      <div class="calc-result" style="margin-top:14px;">
+        <div>
+          <span class="num num-text" id="deg-y10">0</span>
+          <span class="lbl">output at year 10 (kWh)</span>
+        </div>
+        <div>
+          <span class="num num-text" id="deg-y20">0</span>
+          <span class="lbl">output at year 20 (kWh)</span>
+        </div>
+        <div>
+          <span class="num num-text" id="deg-total">0</span>
+          <span class="lbl">total lifetime energy (kWh)</span>
+        </div>
+      </div>
+
+      <button type="button" id="deg-pdf-btn" class="btn btn-accent" style="margin-top:20px;">⬇️ Download results as PDF</button>
+      <p class="helper-text">Uses compounding degradation: each year's output = previous year × (1 − rate). Real panels also lose a bit more in year 1, then settle to the steady rate.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="calc-diagram">
+    <figure>
+      <svg viewBox="0 0 380 300" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="deg-title deg-desc">
+        <title id="deg-title">How the panel degradation calculator works</title>
+        <desc id="deg-desc">Year-one production and the annual degradation rate combine to give each year's declining output, from which the end-of-period output and lifetime total are calculated.</desc>
+        <text x="190" y="26" text-anchor="middle" font-family="Manrope, sans-serif" font-size="14" font-weight="700" fill="#111827">What you enter</text>
+        <g>
+          <rect x="30" y="42" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="105" y="63" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E3A8A">Year-1 production</text>
+          <text x="105" y="81" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">kWh / year</text>
+        </g>
+        <g>
+          <rect x="200" y="42" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="275" y="63" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E3A8A">Degradation rate</text>
+          <text x="275" y="81" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">% per year</text>
+        </g>
+        <line x1="105" y1="94" x2="180" y2="128" stroke="#9CA3AF" stroke-width="1.5"/>
+        <line x1="275" y1="94" x2="200" y2="128" stroke="#9CA3AF" stroke-width="1.5"/>
+        <g>
+          <rect x="80" y="130" width="220" height="52" rx="8" fill="#FEF9C3" stroke="#CA8A04" stroke-width="0.75"/>
+          <text x="190" y="151" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#854D0E">Each year declines</text>
+          <text x="190" y="169" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#854D0E">prev year × (1 − rate)</text>
+        </g>
+        <line x1="190" y1="182" x2="190" y2="212" stroke="#9CA3AF" stroke-width="1.5"/>
+        <g>
+          <rect x="55" y="214" width="270" height="52" rx="8" fill="#E9FBF4" stroke="#10B981" stroke-width="0.75"/>
+          <text x="190" y="235" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#065F46">Output at 10/20/25 yrs + total</text>
+          <text x="190" y="253" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#065F46">lifetime energy delivered</text>
+        </g>
+      </svg>
+      <figcaption>How the calculator projects your panels' declining output over time.</figcaption>
+    </figure>
+  </div>
+
+  <div class="calc-chart">
+    <h2 class="calc-chart-title">Yearly output as panels age</h2>
+    <p class="calc-chart-intro">This curve updates with your inputs above. It shows how each year's production gently declines from the degradation rate — the gap widens slowly over the decades.</p>
+    <div class="calc-chart-canvas-wrap">
+      <canvas id="deg-curve" role="img" aria-label="Line chart showing yearly solar output gradually declining over the analysis period.">Yearly output declines gradually as the panels age.</canvas>
+    </div>
+  </div>
+
+  <article class="article">
+
+    <p>Solar panels don't fail suddenly — they fade. Every year a panel produces slightly less than the year before, a slow decline called degradation. It's gentle, predictable, and built into every manufacturer's warranty, but it does add up over decades. This calculator shows exactly how your system's output tapers over its life, and how much total energy it delivers along the way.</p>
+
+    <h2>What causes degradation?</h2>
+    <p>Panels degrade from years of exposure to sunlight, heat, humidity, and thermal cycling. The materials slowly age: the cells lose a fraction of their efficiency, and connections and encapsulation weather over time. It's normal and unavoidable — the goal is simply to use good panels with a low degradation rate so the decline stays slow.</p>
+
+    <h2>What's a typical degradation rate?</h2>
+    <p>Most modern panels degrade about <strong>0.5% per year</strong>. Premium panels can be as low as 0.25%, while budget or older panels may be 0.7% or more. Manufacturers usually guarantee at least 80–87% of the original output at 25 years. At 0.5% per year, panels keep about <strong>88% of their output after 25 years</strong> — still producing the large majority of their original power.</p>
+
+    <h2>How the math works</h2>
+    <p>Degradation compounds, just like interest. Each year's output is the previous year's multiplied by (1 − rate). So at 0.5%, year 2 is 99.5% of year 1, year 3 is 99.5% of year 2, and so on. Over 25 years this compounding leaves you at roughly 88%, not 87.5% (25 × 0.5%), because each year's loss is calculated on a slightly smaller base.</p>
+
+    <h2>Why 25 years isn't the end</h2>
+    <p>The 25-year figure everyone quotes is the <em>warranty</em> period, not the panel's lifespan. Panels keep working well beyond 25 years, just at a gradually lower output. Many systems from the 1990s are still generating usefully today. For more on what to expect long-term, see our guide on <a href="../articles/solar-panel-lifespan.html">how long solar panels last</a>.</p>
+
+    <h2>Related tools</h2>
+    <p>To find your year-1 production figure, use the <a href="energy-production-calculator.html">energy production calculator</a>. To see the environmental payoff of all that energy, the <a href="co2-emissions-calculator.html">CO₂ emissions calculator</a> converts it into carbon saved, and the <a href="roi-calculator.html">ROI calculator</a> shows the financial return over the same lifetime.</p>
+
+    <h2>Frequently asked questions</h2>
+    <h3>How much do solar panels degrade each year?</h3>
+    <p>About 0.5% per year for most modern panels. Premium panels can be ~0.25%, budget/older ones ~0.7%+. Manufacturers typically guarantee at least 80–87% output at 25 years.</p>
+    <h3>How much output will my panels lose after 25 years?</h3>
+    <p>At 0.5%/year they keep ~88%; at 0.7% ~84%; at a premium 0.25% ~94%. Even after 25 years, good panels still produce most of their original power.</p>
+    <h3>Do solar panels stop working after 25 years?</h3>
+    <p>No — 25 years is the warranty period, not the end of life. Panels keep producing beyond that, just at a reduced output.</p>
+
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="panel-calculator.html">Panel calculator</a></li>
+          <li><a href="battery-calculator.html">Battery calculator</a></li>
+          <li><a href="inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="cable-calculator.html">Cable calculator</a></li>
+          <li><a href="roi-calculator.html">ROI calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script>
+  (function () {
+    var form = document.getElementById('deg-calc-form');
+    if (!form) return;
+
+    function series() {
+      var start = parseFloat(document.getElementById('deg-start').value) || 0;
+      var rate = (parseFloat(document.getElementById('deg-rate').value) || 0) / 100;
+      var years = parseInt(document.getElementById('deg-years').value) || 1;
+      var arr = [];
+      var val = start;
+      for (var y = 1; y <= years; y++) {
+        // year 1 = full start output; each subsequent year declines
+        if (y > 1) val = val * (1 - rate);
+        arr.push(val);
+      }
+      return { start: start, rate: rate, years: years, arr: arr };
+    }
+
+    function calcDeg() {
+      var s = series();
+      var finalKwh = s.arr[s.arr.length - 1];
+      var finalPct = s.start > 0 ? (finalKwh / s.start) * 100 : 0;
+      var total = s.arr.reduce(function (a, b) { return a + b; }, 0);
+      var y10 = s.arr[9] !== undefined ? s.arr[9] : s.arr[s.arr.length - 1];
+      var y20 = s.arr[19] !== undefined ? s.arr[19] : s.arr[s.arr.length - 1];
+
+      document.getElementById('deg-final-pct').textContent = finalPct.toFixed(1) + '%';
+      document.getElementById('deg-final-kwh').textContent = Math.round(finalKwh).toLocaleString();
+      document.getElementById('deg-y10').textContent = Math.round(y10).toLocaleString();
+      document.getElementById('deg-y20').textContent = Math.round(y20).toLocaleString();
+      document.getElementById('deg-total').textContent = Math.round(total).toLocaleString();
+    }
+
+    form.addEventListener('input', calcDeg);
+    calcDeg();
+
+    var pdfBtn = document.getElementById('deg-pdf-btn');
+    if (pdfBtn) {
+      pdfBtn.addEventListener('click', function () {
+        var inputs = [
+          ['Year-1 production', document.getElementById('deg-start').value + ' kWh/yr'],
+          ['Annual degradation rate', document.getElementById('deg-rate').value + ' %'],
+          ['Period analysed', document.getElementById('deg-years').value + ' years']
+        ];
+        var results = [
+          ['Output at end of period', document.getElementById('deg-final-pct').textContent + ' of original'],
+          ['Final-year production', document.getElementById('deg-final-kwh').textContent + ' kWh'],
+          ['Output at year 10', document.getElementById('deg-y10').textContent + ' kWh'],
+          ['Output at year 20', document.getElementById('deg-y20').textContent + ' kWh'],
+          ['Total lifetime energy', document.getElementById('deg-total').textContent + ' kWh']
+        ];
+        generateSolarToolHubResultsPDF({
+          subtitle: 'Solar Panel Degradation — Results',
+          inputs: inputs,
+          resultsHeaders: ['Metric', 'Value'],
+          results: results,
+          nextSteps: {
+            text: 'Find your year-1 production with our:',
+            linkText: 'Energy Production Calculator',
+            url: 'https://ahmedtere44-coder.github.io/solartoolhub/tools/energy-production-calculator.html'
+          },
+          filename: 'solartoolhub-panel-degradation-results.pdf'
+        });
+      });
+    }
+  })();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+  (function () {
+    var canvas = document.getElementById('deg-curve');
+    if (!canvas || typeof Chart === 'undefined') return;
+
+    var startEl = document.getElementById('deg-start');
+    var rateEl = document.getElementById('deg-rate');
+    var yearsEl = document.getElementById('deg-years');
+
+    function buildSeries() {
+      var start = parseFloat(startEl.value) || 0;
+      var rate = (parseFloat(rateEl.value) || 0) / 100;
+      var years = parseInt(yearsEl.value) || 1;
+      var labels = [], data = [], val = start;
+      for (var y = 1; y <= years; y++) {
+        if (y > 1) val = val * (1 - rate);
+        labels.push('Yr ' + y);
+        data.push(Math.round(val));
+      }
+      return { labels: labels, data: data };
+    }
+
+    var s = buildSeries();
+    var chart = new Chart(canvas, {
+      type: 'line',
+      data: {
+        labels: s.labels,
+        datasets: [{
+          label: 'Yearly output (kWh)',
+          data: s.data,
+          borderColor: '#1E3A8A',
+          backgroundColor: 'rgba(30,58,138,0.10)',
+          borderWidth: 2, fill: true, tension: 0.3,
+          pointBackgroundColor: '#FACC15', pointRadius: 2
+        }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { title: { display: true, text: 'Year', color: '#4B5563' }, ticks: { color: '#9CA3AF', maxTicksLimit: 10 }, grid: { display: false } },
+          y: { title: { display: true, text: 'Output (kWh/year)', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, beginAtZero: false }
+        }
+      }
+    });
+
+    function refresh() { var n = buildSeries(); chart.data.labels = n.labels; chart.data.datasets[0].data = n.data; chart.update(); }
+    [startEl, rateEl, yearsEl].forEach(function (el) { if (el) el.addEventListener('input', refresh); });
+  })();
+</script>
+</body>
+</html>
