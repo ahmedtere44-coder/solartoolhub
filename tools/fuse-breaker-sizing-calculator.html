@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solar Fuse & Breaker Size Calculator — Overcurrent Protection Sizing | SolarToolHub</title>
+<meta name="description" content="Free solar fuse and breaker size calculator. Enter your circuit current or power and voltage to get the correct overcurrent protection size, using the standard 1.25 safety factor and the next standard fuse rating.">
+<link rel="canonical" href="https://ahmedtere44-coder.github.io/solartoolhub/tools/fuse-breaker-sizing-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SolarToolHub">
+<meta property="og:title" content="Solar Fuse & Breaker Size Calculator — Overcurrent Protection Sizing | SolarToolHub">
+<meta property="og:description" content="Get the correct fuse or breaker size for a solar circuit using the standard 1.25 safety factor and the next standard rating.">
+<meta property="og:url" content="https://ahmedtere44-coder.github.io/solartoolhub/tools/fuse-breaker-sizing-calculator.html">
+<meta property="og:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Solar Fuse & Breaker Size Calculator | SolarToolHub">
+<meta name="twitter:description" content="Get the correct fuse or breaker size for a solar circuit using the standard 1.25 safety factor.">
+<meta name="twitter:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What size fuse do I need for my solar panel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Take the circuit's continuous current, multiply by 1.25 (the standard safety factor for continuous loads), then round up to the next standard fuse or breaker rating. For example, a string carrying 10 A needs 10 x 1.25 = 12.5 A, so you'd use the next standard size, a 15 A fuse. This calculator does the multiplication and rounding for you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why multiply by 1.25 for fuse sizing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Solar circuits are treated as continuous loads (running 3 or more hours), and electrical codes require overcurrent protection and conductors to be rated at 125% of the continuous current. The 1.25 factor gives that margin so the fuse doesn't nuisance-trip at normal full current while still protecting the circuit. For solar strings, the current used is usually the panel's short-circuit current (Isc), which itself is often multiplied by 1.25 first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are standard fuse and breaker sizes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Common standard ratings are 1, 2, 3, 6, 10, 15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90, 100, 110, 125, 150, 175, and 200 amps. After calculating your required current, you always round UP to the next standard size on this list, never down, so the protection is rated at or above your calculated value."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ahmedtere44-coder.github.io/solartoolhub/" },
+    { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools.html" },
+    { "@type": "ListItem", "position": 3, "name": "Fuse & breaker sizing calculator", "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools/fuse-breaker-sizing-calculator.html" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html" class="active">Tools</a></li>
+      <li><a href="../articles.html">Guides</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../tools.html">Tools</a> / Fuse & breaker sizing calculator</div>
+    <h1>Solar fuse &amp; breaker sizing calculator</h1>
+    <p class="lede">Every solar circuit needs the right overcurrent protection — too small and it nuisance-trips, too big and it won't protect the wire. Enter your current (or power and voltage) to get the correct fuse or breaker size using the standard safety factor.</p>
+  </div>
+</div>
+
+<div class="calc-layout">
+  <div class="container">
+    <div class="calc-card" style="max-width:680px;">
+      <form id="fb-calc-form">
+        <div class="field-group">
+          <label for="fb-mode">Calculate from</label>
+          <select id="fb-mode">
+            <option value="current" selected>Known current (A)</option>
+            <option value="power">Power &amp; voltage (W and V)</option>
+          </select>
+          <span class="helper-text">Enter the circuit current directly, or let us work it out from power and voltage.</span>
+        </div>
+        <div class="field-group" id="fb-current-group">
+          <label for="fb-current">Continuous current (A)</label>
+          <input type="number" id="fb-current" value="10" min="0" step="0.5">
+          <span class="helper-text">The circuit's continuous operating current. For a solar string, use the panel's Isc.</span>
+        </div>
+        <div class="calc-grid" id="fb-power-group" style="display:none;">
+          <div class="field-group">
+            <label for="fb-power">Power (W)</label>
+            <input type="number" id="fb-power" value="1000" min="0" step="10">
+            <span class="helper-text">Total power of the circuit in watts.</span>
+          </div>
+          <div class="field-group">
+            <label for="fb-voltage">Voltage (V)</label>
+            <input type="number" id="fb-voltage" value="48" min="1" step="1">
+            <span class="helper-text">Circuit voltage. Current = power ÷ voltage.</span>
+          </div>
+        </div>
+        <div class="field-group">
+          <label for="fb-factor">Safety factor</label>
+          <input type="number" id="fb-factor" value="1.25" min="1" step="0.05">
+          <span class="helper-text">Standard is 1.25 (125%) for continuous solar loads. Rarely changed.</span>
+        </div>
+      </form>
+
+      <div class="calc-result">
+        <div>
+          <span class="num" id="fb-required">0</span>
+          <span class="lbl">minimum required rating (A)</span>
+        </div>
+        <div>
+          <span class="num" id="fb-standard">0</span>
+          <span class="lbl">recommended fuse / breaker (A)</span>
+        </div>
+      </div>
+      <p class="helper-text" id="fb-note" style="margin-top:14px; font-weight:600;"></p>
+
+      <button type="button" id="fb-pdf-btn" class="btn btn-accent" style="margin-top:20px;">⬇️ Download results as PDF</button>
+      <p class="helper-text">Required = current × safety factor. The recommended size is the next standard rating at or above that value. Always verify against your local electrical code.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="calc-diagram">
+    <figure>
+      <svg viewBox="0 0 380 300" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="fb-title fb-desc">
+        <title id="fb-title">How the fuse and breaker sizing calculator works</title>
+        <desc id="fb-desc">The circuit current multiplied by the 1.25 safety factor gives the minimum required rating, which is then rounded up to the next standard fuse or breaker size.</desc>
+        <text x="190" y="26" text-anchor="middle" font-family="Manrope, sans-serif" font-size="14" font-weight="700" fill="#111827">What you enter</text>
+        <g>
+          <rect x="30" y="42" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="105" y="63" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E3A8A">Circuit current</text>
+          <text x="105" y="81" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">amps</text>
+        </g>
+        <g>
+          <rect x="200" y="42" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="275" y="63" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E3A8A">Safety factor</text>
+          <text x="275" y="81" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">× 1.25</text>
+        </g>
+        <line x1="105" y1="94" x2="180" y2="128" stroke="#9CA3AF" stroke-width="1.5"/>
+        <line x1="275" y1="94" x2="200" y2="128" stroke="#9CA3AF" stroke-width="1.5"/>
+        <g>
+          <rect x="80" y="130" width="220" height="52" rx="8" fill="#FEF9C3" stroke="#CA8A04" stroke-width="0.75"/>
+          <text x="190" y="151" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#854D0E">Minimum required (A)</text>
+          <text x="190" y="169" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#854D0E">current × factor</text>
+        </g>
+        <line x1="190" y1="182" x2="190" y2="212" stroke="#9CA3AF" stroke-width="1.5"/>
+        <g>
+          <rect x="70" y="214" width="240" height="52" rx="8" fill="#E9FBF4" stroke="#10B981" stroke-width="0.75"/>
+          <text x="190" y="235" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#065F46">Next standard fuse size</text>
+          <text x="190" y="253" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#065F46">round up to 10/15/20/25…</text>
+        </g>
+      </svg>
+      <figcaption>How the calculator turns circuit current into the correct protection size.</figcaption>
+    </figure>
+  </div>
+
+  <div class="calc-chart">
+    <h2 class="calc-chart-title">Required rating vs circuit current</h2>
+    <p class="calc-chart-intro">This curve updates with your inputs above. It shows how the minimum required protection rating rises with circuit current at your chosen safety factor — the recommended fuse is always the next standard size above this line.</p>
+    <div class="calc-chart-canvas-wrap">
+      <canvas id="fb-curve" role="img" aria-label="Line chart showing required protection rating increasing with circuit current.">Required protection rating rises with circuit current.</canvas>
+    </div>
+  </div>
+
+  <article class="article">
+
+    <p>Overcurrent protection — the fuse or circuit breaker — is the small component that stops a fault from becoming a fire. Size it too small and it trips every time the sun comes out; size it too big and it won't blow when the wire is overloaded. Fortunately the sizing rule is simple and standardized, and this calculator applies it for you.</p>
+
+    <h2>The rule: current × 1.25, then round up</h2>
+    <p>Solar circuits count as continuous loads (they run for hours), so electrical codes require the protection and conductors to be rated at 125% of the continuous current. The method is:</p>
+    <p style="font-family:monospace; background:var(--bg-soft); padding:14px 18px; border-radius:8px; font-size:0.95rem;">Required rating = current × 1.25, then round UP to the next standard size</p>
+    <p>So a circuit carrying 10 A needs 10 × 1.25 = 12.5 A of protection, and since 12.5 A isn't a standard size, you round up to the next one: a 15 A fuse or breaker. You always round up, never down, so the protection is rated at or above the required value.</p>
+
+    <h2>Why the 1.25 safety factor?</h2>
+    <p>The factor exists so the fuse doesn't nuisance-trip at normal full-load current, while still protecting the circuit from genuine overloads. For solar strings there's an extra wrinkle: the current used is usually the panel's short-circuit current (Isc), because a string can be driven to its Isc under bright sun — and some codes apply the 1.25 factor twice (once for Isc, once for continuous duty). When in doubt, follow your local code and the panel datasheet.</p>
+
+    <h2>Standard fuse and breaker sizes</h2>
+    <p>Protection comes in fixed standard ratings, not any value you like. Common ones are 1, 2, 3, 6, 10, 15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90, 100, 110, 125, 150, 175, and 200 A. After the multiplication, you pick the next size at or above your result — that's what this calculator returns.</p>
+
+    <h2>Don't forget the cable</h2>
+    <p>A fuse protects the cable, so the two must match: the cable's current rating (ampacity) must be at least as high as the fuse rating, or the fuse could let through enough current to overheat an undersized wire. Always size the cable and the protection together. Use the <a href="cable-calculator.html">cable size calculator</a> to pick the conductor, and the <a href="voltage-drop-calculator.html">voltage drop calculator</a> to check it over the run.</p>
+
+    <h2>Related tools</h2>
+    <p>To find the current a circuit carries, size the source first: the <a href="charge-controller-calculator.html">charge controller calculator</a> and <a href="panel-calculator.html">panel calculator</a> help with array current, and the <a href="inverter-calculator.html">inverter calculator</a> covers the AC side. For series strings, the <a href="string-sizing-calculator.html">string sizing calculator</a> sets the configuration.</p>
+
+    <h2>Frequently asked questions</h2>
+    <h3>What size fuse do I need for my solar panel?</h3>
+    <p>Multiply the circuit's continuous current by 1.25, then round up to the next standard size. A 10 A string needs 12.5 A, so a 15 A fuse. This calculator does it for you.</p>
+    <h3>Why multiply by 1.25 for fuse sizing?</h3>
+    <p>Solar circuits are continuous loads, and code requires protection and conductors rated at 125% of the continuous current — enough margin to avoid nuisance trips while still protecting the circuit. For strings, the current used is usually the panel's Isc.</p>
+    <h3>What are standard fuse and breaker sizes?</h3>
+    <p>Common ratings: 1, 2, 3, 6, 10, 15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90, 100, 110, 125, 150, 175, 200 A. Always round up to the next standard size.</p>
+
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="panel-calculator.html">Panel calculator</a></li>
+          <li><a href="battery-calculator.html">Battery calculator</a></li>
+          <li><a href="inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="cable-calculator.html">Cable calculator</a></li>
+          <li><a href="roi-calculator.html">ROI calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script>
+  (function () {
+    var form = document.getElementById('fb-calc-form');
+    if (!form) return;
+
+    var STANDARD = [1,2,3,6,10,15,20,25,30,35,40,45,50,60,70,80,90,100,110,125,150,175,200,225,250,300,350,400];
+
+    function nextStandard(v) {
+      for (var i = 0; i < STANDARD.length; i++) { if (STANDARD[i] >= v) return STANDARD[i]; }
+      return STANDARD[STANDARD.length - 1];
+    }
+
+    function currentValue() {
+      var mode = document.getElementById('fb-mode').value;
+      if (mode === 'power') {
+        var p = parseFloat(document.getElementById('fb-power').value) || 0;
+        var v = parseFloat(document.getElementById('fb-voltage').value) || 1;
+        return v > 0 ? p / v : 0;
+      }
+      return parseFloat(document.getElementById('fb-current').value) || 0;
+    }
+
+    function calcFB() {
+      var cur = currentValue();
+      var factor = parseFloat(document.getElementById('fb-factor').value) || 1.25;
+      var required = cur * factor;
+      var std = nextStandard(required);
+
+      document.getElementById('fb-required').textContent = required.toFixed(1);
+      document.getElementById('fb-standard').textContent = std;
+
+      var note = document.getElementById('fb-note');
+      if (cur <= 0) { note.textContent = ''; return; }
+      note.textContent = '✓ Use a ' + std + ' A fuse or breaker (required ' + required.toFixed(1) + ' A, rounded up to the next standard size).';
+      note.style.color = '#059669';
+    }
+
+    function toggleMode() {
+      var mode = document.getElementById('fb-mode').value;
+      document.getElementById('fb-current-group').style.display = (mode === 'power') ? 'none' : '';
+      document.getElementById('fb-power-group').style.display = (mode === 'power') ? '' : 'none';
+      calcFB();
+    }
+
+    document.getElementById('fb-mode').addEventListener('change', toggleMode);
+    form.addEventListener('input', calcFB);
+    calcFB();
+
+    var pdfBtn = document.getElementById('fb-pdf-btn');
+    if (pdfBtn) {
+      pdfBtn.addEventListener('click', function () {
+        var mode = document.getElementById('fb-mode').value;
+        var inputs = [];
+        if (mode === 'power') {
+          inputs.push(['Power', document.getElementById('fb-power').value + ' W']);
+          inputs.push(['Voltage', document.getElementById('fb-voltage').value + ' V']);
+        } else {
+          inputs.push(['Continuous current', document.getElementById('fb-current').value + ' A']);
+        }
+        inputs.push(['Safety factor', document.getElementById('fb-factor').value]);
+        var results = [
+          ['Minimum required rating', document.getElementById('fb-required').textContent + ' A'],
+          ['Recommended fuse / breaker', document.getElementById('fb-standard').textContent + ' A']
+        ];
+        generateSolarToolHubResultsPDF({
+          subtitle: 'Fuse & Breaker Sizing — Results',
+          inputs: inputs,
+          resultsHeaders: ['Metric', 'Value'],
+          results: results,
+          nextSteps: {
+            text: 'Match your cable to the protection with our:',
+            linkText: 'Cable Size Calculator',
+            url: 'https://ahmedtere44-coder.github.io/solartoolhub/tools/cable-calculator.html'
+          },
+          filename: 'solartoolhub-fuse-breaker-results.pdf'
+        });
+      });
+    }
+  })();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+  (function () {
+    var canvas = document.getElementById('fb-curve');
+    if (!canvas || typeof Chart === 'undefined') return;
+
+    var factorEl = document.getElementById('fb-factor');
+    var currents = [5, 10, 15, 20, 30, 40, 50];
+
+    function reqData() {
+      var factor = parseFloat(factorEl.value) || 1.25;
+      return currents.map(function (c) { return Math.round(c * factor * 10) / 10; });
+    }
+
+    var chart = new Chart(canvas, {
+      type: 'line',
+      data: {
+        labels: currents.map(function (c) { return c + 'A'; }),
+        datasets: [{
+          label: 'Required rating (A)',
+          data: reqData(),
+          borderColor: '#1E3A8A',
+          backgroundColor: 'rgba(30,58,138,0.10)',
+          borderWidth: 2, fill: true, tension: 0.3,
+          pointBackgroundColor: '#FACC15', pointRadius: 4
+        }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { title: { display: true, text: 'Circuit current (A)', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, grid: { display: false } },
+          y: { title: { display: true, text: 'Required rating (A)', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, beginAtZero: true }
+        }
+      }
+    });
+
+    function refresh() { chart.data.datasets[0].data = reqData(); chart.update(); }
+    if (factorEl) factorEl.addEventListener('input', refresh);
+  })();
+</script>
+</body>
+</html>
