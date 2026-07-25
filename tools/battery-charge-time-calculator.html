@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Battery Charge Time Calculator — How Long to Charge a Solar Battery | SolarToolHub</title>
+<meta name="description" content="Free battery charge time calculator. Enter your battery capacity and charging current to see how many hours it takes to charge — including the C-rate and a real-world efficiency allowance.">
+<link rel="canonical" href="https://ahmedtere44-coder.github.io/solartoolhub/tools/battery-charge-time-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SolarToolHub">
+<meta property="og:title" content="Battery Charge Time Calculator — How Long to Charge a Solar Battery | SolarToolHub">
+<meta property="og:description" content="See how many hours it takes to charge your battery from its capacity and charging current, including C-rate and efficiency.">
+<meta property="og:url" content="https://ahmedtere44-coder.github.io/solartoolhub/tools/battery-charge-time-calculator.html">
+<meta property="og:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Battery Charge Time Calculator | SolarToolHub">
+<meta name="twitter:description" content="See how many hours it takes to charge your battery from capacity and charging current.">
+<meta name="twitter:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How long does it take to charge a solar battery?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Divide the battery's capacity in amp-hours by the charging current in amps to get the basic charge time in hours, then add a bit for charging losses. For example, a 100 Ah battery charged at 20 A takes about 100 / 20 = 5 hours in theory, or roughly 5.5-6 hours once you allow for real-world efficiency. Charging from partly full is proportionally faster."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the C-rate of a battery?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The C-rate expresses charge or discharge current relative to the battery's capacity. A 1C rate charges the full capacity in about an hour, 0.5C in about two hours, and 0.2C in about five hours. For a 100 Ah battery, 0.2C is 20 A. Many lead-acid batteries should not be charged much above 0.2-0.3C, while lithium batteries often accept 0.5C or more - always check the manufacturer's limit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I charge a battery too fast?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Charging above the manufacturer's recommended C-rate generates heat and shortens battery life, and for lead-acid batteries it can cause gassing and damage. Lithium batteries tolerate higher charge rates but still have a maximum. Staying within the recommended C-rate keeps the battery healthy, even though it takes longer."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ahmedtere44-coder.github.io/solartoolhub/" },
+    { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools.html" },
+    { "@type": "ListItem", "position": 3, "name": "Battery charge time calculator", "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools/battery-charge-time-calculator.html" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html" class="active">Tools</a></li>
+      <li><a href="../articles.html">Guides</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../tools.html">Tools</a> / Battery charge time calculator</div>
+    <h1>Battery charge time calculator</h1>
+    <p class="lede">How long until your battery is full? Enter its capacity and your charging current to get the charge time in hours, the C-rate you're charging at, and a realistic estimate that accounts for charging losses.</p>
+  </div>
+</div>
+
+<div class="calc-layout">
+  <div class="container">
+    <div class="calc-card" style="max-width:680px;">
+      <form id="bct-calc-form">
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="bct-capacity">Battery capacity (Ah)</label>
+            <input type="number" id="bct-capacity" value="100" min="0" step="10">
+            <span class="helper-text">The battery's amp-hour rating. For a bank, use the total Ah.</span>
+          </div>
+          <div class="field-group">
+            <label for="bct-current">Charging current (A)</label>
+            <input type="number" id="bct-current" value="20" min="0" step="1">
+            <span class="helper-text">The current your charger or charge controller delivers.</span>
+          </div>
+        </div>
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="bct-depth">Charge needed (%)</label>
+            <input type="number" id="bct-depth" value="100" min="1" max="100" step="5">
+            <span class="helper-text">How much you're topping up. 100% = fully empty to full.</span>
+          </div>
+          <div class="field-group">
+            <label for="bct-eff">Charging efficiency (%)</label>
+            <input type="number" id="bct-eff" value="85" min="50" max="100" step="1">
+            <span class="helper-text">Lead-acid ~80–85%, lithium ~95%+. Accounts for energy lost as heat.</span>
+          </div>
+        </div>
+      </form>
+
+      <div class="calc-result">
+        <div>
+          <span class="num" id="bct-hours">0</span>
+          <span class="lbl">hours to charge (realistic)</span>
+        </div>
+        <div>
+          <span class="num" id="bct-crate">0</span>
+          <span class="lbl">C-rate you're charging at</span>
+        </div>
+      </div>
+      <div class="calc-result" style="margin-top:14px;">
+        <div>
+          <span class="num num-text" id="bct-ideal">0</span>
+          <span class="lbl">ideal time, no losses (hrs)</span>
+        </div>
+        <div>
+          <span class="num num-text" id="bct-crate-note">—</span>
+          <span class="lbl">charge-rate guide</span>
+        </div>
+      </div>
+
+      <button type="button" id="bct-pdf-btn" class="btn btn-accent" style="margin-top:20px;">⬇️ Download results as PDF</button>
+      <p class="helper-text">Realistic time = (capacity × charge% ÷ current) ÷ efficiency. Check your battery's maximum charge C-rate before choosing a high current.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="calc-diagram">
+    <figure>
+      <svg viewBox="0 0 380 300" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="bct-title bct-desc">
+        <title id="bct-title">How the battery charge time calculator works</title>
+        <desc id="bct-desc">Battery capacity divided by charging current gives the ideal charge time, which divided by the charging efficiency gives the realistic time in hours.</desc>
+        <text x="190" y="26" text-anchor="middle" font-family="Manrope, sans-serif" font-size="14" font-weight="700" fill="#111827">What you enter</text>
+        <g>
+          <rect x="30" y="42" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="105" y="63" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E3A8A">Battery capacity</text>
+          <text x="105" y="81" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">amp-hours (Ah)</text>
+        </g>
+        <g>
+          <rect x="200" y="42" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="275" y="63" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E3A8A">Charging current</text>
+          <text x="275" y="81" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">amps (A)</text>
+        </g>
+        <line x1="105" y1="94" x2="180" y2="128" stroke="#9CA3AF" stroke-width="1.5"/>
+        <line x1="275" y1="94" x2="200" y2="128" stroke="#9CA3AF" stroke-width="1.5"/>
+        <g>
+          <rect x="90" y="130" width="200" height="52" rx="8" fill="#FEF9C3" stroke="#CA8A04" stroke-width="0.75"/>
+          <text x="190" y="151" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#854D0E">Ideal time (hrs)</text>
+          <text x="190" y="169" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#854D0E">capacity ÷ current</text>
+        </g>
+        <line x1="190" y1="182" x2="190" y2="212" stroke="#9CA3AF" stroke-width="1.5"/>
+        <g>
+          <rect x="70" y="214" width="240" height="52" rx="8" fill="#E9FBF4" stroke="#10B981" stroke-width="0.75"/>
+          <text x="190" y="235" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#065F46">Realistic time (hrs)</text>
+          <text x="190" y="253" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#065F46">÷ charging efficiency</text>
+        </g>
+      </svg>
+      <figcaption>How the calculator turns capacity and current into a realistic charge time.</figcaption>
+    </figure>
+  </div>
+
+  <div class="calc-chart">
+    <h2 class="calc-chart-title">Charge time vs charging current</h2>
+    <p class="calc-chart-intro">This curve updates with your inputs above. It shows how charge time falls as you raise the charging current — but remember, higher current means a higher C-rate, which your battery may not allow.</p>
+    <div class="calc-chart-canvas-wrap">
+      <canvas id="bct-curve" role="img" aria-label="Line chart showing battery charge time decreasing as charging current increases.">Charge time falls as charging current rises.</canvas>
+    </div>
+  </div>
+
+  <article class="article">
+
+    <p>Whether you're sizing a charge controller or just wondering when your bank will be ready, charge time comes down to a simple relationship between capacity and current — with one real-world adjustment for the energy lost as heat while charging. This calculator handles both, and tells you the C-rate you're charging at so you can check it's safe for your battery.</p>
+
+    <h2>The basic formula</h2>
+    <p>At its simplest:</p>
+    <p style="font-family:monospace; background:var(--bg-soft); padding:14px 18px; border-radius:8px; font-size:0.95rem;">Charge time (hrs) = capacity (Ah) ÷ charging current (A)</p>
+    <p>A 100 Ah battery charged at 20 A takes about 100 ÷ 20 = 5 hours in theory. But charging isn't perfectly efficient — some energy is lost as heat — so the realistic time is a bit longer. Dividing by the charging efficiency (say 85%) gives about 5.9 hours. This calculator shows both the ideal and the realistic figure.</p>
+
+    <h2>What is the C-rate?</h2>
+    <p>The C-rate is the charging current expressed relative to capacity. Charging a 100 Ah battery at 100 A is 1C (about an hour), at 50 A is 0.5C (about two hours), and at 20 A is 0.2C (about five hours). It's a quick way to check whether your charging current is reasonable — and crucially, whether it's within what your battery can safely accept.</p>
+
+    <h2>How fast is too fast?</h2>
+    <p>Every battery has a maximum safe charge rate. Lead-acid batteries usually shouldn't be charged much above 0.2–0.3C, or they overheat, gas, and wear out faster. Lithium batteries typically accept 0.5C or more, but still have a limit. Charging faster than recommended shortens battery life, so it's worth staying within the manufacturer's figure even though it means waiting longer. The calculator flags the C-rate so you can see where you stand.</p>
+
+    <h2>Charging from partly full</h2>
+    <p>You rarely charge from completely empty. If your battery is already 50% full, you only need to replace the other 50%, which halves the time. The "charge needed (%)" input handles this — set it to how much you're actually topping up.</p>
+
+    <h2>Related tools</h2>
+    <p>To size the battery bank itself, use the <a href="battery-calculator.html">battery size calculator</a>, and to see how long a charged bank lasts on a load, the <a href="battery-runtime-calculator.html">battery runtime calculator</a>. To make sure your charge controller can deliver the current you're planning, check the <a href="charge-controller-calculator.html">charge controller calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <h3>How long does it take to charge a solar battery?</h3>
+    <p>Divide capacity (Ah) by charging current (A) for the basic hours, then allow for losses. A 100 Ah battery at 20 A takes ~5 hours ideally, or ~5.5–6 hours realistically. Charging from partly full is proportionally faster.</p>
+    <h3>What is the C-rate of a battery?</h3>
+    <p>Charge/discharge current relative to capacity. 1C fills in ~1 hour, 0.5C in ~2, 0.2C in ~5. For a 100 Ah battery, 0.2C = 20 A. Lead-acid often maxes at 0.2–0.3C; lithium accepts more.</p>
+    <h3>Can I charge a battery too fast?</h3>
+    <p>Yes — charging above the recommended C-rate makes heat and shortens life (and for lead-acid causes gassing). Staying within the rated C-rate keeps the battery healthy.</p>
+
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="panel-calculator.html">Panel calculator</a></li>
+          <li><a href="battery-calculator.html">Battery calculator</a></li>
+          <li><a href="inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="cable-calculator.html">Cable calculator</a></li>
+          <li><a href="roi-calculator.html">ROI calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script>
+  (function () {
+    var form = document.getElementById('bct-calc-form');
+    if (!form) return;
+
+    function calcBCT() {
+      var cap = parseFloat(document.getElementById('bct-capacity').value) || 0;
+      var cur = parseFloat(document.getElementById('bct-current').value) || 0;
+      var depth = (parseFloat(document.getElementById('bct-depth').value) || 0) / 100;
+      var eff = (parseFloat(document.getElementById('bct-eff').value) || 100) / 100;
+
+      var ahNeeded = cap * depth;
+      var ideal = cur > 0 ? ahNeeded / cur : 0;
+      var realistic = eff > 0 ? ideal / eff : 0;
+      var crate = cap > 0 ? cur / cap : 0;
+
+      document.getElementById('bct-hours').textContent = realistic.toFixed(1);
+      document.getElementById('bct-crate').textContent = crate.toFixed(2) + 'C';
+      document.getElementById('bct-ideal').textContent = ideal.toFixed(1);
+
+      var note = document.getElementById('bct-crate-note');
+      if (crate <= 0) { note.textContent = '—'; }
+      else if (crate <= 0.3) { note.textContent = 'Gentle'; }
+      else if (crate <= 0.5) { note.textContent = 'Moderate'; }
+      else if (crate <= 1) { note.textContent = 'Fast'; }
+      else { note.textContent = 'Very fast'; }
+    }
+
+    form.addEventListener('input', calcBCT);
+    calcBCT();
+
+    var pdfBtn = document.getElementById('bct-pdf-btn');
+    if (pdfBtn) {
+      pdfBtn.addEventListener('click', function () {
+        var inputs = [
+          ['Battery capacity', document.getElementById('bct-capacity').value + ' Ah'],
+          ['Charging current', document.getElementById('bct-current').value + ' A'],
+          ['Charge needed', document.getElementById('bct-depth').value + ' %'],
+          ['Charging efficiency', document.getElementById('bct-eff').value + ' %']
+        ];
+        var results = [
+          ['Realistic charge time', document.getElementById('bct-hours').textContent + ' hours'],
+          ['Ideal time (no losses)', document.getElementById('bct-ideal').textContent + ' hours'],
+          ['C-rate', document.getElementById('bct-crate').textContent],
+          ['Charge-rate guide', document.getElementById('bct-crate-note').textContent]
+        ];
+        generateSolarToolHubResultsPDF({
+          subtitle: 'Battery Charge Time — Results',
+          inputs: inputs,
+          resultsHeaders: ['Metric', 'Value'],
+          results: results,
+          nextSteps: {
+            text: 'Make sure your controller delivers this current with our:',
+            linkText: 'Charge Controller Calculator',
+            url: 'https://ahmedtere44-coder.github.io/solartoolhub/tools/charge-controller-calculator.html'
+          },
+          filename: 'solartoolhub-battery-charge-time-results.pdf'
+        });
+      });
+    }
+  })();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+  (function () {
+    var canvas = document.getElementById('bct-curve');
+    if (!canvas || typeof Chart === 'undefined') return;
+
+    var capEl = document.getElementById('bct-capacity');
+    var depthEl = document.getElementById('bct-depth');
+    var effEl = document.getElementById('bct-eff');
+    var currents = [5, 10, 20, 30, 40, 50];
+
+    function timeData() {
+      var cap = parseFloat(capEl.value) || 0;
+      var depth = (parseFloat(depthEl.value) || 0) / 100;
+      var eff = (parseFloat(effEl.value) || 100) / 100;
+      var ah = cap * depth;
+      return currents.map(function (c) {
+        var t = c > 0 && eff > 0 ? (ah / c) / eff : 0;
+        return Math.round(t * 10) / 10;
+      });
+    }
+
+    var chart = new Chart(canvas, {
+      type: 'line',
+      data: {
+        labels: currents.map(function (c) { return c + 'A'; }),
+        datasets: [{
+          label: 'Charge time (hrs)',
+          data: timeData(),
+          borderColor: '#10B981',
+          backgroundColor: 'rgba(16,185,129,0.12)',
+          borderWidth: 2, fill: true, tension: 0.3,
+          pointBackgroundColor: '#FACC15', pointRadius: 4
+        }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { title: { display: true, text: 'Charging current (A)', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, grid: { display: false } },
+          y: { title: { display: true, text: 'Charge time (hours)', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, beginAtZero: true }
+        }
+      }
+    });
+
+    function refresh() { chart.data.datasets[0].data = timeData(); chart.update(); }
+    [capEl, depthEl, effEl].forEach(function (el) { if (el) el.addEventListener('input', refresh); });
+  })();
+</script>
+</body>
+</html>
