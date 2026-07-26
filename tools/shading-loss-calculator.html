@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solar Shading Loss Calculator — Power Lost to Shade | SolarToolHub</title>
+<meta name="description" content="Free solar shading loss calculator. Estimate how much energy your array loses to shading, see your effective output, and understand why partial shade can cost more than you'd expect on series-wired strings.">
+<link rel="canonical" href="https://ahmedtere44-coder.github.io/solartoolhub/tools/shading-loss-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SolarToolHub">
+<meta property="og:title" content="Solar Shading Loss Calculator — Power Lost to Shade | SolarToolHub">
+<meta property="og:description" content="Estimate how much energy your solar array loses to shading and see your effective output.">
+<meta property="og:url" content="https://ahmedtere44-coder.github.io/solartoolhub/tools/shading-loss-calculator.html">
+<meta property="og:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Solar Shading Loss Calculator | SolarToolHub">
+<meta name="twitter:description" content="Estimate how much energy your solar array loses to shading and see your effective output.">
+<meta name="twitter:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does shading reduce solar output?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on how much of the array is shaded and how the panels are wired. As a simple estimate, shading that blocks a given fraction of the array for a fraction of the day reduces energy roughly in proportion. But on series-wired strings the loss can be much larger than the shaded area suggests, because a shaded cell can drag down every panel in its string - sometimes a small shadow costs a large share of a string's output."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does a little shade cause a big loss?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Panels in a series string carry the same current, so the weakest (most shaded) panel limits the whole string, like the narrowest point in a pipe. Shading even one cell can throttle the current for every panel wired in series with it. This is why partial shade often causes a loss far bigger than the shaded fraction, and why bypass diodes, good layout, and module-level electronics (optimisers or microinverters) matter so much."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I reduce shading losses?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Avoid shading at the design stage where possible: keep panels clear of chimneys, vents, trees, and nearby buildings, especially around midday. Where shade is unavoidable, use module-level electronics (microinverters or DC optimisers) so a shaded panel doesn't drag down its neighbours, arrange strings so shaded panels are grouped together, and make sure bypass diodes are working. Regular cleaning also prevents soiling, a form of soft shading."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ahmedtere44-coder.github.io/solartoolhub/" },
+    { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools.html" },
+    { "@type": "ListItem", "position": 3, "name": "Shading loss calculator", "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools/shading-loss-calculator.html" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html" class="active">Tools</a></li>
+      <li><a href="../articles.html">Guides</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../tools.html">Tools</a> / Shading loss calculator</div>
+    <h1>Solar shading loss calculator</h1>
+    <p class="lede">Shade is one of solar's biggest hidden enemies — and a small shadow can cost far more than it looks. Estimate how much energy your array loses to shading, see your effective output, and understand why series wiring makes partial shade so costly.</p>
+  </div>
+</div>
+
+<div class="calc-layout">
+  <div class="container">
+    <div class="calc-card" style="max-width:680px;">
+      <form id="sh-calc-form">
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="sh-output">Unshaded output (kWh/day or W)</label>
+            <input type="number" id="sh-output" value="30" min="0" step="1">
+            <span class="helper-text">Your array's output with no shade — in whatever unit you like; the result matches it.</span>
+          </div>
+          <div class="field-group">
+            <label for="sh-area">Array area shaded (%)</label>
+            <input type="number" id="sh-area" value="20" min="0" max="100" step="1">
+            <span class="helper-text">How much of the array falls under shade at the shaded time.</span>
+          </div>
+        </div>
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="sh-time">Fraction of day shaded (%)</label>
+            <input type="number" id="sh-time" value="25" min="0" max="100" step="1">
+            <span class="helper-text">Share of daily sun hours affected (e.g. a tree shading only the morning).</span>
+          </div>
+          <div class="field-group">
+            <label for="sh-wiring">Wiring / mitigation</label>
+            <select id="sh-wiring">
+              <option value="1">Module-level (micros / optimisers)</option>
+              <option value="2" selected>Series string (typical)</option>
+              <option value="3">Series string, no bypass</option>
+            </select>
+            <span class="helper-text">How much partial shade is amplified by wiring.</span>
+          </div>
+        </div>
+      </form>
+
+      <div class="calc-result">
+        <div>
+          <span class="num" id="sh-loss">0%</span>
+          <span class="lbl">estimated energy lost</span>
+        </div>
+        <div>
+          <span class="num" id="sh-effective">0</span>
+          <span class="lbl">effective output (same unit)</span>
+        </div>
+      </div>
+      <div class="calc-result" style="margin-top:14px;">
+        <div>
+          <span class="num" id="sh-lost-amount">0</span>
+          <span class="lbl">output lost to shade</span>
+        </div>
+        <div>
+          <span class="num" id="sh-factor">—</span>
+          <span class="lbl">shade impact factor</span>
+        </div>
+      </div>
+
+      <button type="button" id="sh-pdf-btn" class="btn btn-accent" style="margin-top:20px;">⬇️ Download results as PDF</button>
+      <p class="helper-text">This is an estimate. Base loss = area% × time%. The wiring factor multiplies partial-shade impact, because series-wired panels drag each other down. Real losses depend on exact layout and shadow position.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="calc-diagram">
+    <figure>
+      <svg viewBox="0 0 380 300" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="sh-title sh-desc">
+        <title id="sh-title">How the shading loss calculator works</title>
+        <desc id="sh-desc">The shaded area fraction multiplied by the fraction of the day shaded gives a base loss, which is amplified by a wiring factor to give the estimated energy lost and the effective output.</desc>
+        <text x="190" y="26" text-anchor="middle" font-family="Manrope, sans-serif" font-size="14" font-weight="700" fill="#111827">What you enter</text>
+        <g>
+          <rect x="30" y="42" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="105" y="63" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E3A8A">Area shaded</text>
+          <text x="105" y="81" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">% of array</text>
+        </g>
+        <g>
+          <rect x="200" y="42" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="275" y="63" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E3A8A">Time shaded</text>
+          <text x="275" y="81" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">% of day</text>
+        </g>
+        <line x1="105" y1="94" x2="180" y2="128" stroke="#9CA3AF" stroke-width="1.5"/>
+        <line x1="275" y1="94" x2="200" y2="128" stroke="#9CA3AF" stroke-width="1.5"/>
+        <g>
+          <rect x="80" y="130" width="220" height="52" rx="8" fill="#FEF9C3" stroke="#CA8A04" stroke-width="0.75"/>
+          <text x="190" y="151" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#854D0E">Base loss × wiring factor</text>
+          <text x="190" y="169" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#854D0E">series wiring amplifies it</text>
+        </g>
+        <line x1="190" y1="182" x2="190" y2="212" stroke="#9CA3AF" stroke-width="1.5"/>
+        <g>
+          <rect x="70" y="214" width="240" height="52" rx="8" fill="#E9FBF4" stroke="#10B981" stroke-width="0.75"/>
+          <text x="190" y="235" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#065F46">Energy lost + effective output</text>
+          <text x="190" y="253" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#065F46">what you actually keep</text>
+        </g>
+      </svg>
+      <figcaption>How the calculator estimates shading loss and your remaining output.</figcaption>
+    </figure>
+  </div>
+
+  <div class="calc-chart">
+    <h2 class="calc-chart-title">How loss grows with shaded area</h2>
+    <p class="calc-chart-intro">This curve updates with your inputs above. It shows how estimated energy loss climbs as more of the array is shaded — and how much steeper that climb is on series-wired strings compared with module-level electronics.</p>
+    <div class="calc-chart-canvas-wrap">
+      <canvas id="sh-curve" role="img" aria-label="Line chart showing energy loss rising with shaded area, steeper for series wiring than module-level electronics.">Energy loss rises with shaded area, steeper on series strings.</canvas>
+    </div>
+  </div>
+
+  <article class="article">
+
+    <p>Shade seems simple — cover part of a panel, lose part of the power. But solar shading is sneakier than that. Depending on how your panels are wired, a shadow falling on just one corner of one panel can cut the output of an entire string. This calculator gives you a realistic estimate of the loss, and explains why the "how it's wired" question matters so much.</p>
+
+    <h2>The simple part: area and time</h2>
+    <p>At the most basic level, if shade covers part of your array for part of the day, the energy lost is roughly the shaded fraction multiplied by the fraction of the day it lasts. A shadow over 20% of the array for 25% of the day is a base loss of about 5%. That's the starting point — but it's only the start.</p>
+
+    <h2>The hidden part: series wiring</h2>
+    <p>Here's the catch. Panels wired in a series string all carry the same current, so the most-shaded panel sets the limit for the whole string — like the narrowest point in a pipe throttling the flow. Shade one cell, and you can throttle every panel wired in series with it. This is why a small shadow often costs far more than its area suggests. The calculator's "wiring" setting applies a factor to reflect this: module-level electronics (microinverters or optimisers) limit the damage to the shaded panel, while a plain series string spreads it, and a string with failed bypass diodes is worst of all.</p>
+
+    <h2>Why the mitigation choice matters</h2>
+    <p>This is the single biggest lever you have over shading loss. With microinverters or DC optimisers, each panel works independently, so a shaded panel only loses its own share. On a traditional string inverter, one shaded panel can drag its neighbours down. If you know part of your array will be shaded at times, module-level electronics often pay for themselves in recovered energy.</p>
+
+    <h2>How to reduce shading loss</h2>
+    <p>The best fix is avoiding shade at the design stage — keep panels clear of chimneys, vents, trees, and nearby rooflines, especially around midday when the sun is strongest. Where some shade is unavoidable, group shaded panels onto their own string, use module-level electronics, and make sure bypass diodes work. Don't forget soiling — dust and dirt act like soft shade, which is why <a href="../articles/solar-panel-maintenance.html">regular cleaning</a> matters.</p>
+
+    <h2>Related tools</h2>
+    <p>To see your unshaded baseline, use the <a href="energy-production-calculator.html">energy production calculator</a>, and to plan a well-oriented, low-shade layout, the <a href="panel-tilt-calculator.html">panel tilt calculator</a> helps you point the array correctly. For series strings, the <a href="string-sizing-calculator.html">string sizing calculator</a> sets how panels are grouped.</p>
+
+    <h2>Frequently asked questions</h2>
+    <h3>How much does shading reduce solar output?</h3>
+    <p>Roughly the shaded area fraction times the shaded time fraction — but on series strings the loss can be much bigger, because one shaded panel limits the whole string.</p>
+    <h3>Why does a little shade cause a big loss?</h3>
+    <p>Series-wired panels share the same current, so the most-shaded panel throttles the whole string. Shading one cell can cut current for every panel in series with it.</p>
+    <h3>How do I reduce shading losses?</h3>
+    <p>Avoid shade in design, use microinverters or optimisers so a shaded panel doesn't drag down others, group shaded panels together, keep bypass diodes working, and clean regularly.</p>
+
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="panel-calculator.html">Panel calculator</a></li>
+          <li><a href="battery-calculator.html">Battery calculator</a></li>
+          <li><a href="inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="cable-calculator.html">Cable calculator</a></li>
+          <li><a href="roi-calculator.html">ROI calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script>
+  (function () {
+    var form = document.getElementById('sh-calc-form');
+    if (!form) return;
+
+    var FACTORS = { '1': 1.0, '2': 1.6, '3': 2.2 };
+    var FACTOR_LABEL = { '1': 'Low (module-level)', '2': 'Medium (series)', '3': 'High (no bypass)' };
+
+    function calcSH() {
+      var output = parseFloat(document.getElementById('sh-output').value) || 0;
+      var area = (parseFloat(document.getElementById('sh-area').value) || 0) / 100;
+      var time = (parseFloat(document.getElementById('sh-time').value) || 0) / 100;
+      var wsel = document.getElementById('sh-wiring').value;
+      var factor = FACTORS[wsel] || 1;
+
+      var baseLoss = area * time;
+      var lossFrac = baseLoss * factor;
+      if (lossFrac > 1) lossFrac = 1; // cap at 100%
+      var lostAmount = output * lossFrac;
+      var effective = output - lostAmount;
+
+      document.getElementById('sh-loss').textContent = (lossFrac * 100).toFixed(1) + '%';
+      document.getElementById('sh-effective').textContent = Math.round(effective * 10) / 10;
+      document.getElementById('sh-lost-amount').textContent = Math.round(lostAmount * 10) / 10;
+      document.getElementById('sh-factor').textContent = FACTOR_LABEL[wsel] || '—';
+    }
+
+    form.addEventListener('input', calcSH);
+    calcSH();
+
+    var pdfBtn = document.getElementById('sh-pdf-btn');
+    if (pdfBtn) {
+      pdfBtn.addEventListener('click', function () {
+        var wsel = document.getElementById('sh-wiring').value;
+        var inputs = [
+          ['Unshaded output', document.getElementById('sh-output').value],
+          ['Array area shaded', document.getElementById('sh-area').value + ' %'],
+          ['Fraction of day shaded', document.getElementById('sh-time').value + ' %'],
+          ['Wiring / mitigation', FACTOR_LABEL[wsel] || '—']
+        ];
+        var results = [
+          ['Estimated energy lost', document.getElementById('sh-loss').textContent],
+          ['Effective output', document.getElementById('sh-effective').textContent],
+          ['Output lost to shade', document.getElementById('sh-lost-amount').textContent],
+          ['Shade impact factor', document.getElementById('sh-factor').textContent]
+        ];
+        generateSolarToolHubResultsPDF({
+          subtitle: 'Shading Loss — Results',
+          inputs: inputs,
+          resultsHeaders: ['Metric', 'Value'],
+          results: results,
+          nextSteps: {
+            text: 'See your unshaded baseline with our:',
+            linkText: 'Energy Production Calculator',
+            url: 'https://ahmedtere44-coder.github.io/solartoolhub/tools/energy-production-calculator.html'
+          },
+          filename: 'solartoolhub-shading-loss-results.pdf'
+        });
+      });
+    }
+  })();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+  (function () {
+    var canvas = document.getElementById('sh-curve');
+    if (!canvas || typeof Chart === 'undefined') return;
+
+    var timeEl = document.getElementById('sh-time');
+    var areas = [0, 10, 20, 30, 40, 50];
+
+    function lossFor(factor) {
+      var time = (parseFloat(timeEl.value) || 0) / 100;
+      return areas.map(function (a) {
+        var l = (a / 100) * time * factor;
+        if (l > 1) l = 1;
+        return Math.round(l * 1000) / 10;
+      });
+    }
+
+    var chart = new Chart(canvas, {
+      type: 'line',
+      data: {
+        labels: areas.map(function (a) { return a + '%'; }),
+        datasets: [
+          {
+            label: 'Series string',
+            data: lossFor(1.6),
+            borderColor: '#CA8A04',
+            backgroundColor: 'rgba(250,204,21,0.12)',
+            borderWidth: 2, fill: true, tension: 0.3,
+            pointBackgroundColor: '#CA8A04', pointRadius: 3
+          },
+          {
+            label: 'Module-level',
+            data: lossFor(1.0),
+            borderColor: '#10B981',
+            backgroundColor: 'rgba(16,185,129,0.10)',
+            borderWidth: 2, fill: true, tension: 0.3,
+            pointBackgroundColor: '#10B981', pointRadius: 3
+          }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: true, labels: { color: '#4B5563', boxWidth: 12 } } },
+        scales: {
+          x: { title: { display: true, text: 'Array area shaded', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, grid: { display: false } },
+          y: { title: { display: true, text: 'Energy lost (%)', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, beginAtZero: true }
+        }
+      }
+    });
+
+    function refresh() {
+      chart.data.datasets[0].data = lossFor(1.6);
+      chart.data.datasets[1].data = lossFor(1.0);
+      chart.update();
+    }
+    if (timeEl) timeEl.addEventListener('input', refresh);
+  })();
+</script>
+</body>
+</html>
