@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solar Comparisons — MPPT vs PWM, Lithium vs Lead-Acid & More | SolarToolHub</title>
+<meta name="description" content="Side-by-side solar comparison tables: MPPT vs PWM, lithium vs lead-acid batteries, grid-tied vs off-grid vs hybrid, and mono vs poly vs thin-film panels.">
+<link rel="canonical" href="https://ahmedtere44-coder.github.io/solartoolhub/comparisons.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SolarToolHub">
+<meta property="og:title" content="Solar Comparisons — MPPT vs PWM, Lithium vs Lead-Acid & More | SolarToolHub">
+<meta property="og:description" content="Side-by-side solar comparison tables to help you choose the right controller, battery, system type, and panel.">
+<meta property="og:url" content="https://ahmedtere44-coder.github.io/solartoolhub/comparisons.html">
+<meta property="og:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Solar Comparisons — MPPT vs PWM, Lithium vs Lead-Acid & More">
+<meta name="twitter:description" content="Side-by-side solar comparison tables to help you choose the right controller, battery, system type, and panel.">
+<meta name="twitter:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ahmedtere44-coder.github.io/solartoolhub/" },
+    { "@type": "ListItem", "position": 2, "name": "Comparisons", "item": "https://ahmedtere44-coder.github.io/solartoolhub/comparisons.html" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="tools.html">Tools</a></li>
+      <li><a href="articles.html">Guides</a></li>
+      <li><a href="comparisons.html" class="active">Compare</a></li>
+      <li><a href="glossary.html">Glossary</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> / Comparisons</div>
+    <h1>Solar comparisons, side by side</h1>
+    <p class="lede">The choices that trip people up the most — which charge controller, which battery, which system type, which panel — laid out in clear tables so you can see the trade-offs at a glance.</p>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="compare-block" id="mppt-vs-pwm">
+    <h2>MPPT vs PWM charge controllers</h2>
+    <p class="compare-intro">Both protect your battery; the difference is how much solar energy they capture and what array voltage they can handle.</p>
+    <div class="compare-scroll">
+      <table class="compare-table">
+        <thead><tr><th>Feature</th><th>MPPT</th><th>PWM</th></tr></thead>
+        <tbody>
+          <tr><th>How it works</th><td>DC-to-DC converter; runs the panel at its best voltage</td><td>Connects the panel almost directly to the battery</td></tr>
+          <tr><th>Energy captured</th><td>Highest — about 15–30% more</td><td>Lower; wastes panel voltage above the battery</td></tr>
+          <tr><th>Best array voltage</th><td>Array voltage much higher than the battery</td><td>Panel voltage close to the battery</td></tr>
+          <tr><th>Cold-weather gain</th><td>Large (cold means higher voltage to convert)</td><td>Little</td></tr>
+          <tr><th>Cost</th><td>Higher</td><td>Lower</td></tr>
+          <tr><th>Best for</th><td>Larger systems, series arrays, off-grid</td><td>Small, simple 12 V systems on a budget</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="compare-bottom"><strong>Bottom line:</strong> choose MPPT for anything above a few hundred watts, series-wired arrays, cold climates, or off-grid; PWM only for small, cheap 12 V setups where panel and battery voltage already match.</div>
+    <p class="compare-links">Learn more: <a href="articles/mppt-vs-pwm-charge-controllers.html">MPPT vs PWM guide</a> &middot; <a href="tools/charge-controller-calculator.html">Charge controller calculator</a></p>
+  </div>
+
+  <div class="compare-block" id="lithium-vs-lead-acid">
+    <h2>Lithium vs lead-acid batteries</h2>
+    <p class="compare-intro">Lead-acid is cheaper to buy; lithium is usually cheaper per usable kilowatt-hour over its life. Here's why.</p>
+    <div class="compare-scroll">
+      <table class="compare-table">
+        <thead><tr><th>Feature</th><th>Lithium (LiFePO4)</th><th>Lead-acid</th></tr></thead>
+        <tbody>
+          <tr><th>Usable depth of discharge</th><td>80–90%</td><td>~50%</td></tr>
+          <tr><th>Cycle life</th><td>3,000–6,000+ cycles</td><td>500–1,200 cycles</td></tr>
+          <tr><th>Round-trip efficiency</th><td>~95–98%</td><td>~80–85%</td></tr>
+          <tr><th>Upfront cost</th><td>High</td><td>Low</td></tr>
+          <tr><th>Cost per usable kWh over life</th><td>Lower</td><td>Higher</td></tr>
+          <tr><th>Weight &amp; size</th><td>Light and compact</td><td>Heavy and bulky</td></tr>
+          <tr><th>Maintenance</th><td>None</td><td>Watering (flooded types)</td></tr>
+          <tr><th>Best for</th><td>Daily cycling, off-grid, solar storage</td><td>Occasional backup, tight budgets</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="compare-bottom"><strong>Bottom line:</strong> for a battery you cycle every day, lithium almost always wins on lifetime cost and usable capacity. Lead-acid still makes sense for cheap, rarely-used backup.</div>
+    <p class="compare-links">Related: <a href="tools/battery-calculator.html">Battery calculator</a> &middot; <a href="tools/battery-ah-kwh-converter.html">Battery Ah to kWh converter</a></p>
+  </div>
+
+  <div class="compare-block" id="grid-tied-vs-off-grid-vs-hybrid">
+    <h2>Grid-tied vs off-grid vs hybrid</h2>
+    <p class="compare-intro">The system type decides whether you have a battery, whether you keep power in an outage, and how much it costs.</p>
+    <div class="compare-scroll">
+      <table class="compare-table">
+        <thead><tr><th>Feature</th><th>Grid-tied</th><th>Off-grid</th><th>Hybrid</th></tr></thead>
+        <tbody>
+          <tr><th>Battery</th><td>None</td><td>Required</td><td>Yes</td></tr>
+          <tr><th>Grid connection</th><td>Yes</td><td>None</td><td>Yes</td></tr>
+          <tr><th>Power during outage</th><td>No (shuts off)</td><td>Yes (sole source)</td><td>Yes (backup)</td></tr>
+          <tr><th>Upfront cost</th><td>Lowest</td><td>Highest</td><td>High</td></tr>
+          <tr><th>Complexity</th><td>Simple</td><td>Complex</td><td>Moderate</td></tr>
+          <tr><th>Best for</th><td>Lowest bills where the grid is reliable</td><td>Sites with no grid access</td><td>Backup power plus bill savings</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="compare-bottom"><strong>Bottom line:</strong> grid-tied for the cheapest savings on a reliable grid, off-grid when there's no grid at all, hybrid when you want savings and blackout protection.</div>
+    <p class="compare-links">Learn more: <a href="articles/grid-tied-vs-off-grid-vs-hybrid.html">Grid-tied vs off-grid vs hybrid guide</a> &middot; <a href="tools/off-grid-system-wizard.html">Off-grid system wizard</a></p>
+  </div>
+
+  <div class="compare-block" id="panel-types">
+    <h2>Monocrystalline vs polycrystalline vs thin-film panels</h2>
+    <p class="compare-intro">The three main panel technologies trade efficiency, cost, and how much space they need.</p>
+    <div class="compare-scroll">
+      <table class="compare-table">
+        <thead><tr><th>Feature</th><th>Monocrystalline</th><th>Polycrystalline</th><th>Thin-film</th></tr></thead>
+        <tbody>
+          <tr><th>Efficiency</th><td>Highest (~19–22%)</td><td>Medium (~15–17%)</td><td>Lowest (~10–13%)</td></tr>
+          <tr><th>Cost</th><td>Higher</td><td>Medium</td><td>Low per watt</td></tr>
+          <tr><th>Roof space needed</th><td>Least</td><td>More</td><td>Most</td></tr>
+          <tr><th>Heat &amp; low-light</th><td>Good in heat</td><td>Average</td><td>Best in heat and partial shade</td></tr>
+          <tr><th>Appearance</th><td>Black, uniform</td><td>Blue, speckled</td><td>Thin, often flexible</td></tr>
+          <tr><th>Best for</th><td>Limited roof space</td><td>Budget builds with room</td><td>Large areas, curved or portable surfaces</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="compare-bottom"><strong>Bottom line:</strong> monocrystalline is the default choice for most rooftops today; polycrystalline saves money when you have space; thin-film suits large or unusual surfaces and hot climates.</div>
+    <p class="compare-links">Related: <a href="tools/panel-calculator.html">Panel calculator</a> &middot; <a href="tools/roof-area-system-size-calculator.html">Roof area to system size</a> &middot; <a href="tools/temperature-derating-calculator.html">Temperature derating</a></p>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="tools/panel-calculator.html">Panel calculator</a></li>
+          <li><a href="tools/battery-calculator.html">Battery calculator</a></li>
+          <li><a href="tools/inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="tools/cable-calculator.html">Cable calculator</a></li>
+          <li><a href="tools/roi-calculator.html">ROI calculator</a></li>
+          <li><a href="tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
