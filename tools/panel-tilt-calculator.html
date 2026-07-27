@@ -366,24 +366,28 @@
     if (!canvas || typeof Chart === 'undefined') return;
 
     var latEl = document.getElementById('tilt-latitude');
-    var latSteps = [0, 10, 20, 30, 40, 50, 60];
+    var latSteps = [0, 10, 20, 30, 40, 50, 60, 70];
 
-    function series(kind) {
+    function line(kind) {
       return latSteps.map(function (lat) {
-        if (kind === 'year') return Math.round(lat * 10) / 10;
-        if (kind === 'winter') return Math.round(Math.min(lat + 15, 90) * 10) / 10;
-        return Math.round(Math.max(lat - 15, 0) * 10) / 10;
+        var y = kind === 'year' ? lat : (kind === 'winter' ? Math.min(lat + 15, 90) : Math.max(lat - 15, 0));
+        return { x: lat, y: Math.round(y * 10) / 10 };
       });
+    }
+    function marker() {
+      var lat = Math.abs(parseFloat(latEl.value) || 0);
+      if (lat > 70) lat = 70;
+      return [{ x: lat, y: Math.round(lat * 10) / 10 }];
     }
 
     var chart = new Chart(canvas, {
       type: 'line',
       data: {
-        labels: latSteps.map(function (l) { return l + '°'; }),
         datasets: [
-          { label: 'Year-round', data: series('year'), borderColor: '#1E3A8A', borderWidth: 2, fill: false, tension: 0.2, pointBackgroundColor: '#1E3A8A', pointRadius: 3 },
-          { label: 'Winter', data: series('winter'), borderColor: '#10B981', borderWidth: 2, fill: false, tension: 0.2, borderDash: [5,4], pointBackgroundColor: '#10B981', pointRadius: 3 },
-          { label: 'Summer', data: series('summer'), borderColor: '#CA8A04', borderWidth: 2, fill: false, tension: 0.2, borderDash: [2,3], pointBackgroundColor: '#CA8A04', pointRadius: 3 }
+          { label: 'Year-round', data: line('year'), borderColor: '#1E3A8A', borderWidth: 2, fill: false, tension: 0.2, pointRadius: 0 },
+          { label: 'Winter', data: line('winter'), borderColor: '#10B981', borderWidth: 2, fill: false, tension: 0.2, borderDash: [5,4], pointRadius: 0 },
+          { label: 'Summer', data: line('summer'), borderColor: '#CA8A04', borderWidth: 2, fill: false, tension: 0.2, borderDash: [2,3], pointRadius: 0 },
+          { label: 'Your latitude', data: marker(), borderColor: '#DC2626', backgroundColor: '#DC2626', showLine: false, pointRadius: 7, pointHoverRadius: 8, pointStyle: 'circle' }
         ]
       },
       options: {
@@ -391,16 +395,17 @@
         maintainAspectRatio: false,
         plugins: { legend: { display: true, labels: { color: '#4B5563', boxWidth: 14 } } },
         scales: {
-          x: { title: { display: true, text: 'Latitude', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, grid: { display: false } },
+          x: { type: 'linear', min: 0, max: 70, title: { display: true, text: 'Latitude (°)', color: '#4B5563' }, ticks: { color: '#9CA3AF', stepSize: 10 }, grid: { display: false } },
           y: { title: { display: true, text: 'Tilt angle (°)', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, beginAtZero: true }
         }
       }
     });
 
-    function markCurrentLat() {
-      // subtle: no vertical annotation lib, chart is illustrative across latitudes
+    function refresh() {
+      chart.data.datasets[3].data = marker();
+      chart.update();
     }
-    if (latEl) latEl.addEventListener('input', markCurrentLat);
+    if (latEl) latEl.addEventListener('input', refresh);
   })();
 </script>
 </body>
