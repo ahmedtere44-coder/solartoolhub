@@ -303,6 +303,14 @@
 </div>
 
 <div class="container">
+  <div class="tool-search" style="margin-bottom: 28px;">
+    <div class="tool-search-box">
+      <span class="s-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      </span>
+      <input type="text" id="glossary-search-input" placeholder="Search terms — e.g. MPPT, voltage, battery…" autocomplete="off" aria-label="Search glossary terms">
+    </div>
+  </div>
   <div class="glossary-alpha">
 <a href="#g-A">A</a><a href="#g-B">B</a><a href="#g-C">C</a><a href="#g-D">D</a><a href="#g-G">G</a><a href="#g-H">H</a><a href="#g-I">I</a><a href="#g-K">K</a><a href="#g-M">M</a><a href="#g-N">N</a><a href="#g-O">O</a><a href="#g-P">P</a><a href="#g-S">S</a><a href="#g-T">T</a><a href="#g-V">V</a><a href="#g-W">W</a>
   </div>
@@ -585,5 +593,41 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script>
+(function () {
+  var input = document.getElementById('glossary-search-input');
+  if (!input) return;
+  var terms = [].slice.call(document.querySelectorAll('.glossary-term'));
+  var groups = [].slice.call(document.querySelectorAll('.glossary-group'));
+  var alpha = document.querySelector('.glossary-alpha');
+  var list = document.querySelector('.glossary-list');
+  var emptyMsg = document.createElement('div');
+  emptyMsg.className = 'glossary-empty';
+  emptyMsg.style.cssText = 'text-align:center;color:var(--ink-soft);padding:32px 0;';
+  emptyMsg.hidden = true;
+  if (list) list.parentNode.insertBefore(emptyMsg, list);
+
+  input.addEventListener('input', function () {
+    var q = input.value.trim().toLowerCase();
+    var anyMatch = false;
+    terms.forEach(function (t) {
+      var match = !q || t.textContent.toLowerCase().indexOf(q) > -1;
+      t.style.display = match ? '' : 'none';
+      if (match && q) anyMatch = true;
+    });
+    groups.forEach(function (g) {
+      var vis = [].slice.call(g.querySelectorAll('.glossary-term')).some(function (t) { return t.style.display !== 'none'; });
+      g.style.display = vis ? '' : 'none';
+    });
+    if (alpha) alpha.style.display = q ? 'none' : '';
+    if (q && !anyMatch) {
+      emptyMsg.textContent = 'No terms match \u201C' + input.value.trim() + '\u201D.';
+      emptyMsg.hidden = false;
+    } else {
+      emptyMsg.hidden = true;
+    }
+  });
+})();
+</script>
 </body>
 </html>
