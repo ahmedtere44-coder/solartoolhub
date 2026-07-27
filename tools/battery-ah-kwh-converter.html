@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Battery Ah to kWh Converter — Amp Hours to Kilowatt Hours | SolarToolHub</title>
+<meta name="description" content="Free battery Ah to kWh converter. Enter amp hours and voltage to get watt-hours and kilowatt-hours, plus the usable capacity at your depth of discharge.">
+<link rel="canonical" href="https://ahmedtere44-coder.github.io/solartoolhub/tools/battery-ah-kwh-converter.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SolarToolHub">
+<meta property="og:title" content="Battery Ah to kWh Converter — Amp Hours to Kilowatt Hours | SolarToolHub">
+<meta property="og:description" content="Enter amp hours and voltage to get watt-hours and kilowatt-hours, plus usable capacity at your depth of discharge.">
+<meta property="og:url" content="https://ahmedtere44-coder.github.io/solartoolhub/tools/battery-ah-kwh-converter.html">
+<meta property="og:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Battery Ah to kWh Converter | SolarToolHub">
+<meta name="twitter:description" content="Enter amp hours and voltage to get watt-hours, kilowatt-hours, and usable capacity.">
+<meta name="twitter:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I convert amp hours (Ah) to kilowatt hours (kWh)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiply the amp hours by the battery voltage to get watt-hours, then divide by 1000 to get kilowatt-hours. So kWh = Ah times volts divided by 1000. For example a 200 Ah battery at 12 V holds 200 times 12 equals 2400 Wh, which is 2.4 kWh."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is usable battery capacity and depth of discharge?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You should not drain most batteries fully. Depth of discharge (DoD) is the share you can safely use — around 50 percent for lead-acid and 80 to 90 percent for lithium. Usable capacity is the total capacity times the DoD. A 2.4 kWh battery at 80 percent DoD gives about 1.9 kWh of usable energy; going deeper shortens the battery's life."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many kWh is a 200Ah 12V battery?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A 200 Ah battery at 12 V holds 2.4 kWh in total (200 times 12 divided by 1000). At a realistic 80 percent depth of discharge, about 1.9 kWh of that is usable."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ahmedtere44-coder.github.io/solartoolhub/" },
+    { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools.html" },
+    { "@type": "ListItem", "position": 3, "name": "Battery Ah to kWh converter", "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools/battery-ah-kwh-converter.html" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html" class="active">Tools</a></li>
+      <li><a href="../articles.html">Guides</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../tools.html">Tools</a> / Battery Ah to kWh converter</div>
+    <h1>Battery Ah to kWh converter</h1>
+    <p class="lede">Battery capacity is sold in amp-hours (Ah), but solar energy is measured in kilowatt-hours (kWh). Enter your battery's Ah and voltage to convert between them — and see how much of that energy you can actually use.</p>
+  </div>
+</div>
+
+<div class="calc-layout">
+  <div class="container">
+    <div class="calc-card" style="max-width:680px;">
+      <form id="bc-calc-form">
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="bc-ah">Battery capacity (Ah)</label>
+            <input type="number" id="bc-ah" value="200" min="0" step="1">
+            <span class="helper-text">Amp-hours from the battery label or spec sheet.</span>
+          </div>
+          <div class="field-group">
+            <label for="bc-volt">Battery voltage (V)</label>
+            <input type="number" id="bc-volt" value="12" min="0" step="0.1">
+            <span class="helper-text">Nominal voltage — usually 12, 24, or 48 V.</span>
+          </div>
+        </div>
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="bc-dod">Depth of discharge (%)</label>
+            <input type="number" id="bc-dod" value="80" min="0" max="100" step="1">
+            <span class="helper-text">How much you safely use — ~50% lead-acid, ~80–90% lithium.</span>
+          </div>
+        </div>
+      </form>
+
+      <div class="calc-result">
+        <div>
+          <span class="num" id="bc-wh">0</span>
+          <span class="lbl">total energy (Wh)</span>
+        </div>
+        <div>
+          <span class="num" id="bc-kwh">0</span>
+          <span class="lbl">total energy (kWh)</span>
+        </div>
+      </div>
+      <div class="calc-result" style="margin-top:14px;">
+        <div>
+          <span class="num" id="bc-usable-kwh">0</span>
+          <span class="lbl">usable energy (kWh)</span>
+        </div>
+        <div>
+          <span class="num" id="bc-usable-ah">0</span>
+          <span class="lbl">usable capacity (Ah)</span>
+        </div>
+      </div>
+
+      <button type="button" id="bc-pdf-btn" class="btn btn-accent" style="margin-top:20px;">⬇️ Download results as PDF</button>
+      <p class="helper-text">kWh = Ah × volts ÷ 1000. Usable energy = total energy × depth of discharge. Don't plan to use 100% of a battery — draining it fully shortens its life.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="calc-diagram">
+    <figure>
+      <svg viewBox="0 0 380 300" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="bc-title bc-desc">
+        <title id="bc-title">How amp-hours convert to kilowatt-hours</title>
+        <desc id="bc-desc">Amp-hours multiplied by voltage gives watt-hours, divided by 1000 gives kilowatt-hours, and multiplied by the depth of discharge gives the usable energy.</desc>
+        <text x="190" y="26" text-anchor="middle" font-family="Manrope, sans-serif" font-size="14" font-weight="700" fill="#111827">What you enter</text>
+        <g>
+          <rect x="30" y="42" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="105" y="63" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E3A8A">Capacity</text>
+          <text x="105" y="81" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">amp-hours (Ah)</text>
+        </g>
+        <g>
+          <rect x="200" y="42" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="275" y="63" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E3A8A">Voltage</text>
+          <text x="275" y="81" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">volts (V)</text>
+        </g>
+        <line x1="105" y1="94" x2="180" y2="128" stroke="#9CA3AF" stroke-width="1.5"/>
+        <line x1="275" y1="94" x2="200" y2="128" stroke="#9CA3AF" stroke-width="1.5"/>
+        <g>
+          <rect x="80" y="130" width="220" height="52" rx="8" fill="#FEF9C3" stroke="#CA8A04" stroke-width="0.75"/>
+          <text x="190" y="151" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#854D0E">Ah × V ÷ 1000 = kWh</text>
+          <text x="190" y="169" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#854D0E">total stored energy</text>
+        </g>
+        <line x1="190" y1="182" x2="190" y2="212" stroke="#9CA3AF" stroke-width="1.5"/>
+        <g>
+          <rect x="70" y="214" width="240" height="52" rx="8" fill="#E9FBF4" stroke="#10B981" stroke-width="0.75"/>
+          <text x="190" y="235" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#065F46">× depth of discharge = usable kWh</text>
+          <text x="190" y="253" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#065F46">the energy you can really use</text>
+        </g>
+      </svg>
+      <figcaption>Amp-hours become kilowatt-hours through voltage — then depth of discharge sets what's usable.</figcaption>
+    </figure>
+  </div>
+
+  <div class="calc-chart">
+    <h2 class="calc-chart-title">How usable energy changes with depth of discharge</h2>
+    <p class="calc-chart-intro">This curve updates with your inputs. It shows how much of your battery's energy is usable as you allow a deeper discharge — the marker shows your chosen depth of discharge.</p>
+    <div class="calc-chart-canvas-wrap">
+      <canvas id="bc-curve" role="img" aria-label="Line chart showing usable energy rising with depth of discharge, with a marker for your chosen value.">Usable energy rises with the depth of discharge you allow.</canvas>
+    </div>
+  </div>
+
+  <article class="article">
+
+    <p>Batteries are rated in amp-hours, but everything else in a solar system — your daily use, your panel output, your bill — is in kilowatt-hours. Converting between them is simple once you bring voltage into the picture, and it's the step that lets you compare a battery to your actual energy needs.</p>
+
+    <h2>The conversion</h2>
+    <p>Amp-hours only tell you half the story; you also need the voltage. Multiply them to get watt-hours, then divide by 1000 for kilowatt-hours: <strong>kWh = Ah × V ÷ 1000</strong>. A 200 Ah battery at 12 V holds 200 × 12 = 2400 Wh, or 2.4 kWh. The same 200 Ah at 48 V holds four times as much — 9.6 kWh — which is exactly why larger systems use higher battery voltages.</p>
+
+    <h2>Why usable capacity is less than the label</h2>
+    <p>You can't safely use all of a battery's rated capacity. <strong>Depth of discharge (DoD)</strong> is the fraction you can draw before recharging: around 50% for lead-acid and 80–90% for lithium. Draining deeper than that repeatedly shortens the battery's life. So usable energy is the total times the DoD — a 2.4 kWh battery at 80% DoD gives about 1.9 kWh you can actually count on.</p>
+
+    <h2>Putting it to use</h2>
+    <p>Once your battery is in kWh, you can match it to your daily energy use and see how long it will last. To size a battery bank for your loads, use the <a href="battery-calculator.html">battery calculator</a>; to see how long a bank will run a given load, the <a href="battery-runtime-calculator.html">battery runtime calculator</a>; and for a full off-grid design, the <a href="off-grid-system-wizard.html">off-grid system wizard</a>.</p>
+
+    <h2>Related tools</h2>
+    <p>Pair this with the <a href="battery-calculator.html">battery calculator</a>, the <a href="battery-runtime-calculator.html">battery runtime calculator</a>, and the <a href="energy-production-calculator.html">energy production calculator</a> to see how your panels, battery, and daily use fit together.</p>
+
+    <h2>Frequently asked questions</h2>
+    <h3>How do I convert amp hours (Ah) to kilowatt hours (kWh)?</h3>
+    <p>Multiply amp-hours by voltage for watt-hours, then divide by 1000: kWh = Ah × V ÷ 1000. A 200 Ah, 12 V battery is 2400 Wh = 2.4 kWh.</p>
+    <h3>What is usable battery capacity and depth of discharge?</h3>
+    <p>Depth of discharge is the share you can safely use — ~50% for lead-acid, 80–90% for lithium. Usable capacity is total capacity × DoD; going deeper shortens battery life.</p>
+    <h3>How many kWh is a 200Ah 12V battery?</h3>
+    <p>2.4 kWh total (200 × 12 ÷ 1000). At 80% depth of discharge, about 1.9 kWh is usable.</p>
+
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="panel-calculator.html">Panel calculator</a></li>
+          <li><a href="battery-calculator.html">Battery calculator</a></li>
+          <li><a href="inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="cable-calculator.html">Cable calculator</a></li>
+          <li><a href="roi-calculator.html">ROI calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script>
+  (function () {
+    var form = document.getElementById('bc-calc-form');
+    if (!form) return;
+    function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+
+    function calcBC() {
+      var ah = val('bc-ah'), volt = val('bc-volt'), dod = val('bc-dod') / 100;
+      var wh = ah * volt;
+      var kwh = wh / 1000;
+      var usableKwh = kwh * dod;
+      var usableAh = ah * dod;
+      document.getElementById('bc-wh').textContent = Math.round(wh);
+      document.getElementById('bc-kwh').textContent = (Math.round(kwh * 100) / 100).toFixed(2);
+      document.getElementById('bc-usable-kwh').textContent = (Math.round(usableKwh * 100) / 100).toFixed(2);
+      document.getElementById('bc-usable-ah').textContent = Math.round(usableAh);
+    }
+    form.addEventListener('input', calcBC);
+    calcBC();
+
+    var pdfBtn = document.getElementById('bc-pdf-btn');
+    if (pdfBtn) {
+      pdfBtn.addEventListener('click', function () {
+        var inputs = [
+          ['Battery capacity', document.getElementById('bc-ah').value + ' Ah'],
+          ['Battery voltage', document.getElementById('bc-volt').value + ' V'],
+          ['Depth of discharge', document.getElementById('bc-dod').value + ' %']
+        ];
+        var results = [
+          ['Total energy', document.getElementById('bc-wh').textContent + ' Wh'],
+          ['Total energy', document.getElementById('bc-kwh').textContent + ' kWh'],
+          ['Usable energy', document.getElementById('bc-usable-kwh').textContent + ' kWh'],
+          ['Usable capacity', document.getElementById('bc-usable-ah').textContent + ' Ah']
+        ];
+        generateSolarToolHubResultsPDF({
+          subtitle: 'Battery Ah to kWh — Results',
+          inputs: inputs,
+          resultsHeaders: ['Metric', 'Value'],
+          results: results,
+          nextSteps: {
+            text: 'See how long this battery runs your load with our:',
+            linkText: 'Battery Runtime Calculator',
+            url: 'https://ahmedtere44-coder.github.io/solartoolhub/tools/battery-runtime-calculator.html'
+          },
+          filename: 'solartoolhub-battery-ah-kwh-results.pdf'
+        });
+      });
+    }
+  })();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+  (function () {
+    var canvas = document.getElementById('bc-curve');
+    if (!canvas || typeof Chart === 'undefined') return;
+    var ahEl = document.getElementById('bc-ah');
+    var voltEl = document.getElementById('bc-volt');
+    var dodEl = document.getElementById('bc-dod');
+
+    var dods = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+    function totalKwh() { return (parseFloat(ahEl.value) || 0) * (parseFloat(voltEl.value) || 0) / 1000; }
+    function line() { var t = totalKwh(); return dods.map(function (d) { return { x: d, y: Math.round(t * d / 100 * 100) / 100 }; }); }
+    function marker() {
+      var d = parseFloat(dodEl.value) || 0;
+      return [{ x: d, y: Math.round(totalKwh() * d / 100 * 100) / 100 }];
+    }
+
+    var chart = new Chart(canvas, {
+      type: 'line',
+      data: {
+        datasets: [
+          { label: 'Usable energy', data: line(), borderColor: '#1E3A8A', backgroundColor: 'rgba(37,99,235,0.10)', borderWidth: 2, fill: true, tension: 0.2, pointRadius: 0 },
+          { label: 'Your DoD', data: marker(), borderColor: '#10B981', backgroundColor: '#10B981', showLine: false, pointRadius: 7, pointHoverRadius: 8, pointStyle: 'circle' }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: true, labels: { color: '#4B5563', boxWidth: 12 } } },
+        scales: {
+          x: { type: 'linear', min: 0, max: 100, title: { display: true, text: 'Depth of discharge (%)', color: '#4B5563' }, ticks: { color: '#9CA3AF', stepSize: 20 }, grid: { display: false } },
+          y: { title: { display: true, text: 'Usable energy (kWh)', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, beginAtZero: true }
+        }
+      }
+    });
+    function refresh() {
+      chart.data.datasets[0].data = line();
+      chart.data.datasets[1].data = marker();
+      chart.update();
+    }
+    [ahEl, voltEl, dodEl].forEach(function (el) { if (el) el.addEventListener('input', refresh); });
+  })();
+</script>
+</body>
+</html>
