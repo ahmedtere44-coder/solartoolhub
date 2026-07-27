@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solar Panel Series & Parallel Calculator — Array Voltage & Current | SolarToolHub</title>
+<meta name="description" content="Free solar panel series and parallel calculator. Enter panel specs and your wiring layout to get array voltage, current, power, and max open-circuit voltage.">
+<link rel="canonical" href="https://ahmedtere44-coder.github.io/solartoolhub/tools/series-parallel-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SolarToolHub">
+<meta property="og:title" content="Solar Panel Series & Parallel Calculator — Array Voltage & Current | SolarToolHub">
+<meta property="og:description" content="Enter panel specs and your wiring layout to get array voltage, current, power, and max open-circuit voltage.">
+<meta property="og:url" content="https://ahmedtere44-coder.github.io/solartoolhub/tools/series-parallel-calculator.html">
+<meta property="og:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Solar Panel Series & Parallel Calculator | SolarToolHub">
+<meta name="twitter:description" content="Enter panel specs and your wiring layout to get array voltage, current, power, and max open-circuit voltage.">
+<meta name="twitter:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I calculate solar panels wired in series and parallel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Panels in series add their voltages while the current stays the same, and strings in parallel add their currents while the voltage stays the same. So for a layout of S panels in series and P strings in parallel, the array voltage is the panel voltage times S, the array current is the panel current times P, and the total power is panel voltage times panel current times S times P. This calculator does all four at once from your panel's spec-sheet values."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does wiring panels in series or parallel change the total power?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The total power of an array depends only on how many panels you have and their wattage, not on how they're wired. Series and parallel only change how that power is delivered — series gives higher voltage at lower current, parallel gives lower voltage at higher current. You choose the mix to land inside your inverter or charge controller's voltage and current window."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does open-circuit voltage (Voc) matter for series strings?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Open-circuit voltage is the highest voltage a string produces — reached in cold weather with no load — and it's higher than the operating voltage (Vmp). Because it rises with every panel added in series and increases further as temperature drops, the string's cold Voc must stay below the maximum input voltage of your inverter or charge controller. Exceeding it can damage the equipment, so it's the number that limits how many panels you can safely put in one series string."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ahmedtere44-coder.github.io/solartoolhub/" },
+    { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools.html" },
+    { "@type": "ListItem", "position": 3, "name": "Series & parallel calculator", "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools/series-parallel-calculator.html" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html" class="active">Tools</a></li>
+      <li><a href="../articles.html">Guides</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../tools.html">Tools</a> / Series &amp; parallel calculator</div>
+    <h1>Solar panel series &amp; parallel calculator</h1>
+    <p class="lede">Wiring panels in series raises voltage; wiring strings in parallel raises current. Enter your panel's spec-sheet numbers and your layout to get the array's voltage, current, power, and — crucially — its maximum open-circuit voltage.</p>
+  </div>
+</div>
+
+<div class="calc-layout">
+  <div class="container">
+    <div class="calc-card" style="max-width:680px;">
+      <form id="sp-calc-form">
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="sp-vmp">Panel Vmp (V)</label>
+            <input type="number" id="sp-vmp" value="31" min="0" step="0.1">
+            <span class="helper-text">Voltage at max power, from the panel spec sheet.</span>
+          </div>
+          <div class="field-group">
+            <label for="sp-imp">Panel Imp (A)</label>
+            <input type="number" id="sp-imp" value="13" min="0" step="0.1">
+            <span class="helper-text">Current at max power, from the spec sheet.</span>
+          </div>
+        </div>
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="sp-voc">Panel Voc (V)</label>
+            <input type="number" id="sp-voc" value="37.5" min="0" step="0.1">
+            <span class="helper-text">Open-circuit voltage — the panel's highest voltage.</span>
+          </div>
+          <div class="field-group">
+            <label for="sp-isc">Panel Isc (A)</label>
+            <input type="number" id="sp-isc" value="13.8" min="0" step="0.1">
+            <span class="helper-text">Short-circuit current — the panel's highest current.</span>
+          </div>
+        </div>
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="sp-series">Panels in series (per string)</label>
+            <input type="number" id="sp-series" value="6" min="1" step="1">
+            <span class="helper-text">How many panels are chained end-to-end in one string.</span>
+          </div>
+          <div class="field-group">
+            <label for="sp-parallel">Strings in parallel</label>
+            <input type="number" id="sp-parallel" value="2" min="1" step="1">
+            <span class="helper-text">How many of those strings are joined side-by-side.</span>
+          </div>
+        </div>
+      </form>
+
+      <div class="calc-result">
+        <div>
+          <span class="num" id="sp-voltage">0</span>
+          <span class="lbl">array voltage (Vmp × series)</span>
+        </div>
+        <div>
+          <span class="num" id="sp-current">0</span>
+          <span class="lbl">array current (Imp × parallel)</span>
+        </div>
+      </div>
+      <div class="calc-result" style="margin-top:14px;">
+        <div>
+          <span class="num" id="sp-power">0</span>
+          <span class="lbl">array power (W)</span>
+        </div>
+        <div>
+          <span class="num" id="sp-voc-out">0</span>
+          <span class="lbl">max open-circuit voltage (Voc × series)</span>
+        </div>
+      </div>
+
+      <button type="button" id="sp-pdf-btn" class="btn btn-accent" style="margin-top:20px;">⬇️ Download results as PDF</button>
+      <p class="helper-text">Series adds voltage, parallel adds current, and total power stays the same either way. Always check the cold-weather open-circuit voltage against your inverter or charge controller's maximum input — that's the limit on panels per string.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="calc-diagram">
+    <figure>
+      <svg viewBox="0 0 380 300" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="sp-title sp-desc">
+        <title id="sp-title">How series and parallel wiring change array voltage and current</title>
+        <desc id="sp-desc">Panels in series add their voltages at the same current; strings in parallel add their currents at the same voltage. Together they set the array voltage and current.</desc>
+        <text x="190" y="26" text-anchor="middle" font-family="Manrope, sans-serif" font-size="14" font-weight="700" fill="#111827">How the wiring adds up</text>
+        <g>
+          <rect x="30" y="42" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="105" y="63" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E3A8A">Series</text>
+          <text x="105" y="81" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">voltage adds up</text>
+        </g>
+        <g>
+          <rect x="200" y="42" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="275" y="63" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E3A8A">Parallel</text>
+          <text x="275" y="81" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">current adds up</text>
+        </g>
+        <line x1="105" y1="94" x2="180" y2="128" stroke="#9CA3AF" stroke-width="1.5"/>
+        <line x1="275" y1="94" x2="200" y2="128" stroke="#9CA3AF" stroke-width="1.5"/>
+        <g>
+          <rect x="80" y="130" width="220" height="52" rx="8" fill="#FEF9C3" stroke="#CA8A04" stroke-width="0.75"/>
+          <text x="190" y="151" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#854D0E">V = Vmp × series</text>
+          <text x="190" y="169" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#854D0E">I = Imp × parallel</text>
+        </g>
+        <line x1="190" y1="182" x2="190" y2="212" stroke="#9CA3AF" stroke-width="1.5"/>
+        <g>
+          <rect x="70" y="214" width="240" height="52" rx="8" fill="#E9FBF4" stroke="#10B981" stroke-width="0.75"/>
+          <text x="190" y="235" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#065F46">Array voltage, current &amp; power</text>
+          <text x="190" y="253" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#065F46">check Voc vs your equipment limit</text>
+        </g>
+      </svg>
+      <figcaption>Series stacks voltage, parallel stacks current — the total power is the same either way.</figcaption>
+    </figure>
+  </div>
+
+  <div class="calc-chart">
+    <h2 class="calc-chart-title">How string voltage grows with panels in series</h2>
+    <p class="calc-chart-intro">This curve updates with your inputs. It shows how a string's operating voltage (Vmp) and its higher open-circuit voltage (Voc) climb with each panel added in series — the marker shows your current string.</p>
+    <div class="calc-chart-canvas-wrap">
+      <canvas id="sp-curve" role="img" aria-label="Line chart of string voltage rising with panels in series, with an open-circuit voltage line above it and a marker for your string.">String voltage rises with panels in series; open-circuit voltage sits higher.</canvas>
+    </div>
+  </div>
+
+  <article class="article">
+
+    <p>Once you know how many panels you want, the next decision is how to wire them. The same set of panels can be arranged as one long series string, several parallel strings, or a mix — and while the total power never changes, the voltage and current the array delivers change a lot. Getting that mix right is what keeps the array inside your inverter or charge controller's safe window.</p>
+
+    <h2>Series adds voltage, parallel adds current</h2>
+    <p>The two rules are simple. Wire panels <strong>in series</strong> (end to end) and their voltages add up while the current stays the same as one panel. Wire strings <strong>in parallel</strong> (side by side) and their currents add up while the voltage stays the same as one string. So a layout of S panels in series and P parallel strings gives an array voltage of Vmp × S and an array current of Imp × P.</p>
+
+    <h2>Power is the same either way</h2>
+    <p>A common misconception is that series or parallel gives you "more power." It doesn't. Total power is just the number of panels times their wattage, no matter how you wire them. What the wiring changes is the <em>delivery</em>: series gives high voltage and low current (thinner cable, less voltage drop over distance), parallel gives low voltage and high current. You pick the balance that fits your equipment.</p>
+
+    <h2>Open-circuit voltage is the safety limit</h2>
+    <p>The number that really matters for safety is the <strong>open-circuit voltage (Voc)</strong> — the highest voltage the string can reach, with no load, in cold weather. It's higher than the operating Vmp, and it rises with every panel you add in series and climbs further as temperature drops. Your string's cold Voc must stay below the maximum input voltage of your inverter or charge controller, or you risk damaging it. That's the real ceiling on how many panels go in one series string. To size that properly against temperature, use the <a href="string-sizing-calculator.html">string sizing calculator</a>.</p>
+
+    <h2>Related tools</h2>
+    <p>Use the <a href="string-sizing-calculator.html">string sizing calculator</a> to check the maximum and minimum panels per string against your inverter's voltage window, the <a href="charge-controller-calculator.html">charge controller calculator</a> or <a href="inverter-calculator.html">inverter calculator</a> to match the array to your equipment, and the <a href="panel-calculator.html">panel calculator</a> to size the array to your energy needs in the first place.</p>
+
+    <h2>Frequently asked questions</h2>
+    <h3>How do I calculate solar panels wired in series and parallel?</h3>
+    <p>Series adds voltage (Vmp × panels in series), parallel adds current (Imp × strings in parallel), and total power is Vmp × Imp × series × parallel. This calculator returns all four from your spec-sheet values.</p>
+    <h3>Does wiring panels in series or parallel change the total power?</h3>
+    <p>No. Total power depends only on the number of panels and their wattage. Series gives higher voltage at lower current; parallel gives lower voltage at higher current — same power, different delivery.</p>
+    <h3>Why does open-circuit voltage (Voc) matter for series strings?</h3>
+    <p>Voc is the string's highest voltage, reached cold with no load. It rises with each series panel and as temperature drops, and must stay below your inverter or controller's maximum input voltage — so it limits panels per string.</p>
+
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="panel-calculator.html">Panel calculator</a></li>
+          <li><a href="battery-calculator.html">Battery calculator</a></li>
+          <li><a href="inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="cable-calculator.html">Cable calculator</a></li>
+          <li><a href="roi-calculator.html">ROI calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script>
+  (function () {
+    var form = document.getElementById('sp-calc-form');
+    if (!form) return;
+
+    function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+
+    function calcSP() {
+      var vmp = val('sp-vmp'), imp = val('sp-imp'), voc = val('sp-voc');
+      var series = val('sp-series'), parallel = val('sp-parallel');
+      var arrayV = vmp * series;
+      var arrayI = imp * parallel;
+      var arrayW = vmp * imp * series * parallel;
+      var arrayVoc = voc * series;
+      document.getElementById('sp-voltage').textContent = (Math.round(arrayV * 10) / 10).toFixed(1);
+      document.getElementById('sp-current').textContent = (Math.round(arrayI * 10) / 10).toFixed(1);
+      document.getElementById('sp-power').textContent = Math.round(arrayW);
+      document.getElementById('sp-voc-out').textContent = (Math.round(arrayVoc * 10) / 10).toFixed(1);
+    }
+
+    form.addEventListener('input', calcSP);
+    calcSP();
+
+    var pdfBtn = document.getElementById('sp-pdf-btn');
+    if (pdfBtn) {
+      pdfBtn.addEventListener('click', function () {
+        var inputs = [
+          ['Panel Vmp', document.getElementById('sp-vmp').value + ' V'],
+          ['Panel Imp', document.getElementById('sp-imp').value + ' A'],
+          ['Panel Voc', document.getElementById('sp-voc').value + ' V'],
+          ['Panel Isc', document.getElementById('sp-isc').value + ' A'],
+          ['Panels in series', document.getElementById('sp-series').value],
+          ['Strings in parallel', document.getElementById('sp-parallel').value]
+        ];
+        var results = [
+          ['Array voltage (Vmp x series)', document.getElementById('sp-voltage').textContent + ' V'],
+          ['Array current (Imp x parallel)', document.getElementById('sp-current').textContent + ' A'],
+          ['Array power', document.getElementById('sp-power').textContent + ' W'],
+          ['Max open-circuit voltage (Voc x series)', document.getElementById('sp-voc-out').textContent + ' V']
+        ];
+        generateSolarToolHubResultsPDF({
+          subtitle: 'Series & Parallel Array — Results',
+          inputs: inputs,
+          resultsHeaders: ['Metric', 'Value'],
+          results: results,
+          nextSteps: {
+            text: 'Check panels-per-string against your inverter window with our:',
+            linkText: 'String Sizing Calculator',
+            url: 'https://ahmedtere44-coder.github.io/solartoolhub/tools/string-sizing-calculator.html'
+          },
+          filename: 'solartoolhub-series-parallel-results.pdf'
+        });
+      });
+    }
+  })();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+  (function () {
+    var canvas = document.getElementById('sp-curve');
+    if (!canvas || typeof Chart === 'undefined') return;
+
+    var vmpEl = document.getElementById('sp-vmp');
+    var vocEl = document.getElementById('sp-voc');
+    var seriesEl = document.getElementById('sp-series');
+
+    function axisMax() {
+      var s = parseInt(seriesEl.value) || 6;
+      return Math.max(s + 4, 10);
+    }
+    function seriesArr() {
+      var arr = [], n = axisMax();
+      for (var i = 1; i <= n; i++) arr.push(i);
+      return arr;
+    }
+    function lineFor(volt) {
+      return seriesArr().map(function (s) { return { x: s, y: Math.round(s * volt * 10) / 10 }; });
+    }
+    function marker() {
+      var s = parseInt(seriesEl.value) || 0;
+      var vmp = parseFloat(vmpEl.value) || 0;
+      return [{ x: s, y: Math.round(s * vmp * 10) / 10 }];
+    }
+
+    var chart = new Chart(canvas, {
+      type: 'line',
+      data: {
+        datasets: [
+          { label: 'Operating voltage (Vmp)', data: lineFor(parseFloat(vmpEl.value) || 31), borderColor: '#1E3A8A', backgroundColor: 'rgba(37,99,235,0.10)', borderWidth: 2, fill: false, tension: 0.2, pointRadius: 0 },
+          { label: 'Open-circuit voltage (Voc)', data: lineFor(parseFloat(vocEl.value) || 37.5), borderColor: '#CA8A04', backgroundColor: 'rgba(250,204,21,0.10)', borderWidth: 2, fill: false, tension: 0.2, borderDash: [5,4], pointRadius: 0 },
+          { label: 'Your string', data: marker(), borderColor: '#10B981', backgroundColor: '#10B981', showLine: false, pointRadius: 7, pointHoverRadius: 8, pointStyle: 'circle' }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: true, labels: { color: '#4B5563', boxWidth: 12 } } },
+        scales: {
+          x: { type: 'linear', min: 1, title: { display: true, text: 'Panels in series', color: '#4B5563' }, ticks: { color: '#9CA3AF', stepSize: 1 }, grid: { display: false } },
+          y: { title: { display: true, text: 'String voltage (V)', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, beginAtZero: true }
+        }
+      }
+    });
+
+    function refresh() {
+      chart.data.datasets[0].data = lineFor(parseFloat(vmpEl.value) || 31);
+      chart.data.datasets[1].data = lineFor(parseFloat(vocEl.value) || 37.5);
+      chart.data.datasets[2].data = marker();
+      chart.options.scales.x.max = axisMax();
+      chart.update();
+    }
+    [vmpEl, vocEl, seriesEl].forEach(function (el) { if (el) el.addEventListener('input', refresh); });
+  })();
+</script>
+</body>
+</html>
