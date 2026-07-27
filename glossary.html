@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solar Glossary — Key Solar Power Terms Explained | SolarToolHub</title>
+<meta name="description" content="A plain-English solar glossary: MPPT, PWM, Voc, Vmp, DoD, peak sun hours, kWp and more, each defined simply with a link to the right calculator or guide.">
+<link rel="canonical" href="https://ahmedtere44-coder.github.io/solartoolhub/glossary.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SolarToolHub">
+<meta property="og:title" content="Solar Glossary — Key Solar Power Terms Explained | SolarToolHub">
+<meta property="og:description" content="Solar terms like MPPT, Voc, DoD and peak sun hours defined simply, each linked to the right calculator or guide.">
+<meta property="og:url" content="https://ahmedtere44-coder.github.io/solartoolhub/glossary.html">
+<meta property="og:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Solar Glossary — Key Solar Power Terms Explained">
+<meta name="twitter:description" content="Solar terms defined simply, each linked to the right calculator or guide.">
+<meta name="twitter:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  "name": "SolarToolHub Solar Glossary",
+  "url": "https://ahmedtere44-coder.github.io/solartoolhub/glossary.html",
+  "hasDefinedTerm": [
+    {
+      "@type": "DefinedTerm",
+      "name": "Amp-hour (Ah)",
+      "description": "A measure of battery capacity: the current a battery can deliver for one hour. Multiply by voltage to get watt-hours of stored energy.",
+      "url": "https://ahmedtere44-coder.github.io/solartoolhub/glossary.html#amp-hour"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Ampacity",
+      "description": "The maximum current a cable can safely carry before it overheats. Choosing a conductor means keeping the current below its ampacity and within the voltage-drop limit.",
+      "url": "https://ahmedtere44-coder.github.io/solartoolhub/glossary.html#ampacity"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Array",
+      "description": "A group of solar panels wired together. The array's voltage and current depend on how many panels are in series and how many strings are in parallel.",
+      "url": "https://ahmedtere44-coder.github.io/solartoolhub/glossary.html#array"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Azimuth",
+      "description": "The compass direction a panel faces. In the northern hemisphere, true south usually captures the most energy over the year.",
+      "url": "https://ahmedtere44-coder.github.io/solartoolhub/glossary.html#azimuth"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Bypass diode",
+      "description": "A diode built into a panel that lets current flow around a shaded or faulty section, reducing the energy lost when part of a panel is in shade.",
+      "url": "https://ahmedtere44-coder.github.io/solartoolhub/glossary.html#bypass-diode"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Charge controller",
+      "description": "The device between the panels and battery that regulates charging and protects the battery. Comes in two types, PWM and MPPT.",
+      "url": "https://ahmedtere44-coder.github.io/solartoolhub/glossary.html#charge-controller"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Clipping",
+      "description": "The energy lost when a solar array briefly produces more power than the inverter's AC rating can pass, so the inverter caps its output. A little clipping is normal in an oversized array.",
+      "url": "https://ahmedtere44-coder.github.io/solartoolhub/glossary.html#clipping"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "DC/AC ratio",
+      "description": "The array's DC capacity divided by the inverter's AC rating (also called the inverter loading ratio). Most systems sit around 1.1 to 1.3.",
+      "url": "https://ahmedtere44-coder.github.io/solartoolhub/glossary.html#dc-ac-ratio"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Degradation",
+      "description": "The slow, permanent decline in a panel's output over the years, usually around 0.5% per year, so a panel still makes most of its rated power after 25 years.",
+      "url": "https://ahmedtere44-coder.github.io/solartoolhub/glossary.html#degradation"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Depth of discharge (DoD)",
+      "description": "The share of a battery's capacity you can safely use before recharging, roughly 50% for lead-acid and 80 to 90% for lithium. Deeper discharges shorten battery life.",
+      "url": "https://ahmedtere44-coder.github.io/solartoolhub/glossary.html#dod"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Derating",
+      "description": "Reducing a component's rated value to allow for real conditions, most often the drop in panel output as cell temperature rises above 25 degrees C.",
+      "url": "https://ahmedtere44-coder.github.io/solartoolhub/glossary.html#derating"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Grid-tied",
+      "description": "A solar system connected to the utility grid, with no battery, that feeds surplus energy back to the grid and draws from it when the sun is down.",
+      "url": "https://ahmedtere44-coder.github.io/solartoolhub/glossary.html#grid-tied"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Hybrid system",
+      "description": "A system that combines grid connection with a battery, so it can store energy, use the grid as backup, and keep running during outages.",
+      "url": "https://ahmedtere44-coder.github.io/solartoolhub/glossary.html#hybrid"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Imp",
+      "description": "The current a panel produces at its maximum power point under standard test conditions. Strings in parallel add their Imp values.",
+      "url": "https://ahmedtere44-coder.github.io/solartoolhub/glossary.html#imp"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Inverter",
+      "description": "The device that converts the panels' and battery's DC electricity into the AC electricity used by appliances and the grid.",
+      "url": "https://ahmedtere44-coder.github.io/solartoolhub/glossary.html#inverter"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Irradiance",
+      "description": "The power of sunlight hitting a surface, measured in watts per square metre. The standard 'full sun' benchmark is 1000 W/m2.",
+      "url": "https://ahmedtere44-coder.github.io/solartoolhub/glossary.html#irradiance"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Isc",
+      "description": "A panel's short-circuit current, its highest possible current, used for sizing fuses and checking equipment current limits.",
+      "url": "https://ahmedtere44-coder.github.io/solartoolhub/glossary.html#isc"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "kWh (kilowatt-hour)",
+      "description": "A unit of energy: one kilowatt used for one hour. Your electricity bill, daily use, and battery storage are all measured in kWh.",
+      "url": "https://ahmedtere44-coder.github.io/solartoolhub/glossary.html#kwh"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "kWp (kilowatt-peak)",
+      "description": "A solar array's rated power under standard test conditions, i.e. the sum of the panels' peak wattages. Real output is usually a bit lower.",
+      "url": "https://ahmedtere44-coder.github.io/solartoolhub/glossary.html#kwp"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "MPPT",
+      "description": "Maximum Power Point Tracking, a smart charge controller that runs panels at their most productive voltage and converts the surplus into extra current, harvesting 15 to 30% more than PWM.",
+      "url": "https://ahmedtere44-coder.github.io/solartoolhub/glossary.html#mppt"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Net metering",
+      "description": "A billing arrangement where the surplus energy your solar exports to the grid is credited against the energy you later import.",
+      "url": "https://ahmedtere44-coder.github.io/solartoolhub/glossary.html#net-metering"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Off-grid",
+      "description": "A standalone solar system with batteries and no grid connection, which must be sized to cover the load through the night and cloudy days.",
+      "url": "https://ahmedtere44-coder.github.io/solartoolhub/glossary.html#off-grid"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Parallel",
+      "description": "Wiring strings side by side so their currents add up while the voltage stays the same. Used to increase array current.",
+      "url": "https://ahmedtere44-coder.github.io/solartoolhub/glossary.html#parallel"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Peak sun hours (PSH)",
+      "description": "The number of hours per day that sunlight would need to shine at full 1000 W/m2 intensity to deliver the day's total energy. Numerically equal to daily kWh/m2.",
+      "url": "https://ahmedtere44-coder.github.io/solartoolhub/glossary.html#psh"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Performance ratio (PR)",
+      "description": "The fraction of an array's theoretical output that actually reaches the meter after heat, wiring, dust, and inverter losses, typically 0.75 to 0.85.",
+      "url": "https://ahmedtere44-coder.github.io/solartoolhub/glossary.html#pr"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "PWM",
+      "description": "Pulse-Width Modulation, a simple, cheap charge controller that connects the panel almost directly to the battery, wasting any panel voltage above the battery's level.",
+      "url": "https://ahmedtere44-coder.github.io/solartoolhub/glossary.html#pwm"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Series",
+      "description": "Wiring panels end to end so their voltages add up while the current stays the same. Used to reach the inverter's operating voltage.",
+      "url": "https://ahmedtere44-coder.github.io/solartoolhub/glossary.html#series"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Shading loss",
+      "description": "The energy an array loses when part of it is shaded. Series-wired panels suffer more because one shaded panel drags down the whole string.",
+      "url": "https://ahmedtere44-coder.github.io/solartoolhub/glossary.html#shading-loss"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "STC",
+      "description": "Standard Test Conditions, the lab benchmark panels are rated at: 1000 W/m2 irradiance, 25 degrees C cell temperature, and a set air mass. Real conditions give lower output.",
+      "url": "https://ahmedtere44-coder.github.io/solartoolhub/glossary.html#stc"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "String",
+      "description": "A set of panels wired in series. The string voltage is the panel voltage times the number of panels, and must fit the inverter's voltage window.",
+      "url": "https://ahmedtere44-coder.github.io/solartoolhub/glossary.html#string"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Temperature coefficient",
+      "description": "How much a panel's voltage or power changes per degree of temperature. Panels lose power as they heat up and gain voltage as they cool.",
+      "url": "https://ahmedtere44-coder.github.io/solartoolhub/glossary.html#temperature-coefficient"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Tilt angle",
+      "description": "The angle a panel is tilted from horizontal. The best fixed tilt is close to your latitude, adjusted for whether you want summer or winter output.",
+      "url": "https://ahmedtere44-coder.github.io/solartoolhub/glossary.html#tilt-angle"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Vmp",
+      "description": "The voltage a panel produces at its maximum power point. Panels in series add their Vmp to set the string's operating voltage.",
+      "url": "https://ahmedtere44-coder.github.io/solartoolhub/glossary.html#vmp"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Voc",
+      "description": "A panel's open-circuit voltage, its highest voltage with no load, which rises in cold weather. A string's cold Voc must stay below the inverter's maximum input voltage.",
+      "url": "https://ahmedtere44-coder.github.io/solartoolhub/glossary.html#voc"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Voltage drop",
+      "description": "The loss of voltage along a cable due to its resistance. Kept low (usually under 3%) by choosing a thick enough conductor for the current and distance.",
+      "url": "https://ahmedtere44-coder.github.io/solartoolhub/glossary.html#voltage-drop"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Watt-peak (Wp)",
+      "description": "A single panel's rated power under standard test conditions. A 450 Wp panel produces 450 watts at full sun in the lab.",
+      "url": "https://ahmedtere44-coder.github.io/solartoolhub/glossary.html#wp"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ahmedtere44-coder.github.io/solartoolhub/" },
+    { "@type": "ListItem", "position": 2, "name": "Glossary", "item": "https://ahmedtere44-coder.github.io/solartoolhub/glossary.html" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="tools.html">Tools</a></li>
+      <li><a href="articles.html">Guides</a></li>
+      <li><a href="glossary.html" class="active">Glossary</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> / Glossary</div>
+    <h1>Solar glossary</h1>
+    <p class="lede">Solar has its own vocabulary. Here are the key terms explained in plain English — each one linked to the calculator or guide where it matters most.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="glossary-alpha">
+<a href="#g-A">A</a><a href="#g-B">B</a><a href="#g-C">C</a><a href="#g-D">D</a><a href="#g-G">G</a><a href="#g-H">H</a><a href="#g-I">I</a><a href="#g-K">K</a><a href="#g-M">M</a><a href="#g-N">N</a><a href="#g-O">O</a><a href="#g-P">P</a><a href="#g-S">S</a><a href="#g-T">T</a><a href="#g-V">V</a><a href="#g-W">W</a>
+  </div>
+
+  <div class="glossary-list">
+    <div class="glossary-group" id="g-A">
+      <h2 class="glossary-letter">A</h2>
+      <div class="glossary-term" id="amp-hour">
+        <h3>Amp-hour (Ah)</h3>
+        <p>A measure of battery capacity: the current a battery can deliver for one hour. Multiply by voltage to get watt-hours of stored energy.</p>
+        <a class="glossary-link" href="tools/battery-ah-kwh-converter.html">Battery Ah to kWh converter &rarr;</a>
+      </div>
+      <div class="glossary-term" id="ampacity">
+        <h3>Ampacity</h3>
+        <p>The maximum current a cable can safely carry before it overheats. Choosing a conductor means keeping the current below its ampacity and within the voltage-drop limit.</p>
+        <a class="glossary-link" href="tools/cable-calculator.html">Cable size calculator &rarr;</a>
+      </div>
+      <div class="glossary-term" id="array">
+        <h3>Array</h3>
+        <p>A group of solar panels wired together. The array&#x27;s voltage and current depend on how many panels are in series and how many strings are in parallel.</p>
+        <a class="glossary-link" href="tools/series-parallel-calculator.html">Series &amp; parallel calculator &rarr;</a>
+      </div>
+      <div class="glossary-term" id="azimuth">
+        <h3>Azimuth</h3>
+        <p>The compass direction a panel faces. In the northern hemisphere, true south usually captures the most energy over the year.</p>
+        <a class="glossary-link" href="tools/panel-tilt-calculator.html">Panel tilt &amp; angle calculator &rarr;</a>
+      </div>
+    </div>
+    <div class="glossary-group" id="g-B">
+      <h2 class="glossary-letter">B</h2>
+      <div class="glossary-term" id="bypass-diode">
+        <h3>Bypass diode</h3>
+        <p>A diode built into a panel that lets current flow around a shaded or faulty section, reducing the energy lost when part of a panel is in shade.</p>
+        <a class="glossary-link" href="tools/shading-loss-calculator.html">Shading loss calculator &rarr;</a>
+      </div>
+    </div>
+    <div class="glossary-group" id="g-C">
+      <h2 class="glossary-letter">C</h2>
+      <div class="glossary-term" id="charge-controller">
+        <h3>Charge controller</h3>
+        <p>The device between the panels and battery that regulates charging and protects the battery. Comes in two types, PWM and MPPT.</p>
+        <a class="glossary-link" href="articles/mppt-vs-pwm-charge-controllers.html">MPPT vs PWM charge controllers &rarr;</a>
+      </div>
+      <div class="glossary-term" id="clipping">
+        <h3>Clipping</h3>
+        <p>The energy lost when a solar array briefly produces more power than the inverter&#x27;s AC rating can pass, so the inverter caps its output. A little clipping is normal in an oversized array.</p>
+        <a class="glossary-link" href="tools/dc-ac-ratio-calculator.html">DC to AC ratio calculator &rarr;</a>
+      </div>
+    </div>
+    <div class="glossary-group" id="g-D">
+      <h2 class="glossary-letter">D</h2>
+      <div class="glossary-term" id="dc-ac-ratio">
+        <h3>DC/AC ratio</h3>
+        <p>The array&#x27;s DC capacity divided by the inverter&#x27;s AC rating (also called the inverter loading ratio). Most systems sit around 1.1 to 1.3.</p>
+        <a class="glossary-link" href="tools/dc-ac-ratio-calculator.html">DC to AC ratio calculator &rarr;</a>
+      </div>
+      <div class="glossary-term" id="degradation">
+        <h3>Degradation</h3>
+        <p>The slow, permanent decline in a panel&#x27;s output over the years, usually around 0.5% per year, so a panel still makes most of its rated power after 25 years.</p>
+        <a class="glossary-link" href="tools/panel-degradation-calculator.html">Panel degradation calculator &rarr;</a>
+      </div>
+      <div class="glossary-term" id="dod">
+        <h3>Depth of discharge (DoD)</h3>
+        <p>The share of a battery&#x27;s capacity you can safely use before recharging, roughly 50% for lead-acid and 80 to 90% for lithium. Deeper discharges shorten battery life.</p>
+        <a class="glossary-link" href="tools/battery-ah-kwh-converter.html">Battery Ah to kWh converter &rarr;</a>
+      </div>
+      <div class="glossary-term" id="derating">
+        <h3>Derating</h3>
+        <p>Reducing a component&#x27;s rated value to allow for real conditions, most often the drop in panel output as cell temperature rises above 25 degrees C.</p>
+        <a class="glossary-link" href="tools/temperature-derating-calculator.html">Temperature derating calculator &rarr;</a>
+      </div>
+    </div>
+    <div class="glossary-group" id="g-G">
+      <h2 class="glossary-letter">G</h2>
+      <div class="glossary-term" id="grid-tied">
+        <h3>Grid-tied</h3>
+        <p>A solar system connected to the utility grid, with no battery, that feeds surplus energy back to the grid and draws from it when the sun is down.</p>
+        <a class="glossary-link" href="articles/grid-tied-vs-off-grid-vs-hybrid.html">Grid-tied vs off-grid vs hybrid &rarr;</a>
+      </div>
+    </div>
+    <div class="glossary-group" id="g-H">
+      <h2 class="glossary-letter">H</h2>
+      <div class="glossary-term" id="hybrid">
+        <h3>Hybrid system</h3>
+        <p>A system that combines grid connection with a battery, so it can store energy, use the grid as backup, and keep running during outages.</p>
+        <a class="glossary-link" href="articles/grid-tied-vs-off-grid-vs-hybrid.html">Grid-tied vs off-grid vs hybrid &rarr;</a>
+      </div>
+    </div>
+    <div class="glossary-group" id="g-I">
+      <h2 class="glossary-letter">I</h2>
+      <div class="glossary-term" id="imp">
+        <h3>Imp</h3>
+        <p>The current a panel produces at its maximum power point under standard test conditions. Strings in parallel add their Imp values.</p>
+        <a class="glossary-link" href="tools/series-parallel-calculator.html">Series &amp; parallel calculator &rarr;</a>
+      </div>
+      <div class="glossary-term" id="inverter">
+        <h3>Inverter</h3>
+        <p>The device that converts the panels&#x27; and battery&#x27;s DC electricity into the AC electricity used by appliances and the grid.</p>
+        <a class="glossary-link" href="tools/inverter-calculator.html">Inverter size calculator &rarr;</a>
+      </div>
+      <div class="glossary-term" id="irradiance">
+        <h3>Irradiance</h3>
+        <p>The power of sunlight hitting a surface, measured in watts per square metre. The standard &#x27;full sun&#x27; benchmark is 1000 W/m2.</p>
+        <a class="glossary-link" href="articles/peak-sun-hours-by-location.html">Peak sun hours by location &rarr;</a>
+      </div>
+      <div class="glossary-term" id="isc">
+        <h3>Isc</h3>
+        <p>A panel&#x27;s short-circuit current, its highest possible current, used for sizing fuses and checking equipment current limits.</p>
+        <a class="glossary-link" href="tools/series-parallel-calculator.html">Series &amp; parallel calculator &rarr;</a>
+      </div>
+    </div>
+    <div class="glossary-group" id="g-K">
+      <h2 class="glossary-letter">K</h2>
+      <div class="glossary-term" id="kwh">
+        <h3>kWh (kilowatt-hour)</h3>
+        <p>A unit of energy: one kilowatt used for one hour. Your electricity bill, daily use, and battery storage are all measured in kWh.</p>
+        <a class="glossary-link" href="tools/battery-ah-kwh-converter.html">Battery Ah to kWh converter &rarr;</a>
+      </div>
+      <div class="glossary-term" id="kwp">
+        <h3>kWp (kilowatt-peak)</h3>
+        <p>A solar array&#x27;s rated power under standard test conditions, i.e. the sum of the panels&#x27; peak wattages. Real output is usually a bit lower.</p>
+        <a class="glossary-link" href="tools/panel-calculator.html">Solar panel calculator &rarr;</a>
+      </div>
+    </div>
+    <div class="glossary-group" id="g-M">
+      <h2 class="glossary-letter">M</h2>
+      <div class="glossary-term" id="mppt">
+        <h3>MPPT</h3>
+        <p>Maximum Power Point Tracking, a smart charge controller that runs panels at their most productive voltage and converts the surplus into extra current, harvesting 15 to 30% more than PWM.</p>
+        <a class="glossary-link" href="articles/mppt-vs-pwm-charge-controllers.html">MPPT vs PWM charge controllers &rarr;</a>
+      </div>
+    </div>
+    <div class="glossary-group" id="g-N">
+      <h2 class="glossary-letter">N</h2>
+      <div class="glossary-term" id="net-metering">
+        <h3>Net metering</h3>
+        <p>A billing arrangement where the surplus energy your solar exports to the grid is credited against the energy you later import.</p>
+        <a class="glossary-link" href="tools/solar-bill-savings-calculator.html">Solar bill savings calculator &rarr;</a>
+      </div>
+    </div>
+    <div class="glossary-group" id="g-O">
+      <h2 class="glossary-letter">O</h2>
+      <div class="glossary-term" id="off-grid">
+        <h3>Off-grid</h3>
+        <p>A standalone solar system with batteries and no grid connection, which must be sized to cover the load through the night and cloudy days.</p>
+        <a class="glossary-link" href="tools/off-grid-system-wizard.html">Off-grid system wizard &rarr;</a>
+      </div>
+    </div>
+    <div class="glossary-group" id="g-P">
+      <h2 class="glossary-letter">P</h2>
+      <div class="glossary-term" id="parallel">
+        <h3>Parallel</h3>
+        <p>Wiring strings side by side so their currents add up while the voltage stays the same. Used to increase array current.</p>
+        <a class="glossary-link" href="tools/series-parallel-calculator.html">Series &amp; parallel calculator &rarr;</a>
+      </div>
+      <div class="glossary-term" id="psh">
+        <h3>Peak sun hours (PSH)</h3>
+        <p>The number of hours per day that sunlight would need to shine at full 1000 W/m2 intensity to deliver the day&#x27;s total energy. Numerically equal to daily kWh/m2.</p>
+        <a class="glossary-link" href="articles/peak-sun-hours-by-location.html">Peak sun hours by location &rarr;</a>
+      </div>
+      <div class="glossary-term" id="pr">
+        <h3>Performance ratio (PR)</h3>
+        <p>The fraction of an array&#x27;s theoretical output that actually reaches the meter after heat, wiring, dust, and inverter losses, typically 0.75 to 0.85.</p>
+        <a class="glossary-link" href="tools/energy-production-calculator.html">Energy production calculator &rarr;</a>
+      </div>
+      <div class="glossary-term" id="pwm">
+        <h3>PWM</h3>
+        <p>Pulse-Width Modulation, a simple, cheap charge controller that connects the panel almost directly to the battery, wasting any panel voltage above the battery&#x27;s level.</p>
+        <a class="glossary-link" href="articles/mppt-vs-pwm-charge-controllers.html">MPPT vs PWM charge controllers &rarr;</a>
+      </div>
+    </div>
+    <div class="glossary-group" id="g-S">
+      <h2 class="glossary-letter">S</h2>
+      <div class="glossary-term" id="series">
+        <h3>Series</h3>
+        <p>Wiring panels end to end so their voltages add up while the current stays the same. Used to reach the inverter&#x27;s operating voltage.</p>
+        <a class="glossary-link" href="tools/series-parallel-calculator.html">Series &amp; parallel calculator &rarr;</a>
+      </div>
+      <div class="glossary-term" id="shading-loss">
+        <h3>Shading loss</h3>
+        <p>The energy an array loses when part of it is shaded. Series-wired panels suffer more because one shaded panel drags down the whole string.</p>
+        <a class="glossary-link" href="tools/shading-loss-calculator.html">Shading loss calculator &rarr;</a>
+      </div>
+      <div class="glossary-term" id="stc">
+        <h3>STC</h3>
+        <p>Standard Test Conditions, the lab benchmark panels are rated at: 1000 W/m2 irradiance, 25 degrees C cell temperature, and a set air mass. Real conditions give lower output.</p>
+        <a class="glossary-link" href="tools/temperature-derating-calculator.html">Temperature derating calculator &rarr;</a>
+      </div>
+      <div class="glossary-term" id="string">
+        <h3>String</h3>
+        <p>A set of panels wired in series. The string voltage is the panel voltage times the number of panels, and must fit the inverter&#x27;s voltage window.</p>
+        <a class="glossary-link" href="tools/string-sizing-calculator.html">String sizing calculator &rarr;</a>
+      </div>
+    </div>
+    <div class="glossary-group" id="g-T">
+      <h2 class="glossary-letter">T</h2>
+      <div class="glossary-term" id="temperature-coefficient">
+        <h3>Temperature coefficient</h3>
+        <p>How much a panel&#x27;s voltage or power changes per degree of temperature. Panels lose power as they heat up and gain voltage as they cool.</p>
+        <a class="glossary-link" href="tools/temperature-derating-calculator.html">Temperature derating calculator &rarr;</a>
+      </div>
+      <div class="glossary-term" id="tilt-angle">
+        <h3>Tilt angle</h3>
+        <p>The angle a panel is tilted from horizontal. The best fixed tilt is close to your latitude, adjusted for whether you want summer or winter output.</p>
+        <a class="glossary-link" href="articles/what-angle-should-solar-panels-be.html">What angle should solar panels be &rarr;</a>
+      </div>
+    </div>
+    <div class="glossary-group" id="g-V">
+      <h2 class="glossary-letter">V</h2>
+      <div class="glossary-term" id="vmp">
+        <h3>Vmp</h3>
+        <p>The voltage a panel produces at its maximum power point. Panels in series add their Vmp to set the string&#x27;s operating voltage.</p>
+        <a class="glossary-link" href="tools/series-parallel-calculator.html">Series &amp; parallel calculator &rarr;</a>
+      </div>
+      <div class="glossary-term" id="voc">
+        <h3>Voc</h3>
+        <p>A panel&#x27;s open-circuit voltage, its highest voltage with no load, which rises in cold weather. A string&#x27;s cold Voc must stay below the inverter&#x27;s maximum input voltage.</p>
+        <a class="glossary-link" href="tools/string-sizing-calculator.html">String sizing calculator &rarr;</a>
+      </div>
+      <div class="glossary-term" id="voltage-drop">
+        <h3>Voltage drop</h3>
+        <p>The loss of voltage along a cable due to its resistance. Kept low (usually under 3%) by choosing a thick enough conductor for the current and distance.</p>
+        <a class="glossary-link" href="tools/voltage-drop-calculator.html">Voltage drop calculator &rarr;</a>
+      </div>
+    </div>
+    <div class="glossary-group" id="g-W">
+      <h2 class="glossary-letter">W</h2>
+      <div class="glossary-term" id="wp">
+        <h3>Watt-peak (Wp)</h3>
+        <p>A single panel&#x27;s rated power under standard test conditions. A 450 Wp panel produces 450 watts at full sun in the lab.</p>
+        <a class="glossary-link" href="tools/panel-calculator.html">Solar panel calculator &rarr;</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="tools/panel-calculator.html">Panel calculator</a></li>
+          <li><a href="tools/battery-calculator.html">Battery calculator</a></li>
+          <li><a href="tools/inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="tools/cable-calculator.html">Cable calculator</a></li>
+          <li><a href="tools/roi-calculator.html">ROI calculator</a></li>
+          <li><a href="tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -891,3 +891,16 @@ table.calc-table .surge-note { font-size: 0.78rem; color: var(--ink-faint); }
 .tool-search-results .s-badge.tool { background: var(--orange-tint); color: var(--orange-deep); }
 .tool-search-results .s-badge.guide { background: #EFF4FD; color: var(--navy-soft); }
 .tool-search-empty { padding: 14px 16px; color: var(--ink-soft); font-size: 0.92rem; }
+
+/* Solar glossary page */
+.glossary-alpha { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; max-width: 760px; margin: 0 auto 44px; }
+.glossary-alpha a { display: inline-flex; align-items: center; justify-content: center; min-width: 40px; height: 40px; padding: 0 10px; border: 1.5px solid var(--line-strong); border-radius: 10px; color: var(--navy); font-weight: 700; font-family: var(--font-display); text-decoration: none; transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease; }
+.glossary-alpha a:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
+.glossary-list { max-width: 820px; margin: 0 auto; padding-bottom: 72px; }
+.glossary-group { scroll-margin-top: 90px; }
+.glossary-letter { font-family: var(--font-display); font-size: 1.55rem; color: var(--navy); margin: 40px 0 6px; padding-bottom: 8px; border-bottom: 2px solid var(--line); }
+.glossary-term { padding: 22px 2px; border-bottom: 1px solid var(--line); scroll-margin-top: 90px; }
+.glossary-term h3 { font-size: 1.14rem; color: var(--ink); margin-bottom: 8px; }
+.glossary-term p { color: var(--ink-soft); margin-bottom: 12px; line-height: 1.6; }
+.glossary-link { color: var(--navy-soft); font-weight: 700; font-size: 0.9rem; text-decoration: none; }
+.glossary-link:hover { color: var(--navy); }
