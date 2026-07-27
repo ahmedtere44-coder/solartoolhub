@@ -920,3 +920,15 @@ table.calc-table .surge-note { font-size: 0.78rem; color: var(--ink-faint); }
 .compare-links { margin-top: 12px; font-size: 0.9rem; color: var(--ink-soft); }
 .compare-links a { color: var(--navy-soft); font-weight: 700; text-decoration: none; }
 .compare-links a:hover { color: var(--navy); }
+
+/* Cheat sheets page — print/save as PDF */
+@media print {
+  .site-header, .site-footer, .nav, .nav-cta, .cheat-actions, .breadcrumb { display: none !important; }
+  .page-header { background: none !important; padding-top: 0 !important; }
+  body { background: #fff !important; }
+  .compare-scroll { overflow: visible !important; border: none !important; }
+  .compare-table { min-width: 0 !important; }
+  .compare-table thead th { background: #1E3A8A !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .cheat-block { page-break-inside: avoid; margin-bottom: 24px !important; }
+  .compare-links { display: none !important; }
+}
