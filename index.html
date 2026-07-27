@@ -130,6 +130,16 @@
       <h2>Pick a calculator</h2>
       <p>Every tool below is free to use, works on mobile, and takes under a minute.</p>
     </div>
+
+    <div class="tool-search reveal">
+      <div class="tool-search-box">
+        <span class="s-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </span>
+        <input type="text" id="tool-search-input" placeholder="Search tools &amp; guides — e.g. battery, cable, off-grid…" autocomplete="off" aria-label="Search tools and guides">
+      </div>
+      <div class="tool-search-results" id="tool-search-results" hidden></div>
+    </div>
     <div class="grid-3">
 
       <div class="tool-card reveal">
@@ -394,5 +404,49 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script>
+(function () {
+  var input = document.getElementById('tool-search-input');
+  var box = document.getElementById('tool-search-results');
+  if (!input || !box) return;
+  var IDX = [];
+
+  function parseCards(html, kind) {
+    try {
+      var doc = new DOMParser().parseFromString(html, 'text/html');
+      doc.querySelectorAll('.tool-card').forEach(function (card) {
+        var h = card.querySelector('h3');
+        var a = card.querySelector('a[href]');
+        if (h && a) IDX.push({ t: h.textContent.trim(), u: a.getAttribute('href'), k: kind });
+      });
+    } catch (e) {}
+  }
+
+  Promise.all([
+    fetch('tools.html').then(function (r) { return r.text(); }).then(function (h) { parseCards(h, 'tool'); }),
+    fetch('articles.html').then(function (r) { return r.text(); }).then(function (h) { parseCards(h, 'guide'); })
+  ]).then(function () { if (input.value) render(input.value); }).catch(function () {});
+
+  function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+
+  function render(q) {
+    q = q.trim().toLowerCase();
+    if (!q) { box.hidden = true; box.innerHTML = ''; return; }
+    var matches = IDX.filter(function (x) { return x.t.toLowerCase().indexOf(q) > -1; }).slice(0, 8);
+    if (!matches.length) {
+      box.innerHTML = '<div class="tool-search-empty">No matches for &ldquo;' + esc(q) + '&rdquo;. Try battery, cable, inverter, or off-grid.</div>';
+      box.hidden = false; return;
+    }
+    box.innerHTML = matches.map(function (x) {
+      return '<a href="' + x.u + '"><span>' + esc(x.t) + '</span><span class="s-badge ' + x.k + '">' + x.k + '</span></a>';
+    }).join('');
+    box.hidden = false;
+  }
+
+  input.addEventListener('input', function () { render(input.value); });
+  input.addEventListener('focus', function () { if (input.value) render(input.value); });
+  document.addEventListener('click', function (e) { if (!e.target.closest('.tool-search')) { box.hidden = true; } });
+})();
+</script>
 </body>
 </html>
