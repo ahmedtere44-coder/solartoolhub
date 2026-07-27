@@ -432,7 +432,9 @@
   function render(q) {
     q = q.trim().toLowerCase();
     if (!q) { box.hidden = true; box.innerHTML = ''; return; }
-    var matches = IDX.filter(function (x) { return x.t.toLowerCase().indexOf(q) > -1; }).slice(0, 8);
+    var matches = IDX.filter(function (x) { return x.t.toLowerCase().indexOf(q) > -1; });
+    matches.sort(function (a, b) { if (a.k === b.k) return 0; return a.k === 'tool' ? -1 : 1; });
+    matches = matches.slice(0, 8);
     if (!matches.length) {
       box.innerHTML = '<div class="tool-search-empty">No matches for &ldquo;' + esc(q) + '&rdquo;. Try battery, cable, inverter, or off-grid.</div>';
       box.hidden = false; return;
