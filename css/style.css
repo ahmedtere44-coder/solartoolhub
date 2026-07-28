@@ -950,3 +950,9 @@ table.calc-table .surge-note { font-size: 0.78rem; color: var(--ink-faint); }
   .nav-dropdown-menu a { padding: 14px 24px; border-radius: 0; border-top: 1px solid var(--line); white-space: normal; }
   .nav-links.open { max-height: 640px; }
 }
+
+/* Save & Share result button */
+.btn-share { background: var(--card); color: var(--navy); border: 1.5px solid var(--navy); }
+.btn-share:hover { background: var(--bg-soft); color: var(--navy); }
+#share-msg { margin-left: 10px; font-size: 0.9rem; font-weight: 600; color: var(--green); opacity: 0; transition: opacity 0.2s ease; }
+#share-msg.show { opacity: 1; }
