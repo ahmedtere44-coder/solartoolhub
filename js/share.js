@@ -1,8 +1,9 @@
 /* SolarToolHub — Save & Share results.
-   Generic, self-contained: works on any tool page that has a form whose id ends
-   with "-calc-form". Adds a "Share result" button that builds a URL carrying the
-   current input values, and on page load applies any values from the URL and
-   triggers the calculator to recompute. No per-tool code needed. */
+   Generic: works on any tool page with a form whose id ends "-calc-form".
+   - On load: applies input values from the URL and recomputes.
+   - Share button: on mobile opens the native share sheet (WhatsApp, Messages,
+     Email, etc.); on desktop opens a modal with WhatsApp/Email/Telegram/X/
+     Facebook/Copy-link options. The shared URL carries the current inputs. */
 (function () {
   document.addEventListener('DOMContentLoaded', function () {
     var form = document.querySelector('form[id$="-calc-form"]');
@@ -10,7 +11,7 @@
     var fields = form.querySelectorAll('input, select');
     if (!fields.length) return;
 
-    // 1) Apply values from the URL (if any) and recompute
+    // 1) Apply values from the URL and recompute
     var params = new URLSearchParams(window.location.search);
     var hasParams = false;
     params.forEach(function () { hasParams = true; });
@@ -24,7 +25,15 @@
       });
     }
 
-    // 2) Build the Share button
+    function buildUrl() {
+      var parts = [];
+      fields.forEach(function (f) {
+        if (f.id) parts.push(encodeURIComponent(f.id) + '=' + encodeURIComponent(f.value));
+      });
+      return window.location.origin + window.location.pathname + '?' + parts.join('&');
+    }
+
+    // 2) Share button
     var card = form.closest('.calc-card') || form.parentNode;
     var btn = document.createElement('button');
     btn.type = 'button';
@@ -33,51 +42,66 @@
     btn.style.marginTop = '12px';
     btn.style.marginLeft = '8px';
     btn.textContent = '🔗 Share result';
-
     var pdfBtn = card.querySelector('[id$="-pdf-btn"]');
-    if (pdfBtn && pdfBtn.parentNode) {
-      pdfBtn.insertAdjacentElement('afterend', btn);
-    } else {
-      card.appendChild(btn);
-    }
+    if (pdfBtn && pdfBtn.parentNode) pdfBtn.insertAdjacentElement('afterend', btn);
+    else card.appendChild(btn);
 
-    var msg = document.createElement('span');
-    msg.id = 'share-msg';
-    msg.textContent = 'Link copied!';
-    btn.insertAdjacentElement('afterend', msg);
+    var shareText = 'Check this solar result on SolarToolHub';
 
-    // 3) On click: build URL from current values, update address bar, copy to clipboard
     btn.addEventListener('click', function () {
-      var parts = [];
-      fields.forEach(function (f) {
-        if (f.id) parts.push(encodeURIComponent(f.id) + '=' + encodeURIComponent(f.value));
-      });
-      var url = window.location.origin + window.location.pathname + '?' + parts.join('&');
+      var url = buildUrl();
       try { history.replaceState(null, '', url); } catch (e) {}
-      copy(url);
+      if (navigator.share) {
+        navigator.share({ title: document.title, text: shareText, url: url }).catch(function () {});
+        return;
+      }
+      openModal(url);
     });
 
-    function showCopied() {
-      msg.classList.add('show');
-      setTimeout(function () { msg.classList.remove('show'); }, 2500);
+    // 3) Desktop modal
+    var overlay = null;
+    function openModal(url) {
+      closeModal();
+      var u = encodeURIComponent(url);
+      var t = encodeURIComponent(shareText + ' — ');
+      var tPlain = encodeURIComponent(shareText);
+      var targets = [
+        { label: 'WhatsApp', href: 'https://wa.me/?text=' + t + u, cls: 'wa' },
+        { label: 'Email', href: 'mailto:?subject=' + encodeURIComponent('Solar result — SolarToolHub') + '&body=' + t + u, cls: 'em' },
+        { label: 'Telegram', href: 'https://t.me/share/url?url=' + u + '&text=' + tPlain, cls: 'tg' },
+        { label: 'X (Twitter)', href: 'https://twitter.com/intent/tweet?url=' + u + '&text=' + tPlain, cls: 'tw' },
+        { label: 'Facebook', href: 'https://www.facebook.com/sharer/sharer.php?u=' + u, cls: 'fb' }
+      ];
+      overlay = document.createElement('div');
+      overlay.className = 'share-overlay';
+      var html = '<div class="share-modal"><button class="share-close" aria-label="Close">&times;</button>'
+        + '<h3>Share this result</h3><div class="share-opts">';
+      targets.forEach(function (x) {
+        html += '<a class="share-opt ' + x.cls + '" href="' + x.href + '" target="_blank" rel="noopener">' + x.label + '</a>';
+      });
+      html += '<button class="share-opt copy" type="button">Copy link</button>';
+      html += '</div><div class="share-url">' + url + '</div></div>';
+      overlay.innerHTML = html;
+      document.body.appendChild(overlay);
+      overlay.addEventListener('click', function (e) { if (e.target === overlay) closeModal(); });
+      overlay.querySelector('.share-close').addEventListener('click', closeModal);
+      overlay.querySelector('.copy').addEventListener('click', function () { copy(url, this); });
     }
-    function copy(url) {
+    function closeModal() { if (overlay && overlay.parentNode) { overlay.parentNode.removeChild(overlay); overlay = null; } }
+
+    function copy(url, el) {
+      function done() { if (el) { el.textContent = 'Copied!'; setTimeout(function () { el.textContent = 'Copy link'; }, 2000); } }
       if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(url).then(showCopied, function () { fallback(url); });
-      } else {
-        fallback(url);
-      }
+        navigator.clipboard.writeText(url).then(done, function () { fallback(url, done); });
+      } else { fallback(url, done); }
     }
-    function fallback(url) {
-      var t = document.createElement('textarea');
-      t.value = url;
-      t.style.position = 'fixed';
-      t.style.opacity = '0';
-      document.body.appendChild(t);
-      t.focus(); t.select();
-      try { document.execCommand('copy'); showCopied(); }
-      catch (e) { window.prompt('Copy this link:', url); }
-      document.body.removeChild(t);
+    function fallback(url, done) {
+      var ta = document.createElement('textarea');
+      ta.value = url; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.focus(); ta.select();
+      try { document.execCommand('copy'); if (done) done(); } catch (e) { window.prompt('Copy this link:', url); }
+      document.body.removeChild(ta);
     }
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
   });
 })();
