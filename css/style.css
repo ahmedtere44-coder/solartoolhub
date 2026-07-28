@@ -932,3 +932,21 @@ table.calc-table .surge-note { font-size: 0.78rem; color: var(--ink-faint); }
   .cheat-block { page-break-inside: avoid; margin-bottom: 24px !important; }
   .compare-links { display: none !important; }
 }
+
+/* Nav "Resources" dropdown (groups Compare / Cheat sheets / Glossary) */
+.nav-dropdown { position: relative; }
+.nav-dropdown-toggle { font-family: var(--font-body); font-size: 0.93rem; font-weight: 600; color: var(--ink-soft); padding: 8px 14px; border-radius: 999px; background: none; border: none; cursor: pointer; transition: color 0.2s ease, background 0.2s ease; }
+.nav-dropdown-toggle::after { content: " \25BE"; font-size: 0.7em; }
+.nav-dropdown:hover .nav-dropdown-toggle, .nav-dropdown-toggle.active { color: var(--navy); background: var(--bg-soft); }
+.nav-dropdown-menu { position: absolute; top: 100%; left: 0; min-width: 190px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-lg); padding: 6px; margin: 0; list-style: none; display: none; z-index: 100; }
+.nav-dropdown:hover .nav-dropdown-menu { display: block; }
+.nav-dropdown-menu li { width: 100%; }
+.nav-dropdown-menu a { display: block; white-space: nowrap; border-radius: var(--radius-sm); padding: 10px 14px; }
+
+@media (max-width: 860px) {
+  .nav-dropdown-toggle { display: none; }
+  .nav-dropdown { width: 100%; }
+  .nav-dropdown-menu { position: static; display: block; min-width: 0; background: transparent; border: none; border-radius: 0; box-shadow: none; padding: 0; margin: 0; }
+  .nav-dropdown-menu a { padding: 14px 24px; border-radius: 0; border-top: 1px solid var(--line); white-space: normal; }
+  .nav-links.open { max-height: 640px; }
+}
