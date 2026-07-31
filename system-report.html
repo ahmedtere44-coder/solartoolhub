@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solar System Report Builder — Full Off-Grid Design PDF | SolarToolHub</title>
+<meta name="description" content="Design a complete solar system in one place: enter your usage once and get panels, battery, inverter and yearly output, then download a full system report as a PDF.">
+<link rel="canonical" href="https://ahmedtere44-coder.github.io/solartoolhub/system-report.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SolarToolHub">
+<meta property="og:title" content="Solar System Report Builder — Full Off-Grid Design PDF | SolarToolHub">
+<meta property="og:description" content="Enter your usage once and get panels, battery, inverter and yearly output — then download a full system report PDF.">
+<meta property="og:url" content="https://ahmedtere44-coder.github.io/solartoolhub/system-report.html">
+<meta property="og:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Solar System Report Builder | SolarToolHub">
+<meta name="twitter:description" content="Design a complete solar system and download a full report PDF.">
+<meta name="twitter:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ahmedtere44-coder.github.io/solartoolhub/" },
+    { "@type": "ListItem", "position": 2, "name": "System report", "item": "https://ahmedtere44-coder.github.io/solartoolhub/system-report.html" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="tools.html">Tools</a></li>
+      <li><a href="articles.html">Guides</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button">Resources</button>
+        <ul class="nav-dropdown-menu">
+          <li><a href="comparisons.html">Compare</a></li>
+          <li><a href="cheat-sheets.html">Cheat sheets</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> / System report</div>
+    <h1>Solar system report builder</h1>
+    <p class="lede">Enter your details once and get a complete off-grid system design — panels, battery bank, inverter and expected yearly output — then download it all as a professional PDF report you can keep or share.</p>
+  </div>
+</div>
+
+<div class="calc-layout">
+  <div class="container">
+    <div class="calc-card" style="max-width:720px;">
+      <form id="report-calc-form">
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="sr-daily">Daily energy use (kWh/day)</label>
+            <input type="number" id="sr-daily" value="5" min="0" step="0.1">
+            <span class="helper-text">Your total energy used per day.</span>
+          </div>
+          <div class="field-group">
+            <label for="sr-psh">Peak sun hours (h/day)</label>
+            <input type="number" id="sr-psh" value="5" min="0.5" step="0.1">
+            <span class="helper-text">Average daily peak sun hours at your site.</span>
+          </div>
+        </div>
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="sr-panel-select">Panel wattage (W)</label>
+            <select id="sr-panel-select">
+              <option value="300">300 W</option>
+              <option value="400" selected>400 W</option>
+              <option value="450">450 W</option>
+              <option value="550">550 W</option>
+              <option value="600">600 W</option>
+              <option value="custom">Other (enter my own)</option>
+            </select>
+            <span class="helper-text">Pick a common size or choose "Other".</span>
+          </div>
+          <div class="field-group" id="sr-panel-custom-wrap" style="display:none;">
+            <label for="sr-panel-custom">Custom panel wattage (W)</label>
+            <input type="number" id="sr-panel-custom" value="405" min="1" step="1">
+            <span class="helper-text">Your panel's rated watts.</span>
+          </div>
+        </div>
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="sr-volt">System voltage (V)</label>
+            <select id="sr-volt">
+              <option value="12">12 V</option>
+              <option value="24">24 V</option>
+              <option value="48" selected>48 V</option>
+            </select>
+            <span class="helper-text">Battery bank voltage.</span>
+          </div>
+          <div class="field-group">
+            <label for="sr-dod">Depth of discharge (%)</label>
+            <input type="number" id="sr-dod" value="80" min="1" max="100" step="1">
+            <span class="helper-text">Usable share — ~50% lead-acid, ~80–90% lithium.</span>
+          </div>
+        </div>
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="sr-days">Days of autonomy</label>
+            <input type="number" id="sr-days" value="2" min="0" step="1">
+            <span class="helper-text">Backup days with no sun.</span>
+          </div>
+          <div class="field-group">
+            <label for="sr-loss">System losses (%)</label>
+            <input type="number" id="sr-loss" value="25" min="0" max="60" step="1">
+            <span class="helper-text">Real-world losses (heat, dust, wiring). ~25% typical.</span>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="calc-card" style="max-width:720px; margin-top:22px;">
+      <h2 style="font-family:var(--font-display);color:var(--navy);font-size:1.25rem;margin-bottom:6px;">Your system at a glance</h2>
+      <p class="helper-text" style="margin-bottom:18px;">A first-pass design from your inputs. Use it as a starting point, then refine with the individual calculators.</p>
+
+      <h3 style="font-size:0.95rem;color:var(--ink-soft);margin:6px 0 10px;">☀️ Solar array</h3>
+      <div class="calc-result">
+        <div><span class="num" id="sr-array-kw">0</span><span class="lbl">array size (kW)</span></div>
+        <div><span class="num" id="sr-panel-count">0</span><span class="lbl">panels needed</span></div>
+      </div>
+
+      <h3 style="font-size:0.95rem;color:var(--ink-soft);margin:20px 0 10px;">🔋 Battery bank</h3>
+      <div class="calc-result">
+        <div><span class="num" id="sr-batt-kwh">0</span><span class="lbl">battery bank (kWh)</span></div>
+        <div><span class="num" id="sr-batt-ah">0</span><span class="lbl">capacity (Ah)</span></div>
+      </div>
+
+      <h3 style="font-size:0.95rem;color:var(--ink-soft);margin:20px 0 10px;">⚡ Inverter &amp; output</h3>
+      <div class="calc-result">
+        <div><span class="num" id="sr-inverter">0</span><span class="lbl">inverter size (kW)</span></div>
+        <div><span class="num" id="sr-annual">0</span><span class="lbl">yearly output (kWh)</span></div>
+      </div>
+
+      <button type="button" id="sr-pdf-btn" class="btn btn-accent" style="margin-top:22px;">⬇️ Download full system report (PDF)</button>
+      <button type="button" id="sr-share-btn" class="btn btn-share" style="margin-top:22px;margin-left:8px;">🔗 Share this design</button>
+      <p class="helper-text" style="margin-top:14px;">Estimates only — a first-pass sizing to guide your design, not a substitute for a full site survey. Array = daily use ÷ (peak sun hours × efficiency). Battery = (daily use × autonomy days) ÷ depth of discharge.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <article class="article">
+    <h2>How this report is built</h2>
+    <p>This page ties the core off-grid calculations together so you can see a whole system from one set of inputs. The <strong>solar array</strong> is sized so it replaces your daily energy use after real-world losses: array kW = daily kWh ÷ (peak sun hours × efficiency). The <strong>battery bank</strong> is sized to cover your usage across the autonomy days you choose, divided by the usable depth of discharge. The <strong>inverter</strong> is suggested from the array size, and the <strong>yearly output</strong> is the array's realistic annual generation.</p>
+    <p>Each figure is a sensible first pass. To refine any part, jump to its dedicated tool: the <a href="tools/panel-calculator.html">panel calculator</a>, <a href="tools/battery-calculator.html">battery calculator</a>, <a href="tools/days-of-autonomy-calculator.html">days of autonomy calculator</a>, <a href="tools/inverter-calculator.html">inverter calculator</a>, and <a href="tools/energy-production-calculator.html">energy production calculator</a>. For the bigger picture, see the <a href="articles/solar-system-sizing-guide.html">system sizing guide</a>.</p>
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="tools/panel-calculator.html">Panel calculator</a></li>
+          <li><a href="tools/battery-calculator.html">Battery calculator</a></li>
+          <li><a href="tools/inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="tools/cable-calculator.html">Cable calculator</a></li>
+          <li><a href="tools/roi-calculator.html">ROI calculator</a></li>
+          <li><a href="tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="js/pdf-export.js"></script>
+<script>
+  (function () {
+    var form = document.getElementById('report-calc-form');
+    if (!form) return;
+    function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+
+    var panelSelect = document.getElementById('sr-panel-select');
+    var panelCustomWrap = document.getElementById('sr-panel-custom-wrap');
+    function panelWatt() {
+      if (panelSelect.value === 'custom') return val('sr-panel-custom');
+      return parseFloat(panelSelect.value) || 0;
+    }
+    function syncCustom() {
+      panelCustomWrap.style.display = (panelSelect.value === 'custom') ? '' : 'none';
+    }
+    panelSelect.addEventListener('change', function () { syncCustom(); calc(); });
+    syncCustom();
+
+    var out = {};
+    function calc() {
+      var daily = val('sr-daily'), psh = val('sr-psh'), volt = val('sr-volt');
+      var dod = val('sr-dod'), days = val('sr-days'), loss = val('sr-loss');
+      var pw = panelWatt();
+      var eff = 1 - loss / 100;
+      var arrayKw = (psh > 0 && eff > 0) ? daily / (psh * eff) : 0;
+      var panels = (pw > 0) ? Math.ceil(arrayKw * 1000 / pw) : 0;
+      var battKwh = (dod > 0) ? (daily * days) / (dod / 100) : 0;
+      var battAh = (volt > 0) ? battKwh * 1000 / volt : 0;
+      var inverterKw = arrayKw * 1.0; // suggest inverter ~ array size
+      var annual = arrayKw * psh * eff * 365;
+
+      out = {
+        arrayKw: arrayKw, panels: panels, battKwh: battKwh, battAh: battAh,
+        inverterKw: inverterKw, annual: annual
+      };
+      document.getElementById('sr-array-kw').textContent = (Math.round(arrayKw * 100) / 100).toFixed(2);
+      document.getElementById('sr-panel-count').textContent = panels;
+      document.getElementById('sr-batt-kwh').textContent = (Math.round(battKwh * 100) / 100).toFixed(2);
+      document.getElementById('sr-batt-ah').textContent = Math.round(battAh);
+      document.getElementById('sr-inverter').textContent = (Math.round(inverterKw * 10) / 10).toFixed(1);
+      document.getElementById('sr-annual').textContent = Math.round(annual);
+    }
+    form.addEventListener('input', calc);
+    calc();
+
+    // ---- Full system PDF report ----
+    document.getElementById('sr-pdf-btn').addEventListener('click', function () {
+      var pw = panelWatt();
+      var inputs = [
+        ['Daily energy use', document.getElementById('sr-daily').value + ' kWh/day'],
+        ['Peak sun hours', document.getElementById('sr-psh').value + ' h/day'],
+        ['Panel wattage', pw + ' W'],
+        ['System voltage', document.getElementById('sr-volt').value + ' V'],
+        ['Depth of discharge', document.getElementById('sr-dod').value + ' %'],
+        ['Days of autonomy', document.getElementById('sr-days').value],
+        ['System losses', document.getElementById('sr-loss').value + ' %']
+      ];
+      var results = [
+        ['Solar array size', out.arrayKw.toFixed(2) + ' kW'],
+        ['Panels needed', String(out.panels) + ' x ' + pw + ' W'],
+        ['Battery bank', out.battKwh.toFixed(2) + ' kWh'],
+        ['Battery capacity', Math.round(out.battAh) + ' Ah'],
+        ['Suggested inverter', out.inverterKw.toFixed(1) + ' kW'],
+        ['Estimated yearly output', Math.round(out.annual) + ' kWh']
+      ];
+      generateSolarToolHubResultsPDF({
+        subtitle: 'Full Solar System Report',
+        inputs: inputs,
+        resultsHeaders: ['System component', 'Sizing'],
+        results: results,
+        nextSteps: {
+          text: 'Refine each part of this design with our full set of calculators at:',
+          linkText: 'SolarToolHub Tools',
+          url: 'https://ahmedtere44-coder.github.io/solartoolhub/tools.html'
+        },
+        filename: 'solartoolhub-system-report.pdf'
+      });
+    });
+
+    // ---- Share this design (build URL from inputs) ----
+    document.getElementById('sr-share-btn').addEventListener('click', function () {
+      var fields = form.querySelectorAll('input, select');
+      var parts = [];
+      fields.forEach(function (f) { if (f.id) parts.push(encodeURIComponent(f.id) + '=' + encodeURIComponent(f.value)); });
+      var url = window.location.origin + window.location.pathname + '?' + parts.join('&');
+      try { history.replaceState(null, '', url); } catch (e) {}
+      var text = 'My solar system design on SolarToolHub';
+      if (navigator.share) { navigator.share({ title: document.title, text: text, url: url }).catch(function () {}); return; }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(function () { flash('Link copied!'); }, function () { prompt('Copy this link:', url); });
+      } else { prompt('Copy this link:', url); }
+    });
+    function flash(msg) {
+      var b = document.getElementById('sr-share-btn'); var t = b.textContent;
+      b.textContent = msg; setTimeout(function () { b.textContent = t; }, 2000);
+    }
+
+    // ---- Apply values from URL on load (shareable design) ----
+    (function applyFromUrl() {
+      var params = new URLSearchParams(window.location.search);
+      var any = false; params.forEach(function () { any = true; });
+      if (!any) return;
+      form.querySelectorAll('input, select').forEach(function (f) {
+        if (f.id && params.has(f.id)) f.value = params.get(f.id);
+      });
+      syncCustom(); calc();
+    })();
+  })();
+</script>
+</body>
+</html>
