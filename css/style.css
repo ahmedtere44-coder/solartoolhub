@@ -1001,3 +1001,14 @@ table.calc-table .surge-note { font-size: 0.78rem; color: var(--ink-faint); }
 /* H1 page icon (internal tool + article pages) */
 .page-icon { display: flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 12px; background: var(--orange-tint); margin: 0 0 14px; }
 .page-icon svg { width: 28px; height: 28px; stroke: var(--orange-deep); }
+
+
+/* Country page: selector + action buttons */
+.country-picker { margin: 24px 0 8px; }
+.country-picker label { display:block; font-weight:700; color:var(--navy); margin-bottom:8px; font-size:0.95rem; }
+.country-picker select { width:100%; max-width:420px; padding:12px 14px; border:2px solid #CBD5E1; border-radius:12px; background:var(--card); font-size:1rem; color:var(--ink); font-family:inherit; }
+.country-picker select:focus { outline:none; border-color:var(--navy); }
+.btn-row { display:flex; gap:12px; flex-wrap:wrap; margin:14px 0 4px; }
+
+.btn-outline { background:var(--card); color:var(--navy); border:2px solid #CBD5E1; }
+.btn-outline:hover { border-color:var(--navy); }
