@@ -984,3 +984,12 @@ table.calc-table .surge-note { font-size: 0.78rem; color: var(--ink-faint); }
 
 /* Collection page step badges */
 .tool-step { display: inline-block; background: var(--orange-tint); color: var(--navy); font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 10px; border-radius: 999px; margin-bottom: 10px; }
+
+/* Collections category cards (bordered + icon) */
+.collection-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin: 6px 0 34px; }
+.collection-card { display: flex; align-items: center; gap: 14px; border: 2px solid #CBD5E1; border-radius: var(--radius); padding: 18px; text-decoration: none; background: var(--card); transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease; }
+.collection-card:hover { border-color: var(--navy); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.collection-card .cc-icon { flex: none; width: 48px; height: 48px; border-radius: 12px; background: var(--orange-tint); display: flex; align-items: center; justify-content: center; }
+.collection-card .cc-icon svg { width: 26px; height: 26px; stroke: var(--navy); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.collection-card .cc-text h3 { font-size: 1.02rem; color: var(--navy); margin: 0 0 3px; font-family: var(--font-display); }
+.collection-card .cc-text p { font-size: 0.84rem; color: var(--ink-soft); margin: 0; line-height: 1.35; }
