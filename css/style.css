@@ -997,3 +997,7 @@ table.calc-table .surge-note { font-size: 0.78rem; color: var(--ink-faint); }
 /* Section-heading icons (comparisons / cheat-sheets) — icon sits ABOVE the heading */
 .h2-icon { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 10px; background: var(--orange-tint); margin: 0 0 12px 0; }
 .h2-icon svg { width: 24px; height: 24px; stroke: var(--orange-deep); }
+
+/* H1 page icon (internal tool + article pages) */
+.page-icon { display: flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 12px; background: var(--orange-tint); margin: 0 0 14px; }
+.page-icon svg { width: 28px; height: 28px; stroke: var(--orange-deep); }
