@@ -993,3 +993,7 @@ table.calc-table .surge-note { font-size: 0.78rem; color: var(--ink-faint); }
 .collection-card .cc-icon svg { width: 26px; height: 26px; stroke: var(--navy); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .collection-card .cc-text h3 { font-size: 1.02rem; color: var(--navy); margin: 0 0 3px; font-family: var(--font-display); }
 .collection-card .cc-text p { font-size: 0.84rem; color: var(--ink-soft); margin: 0; line-height: 1.35; }
+
+/* Section-heading icons (comparisons / cheat-sheets) */
+.h2-icon { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; background: var(--orange-tint); margin-right: 10px; vertical-align: middle; }
+.h2-icon svg { width: 18px; height: 18px; stroke: var(--orange-deep); }
