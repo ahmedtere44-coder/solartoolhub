@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Battery Design Tools — Size & Plan Solar Storage | SolarToolHub</title>
+<meta name="description" content="Every calculator for designing solar battery storage: bank sizing, Ah to kWh, runtime, charge time, days of autonomy, and charge controller sizing.">
+<link rel="canonical" href="https://ahmedtere44-coder.github.io/solartoolhub/battery-design-tools.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SolarToolHub">
+<meta property="og:title" content="Battery Design Tools — Size & Plan Solar Storage | SolarToolHub">
+<meta property="og:description" content="Every calculator for designing solar battery storage: bank sizing, Ah to kWh, runtime, charge time, days of autonomy, and charge controller sizing.">
+<meta property="og:url" content="https://ahmedtere44-coder.github.io/solartoolhub/battery-design-tools.html">
+<meta property="og:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Battery Design Tools — Size & Plan Solar Storage | SolarToolHub">
+<meta name="twitter:description" content="Every calculator for designing solar battery storage: bank sizing, Ah to kWh, runtime, charge time, days of autonomy, and charge controller sizing.">
+<meta name="twitter:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Battery Design Tools",
+  "description": "Calculators for designing solar battery storage.",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Battery calculator", "url": "https://ahmedtere44-coder.github.io/solartoolhub/tools/battery-calculator.html" },
+    { "@type": "ListItem", "position": 2, "name": "Battery Ah to kWh converter", "url": "https://ahmedtere44-coder.github.io/solartoolhub/tools/battery-ah-kwh-converter.html" },
+    { "@type": "ListItem", "position": 3, "name": "Battery runtime calculator", "url": "https://ahmedtere44-coder.github.io/solartoolhub/tools/battery-runtime-calculator.html" },
+    { "@type": "ListItem", "position": 4, "name": "Battery charge time calculator", "url": "https://ahmedtere44-coder.github.io/solartoolhub/tools/battery-charge-time-calculator.html" },
+    { "@type": "ListItem", "position": 5, "name": "Days of autonomy calculator", "url": "https://ahmedtere44-coder.github.io/solartoolhub/tools/days-of-autonomy-calculator.html" },
+    { "@type": "ListItem", "position": 6, "name": "Charge controller calculator", "url": "https://ahmedtere44-coder.github.io/solartoolhub/tools/charge-controller-calculator.html" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ahmedtere44-coder.github.io/solartoolhub/" },
+    { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools.html" },
+    { "@type": "ListItem", "position": 3, "name": "Battery design tools", "item": "https://ahmedtere44-coder.github.io/solartoolhub/battery-design-tools.html" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="tools.html" class="active">Tools</a></li>
+      <li><a href="articles.html">Guides</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button">Resources</button>
+        <ul class="nav-dropdown-menu">
+          <li><a href="comparisons.html">Compare</a></li>
+          <li><a href="cheat-sheets.html">Cheat sheets</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> / <a href="tools.html">Tools</a> / Battery design tools</div>
+    <h1>Battery design tools</h1>
+    <p class="lede">Everything you need to size and plan the battery side of a solar system — from capacity and runtime to charging and backup days.</p>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="grid-3">
+      <div class="tool-card">
+        <h3>Battery calculator</h3>
+        <p>Size a battery bank from your daily energy use and backup needs.</p>
+        <a href="tools/battery-calculator.html" class="tool-link">Open calculator →</a>
+      </div>
+      <div class="tool-card">
+        <h3>Battery Ah to kWh converter</h3>
+        <p>Convert between amp-hours and kilowatt-hours at any voltage.</p>
+        <a href="tools/battery-ah-kwh-converter.html" class="tool-link">Open calculator →</a>
+      </div>
+      <div class="tool-card">
+        <h3>Battery runtime calculator</h3>
+        <p>See how long a battery will power a given load.</p>
+        <a href="tools/battery-runtime-calculator.html" class="tool-link">Open calculator →</a>
+      </div>
+      <div class="tool-card">
+        <h3>Battery charge time calculator</h3>
+        <p>Estimate how long a battery takes to recharge.</p>
+        <a href="tools/battery-charge-time-calculator.html" class="tool-link">Open calculator →</a>
+      </div>
+      <div class="tool-card">
+        <h3>Days of autonomy calculator</h3>
+        <p>Size the bank for days with no sun.</p>
+        <a href="tools/days-of-autonomy-calculator.html" class="tool-link">Open calculator →</a>
+      </div>
+      <div class="tool-card">
+        <h3>Charge controller calculator</h3>
+        <p>Size the MPPT or PWM controller that charges the bank.</p>
+        <a href="tools/charge-controller-calculator.html" class="tool-link">Open calculator →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <article class="article">
+    <h2>Related guides</h2>
+    <ul>
+      <li><a href="articles/how-long-do-solar-batteries-last.html">How long do solar batteries last</a> — lifespan and how to extend it.</li>
+      <li><a href="comparisons.html#lithium-vs-lead-acid">Lithium vs lead-acid</a> — which chemistry to choose.</li>
+      <li><a href="articles/solar-system-sizing-guide.html">Solar system sizing guide</a> — how all the numbers fit together.</li>
+    </ul>
+    <p>Browse every tool on the <a href="tools.html">all tools page</a>, or design a full system with the <a href="system-report.html">system report builder</a>.</p>
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="tools/panel-calculator.html">Panel calculator</a></li>
+          <li><a href="tools/battery-calculator.html">Battery calculator</a></li>
+          <li><a href="tools/inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="tools/cable-calculator.html">Cable calculator</a></li>
+          <li><a href="tools/roi-calculator.html">ROI calculator</a></li>
+          <li><a href="tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
