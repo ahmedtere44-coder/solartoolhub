@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solar Panel Row Spacing Calculator — Avoid Inter-Row Shading | SolarToolHub</title>
+<meta name="description" content="Solar panel row spacing calculator: enter module length, tilt and latitude to get the minimum row spacing that avoids inter-row shading in winter.">
+<link rel="canonical" href="https://ahmedtere44-coder.github.io/solartoolhub/tools/row-spacing-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SolarToolHub">
+<meta property="og:title" content="Solar Panel Row Spacing Calculator — Avoid Inter-Row Shading | SolarToolHub">
+<meta property="og:description" content="Get the minimum spacing between solar rows to avoid shading, from module length, tilt, and latitude.">
+<meta property="og:url" content="https://ahmedtere44-coder.github.io/solartoolhub/tools/row-spacing-calculator.html">
+<meta property="og:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Solar Panel Row Spacing Calculator | SolarToolHub">
+<meta name="twitter:description" content="Minimum spacing between solar rows to avoid inter-row shading.">
+<meta name="twitter:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do you calculate solar panel row spacing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "First find the panel's vertical rise: module length times the sine of the tilt angle. Then find the lowest midday sun angle of the year (winter solstice), which is about 90 minus your latitude minus 23.5 degrees. The shadow gap is the vertical rise divided by the tangent of that sun angle. Add the panel's horizontal base (module length times cosine of tilt) to get the full row spacing, front of one row to front of the next."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do solar panel rows need spacing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On ground mounts and flat roofs, each tilted row casts a shadow behind it. If rows are too close, the front row shades the bottom of the row behind when the sun is low, which can sharply cut output because shading one part of a string drags down the whole string. Correct spacing keeps rows clear during the useful hours of the worst day of the year."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What time of year is used for row spacing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The winter solstice at solar noon, because that is when the midday sun is lowest and shadows are longest. Designing for that moment keeps the array unshaded around midday all year. Some designers relax the rule slightly to save land, accepting a little early-morning or late-afternoon winter shading."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ahmedtere44-coder.github.io/solartoolhub/" },
+    { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools.html" },
+    { "@type": "ListItem", "position": 3, "name": "Row spacing calculator", "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools/row-spacing-calculator.html" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html" class="active">Tools</a></li>
+      <li><a href="../articles.html">Guides</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button">Resources</button>
+        <ul class="nav-dropdown-menu">
+          <li><a href="../comparisons.html">Compare</a></li>
+          <li><a href="../cheat-sheets.html">Cheat sheets</a></li>
+          <li><a href="../glossary.html">Glossary</a></li>
+        </ul>
+      </li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../tools.html">Tools</a> / Row spacing calculator</div>
+    <div class="page-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="8" rx="1"/><path d="M7 8v3M11 8v4M15 8v3M19 8v4"/></svg></div>
+    <h1>Solar panel row spacing calculator</h1>
+    <p class="lede">On ground mounts and flat roofs, tilted rows cast shadows behind them. Space them too tightly and the front row shades the next one in winter. Enter your module length, tilt, and latitude to get the minimum row spacing that stays clear.</p>
+  </div>
+</div>
+
+<div class="calc-layout">
+  <div class="container">
+    <div class="calc-card" style="max-width:680px;">
+      <form id="rs-calc-form">
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="rs-length">Module length up the slope (m)</label>
+            <input type="number" id="rs-length" value="2" min="0" step="0.01">
+            <span class="helper-text">The panel dimension along the tilt (often ~2 m portrait, ~1 m landscape).</span>
+          </div>
+          <div class="field-group">
+            <label for="rs-tilt">Tilt angle (°)</label>
+            <input type="number" id="rs-tilt" value="30" min="0" max="80" step="1">
+            <span class="helper-text">Angle of the panel from horizontal.</span>
+          </div>
+        </div>
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="rs-lat">Latitude (°)</label>
+            <input type="number" id="rs-lat" value="32" min="0" max="66" step="0.5">
+            <span class="helper-text">Your site's latitude (ignore the sign).</span>
+          </div>
+        </div>
+      </form>
+
+      <div class="calc-result">
+        <div>
+          <span class="num" id="rs-pitch">0</span>
+          <span class="lbl">min row spacing (m)</span>
+        </div>
+        <div>
+          <span class="num" id="rs-gap">0</span>
+          <span class="lbl">shadow gap behind row (m)</span>
+        </div>
+      </div>
+      <div class="calc-result" style="margin-top:14px;">
+        <div>
+          <span class="num" id="rs-elev">0</span>
+          <span class="lbl">winter midday sun angle (°)</span>
+        </div>
+      </div>
+
+      <button type="button" id="rs-pdf-btn" class="btn btn-accent" style="margin-top:20px;">⬇️ Download results as PDF</button>
+      <p class="helper-text">Row spacing = base + gap, where base = length × cos(tilt) and gap = (length × sin(tilt)) ÷ tan(winter sun angle). Winter sun angle ≈ 90 − latitude − 23.5°. This keeps rows clear at solar noon on the shortest day.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="calc-diagram">
+    <figure>
+      <svg viewBox="0 0 380 300" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="rs-t rs-d">
+        <title id="rs-t">How solar row spacing avoids shading</title>
+        <desc id="rs-d">A tilted panel casts a shadow behind it when the winter sun is low; the next row must sit beyond that shadow.</desc>
+        <line x1="20" y1="235" x2="360" y2="235" stroke="#9CA3AF" stroke-width="1.5"/>
+        <!-- front row -->
+        <line x1="60" y1="235" x2="105" y2="180" stroke="#1E3A8A" stroke-width="5" stroke-linecap="round"/>
+        <text x="66" y="250" font-family="Inter, sans-serif" font-size="10" fill="#1E3A8A">front row</text>
+        <!-- sun ray -->
+        <line x1="105" y1="180" x2="235" y2="235" stroke="#CA8A04" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <circle cx="330" cy="70" r="14" fill="#FEF3C7" stroke="#CA8A04" stroke-width="1"/>
+        <text x="330" y="74" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#854D0E">low sun</text>
+        <line x1="316" y1="80" x2="240" y2="232" stroke="#CA8A04" stroke-width="1" stroke-dasharray="3 3" opacity="0.6"/>
+        <!-- shadow gap -->
+        <line x1="105" y1="243" x2="235" y2="243" stroke="#DC2626" stroke-width="1.5"/>
+        <text x="150" y="257" font-family="Inter, sans-serif" font-size="10" fill="#DC2626">shadow gap</text>
+        <!-- next row must start beyond shadow -->
+        <line x1="240" y1="235" x2="285" y2="180" stroke="#10B981" stroke-width="5" stroke-linecap="round"/>
+        <text x="243" y="250" font-family="Inter, sans-serif" font-size="10" fill="#065F46">next row</text>
+        <text x="190" y="30" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#111827">Keep the next row beyond the winter shadow</text>
+      </svg>
+      <figcaption>The low winter sun casts the longest shadow — space rows so the next one clears it at midday.</figcaption>
+    </figure>
+  </div>
+
+  <div class="calc-chart">
+    <h2 class="calc-chart-title">How row spacing changes with tilt</h2>
+    <p class="calc-chart-intro">This curve updates with your inputs. Steeper tilt raises the panel higher and throws a longer shadow, so it needs more space between rows — the marker shows your tilt.</p>
+    <div class="calc-chart-canvas-wrap">
+      <canvas id="rs-curve" role="img" aria-label="Line chart showing required row spacing rising with tilt angle, with a marker for your tilt.">Required row spacing rises as tilt angle increases.</canvas>
+    </div>
+  </div>
+
+  <article class="article">
+
+    <p>When panels are mounted at a tilt — on the ground or on a flat roof — each row throws a shadow behind it. Pack the rows too close and, on winter mornings and afternoons, the front row's shadow creeps onto the bottom of the row behind. Because shading part of a string drags down the whole string, that costs far more energy than the shaded area alone. Row spacing is how you prevent it.</p>
+
+    <h2>How the spacing is worked out</h2>
+    <p>Two things set the shadow length: how high the panel stands, and how low the sun gets. The panel's vertical rise is its length times the sine of the tilt. The lowest midday sun of the year happens at the winter solstice, when its angle above the horizon is roughly <strong>90 − latitude − 23.5°</strong>. Divide the rise by the tangent of that angle and you get the shadow gap; add the panel's own horizontal base and you have the full row spacing, front of one row to front of the next.</p>
+
+    <h2>Why winter, and why midday</h2>
+    <p>Shadows are longest when the sun is lowest — the winter solstice — and shortest at solar noon within any day. Designing so rows are clear at winter-solstice noon keeps the array unshaded through the productive middle of every day, year round. Some designers trade a little land for a little acceptable winter shading at the very start and end of the day; that's a judgement call between yield and space.</p>
+
+    <h2>The trade-off</h2>
+    <p>More tilt captures more energy in winter but needs more space between rows, as the chart shows. On tight sites, lowering the tilt slightly can pack in more rows and more total power even if each row is a touch less efficient. To choose a tilt in the first place, use the <a href="panel-tilt-calculator.html">panel tilt calculator</a>.</p>
+
+    <h2>Related tools</h2>
+    <p>Set your <a href="panel-tilt-calculator.html">tilt angle</a>, check how much a little <a href="shading-loss-calculator.html">shading</a> costs, fit the array to your <a href="roof-area-system-size-calculator.html">roof area</a>, and estimate output with the <a href="energy-production-calculator.html">energy production calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <h3>How do you calculate solar panel row spacing?</h3>
+    <p>Rise = length × sin(tilt); winter sun angle ≈ 90 − latitude − 23.5°; shadow gap = rise ÷ tan(sun angle); row spacing = gap + length × cos(tilt).</p>
+    <h3>Why do solar panel rows need spacing?</h3>
+    <p>Each tilted row shadows the one behind when the sun is low. Too little spacing means winter shading, and shading part of a string cuts the whole string's output.</p>
+    <h3>What time of year is used for row spacing?</h3>
+    <p>The winter solstice at solar noon — the lowest midday sun and longest shadow — so the array stays clear around midday all year.</p>
+
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="panel-calculator.html">Panel calculator</a></li>
+          <li><a href="battery-calculator.html">Battery calculator</a></li>
+          <li><a href="inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="cable-calculator.html">Cable calculator</a></li>
+          <li><a href="roi-calculator.html">ROI calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script src="../js/share.js"></script>
+<script>
+  (function () {
+    var form = document.getElementById('rs-calc-form');
+    if (!form) return;
+    function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+    function rad(d) { return d * Math.PI / 180; }
+
+    function elevation(lat) {
+      var a = 90 - Math.abs(lat) - 23.45;
+      return a < 1 ? 1 : a; // guard against very high latitudes
+    }
+    function calcRS() {
+      var L = val('rs-length'), tilt = val('rs-tilt'), lat = val('rs-lat');
+      var elev = elevation(lat);
+      var rise = L * Math.sin(rad(tilt));
+      var base = L * Math.cos(rad(tilt));
+      var gap = rise / Math.tan(rad(elev));
+      var pitch = base + gap;
+      document.getElementById('rs-pitch').textContent = (Math.round(pitch * 100) / 100).toFixed(2);
+      document.getElementById('rs-gap').textContent = (Math.round(gap * 100) / 100).toFixed(2);
+      document.getElementById('rs-elev').textContent = (Math.round(elev * 10) / 10).toFixed(1);
+    }
+    form.addEventListener('input', calcRS);
+    calcRS();
+
+    var pdfBtn = document.getElementById('rs-pdf-btn');
+    if (pdfBtn) {
+      pdfBtn.addEventListener('click', function () {
+        var inputs = [
+          ['Module length up slope', document.getElementById('rs-length').value + ' m'],
+          ['Tilt angle', document.getElementById('rs-tilt').value + ' deg'],
+          ['Latitude', document.getElementById('rs-lat').value + ' deg']
+        ];
+        var results = [
+          ['Minimum row spacing', document.getElementById('rs-pitch').textContent + ' m'],
+          ['Shadow gap behind row', document.getElementById('rs-gap').textContent + ' m'],
+          ['Winter midday sun angle', document.getElementById('rs-elev').textContent + ' deg']
+        ];
+        generateSolarToolHubResultsPDF({
+          subtitle: 'Row Spacing — Results',
+          inputs: inputs,
+          resultsHeaders: ['Metric', 'Value'],
+          results: results,
+          nextSteps: {
+            text: 'Pick the best tilt for your site with our:',
+            linkText: 'Panel Tilt Calculator',
+            url: 'https://ahmedtere44-coder.github.io/solartoolhub/tools/panel-tilt-calculator.html'
+          },
+          filename: 'solartoolhub-row-spacing-results.pdf'
+        });
+      });
+    }
+  })();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+  (function () {
+    var canvas = document.getElementById('rs-curve');
+    if (!canvas || typeof Chart === 'undefined') return;
+    var lenEl = document.getElementById('rs-length');
+    var tiltEl = document.getElementById('rs-tilt');
+    var latEl = document.getElementById('rs-lat');
+    function rad(d) { return d * Math.PI / 180; }
+    function elev() { var a = 90 - Math.abs(parseFloat(latEl.value) || 0) - 23.45; return a < 1 ? 1 : a; }
+    function pitchAt(tilt) {
+      var L = parseFloat(lenEl.value) || 0;
+      var rise = L * Math.sin(rad(tilt));
+      var base = L * Math.cos(rad(tilt));
+      return Math.round((base + rise / Math.tan(rad(elev()))) * 100) / 100;
+    }
+    var tilts = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60];
+    function line() { return tilts.map(function (t) { return { x: t, y: pitchAt(t) }; }); }
+    function marker() { var t = parseFloat(tiltEl.value) || 0; return [{ x: t, y: pitchAt(t) }]; }
+
+    var chart = new Chart(canvas, {
+      type: 'line',
+      data: {
+        datasets: [
+          { label: 'Row spacing (m)', data: line(), borderColor: '#1E3A8A', backgroundColor: 'rgba(37,99,235,0.10)', borderWidth: 2, fill: true, tension: 0.2, pointRadius: 0 },
+          { label: 'Your tilt', data: marker(), borderColor: '#10B981', backgroundColor: '#10B981', showLine: false, pointRadius: 7, pointHoverRadius: 8, pointStyle: 'circle' }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: true, labels: { color: '#4B5563', boxWidth: 12 } } },
+        scales: {
+          x: { type: 'linear', min: 5, max: 60, title: { display: true, text: 'Tilt angle (°)', color: '#4B5563' }, ticks: { color: '#9CA3AF', stepSize: 10 }, grid: { display: false } },
+          y: { title: { display: true, text: 'Row spacing (m)', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, beginAtZero: true }
+        }
+      }
+    });
+    function refresh() {
+      chart.data.datasets[0].data = line();
+      chart.data.datasets[1].data = marker();
+      chart.update();
+    }
+    [lenEl, tiltEl, latEl].forEach(function (el) { if (el) el.addEventListener('input', refresh); });
+  })();
+</script>
+</body>
+</html>

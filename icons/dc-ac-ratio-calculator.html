@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DC to AC Ratio Calculator — Inverter Oversizing & Clipping | SolarToolHub</title>
+<meta name="description" content="Free DC/AC ratio calculator for solar. Enter array and inverter size to get the loading ratio, check the ideal range, and estimate clipping loss.">
+<link rel="canonical" href="https://ahmedtere44-coder.github.io/solartoolhub/tools/dc-ac-ratio-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SolarToolHub">
+<meta property="og:title" content="DC to AC Ratio Calculator — Inverter Oversizing & Clipping | SolarToolHub">
+<meta property="og:description" content="Get your inverter loading ratio, see if it's in the ideal range, and estimate clipping loss from oversizing.">
+<meta property="og:url" content="https://ahmedtere44-coder.github.io/solartoolhub/tools/dc-ac-ratio-calculator.html">
+<meta property="og:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DC to AC Ratio Calculator | SolarToolHub">
+<meta name="twitter:description" content="Get your inverter loading ratio, see if it's in the ideal range, and estimate clipping loss.">
+<meta name="twitter:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a good DC to AC ratio for solar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For most grid-tied systems a DC/AC ratio of about 1.1 to 1.3 is ideal. Panels rarely reach their full nameplate output, so pairing a slightly smaller inverter with a larger array captures nearly all the energy at lower cost. Ratios below about 1.1 mean the inverter is oversized and money is wasted on inverter capacity you'll never use, while ratios much above 1.3 to 1.4 start losing a noticeable amount of energy to clipping, especially in sunny climates."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is inverter clipping?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Clipping happens when the array briefly produces more DC power than the inverter's AC rating can pass, so the inverter caps its output and the excess is lost. It only occurs at the sunniest peaks of the best days. A modest amount of clipping is normal and even intended in an oversized system, because the small peak losses are outweighed by higher output for the rest of the day and the saving on a smaller inverter."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do installers oversize the array relative to the inverter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because real-world panel output is almost always below the nameplate rating, due to heat, dust, wiring losses, angle, and imperfect sun. An inverter sized to the full array rating would sit half-idle most of the time. Oversizing the array (a DC/AC ratio above 1) keeps the inverter working closer to its efficient range for more of the day, so the system produces more energy per dollar of inverter — the small clipping loss at midday peaks is a worthwhile trade."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ahmedtere44-coder.github.io/solartoolhub/" },
+    { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools.html" },
+    { "@type": "ListItem", "position": 3, "name": "DC to AC ratio calculator", "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools/dc-ac-ratio-calculator.html" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html" class="active">Tools</a></li>
+      <li><a href="../articles.html">Guides</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button">Resources</button>
+        <ul class="nav-dropdown-menu">
+          <li><a href="../comparisons.html">Compare</a></li>
+      <li><a href="../cheat-sheets.html">Cheat sheets</a></li>
+      <li><a href="../glossary.html">Glossary</a></li>
+        </ul>
+      </li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../tools.html">Tools</a> / DC to AC ratio calculator</div>
+    <div class="page-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13l-3-3M20 16H7l3 3"/></svg></div>
+    <h1>DC to AC ratio calculator</h1>
+    <p class="lede">Pairing a slightly smaller inverter with a larger array is standard practice — but overdo it and you lose energy to clipping. Enter your array and inverter sizes to get the DC/AC ratio, see whether it's in the sweet spot, and estimate the clipping trade-off.</p>
+  </div>
+</div>
+
+<div class="calc-layout">
+  <div class="container">
+    <div class="calc-card" style="max-width:680px;">
+      <form id="da-calc-form">
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="da-array">Array size (kWp DC)</label>
+            <input type="number" id="da-array" value="6.6" min="0" step="0.1">
+            <span class="helper-text">Total panel capacity — the sum of all panel wattages.</span>
+          </div>
+          <div class="field-group">
+            <label for="da-inverter">Inverter rating (kW AC)</label>
+            <input type="number" id="da-inverter" value="5" min="0.1" step="0.1">
+            <span class="helper-text">The inverter's continuous AC output rating.</span>
+          </div>
+        </div>
+      </form>
+
+      <div class="calc-result">
+        <div>
+          <span class="num" id="da-ratio">0</span>
+          <span class="lbl">DC/AC ratio</span>
+        </div>
+        <div>
+          <span class="num" id="da-status">—</span>
+          <span class="lbl">verdict</span>
+        </div>
+      </div>
+      <div class="calc-result" style="margin-top:14px;">
+        <div>
+          <span class="num" id="da-clip">0%</span>
+          <span class="lbl">est. clipping loss (sunny)</span>
+        </div>
+        <div>
+          <span class="num" id="da-suggested">0</span>
+          <span class="lbl">inverter for a 1.2 ratio (kW)</span>
+        </div>
+      </div>
+
+      <button type="button" id="da-pdf-btn" class="btn btn-accent" style="margin-top:20px;">⬇️ Download results as PDF</button>
+      <p class="helper-text">DC/AC ratio = array kWp ÷ inverter kW. The clipping estimate is a rough guide for a well-oriented system in a sunny climate — actual clipping depends on climate, tilt, and orientation. Ideal range for most systems is about 1.1–1.3.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="calc-diagram">
+    <figure>
+      <svg viewBox="0 0 380 300" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="da-title da-desc">
+        <title id="da-title">How the DC to AC ratio calculator works</title>
+        <desc id="da-desc">The array DC size divided by the inverter AC rating gives the DC/AC ratio, which determines whether the system is in the ideal range and how much energy is lost to clipping.</desc>
+        <text x="190" y="26" text-anchor="middle" font-family="Manrope, sans-serif" font-size="14" font-weight="700" fill="#111827">What you enter</text>
+        <g>
+          <rect x="30" y="42" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="105" y="63" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E3A8A">Array size</text>
+          <text x="105" y="81" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">kWp DC</text>
+        </g>
+        <g>
+          <rect x="200" y="42" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="275" y="63" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E3A8A">Inverter</text>
+          <text x="275" y="81" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">kW AC</text>
+        </g>
+        <line x1="105" y1="94" x2="180" y2="128" stroke="#9CA3AF" stroke-width="1.5"/>
+        <line x1="275" y1="94" x2="200" y2="128" stroke="#9CA3AF" stroke-width="1.5"/>
+        <g>
+          <rect x="80" y="130" width="220" height="52" rx="8" fill="#FEF9C3" stroke="#CA8A04" stroke-width="0.75"/>
+          <text x="190" y="151" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#854D0E">Array ÷ inverter = ratio</text>
+          <text x="190" y="169" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#854D0E">ideal about 1.1–1.3</text>
+        </g>
+        <line x1="190" y1="182" x2="190" y2="212" stroke="#9CA3AF" stroke-width="1.5"/>
+        <g>
+          <rect x="70" y="214" width="240" height="52" rx="8" fill="#E9FBF4" stroke="#10B981" stroke-width="0.75"/>
+          <text x="190" y="235" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#065F46">Verdict + clipping estimate</text>
+          <text x="190" y="253" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#065F46">the oversizing trade-off</text>
+        </g>
+      </svg>
+      <figcaption>How the calculator turns array and inverter sizes into a ratio and a clipping estimate.</figcaption>
+    </figure>
+  </div>
+
+  <div class="calc-chart">
+    <h2 class="calc-chart-title">How clipping loss grows with the ratio</h2>
+    <p class="calc-chart-intro">This curve shows how estimated clipping loss rises as the DC/AC ratio increases — gently at first, then more steeply. Sunny climates clip more than cloudy ones, because they hit peak irradiance more often.</p>
+    <div class="calc-chart-canvas-wrap">
+      <canvas id="da-curve" role="img" aria-label="Line chart showing clipping loss rising with DC/AC ratio, higher in sunny climates than cloudy ones.">Clipping loss rises with the DC/AC ratio, more in sunny climates.</canvas>
+    </div>
+  </div>
+
+  <article class="article">
+
+    <p>It sounds wrong at first: why would you deliberately connect more panels than your inverter can handle? But nearly every modern grid-tied system does exactly that. The trick is the DC/AC ratio — the array's DC capacity divided by the inverter's AC rating — and getting it right saves money without throwing away meaningful energy.</p>
+
+    <h2>Why oversizing the array makes sense</h2>
+    <p>A panel's nameplate wattage is measured under perfect lab conditions. In the real world, heat, dust, wiring losses, imperfect angles, and hazy skies mean your array almost never delivers its full rated output. So an inverter sized to match the array's nameplate would spend most of its life running well below capacity. By making the array a bit bigger than the inverter — a DC/AC ratio above 1 — you keep the inverter working in its efficient range for more of the day and harvest more total energy per dollar of inverter.</p>
+
+    <h2>What clipping is</h2>
+    <p>The catch is clipping. On the sunniest moments of the best days, the array can briefly produce more power than the inverter can pass through, so the inverter caps its output and the surplus is lost. This only happens at the peaks — a few hours around midday on clear days — so the annual energy lost is usually small. A little clipping is expected and fine; it's the price of a right-sized inverter.</p>
+
+    <h2>The sweet spot</h2>
+    <p>For most systems a DC/AC ratio of about <strong>1.1 to 1.3</strong> is the sweet spot. Below 1.1, you're paying for inverter capacity you'll rarely use. Above 1.3–1.4, clipping losses start to add up — faster in sunny climates, where peak-irradiance days are common, than in cloudy ones. Because <a href="../articles/peak-sun-hours-by-location.html">peak sun hours</a> and climate drive how often you hit those peaks, the ideal ratio is a little higher for cloudy regions and a little lower for very sunny ones.</p>
+
+    <h2>Related tools</h2>
+    <p>To size the inverter from your actual loads, use the <a href="inverter-calculator.html">inverter calculator</a>. To estimate how much energy the whole system will make, try the <a href="energy-production-calculator.html">energy production calculator</a>, and to size the array itself, the <a href="panel-calculator.html">panel calculator</a>. For string layout within the array, see the <a href="string-sizing-calculator.html">string sizing calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <h3>What is a good DC to AC ratio for solar?</h3>
+    <p>About 1.1–1.3 for most grid-tied systems. Below 1.1 wastes inverter capacity; much above 1.3–1.4 loses energy to clipping, especially in sunny climates.</p>
+    <h3>What is inverter clipping?</h3>
+    <p>When the array briefly makes more DC power than the inverter's AC rating can pass, the inverter caps output and the excess is lost. It only happens at midday peaks on the best days, so the annual loss is usually small.</p>
+    <h3>Why do installers oversize the array relative to the inverter?</h3>
+    <p>Because panels rarely reach nameplate output, an inverter matched to the full array rating would sit idle most of the time. A ratio above 1 keeps it efficient for more of the day and yields more energy per dollar of inverter.</p>
+
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="panel-calculator.html">Panel calculator</a></li>
+          <li><a href="battery-calculator.html">Battery calculator</a></li>
+          <li><a href="inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="cable-calculator.html">Cable calculator</a></li>
+          <li><a href="roi-calculator.html">ROI calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script src="../js/share.js"></script>
+<script>
+  (function () {
+    var form = document.getElementById('da-calc-form');
+    if (!form) return;
+
+    function clipSunny(ratio) {
+      if (ratio <= 1.1) return 0;
+      var l = Math.pow(ratio - 1.1, 2) * 40;
+      return l > 15 ? 15 : l;
+    }
+
+    function verdict(ratio) {
+      if (ratio < 1.0) return 'Undersized array';
+      if (ratio < 1.1) return 'Conservative';
+      if (ratio <= 1.25) return 'Ideal';
+      if (ratio <= 1.35) return 'Slightly high';
+      return 'High — clipping likely';
+    }
+
+    function calcDA() {
+      var array = parseFloat(document.getElementById('da-array').value) || 0;
+      var inverter = parseFloat(document.getElementById('da-inverter').value) || 0;
+      var ratio = inverter > 0 ? array / inverter : 0;
+      var clip = clipSunny(ratio);
+      var suggested = array / 1.2;
+
+      document.getElementById('da-ratio').textContent = ratio ? ratio.toFixed(2) : '0';
+      document.getElementById('da-status').textContent = inverter > 0 ? verdict(ratio) : '—';
+      document.getElementById('da-clip').textContent = clip.toFixed(1) + '%';
+      document.getElementById('da-suggested').textContent = (Math.round(suggested * 100) / 100).toFixed(1);
+    }
+
+    form.addEventListener('input', calcDA);
+    calcDA();
+
+    var pdfBtn = document.getElementById('da-pdf-btn');
+    if (pdfBtn) {
+      pdfBtn.addEventListener('click', function () {
+        var inputs = [
+          ['Array size', document.getElementById('da-array').value + ' kWp DC'],
+          ['Inverter rating', document.getElementById('da-inverter').value + ' kW AC']
+        ];
+        var results = [
+          ['DC/AC ratio', document.getElementById('da-ratio').textContent],
+          ['Verdict', document.getElementById('da-status').textContent],
+          ['Est. clipping loss (sunny)', document.getElementById('da-clip').textContent],
+          ['Inverter for a 1.2 ratio', document.getElementById('da-suggested').textContent + ' kW']
+        ];
+        generateSolarToolHubResultsPDF({
+          subtitle: 'DC to AC Ratio — Results',
+          inputs: inputs,
+          resultsHeaders: ['Metric', 'Value'],
+          results: results,
+          nextSteps: {
+            text: 'Size your inverter from your real loads with our:',
+            linkText: 'Inverter Calculator',
+            url: 'https://ahmedtere44-coder.github.io/solartoolhub/tools/inverter-calculator.html'
+          },
+          filename: 'solartoolhub-dc-ac-ratio-results.pdf'
+        });
+      });
+    }
+  })();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+  (function () {
+    var canvas = document.getElementById('da-curve');
+    if (!canvas || typeof Chart === 'undefined') return;
+
+    var arrayEl = document.getElementById('da-array');
+    var inverterEl = document.getElementById('da-inverter');
+    var ratios = [1.0, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3, 1.35, 1.4, 1.45, 1.5, 1.55, 1.6];
+
+    function clip(r, mult) {
+      if (r <= 1.1) return 0;
+      var l = Math.pow(r - 1.1, 2) * mult;
+      if (l > 15) l = 15;
+      return Math.round(l * 100) / 100;
+    }
+    function lineFor(mult) {
+      return ratios.map(function (r) { return { x: r, y: clip(r, mult) }; });
+    }
+    function currentRatio() {
+      var a = parseFloat(arrayEl.value) || 0;
+      var inv = parseFloat(inverterEl.value) || 0;
+      return inv > 0 ? a / inv : 0;
+    }
+    function marker() {
+      var r = currentRatio();
+      if (r < 1.0) r = 1.0; if (r > 1.6) r = 1.6;
+      return [{ x: Math.round(r * 100) / 100, y: clip(r, 40) }];
+    }
+
+    var chart = new Chart(canvas, {
+      type: 'line',
+      data: {
+        datasets: [
+          {
+            label: 'Sunny climate', data: lineFor(40),
+            borderColor: '#CA8A04', backgroundColor: 'rgba(250,204,21,0.12)',
+            borderWidth: 2, fill: true, tension: 0.3, pointRadius: 0
+          },
+          {
+            label: 'Cloudy / temperate', data: lineFor(22),
+            borderColor: '#10B981', backgroundColor: 'rgba(16,185,129,0.10)',
+            borderWidth: 2, fill: true, tension: 0.3, pointRadius: 0
+          },
+          {
+            label: 'Your system', data: marker(),
+            borderColor: '#1E3A8A', backgroundColor: '#1E3A8A',
+            showLine: false, pointRadius: 7, pointHoverRadius: 8, pointStyle: 'circle'
+          }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: true, labels: { color: '#4B5563', boxWidth: 12 } } },
+        scales: {
+          x: { type: 'linear', min: 1.0, max: 1.6, title: { display: true, text: 'DC/AC ratio', color: '#4B5563' }, ticks: { color: '#9CA3AF', stepSize: 0.1 }, grid: { display: false } },
+          y: { title: { display: true, text: 'Est. clipping loss (%)', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, beginAtZero: true }
+        }
+      }
+    });
+
+    function refresh() {
+      chart.data.datasets[2].data = marker();
+      chart.update();
+    }
+    [arrayEl, inverterEl].forEach(function (el) { if (el) el.addEventListener('input', refresh); });
+  })();
+</script>
+</body>
+</html>

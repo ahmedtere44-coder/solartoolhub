@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cable Size Calculator — Avoid Voltage Drop | SolarToolHub</title>
+<meta name="description" content="Free solar cable size calculator. Enter load, voltage, and distance to find the right cable gauge in mm² and AWG, based on allowable voltage drop.">
+<link rel="canonical" href="https://ahmedtere44-coder.github.io/solartoolhub/tools/cable-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SolarToolHub">
+<meta property="og:title" content="Cable Size Calculator — Avoid Voltage Drop | SolarToolHub">
+<meta property="og:description" content="Free solar cable size calculator. Enter load, voltage, and distance to find the right cable gauge in mm² and AWG, based on allowable voltage drop.">
+<meta property="og:url" content="https://ahmedtere44-coder.github.io/solartoolhub/tools/cable-calculator.html">
+<meta property="og:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Cable Size Calculator — Avoid Voltage Drop | SolarToolHub">
+<meta name="twitter:description" content="Free solar cable size calculator. Enter load, voltage, and distance to find the right cable gauge in mm² and AWG, based on allowable voltage drop.">
+<meta name="twitter:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does this calculator work for AC circuits too?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The core voltage drop formula is the same for both DC and single-phase AC circuits. For three-phase AC systems, the calculation differs slightly due to how phases interact, so treat this tool as accurate for DC and single-phase AC only."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I always round up to the next cable size?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Cables are manufactured in fixed standard sizes, and rounding down would put you over your target voltage drop. When in doubt, sizing one step larger than the calculated minimum adds a safety margin and reduces long-term heat buildup in the cable."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does cable length include both the positive and negative runs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Enter only the one-way distance from source to load — the calculator already doubles it internally to account for the return path, since current has to travel both directions to complete the circuit."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/index.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Cable calculator",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools/cable-calculator.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html" class="active">Tools</a></li>
+      <li><a href="../articles.html">Guides</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button">Resources</button>
+        <ul class="nav-dropdown-menu">
+          <li><a href="../comparisons.html">Compare</a></li>
+      <li><a href="../cheat-sheets.html">Cheat sheets</a></li>
+      <li><a href="../glossary.html">Glossary</a></li>
+        </ul>
+      </li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../tools.html">Tools</a> / Cable calculator</div>
+    <div class="page-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6M15 2v6M6 8h12v3a6 6 0 0 1-12 0z"/><path d="M12 17v5"/></svg></div>
+    <h1>Cable size calculator</h1>
+    <p class="lede">Enter your load, system voltage, and cable run length — get the right cable size in mm² and AWG, sized to keep voltage drop in check.</p>
+  </div>
+</div>
+
+<div class="calc-layout">
+  <div class="container">
+    <div class="calc-card">
+      <form id="cable-calc-form">
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="cable-watts">Load power (W)</label>
+            <input type="number" id="cable-watts" value="1000" min="0" step="10">
+          </div>
+          <div class="field-group">
+            <label for="cable-voltage">System voltage (V)</label>
+            <select id="cable-voltage">
+              <option value="12">12V</option>
+              <option value="24" selected>24V</option>
+              <option value="48">48V</option>
+            </select>
+          </div>
+        </div>
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="cable-length">One-way cable length (m)</label>
+            <input type="number" id="cable-length" value="10" min="0" step="1">
+            <span class="helper-text">Distance from source to load, one direction only.</span>
+          </div>
+          <div class="field-group">
+            <label for="cable-drop">Max allowed voltage drop</label>
+            <select id="cable-drop">
+              <option value="2">2% (recommended for long runs)</option>
+              <option value="3" selected>3% (standard)</option>
+              <option value="5">5% (short runs only)</option>
+            </select>
+          </div>
+        </div>
+      </form>
+      <div class="calc-result">
+        <div>
+          <span class="num num-text" id="cable-size-result">0 mm²</span>
+          <span class="lbl">recommended cable size</span>
+        </div>
+        <div>
+          <span class="num" id="cable-actual-drop">0%</span>
+          <span class="lbl">actual voltage drop at this size</span>
+        </div>
+      </div>
+      <button type="button" id="cable-pdf-btn" class="btn btn-accent" style="margin-top:20px;">⬇️ Download results as PDF</button>
+      <p class="helper-text">Calculation assumes copper conductor. Round-trip distance (out and back) is already accounted for.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="calc-diagram">
+    <figure>
+      <svg viewBox="0 0 380 374" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="cb-title cb-desc">
+        <title id="cb-title">How the cable size calculator works</title>
+        <desc id="cb-desc">Load power and voltage give the current, then length and allowed voltage drop set the required cable area, rounded up to a standard size.</desc>
+        <defs>
+          <marker id="cbArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <text x="190" y="26" text-anchor="middle" font-family="Manrope, sans-serif" font-size="14" font-weight="700" fill="#111827">What you enter</text>
+
+        <g>
+          <rect x="20" y="40" width="112" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="76" y="60" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1E3A8A">Load power</text>
+          <text x="76" y="78" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">watts</text>
+        </g>
+        <g>
+          <rect x="134" y="40" width="112" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="190" y="60" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1E3A8A">Voltage</text>
+          <text x="190" y="78" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">12 / 24 / 48 V</text>
+        </g>
+        <g>
+          <rect x="248" y="40" width="112" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="304" y="60" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1E3A8A">Length</text>
+          <text x="304" y="78" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">+ drop limit</text>
+        </g>
+
+        <line x1="76" y1="92" x2="165" y2="140" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#cbArrow)"/>
+        <line x1="190" y1="92" x2="190" y2="140" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#cbArrow)"/>
+        <line x1="304" y1="92" x2="215" y2="140" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#cbArrow)"/>
+
+        <g>
+          <rect x="70" y="142" width="240" height="52" rx="8" fill="#FEF9C3" stroke="#CA8A04" stroke-width="0.75"/>
+          <text x="190" y="162" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#854D0E">Current = watts ÷ volts</text>
+          <text x="190" y="180" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#854D0E">how many amps flow</text>
+        </g>
+
+        <line x1="190" y1="194" x2="190" y2="224" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#cbArrow)"/>
+
+        <g>
+          <rect x="70" y="226" width="240" height="52" rx="8" fill="#FEF9C3" stroke="#CA8A04" stroke-width="0.75"/>
+          <text x="190" y="246" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#854D0E">Required cable area</text>
+          <text x="190" y="264" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#854D0E">from current, length & drop</text>
+        </g>
+
+        <line x1="190" y1="278" x2="190" y2="308" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#cbArrow)"/>
+
+        <g>
+          <rect x="55" y="310" width="270" height="44" rx="8" fill="#E9FBF4" stroke="#10B981" stroke-width="0.75"/>
+          <text x="190" y="332" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#065F46">Next standard cable size (mm² / AWG)</text>
+        </g>
+      </svg>
+      <figcaption>How the calculator turns your load and distance into a cable size.</figcaption>
+    </figure>
+  </div>
+
+  <div class="calc-chart">
+    <h2 class="calc-chart-title">How distance changes the cable size</h2>
+    <p class="calc-chart-intro">This curve updates with your inputs above. It shows the minimum copper cross-section (mm²) needed as the cable run gets longer — the further the run, the thicker the cable.</p>
+    <div class="calc-chart-canvas-wrap">
+      <canvas id="cable-curve" role="img" aria-label="Line chart showing the required copper cable cross-section in square millimeters increasing as the one-way cable length increases.">Required cable cross-section grows with cable length.</canvas>
+    </div>
+  </div>
+
+  <article class="article">
+
+    <p>Cable sizing is the part of a solar or backup power system that's easiest to get wrong, because an undersized cable won't fail outright the way an undersized inverter would — it just quietly wastes power as heat, and in bad cases, creates a genuine fire risk. Picking the right cable size mostly comes down to one thing: keeping voltage drop within an acceptable limit over the distance the current has to travel.</p>
+
+    <h2>Why voltage drop matters</h2>
+    <p>Every conductor has resistance, and pushing current through that resistance over a distance causes some voltage to be lost along the way — this is voltage drop. The longer the cable run and the higher the current, the more voltage is lost before it reaches your load. Left unchecked, this means:</p>
+    <ul>
+      <li>Appliances and inverters receive less voltage than they need, which can cause poor performance, overheating, or premature failure.</li>
+      <li>The lost energy is converted to heat in the cable itself, which is wasted power and — in more severe cases — a fire hazard.</li>
+      <li>In battery-based systems, excessive voltage drop between the battery and the load or charge controller can trick the system into inaccurate readings, since voltage is often used to estimate battery state.</li>
+    </ul>
+    <p>Industry practice keeps voltage drop under about 3% for most circuits, and often tightens that to 1–2% for long cable runs or highly sensitive equipment.</p>
+
+    <h2>The formula behind the calculator</h2>
+    <p>The calculator uses the standard voltage drop formula for a round-trip circuit:</p>
+    <p style="font-family:var(--font-mono); background:var(--bg-soft); padding:14px 18px; border-radius:8px; font-size:0.95rem;">Cross-sectional area (mm²) = (2 × Length × Current × 0.0175) ÷ Allowed voltage drop (V)</p>
+    <p>The factor of 2 accounts for the fact that current has to travel out to the load and back to the source — the full round-trip distance, not just the one-way distance you measured. The constant 0.0175 is the resistivity of copper in ohm·mm²/m. Once the required area is calculated, the tool rounds up to the next standard cable size, since cables are only manufactured in fixed increments.</p>
+
+    <div class="field-experience">
+      <span class="tag">Field note</span>
+      <p>Cable sizing works differently on the DC side versus the AC side of a system. On the DC side, string cables connecting panels to the inverter or combiner box are typically 8 mm² or 10 mm², depending on the string voltage. On the AC side, the cable size depends on the connected load or, for larger-scale projects, the transformer rating. I've seen this distinction hold consistently across both small residential systems and larger installations in different locations across Jordan — DC and AC sizing simply follow different logic, and mixing up the two is a common mistake on smaller projects.</p>
+    </div>
+
+    <h2>Standard cable sizes: mm² and AWG</h2>
+    <table class="data-table">
+      <thead>
+        <tr><th>mm²</th><th>Closest AWG</th><th>Typical use</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1.5 mm²</td><td>16 AWG</td><td>Low-power sensors, small DC loads</td></tr>
+        <tr><td>2.5 mm²</td><td>14 AWG</td><td>Lighting circuits, small appliances</td></tr>
+        <tr><td>4 mm²</td><td>12 AWG</td><td>General household circuits</td></tr>
+        <tr><td>6 mm²</td><td>10 AWG</td><td>Medium loads, short-to-medium runs</td></tr>
+        <tr><td>10 mm²</td><td>8 AWG</td><td>Higher current loads, panel-to-inverter runs</td></tr>
+        <tr><td>16 mm²</td><td>6 AWG</td><td>Battery interconnects, longer array runs</td></tr>
+        <tr><td>25 mm²+</td><td>4 AWG and larger</td><td>High-current main feeders, long battery-to-inverter runs</td></tr>
+      </tbody>
+    </table>
+    <p>mm² and AWG don't convert to each other with a clean formula — the pairings above are the closest standard equivalents commonly used interchangeably in the industry, which is why the calculator shows both side by side.</p>
+
+    <h2>Copper vs. aluminum cable</h2>
+    <p>This calculator assumes copper, which is the standard choice for most solar and battery wiring due to its lower resistance and better reliability at connection points. Aluminum cable is lighter and cheaper for a given current rating, and is common in large-scale utility wiring, but it requires roughly 1.6 times the cross-sectional area of copper to carry the same current with the same voltage drop, along with special connectors and antioxidant compound to prevent corrosion at terminals. For most home and small commercial solar systems, copper remains the simpler and more reliable choice.</p>
+
+    <h2>A worked example</h2>
+    <p>With the calculator's default values — a 1,000W load at 24V, 10 meters one-way, and a 3% allowed voltage drop — the current works out to about 41.7A. Applying the formula: (2 × 10 × 41.7 × 0.0175) ÷ 0.72V (3% of 24V) gives a required area of roughly 20.3 mm², which rounds up to the next standard size of 25 mm² (4 AWG). At that size, the actual voltage drop comes out slightly under the 3% target — exactly what the calculator returns.</p>
+
+    <p>Already have a cable in mind? Check its actual voltage drop with the <a href="voltage-drop-calculator.html">voltage drop calculator</a>. You'll also want to size your <a href="panel-calculator.html">panels</a> and <a href="charge-controller-calculator.html">charge controller</a> to know the current your cables must carry.</p>
+
+    <h2>Solar panel and inverter cable sizing</h2>
+    <p>The two runs people ask about most are the panel cables and the inverter cable. For <strong>solar panel cable size</strong>, the current is set by your array — the calculator handles it once you enter the panel or string current and the run length; longer roof-to-controller runs need a bigger gauge to hold the voltage drop down. For <strong>inverter cable size</strong>, the current is usually much higher because it's on the low-voltage battery side (inverter power ÷ battery voltage), so inverter cables are typically the thickest in the system. Either way the method is the same: work out the current, set your allowable voltage drop, and let the cable sizing calculator return the mm² and AWG. For a fuller walk-through with a worked example, see our guide on <a href="../articles/what-size-cable-for-solar-panels.html">what size cable you need for solar panels and inverters</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <h3>Does this calculator work for AC circuits too?</h3>
+    <p>The core voltage drop formula is the same for both DC and single-phase AC circuits. For three-phase AC systems, the calculation differs slightly due to how phases interact, so treat this tool as accurate for DC and single-phase AC only.</p>
+    <h3>Should I always round up to the next cable size?</h3>
+    <p>Yes. Cables are manufactured in fixed standard sizes, and rounding down would put you over your target voltage drop. When in doubt, sizing one step larger than the calculated minimum adds a safety margin and reduces long-term heat buildup in the cable.</p>
+    <h3>Does cable length include both the positive and negative runs?</h3>
+    <p>Enter only the one-way distance from source to load — the calculator already doubles it internally to account for the return path, since current has to travel both directions to complete the circuit.</p>
+
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="panel-calculator.html">Panel calculator</a></li>
+          <li><a href="battery-calculator.html">Battery calculator</a></li>
+          <li><a href="inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="cable-calculator.html">Cable calculator</a></li>
+          <li><a href="roi-calculator.html">ROI calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script src="../js/share.js"></script>
+<script>
+  var cablePdfBtn = document.getElementById('cable-pdf-btn');
+  if (cablePdfBtn) {
+    cablePdfBtn.addEventListener('click', function () {
+      var watts = document.getElementById('cable-watts').value;
+      var voltageSelect = document.getElementById('cable-voltage');
+      var voltage = voltageSelect.options[voltageSelect.selectedIndex].text;
+      var length = document.getElementById('cable-length').value;
+      var dropSelect = document.getElementById('cable-drop');
+      var dropText = dropSelect.options[dropSelect.selectedIndex].text;
+      var cableSize = document.getElementById('cable-size-result').textContent;
+      var actualDrop = document.getElementById('cable-actual-drop').textContent;
+
+      generateSolarToolHubResultsPDF({
+        subtitle: 'Cable Size — Results',
+        inputs: [
+          ['Load power', watts + ' W'],
+          ['System voltage', voltage],
+          ['One-way cable length', length + ' m'],
+          ['Max allowed voltage drop', dropText]
+        ],
+        resultsHeaders: ['Metric', 'Value'],
+        results: [
+          ['Recommended cable size', cableSize],
+          ['Actual voltage drop', actualDrop]
+        ],
+        nextSteps: {
+          text: 'Next, make sure your charge controller is sized correctly for this array:',
+          linkText: 'Charge Controller Calculator',
+          url: 'https://ahmedtere44-coder.github.io/solartoolhub/tools/charge-controller-calculator.html'
+        },
+        filename: 'solartoolhub-cable-results.pdf'
+      });
+    });
+  }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+  (function () {
+    var canvas = document.getElementById('cable-curve');
+    if (!canvas || typeof Chart === 'undefined') return;
+
+    var wattsEl = document.getElementById('cable-watts');
+    var voltageEl = document.getElementById('cable-voltage');
+    var dropEl = document.getElementById('cable-drop');
+    var lengthSteps = [5, 10, 15, 20, 25, 30, 40, 50];
+    var resistivity = 0.0175;
+    var standardSizes = [1.5, 2.5, 4, 6, 10, 16, 25, 35, 50, 70, 95, 120];
+
+    function areaFor(watts, voltage, dropPct, length) {
+      var current = voltage > 0 ? watts / voltage : 0;
+      var allowedDropV = voltage * (dropPct / 100);
+      var requiredArea = allowedDropV > 0 ? (2 * length * current * resistivity) / allowedDropV : 0;
+      var chosen = standardSizes.find(function (s) { return s >= requiredArea; });
+      return chosen || standardSizes[standardSizes.length - 1];
+    }
+
+    function currentData() {
+      var watts = parseFloat(wattsEl.value) || 0;
+      var voltage = parseFloat(voltageEl.value) || 12;
+      var dropPct = parseFloat(dropEl.value) || 3;
+      return lengthSteps.map(function (l) { return areaFor(watts, voltage, dropPct, l); });
+    }
+
+    var chart = new Chart(canvas, {
+      type: 'line',
+      data: {
+        labels: lengthSteps.map(function (l) { return l + 'm'; }),
+        datasets: [{
+          label: 'Cable size (mm²)',
+          data: currentData(),
+          borderColor: '#1E3A8A',
+          backgroundColor: 'rgba(30,58,138,0.10)',
+          borderWidth: 2, fill: true, tension: 0.3, stepped: false,
+          pointBackgroundColor: '#FACC15', pointRadius: 4
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { title: { display: true, text: 'One-way cable length (m)', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, grid: { display: false } },
+          y: { title: { display: true, text: 'Cable size (mm²)', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, beginAtZero: true }
+        }
+      }
+    });
+
+    function refresh() {
+      chart.data.datasets[0].data = currentData();
+      chart.update();
+    }
+    [wattsEl, voltageEl, dropEl].forEach(function (el) { if (el) el.addEventListener('input', refresh); });
+  })();
+</script>
+</body>
+</html>

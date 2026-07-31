@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solar Panel Calculator — How Many Panels Do You Need? | SolarToolHub</title>
+<meta name="description" content="Free solar panel calculator. Enter your monthly electricity usage to find out how many solar panels you need and how much roof space they'll take.">
+<link rel="canonical" href="https://ahmedtere44-coder.github.io/solartoolhub/tools/panel-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SolarToolHub">
+<meta property="og:title" content="Solar Panel Calculator — How Many Panels Do You Need? | SolarToolHub">
+<meta property="og:description" content="Free solar panel calculator. Enter your monthly electricity usage to find out how many solar panels you need and how much roof space they'll take.">
+<meta property="og:url" content="https://ahmedtere44-coder.github.io/solartoolhub/tools/panel-calculator.html">
+<meta property="og:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Solar Panel Calculator — How Many Panels Do You Need? | SolarToolHub">
+<meta name="twitter:description" content="Free solar panel calculator. Enter your monthly electricity usage to find out how many solar panels you need and how much roof space they'll take.">
+<meta name="twitter:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do I need battery storage to use these panels?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. A grid-tied system (the most common and affordable setup) sends excess power back to the grid and draws from it at night, without needing a battery. If you want backup power during outages, check out our battery calculator once it's published."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if my roof doesn't have enough space for this many panels?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Higher-wattage panels (450–700W) produce more energy per panel, so you'd need fewer of them to hit the same total output — a good option when roof space is limited."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I round the panel count up or down?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Always round up, and this calculator does that automatically. Solar panels are only sold as whole units, and rounding down would leave you short of your target output. Many installers round up an extra panel or two beyond the bare minimum to offset long-term degradation and system losses."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How accurate are online estimates like this compared to a professional design?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Online calculators are built for planning and budgeting, not final engineering. A licensed installer will run a proper load calculation, check your electrical panel's capacity, verify local permitting requirements, and conduct a site survey for shading and structural load. Treat this tool as a way to walk into that conversation with realistic expectations, not as a replacement for a professional design."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/index.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Panel calculator",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools/panel-calculator.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html" class="active">Tools</a></li>
+      <li><a href="../articles.html">Guides</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button">Resources</button>
+        <ul class="nav-dropdown-menu">
+          <li><a href="../comparisons.html">Compare</a></li>
+      <li><a href="../cheat-sheets.html">Cheat sheets</a></li>
+      <li><a href="../glossary.html">Glossary</a></li>
+        </ul>
+      </li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../tools.html">Tools</a> / Panel calculator</div>
+    <div class="page-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+    <h1>Solar panel calculator</h1>
+    <p class="lede">Enter your monthly electricity usage and sunlight level to estimate how many solar panels your system needs.</p>
+  </div>
+</div>
+
+<div class="calc-layout">
+  <div class="container">
+    <div class="calc-card">
+      <form id="panel-calc-form">
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="panel-usage">Monthly electricity usage (kWh)</label>
+            <input type="number" id="panel-usage" value="600" min="0" step="10">
+            <span class="helper-text">Check your utility bill for this number.</span>
+          </div>
+          <div class="field-group">
+            <label for="panel-watt">Panel wattage</label>
+            <select id="panel-watt">
+              <option value="350">350W</option>
+              <option value="400" selected>400W (standard)</option>
+              <option value="450">450W</option>
+              <option value="550">550W (high efficiency)</option>
+              <option value="600">600W (high efficiency)</option>
+              <option value="700">700W (commercial-grade)</option>
+              <option value="800">800W (commercial-grade)</option>
+              <option value="custom">Other (enter my own)</option>
+            </select>
+            <input type="number" id="panel-watt-custom" value="500" min="1" max="1000" step="1" placeholder="Panel watts (max 1000)" style="display:none; margin-top:10px;">
+            <span class="helper-text">Choose a common size or "Other" to enter any value up to 1000 W.</span>
+          </div>
+        </div>
+        <div class="field-group">
+          <label for="panel-sun">Peak sun hours in your area</label>
+          <select id="panel-sun">
+            <option value="6.5">High sun region (6–7 hrs/day) — e.g. Arizona, Middle East, North Africa</option>
+            <option value="4.5" selected>Moderate sun region (4–5 hrs/day) — e.g. Southern Europe, most of the US</option>
+            <option value="2.5">Low sun region (2–3 hrs/day) — e.g. UK, Northern Europe, Canada</option>
+          </select>
+        </div>
+      </form>
+      <div class="calc-result">
+        <div>
+          <span class="num" id="panel-count-result">0</span>
+          <span class="lbl">panels needed</span>
+        </div>
+        <div>
+          <span class="num" id="panel-area-result">0</span>
+          <span class="lbl">m² of roof space</span>
+        </div>
+      </div>
+      <button type="button" id="panel-pdf-btn" class="btn btn-accent" style="margin-top:20px;">⬇️ Download results as PDF</button>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="calc-diagram">
+    <figure>
+      <svg viewBox="0 0 380 340" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="pd-title pd-desc">
+        <title id="pd-title">How the solar panel calculator works</title>
+        <desc id="pd-desc">Three inputs — monthly usage, panel wattage, and peak sun hours — combine to estimate the number of panels needed.</desc>
+        <defs>
+          <marker id="pdArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <text x="190" y="26" text-anchor="middle" font-family="Manrope, sans-serif" font-size="14" font-weight="700" fill="#111827">What you enter</text>
+
+        <g>
+          <rect x="30" y="40" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="105" y="60" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1E3A8A">Monthly usage</text>
+          <text x="105" y="78" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">from your bill (kWh)</text>
+        </g>
+        <g>
+          <rect x="200" y="40" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="275" y="60" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1E3A8A">Panel wattage</text>
+          <text x="275" y="78" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">e.g. 400 W</text>
+        </g>
+        <g>
+          <rect x="115" y="104" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="190" y="124" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1E3A8A">Peak sun hours</text>
+          <text x="190" y="142" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">your region (hrs/day)</text>
+        </g>
+
+        <line x1="105" y1="92" x2="162" y2="196" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#pdArrow)"/>
+        <line x1="275" y1="92" x2="218" y2="196" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#pdArrow)"/>
+        <line x1="190" y1="156" x2="190" y2="196" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#pdArrow)"/>
+
+        <g>
+          <rect x="70" y="198" width="240" height="56" rx="8" fill="#FEF9C3" stroke="#CA8A04" stroke-width="0.75"/>
+          <text x="190" y="218" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#854D0E">System size needed</text>
+          <text x="190" y="237" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#854D0E">usage ÷ (sun hours × 30 days)</text>
+        </g>
+
+        <line x1="190" y1="254" x2="190" y2="286" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#pdArrow)"/>
+
+        <g>
+          <rect x="70" y="288" width="240" height="44" rx="8" fill="#E9FBF4" stroke="#10B981" stroke-width="0.75"/>
+          <text x="190" y="310" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#065F46">Number of panels = size ÷ wattage</text>
+        </g>
+      </svg>
+      <figcaption>How the calculator turns your three inputs into a panel count.</figcaption>
+    </figure>
+  </div>
+
+  <div class="calc-chart">
+    <h2 class="calc-chart-title">How location changes the result</h2>
+    <p class="calc-chart-intro">This curve updates with your inputs above. It shows how the number of panels you need drops as your region gets more peak sun hours.</p>
+    <div class="calc-chart-canvas-wrap">
+      <canvas id="panel-curve" role="img" aria-label="Line chart showing how the number of panels needed decreases as peak sun hours increase, based on your entered monthly usage and panel wattage.">Panels needed decrease as peak sun hours rise, based on your monthly usage and panel wattage.</canvas>
+    </div>
+  </div>
+
+  <article class="article">
+
+    <p>If you're planning a solar installation, the first question is almost always the same one: how many panels do you actually need? The calculator above gives you a fast estimate, but it helps to understand the logic behind the number — especially since a few assumptions (like sun hours) can shift the result quite a bit.</p>
+
+    <h2>How the calculation works</h2>
+    <p>The formula behind this tool is straightforward:</p>
+    <ul>
+      <li>Take your monthly electricity usage in kWh and divide it by 30 to get your average daily usage.</li>
+      <li>Multiply your chosen panel wattage by your area's peak sun hours to get how much energy one panel produces per day.</li>
+      <li>Divide your daily usage by that per-panel output to get the number of panels required.</li>
+    </ul>
+    <p>Peak sun hours are not the same as daylight hours. They represent the equivalent number of hours per day where sunlight is strong enough to produce a panel's full rated output. A desert region might get 6–7 peak sun hours a day, while a cloudier northern climate might only get 2–3, even though both locations see the sun for a similar number of daylight hours.</p>
+
+    <div class="field-experience">
+      <span class="tag">Field note</span>
+      <p>While working on the Al-Mahmadiyah project in Ma'an, Jordan, I saw firsthand how much dust accumulation can hurt panel output in desert conditions — a heavily dust-covered panel can lose half its efficiency or more before it's ever cleaned. Keeping panels clean on a regular schedule is what actually gets you close to the numbers printed on the datasheet, not just the initial installation angle or panel quality.</p>
+    </div>
+
+    <h2>Why your estimate might change once you get a quote</h2>
+    <p>This calculator gives you a solid starting estimate, but a professional site survey usually adjusts the number slightly for reasons like:</p>
+    <ul>
+      <li><strong>Roof orientation and shading</strong> — a roof facing away from the sun, or partially shaded by trees or nearby buildings, produces less than the theoretical maximum.</li>
+      <li><strong>System losses</strong> — inverters, wiring, and connections lose a small percentage of energy, typically 10–15% across the system.</li>
+      <li><strong>Panel degradation</strong> — panels lose roughly 0.5% of their output capacity per year, so installers often size systems slightly larger to account for this over a 20–25 year lifespan.</li>
+    </ul>
+
+    <h2>Grid-tied, off-grid, or hybrid — it changes the number</h2>
+    <p>The calculator above assumes a straightforward setup, but the type of system you're planning has a direct effect on how many panels you actually need. It's worth understanding the three main options before you size anything (our <a href="../articles/grid-tied-vs-off-grid-vs-hybrid.html">grid-tied vs off-grid vs hybrid guide</a> covers them in depth):</p>
+    <ul>
+      <li><strong>Grid-tied systems</strong> — the most common and affordable setup. Panels feed power directly into your home and send any excess back to the utility grid, drawing from the grid at night or on low-sun days. Because the grid acts as a free "battery," these systems are usually sized close to the calculator's estimate, with no extra buffer needed.</li>
+      <li><strong>Off-grid systems</strong> — fully independent from the utility grid, relying entirely on batteries for storage. These systems need to be oversized compared to a grid-tied setup, often by 20–40%, to account for cloudy-day reserves and charging losses. If you're planning off-grid, treat this calculator's result as a minimum, not a final number.</li>
+      <li><strong>Hybrid systems</strong> — grid-connected but with battery backup for outages. These sit between the two: sized close to the grid-tied estimate for daily use, with the battery bank sized separately to cover your backup priorities (see our upcoming battery calculator).</li>
+    </ul>
+    <p>If you already know which type of system you're planning, keep that in mind while reading the panel count above — it's the single biggest factor that shifts the "right" number beyond the formula itself.</p>
+
+    <h2>Winter vs. summer usage — which number should you use?</h2>
+    <p>Monthly electricity usage isn't flat throughout the year, and this trips up a lot of first-time solar shoppers. Air conditioning load in summer or heating load in winter (if you use electric heating) can push your usage well above your annual average for several months at a time.</p>
+    <p>There are two common approaches, and which one is right depends on your goal:</p>
+    <ul>
+      <li><strong>Size for your annual average</strong> — add up 12 months of bills and divide by 12. This gives the most cost-efficient system for a grid-tied setup, since excess summer production offsets winter shortfalls through the grid (a practice utilities call net metering, where available).</li>
+      <li><strong>Size for your peak month</strong> — use your highest single-month usage instead of the average. This avoids ever drawing extra power from the grid, but usually means a noticeably larger and more expensive system, since you're building capacity for a few peak months rather than the year as a whole.</li>
+    </ul>
+    <p>For most homeowners on a grid-tied system, sizing for the annual average is the more practical and cost-effective choice. If you're going off-grid, sizing for your peak month (or even peak week) is usually necessary, since there's no grid to fall back on when demand spikes.</p>
+
+    <h2>Real-world examples by home size</h2>
+    <p>Numbers are easier to picture with concrete examples. Here's how the calculation plays out for three common household sizes, assuming a moderate sun region (4.5 peak sun hours/day) and standard 400W panels:</p>
+    <table class="data-table">
+      <thead>
+        <tr><th>Home type</th><th>Typical monthly usage</th><th>Panels needed (approx.)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Small apartment (1–2 people)</td><td>250–350 kWh</td><td>5–6 panels</td></tr>
+        <tr><td>Medium family home (3–4 people)</td><td>500–700 kWh</td><td>10–13 panels</td></tr>
+        <tr><td>Large house / villa with pool or AC-heavy use</td><td>1,000–1,500 kWh</td><td>19–28 panels</td></tr>
+      </tbody>
+    </table>
+    <p>These ranges are a starting point, not a fixed rule — a small apartment with electric water heating can easily use as much power as a medium home without it. Run your own numbers through the calculator above for an estimate specific to your actual usage.</p>
+
+    <h2>Typical panel wattage today</h2>
+    <table class="data-table">
+      <thead>
+        <tr><th>Panel wattage</th><th>Common use case</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>350W</td><td>Older or budget panels</td></tr>
+        <tr><td>400W</td><td>Most common residential standard</td></tr>
+        <tr><td>450W</td><td>Newer high-output residential panels</td></tr>
+        <tr><td>550W</td><td>High-efficiency and commercial-grade panels</td></tr>
+        <tr><td>600W</td><td>High-efficiency panels, larger cell format</td></tr>
+        <tr><td>700W</td><td>Commercial and utility-scale panels</td></tr>
+      </tbody>
+    </table>
+
+    <h2>A quick example</h2>
+    <p>Say your household uses 600 kWh per month and you live in a moderate sun region (4.5 peak sun hours/day) with standard 400W panels. Your daily usage is 20 kWh. Each panel produces roughly 1.8 kWh per day (400W × 4.5 hours ÷ 1000). Divide 20 by 1.8 and you get about 11 panels — which is exactly what the calculator above returns with the default values.</p>
+    <p>Note that this calculator answers "how many panels," not "how much will it cost" or "how long until it pays for itself." Panel count is the first step in planning a system, but the full picture also depends on equipment prices, local incentives, and your electricity rate — questions our upcoming ROI calculator will cover in detail.</p>
+
+    <h2>Does tilt and mounting angle change the count?</h2>
+    <p>Yes, though the calculator's peak-sun-hour input already accounts for a reasonably well-oriented installation. You can find your ideal angle with our <a href="panel-tilt-calculator.html">panel tilt calculator</a>. In practice, mounting angle affects output in two ways:</p>
+    <ul>
+      <li><strong>Fixed-tilt roof mounts</strong> — the most common residential setup. Output is close to the peak-sun-hour figures used above, assuming the roof faces roughly toward the equator (south-facing in the northern hemisphere, north-facing in the southern hemisphere) at a tilt close to the local latitude.</li>
+      <li><strong>Flat-roof or ground-mount racking</strong> — lets you set the optimal tilt angle regardless of roof shape, typically producing 5–10% more than a poorly angled fixed roof, but requires more structural hardware and space between rows to avoid self-shading.</li>
+      <li><strong>Tracking systems</strong> — motorized mounts that follow the sun through the day. These can boost output by 15–25% over a fixed mount, but the added cost and moving parts rarely make sense for a typical home installation; they're more common on commercial and utility-scale projects.</li>
+    </ul>
+    <p>For most homeowners, a well-oriented fixed roof mount is the practical choice, and the calculator's regional sun-hour estimate already reflects that assumption.</p>
+
+    <p>Once you know your panel count, size the rest of your system with our <a href="inverter-calculator.html">inverter calculator</a> and <a href="battery-calculator.html">battery calculator</a>, or estimate how much energy your array will actually produce with the <a href="energy-production-calculator.html">energy production calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <h3>Do I need battery storage to use these panels?</h3>
+    <p>No. A grid-tied system (the most common and affordable setup) sends excess power back to the grid and draws from it at night, without needing a battery. If you want backup power during outages, check out our battery calculator once it's published.</p>
+    <h3>What if my roof doesn't have enough space for this many panels?</h3>
+    <p>Higher-wattage panels (450–700W) produce more energy per panel, so you'd need fewer of them to hit the same total output — a good option when roof space is limited.</p>
+    <h3>Should I round the panel count up or down?</h3>
+    <p>Always round up, and this calculator does that automatically. Solar panels are only sold as whole units, and rounding down would leave you short of your target output. Many installers round up an extra panel or two beyond the bare minimum to offset long-term degradation and system losses.</p>
+    <h3>How accurate are online estimates like this compared to a professional design?</h3>
+    <p>Online calculators are built for planning and budgeting, not final engineering. A licensed installer will run a proper load calculation, check your electrical panel's capacity, verify local permitting requirements, and conduct a site survey for shading and structural load. Treat this tool as a way to walk into that conversation with realistic expectations, not as a replacement for a professional design.</p>
+
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Free, straightforward solar calculators built from real installation experience.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="panel-calculator.html">Panel calculator</a></li>
+          <li><a href="battery-calculator.html">Battery calculator</a></li>
+          <li><a href="inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="cable-calculator.html">Cable calculator</a></li>
+          <li><a href="roi-calculator.html">ROI calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script src="../js/share.js"></script>
+<script>
+  var panelPdfBtn = document.getElementById('panel-pdf-btn');
+  if (panelPdfBtn) {
+    panelPdfBtn.addEventListener('click', function () {
+      var usage = document.getElementById('panel-usage').value;
+      var wattSelect = document.getElementById('panel-watt');
+      var wattText = (parseFloat(wattSelect.value) || '') + ' W';
+      var sunSelect = document.getElementById('panel-sun');
+      var sunText = sunSelect.options[sunSelect.selectedIndex].text;
+      var panelCount = document.getElementById('panel-count-result').textContent;
+      var panelArea = document.getElementById('panel-area-result').textContent;
+
+      generateSolarToolHubResultsPDF({
+        subtitle: 'Solar Panel Sizing — Results',
+        inputs: [
+          ['Monthly electricity usage', usage + ' kWh'],
+          ['Panel wattage', wattText],
+          ['Peak sun hours', sunText]
+        ],
+        resultsHeaders: ['Metric', 'Value'],
+        results: [
+          ['Panels needed', panelCount],
+          ['Roof space required', panelArea + ' m²']
+        ],
+        nextSteps: {
+          text: 'Next, size the inverter for this array:',
+          linkText: 'Inverter Size Calculator',
+          url: 'https://ahmedtere44-coder.github.io/solartoolhub/tools/inverter-calculator.html'
+        },
+        filename: 'solartoolhub-panel-results.pdf'
+      });
+    });
+  }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+  (function () {
+    var canvas = document.getElementById('panel-curve');
+    if (!canvas || typeof Chart === 'undefined') return;
+
+    var usageEl = document.getElementById('panel-usage');
+    var wattEl = document.getElementById('panel-watt');
+    var sunSteps = [2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5];
+
+    function panelsFor(kwh, watt, sunHours) {
+      var dailyKwh = kwh / 30;
+      var dailyPanelOutputKwh = (sunHours * watt) / 1000;
+      if (dailyPanelOutputKwh <= 0) return 0;
+      return Math.ceil(dailyKwh / dailyPanelOutputKwh);
+    }
+
+    function currentData() {
+      var kwh = parseFloat(usageEl.value) || 0;
+      var watt = parseFloat(wattEl.value) || 400;
+      return sunSteps.map(function (s) { return panelsFor(kwh, watt, s); });
+    }
+
+    var chart = new Chart(canvas, {
+      type: 'line',
+      data: {
+        labels: sunSteps.map(String),
+        datasets: [{
+          label: 'Panels needed',
+          data: currentData(),
+          borderColor: '#1E3A8A',
+          backgroundColor: 'rgba(30,58,138,0.10)',
+          borderWidth: 2,
+          fill: true,
+          tension: 0.3,
+          pointBackgroundColor: '#FACC15',
+          pointRadius: 4,
+          pointHoverRadius: 6
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { title: { display: true, text: 'Peak sun hours per day', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, grid: { display: false } },
+          y: { title: { display: true, text: 'Panels needed', color: '#4B5563' }, ticks: { color: '#9CA3AF', precision: 0 }, beginAtZero: true }
+        }
+      }
+    });
+
+    function refresh() {
+      chart.data.datasets[0].data = currentData();
+      chart.update();
+    }
+    if (usageEl) usageEl.addEventListener('input', refresh);
+    if (wattEl) wattEl.addEventListener('input', refresh);
+  })();
+</script>
+<script>
+  (function () {
+    var sel = document.getElementById('panel-watt');
+    var inp = document.getElementById('panel-watt-custom');
+    if (!sel || !inp) return;
+    var otherOpt = sel.querySelector('option[value="custom"]');
+    if (!otherOpt) return;
+    function isOther() { return sel.selectedOptions && sel.selectedOptions[0] === otherOpt; }
+    function clampCustom() {
+      var v = parseFloat(inp.value);
+      if (isNaN(v)) v = 1;
+      if (v > 1000) { v = 1000; inp.value = 1000; }
+      if (v < 1) { v = 1; inp.value = 1; }
+      return v;
+    }
+    function fire() {
+      sel.dispatchEvent(new Event('input', { bubbles: true }));
+      sel.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+    sel.addEventListener('change', function () {
+      if (isOther()) { inp.style.display = ''; otherOpt.value = clampCustom(); }
+      else { inp.style.display = 'none'; }
+      fire();
+    });
+    inp.addEventListener('input', function () {
+      if (isOther()) { otherOpt.value = clampCustom(); fire(); }
+    });
+  })();
+</script>
+</body>
+</html>

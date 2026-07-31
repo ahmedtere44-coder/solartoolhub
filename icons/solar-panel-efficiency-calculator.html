@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solar Panel Efficiency Calculator — Watts, Area & % Efficiency | SolarToolHub</title>
+<meta name="description" content="Free solar panel efficiency calculator: enter rated watts and panel size to get the efficiency percentage and power density in watts per square metre.">
+<link rel="canonical" href="https://ahmedtere44-coder.github.io/solartoolhub/tools/solar-panel-efficiency-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SolarToolHub">
+<meta property="og:title" content="Solar Panel Efficiency Calculator — Watts, Area & % Efficiency | SolarToolHub">
+<meta property="og:description" content="Enter a panel's rated watts and size to get its efficiency percentage and power density.">
+<meta property="og:url" content="https://ahmedtere44-coder.github.io/solartoolhub/tools/solar-panel-efficiency-calculator.html">
+<meta property="og:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Solar Panel Efficiency Calculator | SolarToolHub">
+<meta name="twitter:description" content="Enter a panel's rated watts and size to get its efficiency percentage and power density.">
+<meta name="twitter:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do you calculate solar panel efficiency?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Divide the panel's rated power in watts by its area in square metres times 1000, then multiply by 100. The 1000 is the standard test irradiance in watts per square metre. So efficiency percent equals watts divided by (area times 1000) times 100. A 400 W panel of about 1.9 square metres is roughly 21 percent efficient."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a good solar panel efficiency?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most modern panels fall between about 17 and 22 percent. Premium monocrystalline panels reach 20 to 22 percent, mainstream panels sit around 18 to 20 percent, and older or thin-film panels can be 10 to 15 percent. Higher efficiency means more power from the same roof area, which matters most when space is tight."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does a smaller panel with the same wattage have higher efficiency?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Efficiency is power divided by area. If two panels both produce 400 watts but one is physically smaller, the smaller one converts more of the sunlight hitting each square metre into electricity, so its efficiency is higher. That is why high-efficiency panels let you fit more power onto a limited roof."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ahmedtere44-coder.github.io/solartoolhub/" },
+    { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools.html" },
+    { "@type": "ListItem", "position": 3, "name": "Solar panel efficiency calculator", "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools/solar-panel-efficiency-calculator.html" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html" class="active">Tools</a></li>
+      <li><a href="../articles.html">Guides</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button">Resources</button>
+        <ul class="nav-dropdown-menu">
+          <li><a href="../comparisons.html">Compare</a></li>
+          <li><a href="../cheat-sheets.html">Cheat sheets</a></li>
+          <li><a href="../glossary.html">Glossary</a></li>
+        </ul>
+      </li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../tools.html">Tools</a> / Solar panel efficiency calculator</div>
+    <div class="page-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 12l4-2M12 6v1"/></svg></div>
+    <h1>Solar panel efficiency calculator</h1>
+    <p class="lede">Efficiency tells you how much of the sunlight hitting a panel becomes electricity — and how much power you can fit on a limited roof. Enter a panel's rated watts and its dimensions to get its efficiency and power density.</p>
+  </div>
+</div>
+
+<div class="calc-layout">
+  <div class="container">
+    <div class="calc-card" style="max-width:680px;">
+      <form id="eff-calc-form">
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="eff-watts">Panel rated power (W)</label>
+            <input type="number" id="eff-watts" value="400" min="0" step="1">
+            <span class="helper-text">The panel's peak watts (Wp) from its label.</span>
+          </div>
+          <div class="field-group">
+            <label for="eff-length">Panel length (m)</label>
+            <input type="number" id="eff-length" value="1.75" min="0" step="0.01">
+            <span class="helper-text">Longer side of the panel, in metres.</span>
+          </div>
+        </div>
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="eff-width">Panel width (m)</label>
+            <input type="number" id="eff-width" value="1.10" min="0" step="0.01">
+            <span class="helper-text">Shorter side of the panel, in metres.</span>
+          </div>
+        </div>
+      </form>
+
+      <div class="calc-result">
+        <div>
+          <span class="num" id="eff-pct">0</span>
+          <span class="lbl">efficiency (%)</span>
+        </div>
+        <div>
+          <span class="num" id="eff-density">0</span>
+          <span class="lbl">power density (W/m²)</span>
+        </div>
+      </div>
+      <div class="calc-result" style="margin-top:14px;">
+        <div>
+          <span class="num" id="eff-area">0</span>
+          <span class="lbl">panel area (m²)</span>
+        </div>
+      </div>
+
+      <button type="button" id="eff-pdf-btn" class="btn btn-accent" style="margin-top:20px;">⬇️ Download results as PDF</button>
+      <p class="helper-text">Efficiency = watts ÷ (area × 1000) × 100, where 1000 W/m² is the standard test sunlight. Power density is watts ÷ area. Higher efficiency means more power from the same space.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="calc-diagram">
+    <figure>
+      <svg viewBox="0 0 380 300" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="eff-title eff-desc">
+        <title id="eff-title">How solar panel efficiency is calculated</title>
+        <desc id="eff-desc">Rated watts divided by the panel area times 1000 watts per square metre, times 100, gives the efficiency percentage.</desc>
+        <text x="190" y="26" text-anchor="middle" font-family="Manrope, sans-serif" font-size="14" font-weight="700" fill="#111827">What you enter</text>
+        <g>
+          <rect x="30" y="42" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="105" y="63" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E3A8A">Rated power</text>
+          <text x="105" y="81" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">watts (Wp)</text>
+        </g>
+        <g>
+          <rect x="200" y="42" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="275" y="63" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E3A8A">Length × width</text>
+          <text x="275" y="81" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">area (m²)</text>
+        </g>
+        <line x1="105" y1="94" x2="180" y2="128" stroke="#9CA3AF" stroke-width="1.5"/>
+        <line x1="275" y1="94" x2="200" y2="128" stroke="#9CA3AF" stroke-width="1.5"/>
+        <g>
+          <rect x="70" y="130" width="240" height="52" rx="8" fill="#FEF9C3" stroke="#CA8A04" stroke-width="0.75"/>
+          <text x="190" y="151" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12.5" font-weight="700" fill="#854D0E">W ÷ (area × 1000) × 100</text>
+          <text x="190" y="169" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#854D0E">1000 W/m² = full sun</text>
+        </g>
+        <line x1="190" y1="182" x2="190" y2="212" stroke="#9CA3AF" stroke-width="1.5"/>
+        <g>
+          <rect x="95" y="214" width="190" height="52" rx="8" fill="#E9FBF4" stroke="#10B981" stroke-width="0.75"/>
+          <text x="190" y="238" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#065F46">Efficiency (%)</text>
+          <text x="190" y="256" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#065F46">sunlight turned into power</text>
+        </g>
+      </svg>
+      <figcaption>Efficiency is the panel's watts divided by the sunlight energy landing on its area.</figcaption>
+    </figure>
+  </div>
+
+  <div class="calc-chart">
+    <h2 class="calc-chart-title">How efficiency changes with panel size</h2>
+    <p class="calc-chart-intro">This curve updates with your inputs. For a fixed wattage, a physically larger panel spreads the same power over more area, so its efficiency drops — the marker shows your panel.</p>
+    <div class="calc-chart-canvas-wrap">
+      <canvas id="eff-curve" role="img" aria-label="Line chart showing efficiency falling as panel area grows for a fixed wattage, with a marker for your panel.">For a fixed wattage, efficiency falls as panel area grows.</canvas>
+    </div>
+  </div>
+
+  <article class="article">
+
+    <p>Two panels can both be rated at 400 watts but be very different sizes. The smaller one is more efficient — it squeezes the same power out of less area. That's what efficiency measures: the share of the sunlight landing on the panel that it turns into electricity.</p>
+
+    <h2>The formula</h2>
+    <p>Efficiency compares the panel's output to the sunlight hitting it. At standard test conditions, full sun delivers <strong>1000 watts per square metre</strong>. So a panel's efficiency is its rated watts divided by the sunlight on its area: <strong>efficiency (%) = W ÷ (area × 1000) × 100</strong>. A 400 W panel measuring 1.75 m × 1.10 m has an area of about 1.93 m², so it receives 1930 W of sunlight and converts 400 of them — about 21% efficient.</p>
+
+    <h2>What counts as good</h2>
+    <p>Most modern panels land between 17% and 22%. Premium monocrystalline panels reach the top of that range, mainstream panels sit around 18–20%, and older or thin-film types can be 10–15%. Higher isn't always necessary — it matters most when roof space is limited and you need maximum power per square metre.</p>
+
+    <h2>Efficiency vs power density</h2>
+    <p>This tool also shows <strong>power density</strong> (watts per square metre), which is just efficiency expressed as raw output per area. Both tell the same story: how much power you get from a given space. If your roof is the constraint, use the <a href="roof-area-system-size-calculator.html">roof area to system size calculator</a> to see how many watts will fit.</p>
+
+    <h2>Related tools</h2>
+    <p>Pair this with the <a href="panel-calculator.html">solar panel calculator</a> to size an array, the <a href="roof-area-system-size-calculator.html">roof area to system size calculator</a> to fit it to your roof, and the <a href="temperature-derating-calculator.html">temperature derating calculator</a> to see how heat cuts real output. To compare panel technologies, see <a href="../comparisons.html#panel-types">mono vs poly vs thin-film</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <h3>How do you calculate solar panel efficiency?</h3>
+    <p>Divide rated watts by area × 1000, then × 100. The 1000 is standard-test sunlight in W/m². A 400 W panel of ~1.9 m² is about 21% efficient.</p>
+    <h3>What is a good solar panel efficiency?</h3>
+    <p>Most modern panels are 17–22%. Premium mono reaches 20–22%, mainstream ~18–20%, older or thin-film 10–15%.</p>
+    <h3>Why does a smaller panel with the same wattage have higher efficiency?</h3>
+    <p>Efficiency is power ÷ area. Same watts in a smaller panel means more power per square metre, so higher efficiency — which fits more power on a limited roof.</p>
+
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="panel-calculator.html">Panel calculator</a></li>
+          <li><a href="battery-calculator.html">Battery calculator</a></li>
+          <li><a href="inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="cable-calculator.html">Cable calculator</a></li>
+          <li><a href="roi-calculator.html">ROI calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script src="../js/share.js"></script>
+<script>
+  (function () {
+    var form = document.getElementById('eff-calc-form');
+    if (!form) return;
+    function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+
+    function calcEff() {
+      var w = val('eff-watts'), L = val('eff-length'), W = val('eff-width');
+      var area = L * W;
+      var eff = area > 0 ? w / (area * 1000) * 100 : 0;
+      var density = area > 0 ? w / area : 0;
+      document.getElementById('eff-pct').textContent = (Math.round(eff * 10) / 10).toFixed(1);
+      document.getElementById('eff-density').textContent = Math.round(density);
+      document.getElementById('eff-area').textContent = (Math.round(area * 100) / 100).toFixed(2);
+    }
+    form.addEventListener('input', calcEff);
+    calcEff();
+
+    var pdfBtn = document.getElementById('eff-pdf-btn');
+    if (pdfBtn) {
+      pdfBtn.addEventListener('click', function () {
+        var inputs = [
+          ['Panel rated power', document.getElementById('eff-watts').value + ' W'],
+          ['Panel length', document.getElementById('eff-length').value + ' m'],
+          ['Panel width', document.getElementById('eff-width').value + ' m']
+        ];
+        var results = [
+          ['Efficiency', document.getElementById('eff-pct').textContent + ' %'],
+          ['Power density', document.getElementById('eff-density').textContent + ' W/m2'],
+          ['Panel area', document.getElementById('eff-area').textContent + ' m2']
+        ];
+        generateSolarToolHubResultsPDF({
+          subtitle: 'Solar Panel Efficiency — Results',
+          inputs: inputs,
+          resultsHeaders: ['Metric', 'Value'],
+          results: results,
+          nextSteps: {
+            text: 'See how many of these panels fit your roof with our:',
+            linkText: 'Roof Area to System Size Calculator',
+            url: 'https://ahmedtere44-coder.github.io/solartoolhub/tools/roof-area-system-size-calculator.html'
+          },
+          filename: 'solartoolhub-panel-efficiency-results.pdf'
+        });
+      });
+    }
+  })();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+  (function () {
+    var canvas = document.getElementById('eff-curve');
+    if (!canvas || typeof Chart === 'undefined') return;
+    var wEl = document.getElementById('eff-watts');
+    var lEl = document.getElementById('eff-length');
+    var wdEl = document.getElementById('eff-width');
+
+    var areas = [0.5, 1.0, 1.3, 1.6, 1.9, 2.2, 2.5, 2.8, 3.1];
+    function watts() { return parseFloat(wEl.value) || 0; }
+    function line() { var w = watts(); return areas.map(function (a) { return { x: a, y: Math.round(w / (a * 1000) * 100 * 10) / 10 }; }); }
+    function marker() {
+      var a = (parseFloat(lEl.value) || 0) * (parseFloat(wdEl.value) || 0);
+      return [{ x: Math.round(a * 100) / 100, y: a > 0 ? Math.round(watts() / (a * 1000) * 100 * 10) / 10 : 0 }];
+    }
+
+    var chart = new Chart(canvas, {
+      type: 'line',
+      data: {
+        datasets: [
+          { label: 'Efficiency', data: line(), borderColor: '#1E3A8A', backgroundColor: 'rgba(37,99,235,0.10)', borderWidth: 2, fill: true, tension: 0.2, pointRadius: 0 },
+          { label: 'Your panel', data: marker(), borderColor: '#10B981', backgroundColor: '#10B981', showLine: false, pointRadius: 7, pointHoverRadius: 8, pointStyle: 'circle' }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: true, labels: { color: '#4B5563', boxWidth: 12 } } },
+        scales: {
+          x: { type: 'linear', min: 0.5, max: 3.1, title: { display: true, text: 'Panel area (m²)', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, grid: { display: false } },
+          y: { title: { display: true, text: 'Efficiency (%)', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, beginAtZero: true }
+        }
+      }
+    });
+    function refresh() {
+      chart.data.datasets[0].data = line();
+      chart.data.datasets[1].data = marker();
+      chart.update();
+    }
+    [wEl, lEl, wdEl].forEach(function (el) { if (el) el.addEventListener('input', refresh); });
+  })();
+</script>
+</body>
+</html>

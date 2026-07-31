@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Days of Autonomy Calculator — Off-Grid Battery Bank Sizing | SolarToolHub</title>
+<meta name="description" content="Free days of autonomy calculator. Enter daily energy use, backup days, depth of discharge and voltage to size the off-grid battery bank you need in kWh & Ah.">
+<link rel="canonical" href="https://ahmedtere44-coder.github.io/solartoolhub/tools/days-of-autonomy-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SolarToolHub">
+<meta property="og:title" content="Days of Autonomy Calculator — Off-Grid Battery Bank Sizing | SolarToolHub">
+<meta property="og:description" content="Size the off-grid battery bank you need for a set number of days without sun, in kWh and Ah.">
+<meta property="og:url" content="https://ahmedtere44-coder.github.io/solartoolhub/tools/days-of-autonomy-calculator.html">
+<meta property="og:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Days of Autonomy Calculator | SolarToolHub">
+<meta name="twitter:description" content="Size the off-grid battery bank you need for a set number of days without sun.">
+<meta name="twitter:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does days of autonomy mean in solar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Days of autonomy is how many days your battery bank can power your loads with no solar input at all — for example during a stretch of cloudy weather. A system with 3 days of autonomy can run for three days on stored energy alone before the batteries need recharging."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many days of autonomy do I need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For most off-grid homes, 2 to 3 days is a common target. In sunny, reliable climates you might design for 1 to 2 days; in cloudy regions or for critical loads, 3 to 5 days is safer. More autonomy means a bigger, costlier battery bank, so it is a balance between reliability and budget."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate battery bank size for days of autonomy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiply your daily energy use by the number of autonomy days to get the usable energy you need, then divide by the usable depth of discharge to get the total battery capacity. Divide the total kWh by the system voltage and multiply by 1000 to convert to amp-hours. This calculator does all of that for you."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ahmedtere44-coder.github.io/solartoolhub/" },
+    { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools.html" },
+    { "@type": "ListItem", "position": 3, "name": "Days of autonomy calculator", "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools/days-of-autonomy-calculator.html" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html" class="active">Tools</a></li>
+      <li><a href="../articles.html">Guides</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button">Resources</button>
+        <ul class="nav-dropdown-menu">
+          <li><a href="../comparisons.html">Compare</a></li>
+          <li><a href="../cheat-sheets.html">Cheat sheets</a></li>
+          <li><a href="../glossary.html">Glossary</a></li>
+        </ul>
+      </li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../tools.html">Tools</a> / Days of autonomy calculator</div>
+    <div class="page-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+    <h1>Days of autonomy calculator</h1>
+    <p class="lede">"Days of autonomy" is how long your batteries can carry your loads with no sun at all — the safety margin that keeps an off-grid system running through cloudy spells. Enter your usage and how many backup days you want to size the battery bank.</p>
+  </div>
+</div>
+
+<div class="calc-layout">
+  <div class="container">
+    <div class="calc-card" style="max-width:680px;">
+      <form id="auto-calc-form">
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="auto-daily">Daily energy use (kWh/day)</label>
+            <input type="number" id="auto-daily" value="3" min="0" step="0.1">
+            <span class="helper-text">Your total energy used per day.</span>
+          </div>
+          <div class="field-group">
+            <label for="auto-days">Days of autonomy</label>
+            <input type="number" id="auto-days" value="3" min="0" step="1">
+            <span class="helper-text">Days the bank must run with no solar input.</span>
+          </div>
+        </div>
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="auto-dod">Depth of discharge (%)</label>
+            <input type="number" id="auto-dod" value="80" min="1" max="100" step="1">
+            <span class="helper-text">Usable share — ~50% lead-acid, ~80–90% lithium.</span>
+          </div>
+          <div class="field-group">
+            <label for="auto-volt">System voltage (V)</label>
+            <input type="number" id="auto-volt" value="48" min="1" step="1">
+            <span class="helper-text">Battery bank voltage — 12, 24, or 48 V.</span>
+          </div>
+        </div>
+      </form>
+
+      <div class="calc-result">
+        <div>
+          <span class="num" id="auto-total-kwh">0</span>
+          <span class="lbl">battery bank needed (kWh)</span>
+        </div>
+        <div>
+          <span class="num" id="auto-ah">0</span>
+          <span class="lbl">battery capacity (Ah)</span>
+        </div>
+      </div>
+      <div class="calc-result" style="margin-top:14px;">
+        <div>
+          <span class="num" id="auto-usable-kwh">0</span>
+          <span class="lbl">usable energy needed (kWh)</span>
+        </div>
+      </div>
+
+      <button type="button" id="auto-pdf-btn" class="btn btn-accent" style="margin-top:20px;">⬇️ Download results as PDF</button>
+      <p class="helper-text">Total battery = (daily use × autonomy days) ÷ depth of discharge. Amp-hours = total kWh × 1000 ÷ system voltage. Sizing to a realistic depth of discharge protects battery life.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="calc-diagram">
+    <figure>
+      <svg viewBox="0 0 380 300" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="auto-t auto-d">
+        <title id="auto-t">How days-of-autonomy battery sizing works</title>
+        <desc id="auto-d">Daily use times autonomy days gives the usable energy needed, divided by depth of discharge gives the total battery capacity.</desc>
+        <text x="190" y="26" text-anchor="middle" font-family="Manrope, sans-serif" font-size="14" font-weight="700" fill="#111827">What you enter</text>
+        <g>
+          <rect x="30" y="42" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="105" y="63" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E3A8A">Daily use</text>
+          <text x="105" y="81" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">kWh per day</text>
+        </g>
+        <g>
+          <rect x="200" y="42" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="275" y="63" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E3A8A">Autonomy</text>
+          <text x="275" y="81" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">days without sun</text>
+        </g>
+        <line x1="105" y1="94" x2="180" y2="128" stroke="#9CA3AF" stroke-width="1.5"/>
+        <line x1="275" y1="94" x2="200" y2="128" stroke="#9CA3AF" stroke-width="1.5"/>
+        <g>
+          <rect x="70" y="130" width="240" height="52" rx="8" fill="#FEF9C3" stroke="#CA8A04" stroke-width="0.75"/>
+          <text x="190" y="151" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12.5" font-weight="700" fill="#854D0E">use × days = usable kWh</text>
+          <text x="190" y="169" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#854D0E">then ÷ depth of discharge</text>
+        </g>
+        <line x1="190" y1="182" x2="190" y2="212" stroke="#9CA3AF" stroke-width="1.5"/>
+        <g>
+          <rect x="70" y="214" width="240" height="52" rx="8" fill="#E9FBF4" stroke="#10B981" stroke-width="0.75"/>
+          <text x="190" y="238" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#065F46">Total battery bank (kWh &amp; Ah)</text>
+          <text x="190" y="256" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#065F46">the size you need to buy</text>
+        </g>
+      </svg>
+      <figcaption>More autonomy days means a bigger bank — because depth of discharge means you must install more than you use.</figcaption>
+    </figure>
+  </div>
+
+  <div class="calc-chart">
+    <h2 class="calc-chart-title">How battery size grows with autonomy days</h2>
+    <p class="calc-chart-intro">This curve updates with your inputs. It shows how the battery bank you need climbs with every extra day of autonomy — the marker shows your chosen number of days.</p>
+    <div class="calc-chart-canvas-wrap">
+      <canvas id="auto-curve" role="img" aria-label="Line chart showing required battery capacity rising with days of autonomy, with a marker for your chosen days.">Required battery capacity rises with each day of autonomy.</canvas>
+    </div>
+  </div>
+
+  <article class="article">
+
+    <p>Solar panels only charge when the sun is out. So an off-grid system needs enough stored energy to ride through the times it isn't — nights, and especially long cloudy stretches. <strong>Days of autonomy</strong> is how you put a number on that safety margin: how many full days the battery bank can carry your loads with no solar input at all.</p>
+
+    <h2>How the sizing works</h2>
+    <p>Start with the energy you use in a day and multiply by the number of autonomy days you want — that's the usable energy the bank must deliver. But you can't drain a battery all the way, so you divide by the usable <a href="../glossary.html#dod">depth of discharge</a> to get the <strong>total</strong> capacity you actually need to install. Finally, divide the total kWh by your system voltage (and multiply by 1000) to express it in amp-hours. For example, 3 kWh a day over 3 days is 9 kWh of usable energy; at 80% depth of discharge that's about 11.25 kWh of total battery, or roughly 234 Ah at 48 V.</p>
+
+    <h2>How many days should you choose?</h2>
+    <p>Most off-grid homes aim for <strong>2–3 days</strong>. In sunny, dependable climates you might design for 1–2; in cloudy regions or for critical loads, 3–5 is safer. Each extra day multiplies the battery cost, so it's a trade-off between reliability and budget — the chart above shows how quickly the bank grows.</p>
+
+    <h2>Related tools</h2>
+    <p>Work out your daily use with the <a href="daily-load-calculator.html">daily load calculator</a>, convert between kWh and Ah with the <a href="battery-ah-kwh-converter.html">battery Ah to kWh converter</a>, size from daily load with the <a href="battery-calculator.html">battery calculator</a>, and design the whole system with the <a href="off-grid-system-wizard.html">off-grid system wizard</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <h3>What does days of autonomy mean in solar?</h3>
+    <p>It's how many days your battery bank can power your loads with no solar input — your buffer for cloudy weather. Three days of autonomy means three days on stored energy alone.</p>
+    <h3>How many days of autonomy do I need?</h3>
+    <p>Usually 2–3 days for off-grid homes; 1–2 in sunny climates, 3–5 for cloudy regions or critical loads. More days means a bigger, pricier bank.</p>
+    <h3>How do I calculate battery bank size for days of autonomy?</h3>
+    <p>Daily use × autonomy days = usable energy; divide by depth of discharge for total capacity; divide total kWh by voltage × 1000 for amp-hours. This tool does it all.</p>
+
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="panel-calculator.html">Panel calculator</a></li>
+          <li><a href="battery-calculator.html">Battery calculator</a></li>
+          <li><a href="inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="cable-calculator.html">Cable calculator</a></li>
+          <li><a href="roi-calculator.html">ROI calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script src="../js/share.js"></script>
+<script>
+  (function () {
+    var form = document.getElementById('auto-calc-form');
+    if (!form) return;
+    function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+
+    function calcAuto() {
+      var daily = val('auto-daily'), days = val('auto-days'), dod = val('auto-dod'), volt = val('auto-volt');
+      var usable = daily * days;
+      var total = dod > 0 ? usable / (dod / 100) : 0;
+      var ah = volt > 0 ? total * 1000 / volt : 0;
+      document.getElementById('auto-usable-kwh').textContent = (Math.round(usable * 100) / 100).toFixed(2);
+      document.getElementById('auto-total-kwh').textContent = (Math.round(total * 100) / 100).toFixed(2);
+      document.getElementById('auto-ah').textContent = Math.round(ah);
+    }
+    form.addEventListener('input', calcAuto);
+    calcAuto();
+
+    var pdfBtn = document.getElementById('auto-pdf-btn');
+    if (pdfBtn) {
+      pdfBtn.addEventListener('click', function () {
+        var inputs = [
+          ['Daily energy use', document.getElementById('auto-daily').value + ' kWh/day'],
+          ['Days of autonomy', document.getElementById('auto-days').value],
+          ['Depth of discharge', document.getElementById('auto-dod').value + ' %'],
+          ['System voltage', document.getElementById('auto-volt').value + ' V']
+        ];
+        var results = [
+          ['Battery bank needed', document.getElementById('auto-total-kwh').textContent + ' kWh'],
+          ['Battery capacity', document.getElementById('auto-ah').textContent + ' Ah'],
+          ['Usable energy needed', document.getElementById('auto-usable-kwh').textContent + ' kWh']
+        ];
+        generateSolarToolHubResultsPDF({
+          subtitle: 'Days of Autonomy — Results',
+          inputs: inputs,
+          resultsHeaders: ['Metric', 'Value'],
+          results: results,
+          nextSteps: {
+            text: 'Design the full system around this battery bank with our:',
+            linkText: 'Off-Grid System Wizard',
+            url: 'https://ahmedtere44-coder.github.io/solartoolhub/tools/off-grid-system-wizard.html'
+          },
+          filename: 'solartoolhub-days-of-autonomy-results.pdf'
+        });
+      });
+    }
+  })();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+  (function () {
+    var canvas = document.getElementById('auto-curve');
+    if (!canvas || typeof Chart === 'undefined') return;
+    var dailyEl = document.getElementById('auto-daily');
+    var daysEl = document.getElementById('auto-days');
+    var dodEl = document.getElementById('auto-dod');
+
+    var dayAxis = [1, 2, 3, 4, 5, 6, 7];
+    function totalAt(d) {
+      var daily = parseFloat(dailyEl.value) || 0;
+      var dod = parseFloat(dodEl.value) || 0;
+      return dod > 0 ? Math.round(daily * d / (dod / 100) * 100) / 100 : 0;
+    }
+    function line() { return dayAxis.map(function (d) { return { x: d, y: totalAt(d) }; }); }
+    function marker() { var d = parseFloat(daysEl.value) || 0; return [{ x: d, y: totalAt(d) }]; }
+
+    var chart = new Chart(canvas, {
+      type: 'line',
+      data: {
+        datasets: [
+          { label: 'Battery bank (kWh)', data: line(), borderColor: '#1E3A8A', backgroundColor: 'rgba(37,99,235,0.10)', borderWidth: 2, fill: true, tension: 0.2, pointRadius: 0 },
+          { label: 'Your autonomy', data: marker(), borderColor: '#10B981', backgroundColor: '#10B981', showLine: false, pointRadius: 7, pointHoverRadius: 8, pointStyle: 'circle' }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: true, labels: { color: '#4B5563', boxWidth: 12 } } },
+        scales: {
+          x: { type: 'linear', min: 1, max: 7, title: { display: true, text: 'Days of autonomy', color: '#4B5563' }, ticks: { color: '#9CA3AF', stepSize: 1 }, grid: { display: false } },
+          y: { title: { display: true, text: 'Battery bank needed (kWh)', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, beginAtZero: true }
+        }
+      }
+    });
+    function refresh() {
+      chart.data.datasets[0].data = line();
+      chart.data.datasets[1].data = marker();
+      chart.update();
+    }
+    [dailyEl, daysEl, dodEl].forEach(function (el) { if (el) el.addEventListener('input', refresh); });
+  })();
+</script>
+</body>
+</html>

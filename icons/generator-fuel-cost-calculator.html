@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generator Fuel Cost Calculator — Running Cost per Hour, Day & Month | SolarToolHub</title>
+<meta name="description" content="Free generator fuel cost calculator. Enter load, fuel rate, and price to see how much fuel your generator burns and what it costs per hour, day, and month.">
+<link rel="canonical" href="https://ahmedtere44-coder.github.io/solartoolhub/tools/generator-fuel-cost-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SolarToolHub">
+<meta property="og:title" content="Generator Fuel Cost Calculator — Running Cost per Hour, Day & Month | SolarToolHub">
+<meta property="og:description" content="See how much fuel your generator burns and what it costs per hour, day, and month.">
+<meta property="og:url" content="https://ahmedtere44-coder.github.io/solartoolhub/tools/generator-fuel-cost-calculator.html">
+<meta property="og:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Generator Fuel Cost Calculator | SolarToolHub">
+<meta name="twitter:description" content="See how much fuel your generator burns and what it costs per hour, day, and month.">
+<meta name="twitter:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much fuel does a generator use per hour?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Roughly, fuel use per hour equals the load in kilowatts times the fuel rate per kilowatt-hour. A typical diesel generator burns about 0.25 to 0.35 litres per kWh at a sensible load, so a 5 kW load at 0.3 L/kWh uses about 1.5 litres an hour. Running a generator lightly loaded is inefficient — it burns nearly as much fuel for far less output, so fuel per kWh climbs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate generator running cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiply the load in kilowatts by the fuel rate in litres per kWh to get litres per hour, multiply by the fuel price to get cost per hour, then by hours run for daily and monthly cost. This calculator does all of it: cost per hour, per day, and per month, from your load, fuel rate, price, and daily run hours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I reduce my generator fuel costs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The biggest saving comes from running the generator fewer hours. Adding solar and a battery lets the system carry the load through the day and evening so the generator only runs as a backup, cutting fuel use dramatically. Sizing the generator correctly and loading it properly also helps, since a right-sized, well-loaded generator burns less fuel per kWh than an oversized one idling."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ahmedtere44-coder.github.io/solartoolhub/" },
+    { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools.html" },
+    { "@type": "ListItem", "position": 3, "name": "Generator fuel cost calculator", "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools/generator-fuel-cost-calculator.html" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html" class="active">Tools</a></li>
+      <li><a href="../articles.html">Guides</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button">Resources</button>
+        <ul class="nav-dropdown-menu">
+          <li><a href="../comparisons.html">Compare</a></li>
+      <li><a href="../cheat-sheets.html">Cheat sheets</a></li>
+      <li><a href="../glossary.html">Glossary</a></li>
+        </ul>
+      </li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../tools.html">Tools</a> / Generator fuel cost calculator</div>
+    <div class="page-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div>
+    <h1>Generator fuel cost calculator</h1>
+    <p class="lede">A generator's real cost isn't the machine — it's the fuel it drinks. Enter your load, fuel rate, and fuel price to see what your generator costs to run per hour, per day, and per month, and where solar could cut the bill.</p>
+  </div>
+</div>
+
+<div class="calc-layout">
+  <div class="container">
+    <div class="calc-card" style="max-width:680px;">
+      <form id="gf-calc-form">
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="gf-load">Load (kW)</label>
+            <input type="number" id="gf-load" value="5" min="0" step="0.1">
+            <span class="helper-text">The power the generator is actually supplying.</span>
+          </div>
+          <div class="field-group">
+            <label for="gf-rate">Fuel rate (litres per kWh)</label>
+            <input type="number" id="gf-rate" value="0.3" min="0" step="0.01">
+            <span class="helper-text">Diesel is roughly 0.25–0.35 L per kWh at a sensible load.</span>
+          </div>
+        </div>
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="gf-price">Fuel price (per litre)</label>
+            <input type="number" id="gf-price" value="0.9" min="0" step="0.01">
+            <span class="helper-text">Price per litre in your local currency.</span>
+          </div>
+          <div class="field-group">
+            <label for="gf-hours">Hours run per day</label>
+            <input type="number" id="gf-hours" value="8" min="0" max="24" step="0.5">
+            <span class="helper-text">Average hours the generator runs each day.</span>
+          </div>
+        </div>
+      </form>
+
+      <div class="calc-result">
+        <div>
+          <span class="num" id="gf-lph">0</span>
+          <span class="lbl">fuel per hour (L/h)</span>
+        </div>
+        <div>
+          <span class="num" id="gf-cost-hour">0</span>
+          <span class="lbl">cost per hour</span>
+        </div>
+      </div>
+      <div class="calc-result" style="margin-top:14px;">
+        <div>
+          <span class="num" id="gf-cost-day">0</span>
+          <span class="lbl">cost per day</span>
+        </div>
+        <div>
+          <span class="num" id="gf-cost-month">0</span>
+          <span class="lbl">cost per month</span>
+        </div>
+      </div>
+
+      <button type="button" id="gf-pdf-btn" class="btn btn-accent" style="margin-top:20px;">⬇️ Download results as PDF</button>
+      <p class="helper-text">Fuel per hour = load × fuel rate. Cost per hour = fuel per hour × price. Daily and monthly costs scale with run hours (month = 30 days). Costs are in whatever currency you enter the fuel price in.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="calc-diagram">
+    <figure>
+      <svg viewBox="0 0 380 300" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="gf-title gf-desc">
+        <title id="gf-title">How generator fuel cost is calculated</title>
+        <desc id="gf-desc">The load times the fuel rate gives litres per hour, times the fuel price gives cost per hour, and times the run hours gives the daily and monthly cost.</desc>
+        <text x="190" y="26" text-anchor="middle" font-family="Manrope, sans-serif" font-size="14" font-weight="700" fill="#111827">What you enter</text>
+        <g>
+          <rect x="30" y="42" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="105" y="63" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E3A8A">Load × fuel rate</text>
+          <text x="105" y="81" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">litres per hour</text>
+        </g>
+        <g>
+          <rect x="200" y="42" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="275" y="63" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E3A8A">Fuel price</text>
+          <text x="275" y="81" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">per litre</text>
+        </g>
+        <line x1="105" y1="94" x2="180" y2="128" stroke="#9CA3AF" stroke-width="1.5"/>
+        <line x1="275" y1="94" x2="200" y2="128" stroke="#9CA3AF" stroke-width="1.5"/>
+        <g>
+          <rect x="80" y="130" width="220" height="52" rx="8" fill="#FEF9C3" stroke="#CA8A04" stroke-width="0.75"/>
+          <text x="190" y="151" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#854D0E">L/h × price = cost per hour</text>
+          <text x="190" y="169" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#854D0E">then × run hours</text>
+        </g>
+        <line x1="190" y1="182" x2="190" y2="212" stroke="#9CA3AF" stroke-width="1.5"/>
+        <g>
+          <rect x="70" y="214" width="240" height="52" rx="8" fill="#E9FBF4" stroke="#10B981" stroke-width="0.75"/>
+          <text x="190" y="235" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#065F46">Cost per day &amp; per month</text>
+          <text x="190" y="253" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#065F46">what solar could cut</text>
+        </g>
+      </svg>
+      <figcaption>Fuel per hour comes from the load; multiply by price and run hours for the daily and monthly bill.</figcaption>
+    </figure>
+  </div>
+
+  <div class="calc-chart">
+    <h2 class="calc-chart-title">How monthly fuel cost grows with run hours</h2>
+    <p class="calc-chart-intro">This curve updates with your inputs. It shows how your monthly fuel bill climbs with every extra hour the generator runs each day — the marker shows your current run time.</p>
+    <div class="calc-chart-canvas-wrap">
+      <canvas id="gf-curve" role="img" aria-label="Line chart showing monthly generator fuel cost rising with daily run hours, with a marker for your run time.">Monthly fuel cost rises steadily with daily run hours.</canvas>
+    </div>
+  </div>
+
+  <article class="article">
+
+    <p>A generator is cheap to buy and expensive to feed. Over a year, fuel usually dwarfs the purchase price — so before you rely on one, it's worth knowing exactly what it costs to run. That number is also the clearest way to see how much a solar-and-battery system could save you.</p>
+
+    <h2>How the cost adds up</h2>
+    <p>Start with how much fuel the generator burns per hour: the load in kilowatts times the fuel rate in litres per kWh. Multiply by the fuel price for the cost of one hour, then by your daily run hours and by 30 for the monthly bill. A 5 kW load at 0.3 L/kWh burns 1.5 litres an hour; at 0.9 per litre that's 1.35 an hour, about 10.80 a day over 8 hours, and roughly 324 a month.</p>
+
+    <h2>Why light loads waste fuel</h2>
+    <p>Generators are most efficient at around 70–80% of their rated output. Run one lightly loaded — a big generator powering a few small loads — and it burns almost as much fuel as it would fully loaded, so the cost per useful kWh shoots up. Right-sizing the generator to the load is one of the easiest ways to cut fuel waste; the <a href="generator-sizing-calculator.html">generator sizing calculator</a> helps you match them.</p>
+
+    <h2>Where solar changes the maths</h2>
+    <p>The single biggest lever on this bill is <strong>run hours</strong> — and that's exactly what solar attacks. With panels and a battery carrying the load through the day and into the evening, the generator drops to a backup role for the occasional cloudy stretch, and fuel use falls sharply. Use the <a href="solar-bill-savings-calculator.html">solar bill savings calculator</a> to compare, and the <a href="off-grid-system-wizard.html">off-grid system wizard</a> to design a system that keeps the generator off most of the time.</p>
+
+    <h2>Related tools</h2>
+    <p>Size the generator itself with the <a href="generator-sizing-calculator.html">generator sizing calculator</a>, work out your loads with the <a href="daily-load-calculator.html">daily load calculator</a>, and see the payback of replacing fuel with solar using the <a href="solar-bill-savings-calculator.html">solar bill savings calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <h3>How much fuel does a generator use per hour?</h3>
+    <p>Roughly load (kW) × fuel rate (L/kWh). Diesel runs about 0.25–0.35 L/kWh at a sensible load, so a 5 kW load uses about 1.5 L/h. Light loading pushes fuel-per-kWh higher.</p>
+    <h3>How do I calculate generator running cost?</h3>
+    <p>Litres per hour = load × fuel rate; cost per hour = that × fuel price; then × run hours for daily and × 30 for monthly. This calculator returns all three.</p>
+    <h3>How can I reduce my generator fuel costs?</h3>
+    <p>Cut run hours — that's what solar and a battery do, dropping the generator to backup only. Right-sizing and properly loading it also lowers fuel per kWh.</p>
+
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="panel-calculator.html">Panel calculator</a></li>
+          <li><a href="battery-calculator.html">Battery calculator</a></li>
+          <li><a href="inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="cable-calculator.html">Cable calculator</a></li>
+          <li><a href="roi-calculator.html">ROI calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script src="../js/share.js"></script>
+<script>
+  (function () {
+    var form = document.getElementById('gf-calc-form');
+    if (!form) return;
+    function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+    function money(x) { return (Math.round(x * 100) / 100).toFixed(2); }
+
+    function calcGF() {
+      var load = val('gf-load'), rate = val('gf-rate'), price = val('gf-price'), hours = val('gf-hours');
+      var lph = load * rate;
+      var costHour = lph * price;
+      var costDay = costHour * hours;
+      var costMonth = costDay * 30;
+      document.getElementById('gf-lph').textContent = (Math.round(lph * 100) / 100).toFixed(2);
+      document.getElementById('gf-cost-hour').textContent = money(costHour);
+      document.getElementById('gf-cost-day').textContent = money(costDay);
+      document.getElementById('gf-cost-month').textContent = Math.round(costMonth);
+    }
+    form.addEventListener('input', calcGF);
+    calcGF();
+
+    var pdfBtn = document.getElementById('gf-pdf-btn');
+    if (pdfBtn) {
+      pdfBtn.addEventListener('click', function () {
+        var inputs = [
+          ['Load', document.getElementById('gf-load').value + ' kW'],
+          ['Fuel rate', document.getElementById('gf-rate').value + ' L/kWh'],
+          ['Fuel price', document.getElementById('gf-price').value + ' per litre'],
+          ['Hours run per day', document.getElementById('gf-hours').value]
+        ];
+        var results = [
+          ['Fuel per hour', document.getElementById('gf-lph').textContent + ' L/h'],
+          ['Cost per hour', document.getElementById('gf-cost-hour').textContent],
+          ['Cost per day', document.getElementById('gf-cost-day').textContent],
+          ['Cost per month', document.getElementById('gf-cost-month').textContent]
+        ];
+        generateSolarToolHubResultsPDF({
+          subtitle: 'Generator Fuel Cost — Results',
+          inputs: inputs,
+          resultsHeaders: ['Metric', 'Value'],
+          results: results,
+          nextSteps: {
+            text: 'See how much solar could cut this fuel bill with our:',
+            linkText: 'Solar Bill Savings Calculator',
+            url: 'https://ahmedtere44-coder.github.io/solartoolhub/tools/solar-bill-savings-calculator.html'
+          },
+          filename: 'solartoolhub-generator-fuel-cost-results.pdf'
+        });
+      });
+    }
+  })();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+  (function () {
+    var canvas = document.getElementById('gf-curve');
+    if (!canvas || typeof Chart === 'undefined') return;
+    var loadEl = document.getElementById('gf-load');
+    var rateEl = document.getElementById('gf-rate');
+    var priceEl = document.getElementById('gf-price');
+    var hoursEl = document.getElementById('gf-hours');
+
+    var hoursAxis = [0, 2, 4, 6, 8, 10, 12, 16, 20, 24];
+    function costPerHour() { return (parseFloat(loadEl.value) || 0) * (parseFloat(rateEl.value) || 0) * (parseFloat(priceEl.value) || 0); }
+    function line() { var c = costPerHour(); return hoursAxis.map(function (h) { return { x: h, y: Math.round(c * h * 30) }; }); }
+    function marker() { var h = parseFloat(hoursEl.value) || 0; return [{ x: h, y: Math.round(costPerHour() * h * 30) }]; }
+
+    var chart = new Chart(canvas, {
+      type: 'line',
+      data: {
+        datasets: [
+          { label: 'Monthly fuel cost', data: line(), borderColor: '#CA8A04', backgroundColor: 'rgba(250,204,21,0.12)', borderWidth: 2, fill: true, tension: 0.2, pointRadius: 0 },
+          { label: 'Your run time', data: marker(), borderColor: '#10B981', backgroundColor: '#10B981', showLine: false, pointRadius: 7, pointHoverRadius: 8, pointStyle: 'circle' }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: true, labels: { color: '#4B5563', boxWidth: 12 } } },
+        scales: {
+          x: { type: 'linear', min: 0, max: 24, title: { display: true, text: 'Hours run per day', color: '#4B5563' }, ticks: { color: '#9CA3AF', stepSize: 4 }, grid: { display: false } },
+          y: { title: { display: true, text: 'Monthly fuel cost', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, beginAtZero: true }
+        }
+      }
+    });
+    function refresh() {
+      chart.data.datasets[0].data = line();
+      chart.data.datasets[1].data = marker();
+      chart.update();
+    }
+    [loadEl, rateEl, priceEl, hoursEl].forEach(function (el) { if (el) el.addEventListener('input', refresh); });
+  })();
+</script>
+</body>
+</html>

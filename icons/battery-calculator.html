@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Battery Size Calculator — Lithium vs Lead-Acid | SolarToolHub</title>
+<meta name="description" content="Free battery size calculator. Compare Lithium (LiFePO4) and Lead-acid capacity requirements side by side based on your daily usage and backup needs.">
+<link rel="canonical" href="https://ahmedtere44-coder.github.io/solartoolhub/tools/battery-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SolarToolHub">
+<meta property="og:title" content="Battery Size Calculator — Lithium vs Lead-Acid | SolarToolHub">
+<meta property="og:description" content="Free battery size calculator. Compare Lithium (LiFePO4) and Lead-acid capacity requirements side by side based on your daily usage and backup needs.">
+<meta property="og:url" content="https://ahmedtere44-coder.github.io/solartoolhub/tools/battery-calculator.html">
+<meta property="og:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Battery Size Calculator — Lithium vs Lead-Acid | SolarToolHub">
+<meta name="twitter:description" content="Free battery size calculator. Compare Lithium (LiFePO4) and Lead-acid capacity requirements side by side based on your daily usage and backup needs.">
+<meta name="twitter:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I mix lithium and lead-acid batteries in the same bank?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This is generally not recommended. The two chemistries have different charging voltage profiles and charge/discharge characteristics, which can cause uneven charging, reduced lifespan, or damage to one or both battery types. Keep battery banks to a single chemistry."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does battery capacity need to match my inverter size?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not directly — they answer different questions. Inverter size is about how much power you can draw at once (see our inverter calculator), while battery capacity is about how much energy you can store and use over time. Both need to be sized for your system, but independently of each other."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does the calculator use kWh instead of just Ah?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ah (amp-hours) only tells you the full story once you know the voltage, since energy (kWh) is voltage × amp-hours ÷ 1000. The calculator shows both: kWh as the voltage-independent figure for comparing battery types, and Ah at your chosen system voltage for matching against real battery specs."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/index.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Battery calculator",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools/battery-calculator.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html" class="active">Tools</a></li>
+      <li><a href="../articles.html">Guides</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button">Resources</button>
+        <ul class="nav-dropdown-menu">
+          <li><a href="../comparisons.html">Compare</a></li>
+      <li><a href="../cheat-sheets.html">Cheat sheets</a></li>
+      <li><a href="../glossary.html">Glossary</a></li>
+        </ul>
+      </li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../tools.html">Tools</a> / Battery calculator</div>
+    <div class="page-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="18" height="10" rx="2"/><path d="M22 11v2M6 10v4M10 10v4"/></svg></div>
+    <h1>Battery size calculator</h1>
+    <p class="lede">Enter your daily usage and how much of it you want backed up — see Lithium and Lead-acid capacity requirements side by side.</p>
+  </div>
+</div>
+
+<div class="calc-layout">
+  <div class="container">
+    <div class="calc-card" style="max-width:680px;">
+      <form id="battery-calc-form">
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="battery-usage">Daily electricity usage (kWh)</label>
+            <input type="number" id="battery-usage" value="20" min="0" step="0.5">
+            <span class="helper-text">Monthly usage ÷ 30. Check our panel calculator if you only know the monthly figure.</span>
+          </div>
+          <div class="field-group">
+            <label for="battery-voltage">System voltage</label>
+            <select id="battery-voltage">
+              <option value="12">12V</option>
+              <option value="24" selected>24V</option>
+              <option value="48">48V</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-group">
+          <label for="battery-backup-pct">How much of your daily usage do you want backed up?</label>
+          <select id="battery-backup-pct">
+            <option value="25">25% — a few essential hours (fridge, lights, router)</option>
+            <option value="50" selected>50% — roughly half a day's use</option>
+            <option value="100">100% — a full day of normal use</option>
+            <option value="200">200% — two full days (extended outages)</option>
+          </select>
+        </div>
+      </form>
+
+      <div class="battery-compare">
+        <div class="battery-col">
+          <h3>Lithium (LiFePO4)</h3>
+          <div class="calc-result" style="grid-template-columns:1fr 1fr;">
+            <div>
+              <span class="num" id="li-kwh">0</span>
+              <span class="lbl">kWh nominal</span>
+            </div>
+            <div>
+              <span class="num" id="li-ah">0</span>
+              <span class="lbl">Ah at chosen voltage</span>
+            </div>
+          </div>
+        </div>
+        <div class="battery-col">
+          <h3>Lead-acid</h3>
+          <div class="calc-result" style="grid-template-columns:1fr 1fr;">
+            <div>
+              <span class="num" id="la-kwh">0</span>
+              <span class="lbl">kWh nominal</span>
+            </div>
+            <div>
+              <span class="num" id="la-ah">0</span>
+              <span class="lbl">Ah at chosen voltage</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="button" id="battery-pdf-btn" class="btn btn-accent" style="margin-top:20px;">⬇️ Download results as PDF</button>
+      <p class="helper-text">Lithium is sized assuming a 90% usable depth of discharge; lead-acid is sized assuming a 50% depth of discharge to protect battery lifespan.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="calc-diagram">
+    <figure>
+      <svg viewBox="0 0 380 374" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="bt-title bt-desc">
+        <title id="bt-title">How the battery calculator works</title>
+        <desc id="bt-desc">Daily usage times the backup percentage gives target energy, then divided by battery usable depth to get real capacity.</desc>
+        <defs>
+          <marker id="btArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <text x="190" y="26" text-anchor="middle" font-family="Manrope, sans-serif" font-size="14" font-weight="700" fill="#111827">What you enter</text>
+
+        <g>
+          <rect x="30" y="40" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="105" y="60" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1E3A8A">Daily usage</text>
+          <text x="105" y="78" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">kWh per day</text>
+        </g>
+        <g>
+          <rect x="200" y="40" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="275" y="60" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1E3A8A">Backup wanted</text>
+          <text x="275" y="78" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">% of daily use</text>
+        </g>
+
+        <line x1="105" y1="92" x2="160" y2="140" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#btArrow)"/>
+        <line x1="275" y1="92" x2="220" y2="140" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#btArrow)"/>
+
+        <g>
+          <rect x="70" y="142" width="240" height="52" rx="8" fill="#FEF9C3" stroke="#CA8A04" stroke-width="0.75"/>
+          <text x="190" y="162" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#854D0E">Energy to store</text>
+          <text x="190" y="180" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#854D0E">usage × backup %</text>
+        </g>
+
+        <line x1="190" y1="194" x2="190" y2="224" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#btArrow)"/>
+
+        <g>
+          <rect x="70" y="226" width="240" height="52" rx="8" fill="#FEF9C3" stroke="#CA8A04" stroke-width="0.75"/>
+          <text x="190" y="246" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#854D0E">Divide by usable depth</text>
+          <text x="190" y="264" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#854D0E">lithium ~90%, lead-acid ~50%</text>
+        </g>
+
+        <line x1="190" y1="278" x2="190" y2="308" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#btArrow)"/>
+
+        <g>
+          <rect x="55" y="310" width="270" height="44" rx="8" fill="#E9FBF4" stroke="#10B981" stroke-width="0.75"/>
+          <text x="190" y="332" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#065F46">Real battery capacity (kWh & Ah)</text>
+        </g>
+      </svg>
+      <figcaption>How the calculator turns your usage into real battery capacity.</figcaption>
+    </figure>
+  </div>
+
+  <div class="calc-chart">
+    <h2 class="calc-chart-title">Capacity vs how much backup you want</h2>
+    <p class="calc-chart-intro">This curve updates with your inputs above. It shows the usable battery capacity (kWh) you need as you back up more of your daily usage — for both lithium and lead-acid.</p>
+    <div class="calc-chart-canvas-wrap">
+      <canvas id="battery-curve" role="img" aria-label="Line chart comparing required lithium and lead-acid battery capacity in kWh as the backup percentage of daily usage increases.">Battery capacity needed rises with backup percentage; lead-acid needs far more capacity than lithium for the same backup.</canvas>
+    </div>
+  </div>
+
+  <article class="article">
+
+    <p>Battery sizing trips up more people than any other part of a solar or backup system, mostly because of one detail that's easy to miss: the capacity printed on a battery isn't the capacity you can actually use. This calculator handles that automatically by comparing two of the most common battery chemistries side by side, so you can see how the choice of battery type changes the size — and cost — of what you need to buy.</p>
+
+    <h2>Why nominal capacity isn't usable capacity</h2>
+    <p>Every rechargeable battery has a depth of discharge (DoD) limit — the percentage of its total capacity that can be safely used before recharging, without significantly shortening its lifespan. Draining a battery further than its recommended DoD, especially repeatedly, degrades it much faster than the manufacturer's rated cycle life would suggest.</p>
+    <ul>
+      <li><strong>Lithium (LiFePO4)</strong> — can typically handle 90–100% DoD without meaningful damage, thanks to its chemistry and built-in battery management system (BMS).</li>
+      <li><strong>Lead-acid (flooded or AGM)</strong> — is usually limited to 50% DoD for reasonable lifespan. Some manufacturers rate their batteries for deeper discharge, but 50% is the widely recommended figure for maximizing usable cycles over time.</li>
+    </ul>
+    <p>This is why the same daily backup target requires very different battery sizes depending on chemistry — the calculator above divides your target usable capacity by 0.9 for lithium and by 0.5 for lead-acid to arrive at the nominal (rated) capacity you'd need to purchase.</p>
+
+    <div class="field-experience">
+      <span class="tag">Field note</span>
+      <p>If the charge controller isn't programmed correctly for the battery type in use, it leads to fast, uncontrolled charge and discharge cycles instead of the gradual, protected cycling batteries are designed for — and that shortens their lifespan considerably. This is especially damaging for lead-acid batteries, which I've seen fail well before their rated cycle life simply because the controller settings were left on generic defaults instead of being matched to the actual battery bank.</p>
+    </div>
+
+    <h2>Lithium vs. lead-acid: the full comparison</h2>
+    <table class="data-table">
+      <thead>
+        <tr><th>Factor</th><th>Lithium (LiFePO4)</th><th>Lead-acid</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Recommended DoD</td><td>90–100%</td><td>50%</td></tr>
+        <tr><td>Cycle life</td><td>3,000–6,000 cycles</td><td>300–800 cycles</td></tr>
+        <tr><td>Upfront cost</td><td>Higher per kWh</td><td>Lower per kWh</td></tr>
+        <tr><td>Cost per usable cycle</td><td>Often lower long-term</td><td>Higher long-term due to shorter life</td></tr>
+        <tr><td>Weight</td><td>Roughly half of lead-acid for the same usable capacity</td><td>Heavier, bulkier for the same usable capacity</td></tr>
+        <tr><td>Maintenance</td><td>Minimal to none</td><td>Flooded types need regular water top-ups; AGM is maintenance-free</td></tr>
+        <tr><td>Cold-weather performance</td><td>Charging below freezing needs a BMS with low-temp cutoff</td><td>More tolerant of cold, but capacity drops in low temperatures too</td></tr>
+      </tbody>
+    </table>
+    <p>Lead-acid remains attractive for tight budgets or occasional backup use where the battery won't be cycled often. Lithium tends to win out for daily-cycling systems, off-grid homes, or anywhere weight and space are limited — the higher upfront cost is usually offset by a much longer service life.</p>
+
+    <h2>Choosing how much backup you actually need</h2>
+    <p>The backup percentage you pick has a bigger effect on cost than almost any other decision in the system. It helps to think in terms of what you're actually protecting against:</p>
+    <ul>
+      <li><strong>25% (a few essential hours)</strong> — enough to keep a refrigerator, some lighting, and a router running through a short outage. The most budget-friendly option.</li>
+      <li><strong>50% (half a day)</strong> — covers a typical evening-to-morning outage without needing to ration power.</li>
+      <li><strong>100% (a full day)</strong> — lets you ride out a full day with no solar input at all, useful in areas with frequent extended outages.</li>
+      <li><strong>200% (two days)</strong> — a genuine multi-day autonomy buffer, typically chosen for remote off-grid sites or regions with unreliable grid infrastructure and long stretches of low sun.</li>
+    </ul>
+    <p>There's no universally "correct" answer here — it's a direct trade-off between upfront cost and peace of mind during outages.</p>
+
+    <h2>A worked example</h2>
+    <p>Say your daily usage is 20 kWh and you want 50% of that backed up on a 24V system. Your target usable capacity is 10 kWh. For lithium, that means a nominal capacity of about 11.1 kWh (10 ÷ 0.9), which works out to roughly 463 Ah at 24V. For lead-acid, the same 10 kWh target needs 20 kWh nominal (10 ÷ 0.5) — nearly double — which comes to about 833 Ah at 24V. This is exactly what the calculator returns with its default values, and it illustrates why lead-acid banks end up so much larger and heavier for the same real-world backup.</p>
+
+    <p>Related tools: check how long a given bank will last on a specific load with the <a href="battery-runtime-calculator.html">battery runtime calculator</a>, size the <a href="charge-controller-calculator.html">charge controller</a> that will charge it, or plan a full system with the <a href="off-grid-system-wizard.html">off-grid system wizard</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <h3>Can I mix lithium and lead-acid batteries in the same bank?</h3>
+    <p>This is generally not recommended. The two chemistries have different charging voltage profiles and charge/discharge characteristics, which can cause uneven charging, reduced lifespan, or damage to one or both battery types. Keep battery banks to a single chemistry.</p>
+    <h3>Does battery capacity need to match my inverter size?</h3>
+    <p>Not directly — they answer different questions. Inverter size is about how much power you can draw at once (see our inverter calculator), while battery capacity is about how much energy you can store and use over time. Both need to be sized for your system, but independently of each other.</p>
+    <h3>Why does the calculator use kWh instead of just Ah?</h3>
+    <p>Ah (amp-hours) only tells you the full story once you know the voltage, since energy (kWh) is voltage × amp-hours ÷ 1000. The calculator shows both: kWh as the voltage-independent figure for comparing battery types, and Ah at your chosen system voltage for matching against real battery specs.</p>
+
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="panel-calculator.html">Panel calculator</a></li>
+          <li><a href="battery-calculator.html">Battery calculator</a></li>
+          <li><a href="inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="cable-calculator.html">Cable calculator</a></li>
+          <li><a href="roi-calculator.html">ROI calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script src="../js/share.js"></script>
+<script>
+  var batteryPdfBtn = document.getElementById('battery-pdf-btn');
+  if (batteryPdfBtn) {
+    batteryPdfBtn.addEventListener('click', function () {
+      var usage = document.getElementById('battery-usage').value;
+      var voltageSelect = document.getElementById('battery-voltage');
+      var voltage = voltageSelect.options[voltageSelect.selectedIndex].text;
+      var backupSelect = document.getElementById('battery-backup-pct');
+      var backupText = backupSelect.options[backupSelect.selectedIndex].text;
+      var liKwh = document.getElementById('li-kwh').textContent;
+      var liAh = document.getElementById('li-ah').textContent;
+      var laKwh = document.getElementById('la-kwh').textContent;
+      var laAh = document.getElementById('la-ah').textContent;
+
+      generateSolarToolHubResultsPDF({
+        subtitle: 'Battery Bank Sizing — Results',
+        inputs: [
+          ['Daily electricity usage', usage + ' kWh'],
+          ['System voltage', voltage],
+          ['Backup coverage target', backupText]
+        ],
+        resultsHeaders: ['Battery Type', 'kWh Nominal', 'Ah at Chosen Voltage'],
+        results: [
+          ['Lithium (LiFePO4)', liKwh, liAh],
+          ['Lead-acid', laKwh, laAh]
+        ],
+        nextSteps: {
+          text: 'Next, size the charge controller for your panel array and this battery bank:',
+          linkText: 'Charge Controller Calculator',
+          url: 'https://ahmedtere44-coder.github.io/solartoolhub/tools/charge-controller-calculator.html'
+        },
+        filename: 'solartoolhub-battery-results.pdf'
+      });
+    });
+  }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+  (function () {
+    var canvas = document.getElementById('battery-curve');
+    if (!canvas || typeof Chart === 'undefined') return;
+
+    var usageEl = document.getElementById('battery-usage');
+    var pctSteps = [20, 30, 40, 50, 60, 70, 80, 90, 100];
+
+    function liFor(kwh, pct) { return (kwh * (pct / 100)) / 0.9; }
+    function laFor(kwh, pct) { return (kwh * (pct / 100)) / 0.5; }
+
+    function dataFor(fn) {
+      var kwh = parseFloat(usageEl.value) || 0;
+      return pctSteps.map(function (p) { return Math.round(fn(kwh, p) * 10) / 10; });
+    }
+
+    var chart = new Chart(canvas, {
+      type: 'line',
+      data: {
+        labels: pctSteps.map(function (p) { return p + '%'; }),
+        datasets: [
+          {
+            label: 'Lithium (kWh)',
+            data: dataFor(liFor),
+            borderColor: '#1E3A8A',
+            backgroundColor: 'rgba(30,58,138,0.08)',
+            borderWidth: 2, fill: false, tension: 0.3,
+            pointBackgroundColor: '#1E3A8A', pointRadius: 3
+          },
+          {
+            label: 'Lead-acid (kWh)',
+            data: dataFor(laFor),
+            borderColor: '#CA8A04',
+            backgroundColor: 'rgba(202,138,4,0.08)',
+            borderWidth: 2, fill: false, tension: 0.3, borderDash: [6, 4],
+            pointBackgroundColor: '#CA8A04', pointRadius: 3
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: true, labels: { color: '#4B5563', boxWidth: 14 } } },
+        scales: {
+          x: { title: { display: true, text: 'Backup (% of daily usage)', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, grid: { display: false } },
+          y: { title: { display: true, text: 'Usable capacity (kWh)', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, beginAtZero: true }
+        }
+      }
+    });
+
+    function refresh() {
+      chart.data.datasets[0].data = dataFor(liFor);
+      chart.data.datasets[1].data = dataFor(laFor);
+      chart.update();
+    }
+    if (usageEl) usageEl.addEventListener('input', refresh);
+  })();
+</script>
+</body>
+</html>
