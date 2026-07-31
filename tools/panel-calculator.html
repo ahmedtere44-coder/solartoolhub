@@ -158,7 +158,11 @@
               <option value="550">550W (high efficiency)</option>
               <option value="600">600W (high efficiency)</option>
               <option value="700">700W (commercial-grade)</option>
+              <option value="800">800W (commercial-grade)</option>
+              <option value="custom">Other (enter my own)</option>
             </select>
+            <input type="number" id="panel-watt-custom" value="500" min="1" max="1000" step="1" placeholder="Panel watts (max 1000)" style="display:none; margin-top:10px;">
+            <span class="helper-text">Choose a common size or "Other" to enter any value up to 1000 W.</span>
           </div>
         </div>
         <div class="field-group">
@@ -400,7 +404,7 @@
     panelPdfBtn.addEventListener('click', function () {
       var usage = document.getElementById('panel-usage').value;
       var wattSelect = document.getElementById('panel-watt');
-      var wattText = wattSelect.options[wattSelect.selectedIndex].text;
+      var wattText = (parseFloat(wattSelect.value) || '') + ' W';
       var sunSelect = document.getElementById('panel-sun');
       var sunText = sunSelect.options[sunSelect.selectedIndex].text;
       var panelCount = document.getElementById('panel-count-result').textContent;
@@ -485,6 +489,35 @@
     }
     if (usageEl) usageEl.addEventListener('input', refresh);
     if (wattEl) wattEl.addEventListener('input', refresh);
+  })();
+</script>
+<script>
+  (function () {
+    var sel = document.getElementById('panel-watt');
+    var inp = document.getElementById('panel-watt-custom');
+    if (!sel || !inp) return;
+    var otherOpt = sel.querySelector('option[value="custom"]');
+    if (!otherOpt) return;
+    function isOther() { return sel.selectedOptions && sel.selectedOptions[0] === otherOpt; }
+    function clampCustom() {
+      var v = parseFloat(inp.value);
+      if (isNaN(v)) v = 1;
+      if (v > 1000) { v = 1000; inp.value = 1000; }
+      if (v < 1) { v = 1; inp.value = 1; }
+      return v;
+    }
+    function fire() {
+      sel.dispatchEvent(new Event('input', { bubbles: true }));
+      sel.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+    sel.addEventListener('change', function () {
+      if (isOther()) { inp.style.display = ''; otherOpt.value = clampCustom(); }
+      else { inp.style.display = 'none'; }
+      fire();
+    });
+    inp.addEventListener('input', function () {
+      if (isOther()) { otherOpt.value = clampCustom(); fire(); }
+    });
   })();
 </script>
 </body>
