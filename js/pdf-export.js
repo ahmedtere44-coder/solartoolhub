@@ -115,7 +115,14 @@ function generateSolarToolHubArticlePDF(config) {
   var cursorY = 0;
 
   function sanitize(text) {
-    return (text || '').replace(/\u2192/g, '-').replace(/\s+/g, ' ').trim();
+    return (text || '')
+      .replace(/\u2192/g, '-')
+      .replace(/[\u2190-\u21FF]/g, '')
+      .replace(/[\u2600-\u27BF]/g, '')
+      .replace(/[\u2B00-\u2BFF]/g, '')
+      .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, '')
+      .replace(/[\uFE00-\uFE0F\u200D]/g, '')
+      .replace(/\s+/g, ' ').trim();
   }
 
   function ensureSpace(neededHeight) {
