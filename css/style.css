@@ -1018,3 +1018,9 @@ table.calc-table .surge-note { font-size: 0.78rem; color: var(--ink-faint); }
 .tool-card { position: relative; }
 .tool-card a.tool-link::after { content: ""; position: absolute; inset: 0; z-index: 1; }
 .tool-card a.tool-link { position: static; }
+
+
+/* Whole-card tap/hover tint (light blue) — matches the country cards */
+.tool-card:hover, .tool-card:focus-within, .tool-card:active { background: #EFF4FD; }
+.tool-card a.tool-link { -webkit-tap-highlight-color: transparent; }
+.collection-card:hover, .collection-card:focus-within, .collection-card:active { background: #EFF4FD; }
