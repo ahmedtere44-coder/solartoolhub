@@ -1,5 +1,6 @@
-5 new countries: Pakistan, Nigeria, Spain, Italy, Brazil (now 18 total)
-Upload all these to the repo ROOT (drag into github.com > Add file > Upload files), Commit.
-(Do NOT upload this readme.)
-Request indexing for the 5 new pages:
-  solar-in-pakistan / solar-in-nigeria / solar-in-spain / solar-in-italy / solar-in-brazil
+Fix: hero counter 31->32 + add kWh-to-kW card to 2 collections
+Upload to repo ROOT (replace all 3), Commit:
+  - index.html  (hero now says 32)
+  - savings-planning-tools.html
+  - electrical-wiring-tools.html
+(No indexing needed — edits only. Do NOT upload this readme.)
