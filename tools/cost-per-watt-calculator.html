@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solar Cost per Watt Calculator — Compare Quotes ($/W) | SolarToolHub</title>
+<meta name="description" content="Free solar cost per watt calculator: enter your total price and system size to get cost per watt and per kW — the fairest way to compare solar quotes.">
+<link rel="canonical" href="https://ahmedtere44-coder.github.io/solartoolhub/tools/cost-per-watt-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SolarToolHub">
+<meta property="og:title" content="Solar Cost per Watt Calculator — Compare Quotes ($/W) | SolarToolHub">
+<meta property="og:description" content="Enter total price and system size to get cost per watt and per kW — the fairest way to compare solar quotes.">
+<meta property="og:url" content="https://ahmedtere44-coder.github.io/solartoolhub/tools/cost-per-watt-calculator.html">
+<meta property="og:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Solar Cost per Watt Calculator | SolarToolHub">
+<meta name="twitter:description" content="Compare solar quotes fairly with cost per watt ($/W) and per kW.">
+<meta name="twitter:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is cost per watt for solar?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Cost per watt is the total installed price of a solar system divided by its size in watts. For example, a system that costs 6,000 in your currency and is 5,000 watts (5 kW) works out to 1.20 per watt. It is the fairest way to compare quotes because it removes the effect of system size." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you calculate cost per watt?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Divide the total installed cost by the system size in watts: cost per watt = total cost ÷ (kW × 1000). To get cost per kW instead, divide the total cost by the system size in kW. Always compare quotes using the same, all-in price (panels, inverter, mounting, wiring and installation)." }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is cost per watt better than total price for comparing quotes?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Total price alone is misleading because a bigger system naturally costs more. Cost per watt normalises for size, so you can fairly compare a 4 kW quote against a 6 kW quote. A lower cost per watt is generally better value — but always check the two quotes include the same equipment quality and scope." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does cost per watt go down for bigger systems?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Usually yes. Fixed costs like scaffolding, labour, permits and the inverter are spread over more watts, so larger systems tend to have a lower cost per watt — an economy of scale. This is why a 10 kW system often has a lower per-watt price than a 3 kW system." }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ahmedtere44-coder.github.io/solartoolhub/" },
+    { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools.html" },
+    { "@type": "ListItem", "position": 3, "name": "Cost per watt calculator", "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools/cost-per-watt-calculator.html" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html" class="active">Tools</a></li>
+      <li><a href="../articles.html">Guides</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button">Resources</button>
+        <ul class="nav-dropdown-menu">
+          <li><a href="../comparisons.html">Compare</a></li>
+          <li><a href="../cheat-sheets.html">Cheat sheets</a></li>
+          <li><a href="../glossary.html">Glossary</a></li>
+        </ul>
+      </li>
+      <li><a href="../solar-by-country.html">Solar by Country</a></li>
+      <li><a href="../real-examples.html">Real Examples</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../tools.html">Tools</a> / Cost per watt calculator</div>
+    <div class="page-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9.5a2.5 2 0 0 0-2.5-1.5h-1a2 2 0 0 0 0 4h1a2 2 0 0 1 0 4h-1A2.5 2 0 0 1 9 14.5"/><path d="M12 6v2M12 16v2"/></svg></div>
+    <h1>Solar cost per watt calculator</h1>
+    <p class="lede">The fairest way to compare solar quotes. Enter the total installed price and the system size, and this tool gives you the cost per watt and per kW — so a 4 kW quote and a 6 kW quote can be judged on equal terms.</p>
+  </div>
+</div>
+
+<div class="calc-layout">
+  <div class="container">
+    <div class="calc-card" style="max-width:680px;">
+      <form id="cw-calc-form">
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="cw-cost">Total installed cost</label>
+            <input type="number" id="cw-cost" value="6000" min="0" step="50">
+            <span class="helper-text">The full all-in price (panels, inverter, mounting, wiring, installation) in your currency.</span>
+          </div>
+          <div class="field-group">
+            <label for="cw-size">System size (kW)</label>
+            <input type="number" id="cw-size" value="5" min="0.1" step="0.1">
+            <span class="helper-text">The system's DC size in kilowatts — e.g. 8 &times; 625 W panels = 5 kW.</span>
+          </div>
+        </div>
+      </form>
+
+      <div class="calc-result">
+        <div>
+          <span class="num" id="cw-perw">0</span>
+          <span class="lbl">cost per watt (per W)</span>
+        </div>
+        <div>
+          <span class="num" id="cw-perkw">0</span>
+          <span class="lbl">cost per kW</span>
+        </div>
+      </div>
+
+      <button type="button" id="cw-pdf-btn" class="btn btn-accent" style="margin-top:20px;">⬇️ Download results as PDF</button>
+      <p class="helper-text">Cost per watt = total cost &#247; (kW &#215; 1000). Compare quotes using the same all-in scope and similar equipment quality — a lower number is better value, all else equal. Figures are in whatever currency you enter.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="calc-diagram">
+    <figure>
+      <svg viewBox="0 0 380 300" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="cw-t cw-d">
+        <title id="cw-t">How cost per watt is calculated</title>
+        <desc id="cw-d">Cost per watt equals the total installed cost divided by the system size in watts.</desc>
+        <text x="190" y="26" text-anchor="middle" font-family="Manrope, sans-serif" font-size="14" font-weight="700" fill="#111827">What you enter</text>
+        <g>
+          <rect x="30" y="42" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="105" y="63" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E3A8A">Total cost</text>
+          <text x="105" y="81" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">all-in price</text>
+        </g>
+        <g>
+          <rect x="200" y="42" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="275" y="63" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E3A8A">System size</text>
+          <text x="275" y="81" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">watts (kW &#215; 1000)</text>
+        </g>
+        <line x1="105" y1="94" x2="180" y2="128" stroke="#9CA3AF" stroke-width="1.5"/>
+        <line x1="275" y1="94" x2="200" y2="128" stroke="#9CA3AF" stroke-width="1.5"/>
+        <g>
+          <rect x="80" y="130" width="220" height="52" rx="8" fill="#FEF9C3" stroke="#CA8A04" stroke-width="0.75"/>
+          <text x="190" y="153" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#854D0E">$/W = cost &#247; watts</text>
+          <text x="190" y="171" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#854D0E">normalise price by size</text>
+        </g>
+        <line x1="190" y1="182" x2="190" y2="212" stroke="#9CA3AF" stroke-width="1.5"/>
+        <g>
+          <rect x="105" y="214" width="170" height="52" rx="8" fill="#E9FBF4" stroke="#10B981" stroke-width="0.75"/>
+          <text x="190" y="238" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#065F46">Cost per watt</text>
+          <text x="190" y="256" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#065F46">compare quotes fairly</text>
+        </g>
+      </svg>
+      <figcaption>Cost per watt strips out system size, so two differently-sized quotes can be compared on equal terms.</figcaption>
+    </figure>
+  </div>
+
+  <div class="calc-chart">
+    <h2 class="calc-chart-title">How cost per watt changes with system size</h2>
+    <p class="calc-chart-intro">This curve updates with your inputs. For a fixed total budget, the cost per watt falls as the system gets bigger, because fixed costs (labour, scaffolding, permits, inverter) are spread over more watts. The marker shows your system size.</p>
+    <div class="calc-chart-canvas-wrap">
+      <canvas id="cw-curve" role="img" aria-label="Line chart showing cost per watt falling as system size rises for a fixed total cost, with a marker for your system size.">For a fixed cost, cost per watt falls as system size rises.</canvas>
+    </div>
+  </div>
+
+  <article class="article">
+
+    <p>When you collect solar quotes, the total prices are hard to compare because they're for different system sizes. <strong>Cost per watt</strong> fixes that. It divides the all-in price by the number of watts, giving a single number you can line up side by side — the industry's standard way of judging value.</p>
+
+    <h2>The formula</h2>
+    <p>It's simple: <strong>cost per watt = total installed cost &#247; (system kW &#215; 1000)</strong>. A 5 kW system priced at 6,000 in your currency is 6,000 &#247; 5,000 = <strong>1.20 per watt</strong>. If you'd rather think in kilowatts, divide by kW directly: 6,000 &#247; 5 = 1,200 per kW. Both describe the same value.</p>
+
+    <h2>Use the same all-in scope</h2>
+    <p>Cost per watt is only fair if every quote covers the same thing. Make sure each price is the complete installed cost — panels, inverter, mounting, cabling, protection, labour and any permits — not just the hardware. A cheap per-watt figure that excludes installation isn't really cheaper.</p>
+
+    <h2>Why bigger systems cost less per watt</h2>
+    <p>Some costs barely change with system size: the scaffolding, the day's labour, the permits, and often the inverter. Spreading those fixed costs over more watts pulls the per-watt price down, so a 10 kW system usually has a lower cost per watt than a 3 kW one. That's why the chart above slopes down — it's a genuine economy of scale, not a trick.</p>
+
+    <h2>Cost per watt vs payback</h2>
+    <p>Cost per watt tells you whether a quote is priced well; it doesn't tell you how fast the system pays for itself. For that, combine it with your electricity tariff and production in the <a href="roi-calculator.html">ROI calculator</a> and the <a href="solar-bill-savings-calculator.html">bill savings calculator</a>. A slightly higher cost per watt for better-quality panels can still pay back faster if it produces more or lasts longer.</p>
+
+    <h2>Related tools</h2>
+    <p>Work out the right system size with the <a href="panel-calculator.html">solar panel calculator</a> and <a href="roof-area-system-size-calculator.html">roof area to system size calculator</a>, estimate output with the <a href="energy-production-calculator.html">energy production calculator</a>, and check local pricing and payback on the <a href="../solar-by-country.html">Solar by Country</a> pages. See a fully worked build in the <a href="../real-examples.html">Real Examples</a> section.</p>
+
+    <h2>Frequently asked questions</h2>
+    <h3>What is cost per watt for solar?</h3>
+    <p>It's the total installed price divided by the system size in watts. A 6,000 system that is 5,000 W works out to 1.20 per watt. It's the fairest way to compare quotes because it removes the effect of size.</p>
+    <h3>How do you calculate cost per watt?</h3>
+    <p>Divide total cost by watts: cost &#247; (kW &#215; 1000). For cost per kW, divide the total by kW. Always use the same all-in price across quotes.</p>
+    <h3>Why is cost per watt better than total price for comparing quotes?</h3>
+    <p>Total price is skewed by size — a bigger system costs more. Cost per watt normalises for size so a 4 kW and a 6 kW quote can be judged fairly. Lower is generally better value, if quality and scope match.</p>
+    <h3>Does cost per watt go down for bigger systems?</h3>
+    <p>Usually yes. Fixed costs (labour, scaffolding, permits, inverter) spread over more watts, so larger systems tend to have a lower per-watt price.</p>
+
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="panel-calculator.html">Panel calculator</a></li>
+          <li><a href="battery-calculator.html">Battery calculator</a></li>
+          <li><a href="inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="cable-calculator.html">Cable calculator</a></li>
+          <li><a href="roi-calculator.html">ROI calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script src="../js/share.js"></script>
+<script>
+  (function () {
+    var form = document.getElementById('cw-calc-form');
+    if (!form) return;
+    function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+
+    function calcCW() {
+      var cost = val('cw-cost'), kw = val('cw-size');
+      var watts = kw * 1000;
+      var perW = watts > 0 ? cost / watts : 0;
+      var perKW = kw > 0 ? cost / kw : 0;
+      document.getElementById('cw-perw').textContent = (Math.round(perW * 1000) / 1000).toFixed(2);
+      document.getElementById('cw-perkw').textContent = Math.round(perKW).toLocaleString();
+    }
+    form.addEventListener('input', calcCW);
+    calcCW();
+
+    var pdfBtn = document.getElementById('cw-pdf-btn');
+    if (pdfBtn) {
+      pdfBtn.addEventListener('click', function () {
+        var inputs = [
+          ['Total installed cost', document.getElementById('cw-cost').value],
+          ['System size', document.getElementById('cw-size').value + ' kW']
+        ];
+        var results = [
+          ['Cost per watt', document.getElementById('cw-perw').textContent + ' per W'],
+          ['Cost per kW', document.getElementById('cw-perkw').textContent + ' per kW']
+        ];
+        generateSolarToolHubResultsPDF({
+          subtitle: 'Solar Cost per Watt — Results',
+          inputs: inputs,
+          resultsHeaders: ['Metric', 'Value'],
+          results: results,
+          nextSteps: {
+            text: 'Check how fast it pays back with our:',
+            linkText: 'ROI Calculator',
+            url: 'https://ahmedtere44-coder.github.io/solartoolhub/tools/roi-calculator.html'
+          },
+          filename: 'solartoolhub-cost-per-watt-results.pdf'
+        });
+      });
+    }
+  })();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+  (function () {
+    var canvas = document.getElementById('cw-curve');
+    if (!canvas || typeof Chart === 'undefined') return;
+    var costEl = document.getElementById('cw-cost');
+    var sizeEl = document.getElementById('cw-size');
+    var sizeAxis = [1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 20];
+    function cost() { return parseFloat(costEl.value) || 0; }
+    function line() { var c = cost(); return sizeAxis.map(function (kw) { return { x: kw, y: Math.round(c / (kw * 1000) * 1000) / 1000 }; }); }
+    function marker() { var kw = parseFloat(sizeEl.value) || 0; return [{ x: kw, y: kw > 0 ? Math.round(cost() / (kw * 1000) * 1000) / 1000 : 0 }]; }
+
+    var chart = new Chart(canvas, {
+      type: 'line',
+      data: {
+        datasets: [
+          { label: 'Cost per watt', data: line(), borderColor: '#1E3A8A', backgroundColor: 'rgba(37,99,235,0.10)', borderWidth: 2, fill: true, tension: 0.2, pointRadius: 0 },
+          { label: 'Your system', data: marker(), borderColor: '#10B981', backgroundColor: '#10B981', showLine: false, pointRadius: 7, pointHoverRadius: 8, pointStyle: 'circle' }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: true, labels: { color: '#4B5563', boxWidth: 12 } } },
+        scales: {
+          x: { type: 'linear', min: 1, max: 20, title: { display: true, text: 'System size (kW)', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, grid: { display: false } },
+          y: { title: { display: true, text: 'Cost per watt', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, beginAtZero: true }
+        }
+      }
+    });
+    function refresh() {
+      chart.data.datasets[0].data = line();
+      chart.data.datasets[1].data = marker();
+      chart.update();
+    }
+    [costEl, sizeEl].forEach(function (el) { if (el) el.addEventListener('input', refresh); });
+  })();
+</script>
+</body>
+</html>
