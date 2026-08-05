@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>kWh to kW Calculator — Convert Energy to Power (kW = kWh ÷ hours) | SolarToolHub</title>
+<meta name="description" content="Free kWh to kW calculator. Enter energy in kWh and the time in hours to get the average power in kW, with a live chart and the reverse kW to kWh conversion.">
+<link rel="canonical" href="https://ahmedtere44-coder.github.io/solartoolhub/tools/kwh-to-kw-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SolarToolHub">
+<meta property="og:title" content="kWh to kW Calculator — Convert Energy to Power (kW = kWh ÷ hours) | SolarToolHub">
+<meta property="og:description" content="Enter energy in kWh and time in hours to get average power in kW. Live chart and reverse conversion included.">
+<meta property="og:url" content="https://ahmedtere44-coder.github.io/solartoolhub/tools/kwh-to-kw-calculator.html">
+<meta property="og:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="kWh to kW Calculator | SolarToolHub">
+<meta name="twitter:description" content="Convert energy (kWh) to power (kW) using kW = kWh ÷ hours.">
+<meta name="twitter:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do you convert kWh to kW?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Divide the energy in kWh by the time in hours. kW = kWh ÷ hours. For example, 10 kWh used over 5 hours is 10 ÷ 5 = 2 kW average power. kWh is energy (an amount); kW is power (a rate), so you always need a time period to convert between them."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between kW and kWh?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "kW (kilowatts) is power — the rate at which energy is used or produced right now. kWh (kilowatt-hours) is energy — the total amount used or produced over time. A 2 kW device running for 3 hours uses 2 × 3 = 6 kWh. Your electricity bill charges you per kWh."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you convert kW to kWh?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiply the power in kW by the number of hours it runs. kWh = kW × hours. For example, a 3 kW load running for 4 hours uses 3 × 4 = 12 kWh. This is the reverse of the kWh to kW conversion."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ahmedtere44-coder.github.io/solartoolhub/" },
+    { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools.html" },
+    { "@type": "ListItem", "position": 3, "name": "kWh to kW calculator", "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools/kwh-to-kw-calculator.html" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html" class="active">Tools</a></li>
+      <li><a href="../articles.html">Guides</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button">Resources</button>
+        <ul class="nav-dropdown-menu">
+          <li><a href="../comparisons.html">Compare</a></li>
+          <li><a href="../cheat-sheets.html">Cheat sheets</a></li>
+          <li><a href="../glossary.html">Glossary</a></li>
+        </ul>
+      </li>
+      <li><a href="../solar-by-country.html">Solar by Country</a></li>
+      <li><a href="../real-examples.html">Real Examples</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../tools.html">Tools</a> / kWh to kW calculator</div>
+    <div class="page-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+    <h1>kWh to kW calculator</h1>
+    <p class="lede">Convert energy to power in one step. Enter the energy in kilowatt-hours (kWh) and the time in hours, and get the average power in kilowatts (kW) — using kW = kWh ÷ hours. The reverse (kW to kWh) is explained below too.</p>
+  </div>
+</div>
+
+<div class="calc-layout">
+  <div class="container">
+    <div class="calc-card" style="max-width:680px;">
+      <form id="ek-calc-form">
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="ek-kwh">Energy (kWh)</label>
+            <input type="number" id="ek-kwh" value="10" min="0" step="0.1">
+            <span class="helper-text">The total energy used or produced, in kilowatt-hours.</span>
+          </div>
+          <div class="field-group">
+            <label for="ek-hours">Time (hours)</label>
+            <input type="number" id="ek-hours" value="5" min="0.1" step="0.1">
+            <span class="helper-text">Over how many hours that energy is used or produced.</span>
+          </div>
+        </div>
+      </form>
+
+      <div class="calc-result">
+        <div>
+          <span class="num" id="ek-kw">0</span>
+          <span class="lbl">average power (kW)</span>
+        </div>
+        <div>
+          <span class="num" id="ek-w">0</span>
+          <span class="lbl">average power (W)</span>
+        </div>
+      </div>
+
+      <button type="button" id="ek-pdf-btn" class="btn btn-accent" style="margin-top:20px;">⬇️ Download results as PDF</button>
+      <p class="helper-text">kW = kWh ÷ hours. Energy (kWh) is an amount; power (kW) is a rate — so you always need a time period to go between them. To go the other way, kWh = kW × hours.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="calc-diagram">
+    <figure>
+      <svg viewBox="0 0 380 300" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="ek-t ek-d">
+        <title id="ek-t">The relationship between energy, time and power</title>
+        <desc id="ek-d">Power equals energy divided by time, so kilowatts equals kilowatt-hours divided by hours.</desc>
+        <text x="190" y="26" text-anchor="middle" font-family="Manrope, sans-serif" font-size="14" font-weight="700" fill="#111827">What you enter</text>
+        <g>
+          <rect x="30" y="42" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="105" y="63" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E3A8A">Energy</text>
+          <text x="105" y="81" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">kilowatt-hours (kWh)</text>
+        </g>
+        <g>
+          <rect x="200" y="42" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="275" y="63" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E3A8A">Time</text>
+          <text x="275" y="81" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">hours (h)</text>
+        </g>
+        <line x1="105" y1="94" x2="180" y2="128" stroke="#9CA3AF" stroke-width="1.5"/>
+        <line x1="275" y1="94" x2="200" y2="128" stroke="#9CA3AF" stroke-width="1.5"/>
+        <g>
+          <rect x="90" y="130" width="200" height="52" rx="8" fill="#FEF9C3" stroke="#CA8A04" stroke-width="0.75"/>
+          <text x="190" y="153" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#854D0E">kW = kWh &#247; hours</text>
+          <text x="190" y="171" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#854D0E">power = energy &#247; time</text>
+        </g>
+        <line x1="190" y1="182" x2="190" y2="212" stroke="#9CA3AF" stroke-width="1.5"/>
+        <g>
+          <rect x="115" y="214" width="150" height="52" rx="8" fill="#E9FBF4" stroke="#10B981" stroke-width="0.75"/>
+          <text x="190" y="238" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#065F46">Power (kW)</text>
+          <text x="190" y="256" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#065F46">the average rate of use</text>
+        </g>
+      </svg>
+      <figcaption>Average power is simply energy divided by the time it is spread over.</figcaption>
+    </figure>
+  </div>
+
+  <div class="calc-chart">
+    <h2 class="calc-chart-title">How average power changes with time</h2>
+    <p class="calc-chart-intro">This curve updates with your inputs. For a fixed amount of energy, the average power falls as you spread it over more hours — the same 10 kWh is 10 kW over 1 hour but only about 0.83 kW over 12 hours. The marker shows your time.</p>
+    <div class="calc-chart-canvas-wrap">
+      <canvas id="ek-curve" role="img" aria-label="Line chart showing average power falling as the time period rises for a fixed energy, with a marker for your hours.">For a fixed energy, average power falls as time rises.</canvas>
+    </div>
+  </div>
+
+  <article class="article">
+
+    <p>People say "kWh" and "kW" as if they mean the same thing, but they don't. <strong>kW</strong> (kilowatts) is <strong>power</strong> — the rate energy flows right now. <strong>kWh</strong> (kilowatt-hours) is <strong>energy</strong> — the total amount used or produced over some time. To move between them you need the time period, because <strong>kW = kWh &#247; hours</strong> (and, in reverse, <strong>kWh = kW &#215; hours</strong>).</p>
+
+    <h2>A worked example</h2>
+    <p>Say a battery delivers 10 kWh of energy and you want it to last 5 hours. The average power it can supply is 10 &#247; 5 = 2 kW. Spread that same 10 kWh over 10 hours instead and the average power drops to 1 kW. The energy is the same; the power depends entirely on how quickly you use it.</p>
+
+    <h2>Going the other way: kW to kWh</h2>
+    <p>To find energy from power, multiply by time: kWh = kW &#215; hours. A 3 kW load running for 4 hours uses 3 &#215; 4 = 12 kWh. This is exactly what your electricity meter counts — it bills you per kWh, not per kW.</p>
+
+    <h2>Why it matters for solar</h2>
+    <p>Solar sizing lives on this conversion. Your daily consumption is in kWh, but panels and inverters are rated in kW (or W). Peak sun hours act as the "time" that links them: array size (kW) &#215; peak sun hours &#215; a loss factor gives your daily kWh. Get the two units straight and the rest of the design follows.</p>
+
+    <h2>Related tools</h2>
+    <p>Turn energy into a system size with the <a href="energy-production-calculator.html">energy production calculator</a> and the <a href="panel-calculator.html">solar panel calculator</a>. For batteries, see the <a href="battery-ah-kwh-converter.html">Ah &#8596; kWh converter</a> and the <a href="battery-runtime-calculator.html">battery runtime calculator</a>. To total your loads, use the <a href="daily-load-calculator.html">daily load calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <h3>How do you convert kWh to kW?</h3>
+    <p>Divide energy by time: kW = kWh &#247; hours. For example, 10 kWh over 5 hours is 2 kW.</p>
+    <h3>What is the difference between kW and kWh?</h3>
+    <p>kW is power (the rate now); kWh is energy (the total over time). A 2 kW device for 3 hours uses 6 kWh. Bills are per kWh.</p>
+    <h3>How do you convert kW to kWh?</h3>
+    <p>Multiply power by time: kWh = kW &#215; hours. A 3 kW load for 4 hours uses 12 kWh.</p>
+
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="panel-calculator.html">Panel calculator</a></li>
+          <li><a href="battery-calculator.html">Battery calculator</a></li>
+          <li><a href="inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="cable-calculator.html">Cable calculator</a></li>
+          <li><a href="roi-calculator.html">ROI calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script src="../js/share.js"></script>
+<script>
+  (function () {
+    var form = document.getElementById('ek-calc-form');
+    if (!form) return;
+    function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+
+    function calcEK() {
+      var e = val('ek-kwh'), h = val('ek-hours');
+      var kw = h > 0 ? e / h : 0;
+      document.getElementById('ek-kw').textContent = (Math.round(kw * 1000) / 1000).toFixed(3);
+      document.getElementById('ek-w').textContent = Math.round(kw * 1000).toLocaleString();
+    }
+    form.addEventListener('input', calcEK);
+    calcEK();
+
+    var pdfBtn = document.getElementById('ek-pdf-btn');
+    if (pdfBtn) {
+      pdfBtn.addEventListener('click', function () {
+        var inputs = [
+          ['Energy', document.getElementById('ek-kwh').value + ' kWh'],
+          ['Time', document.getElementById('ek-hours').value + ' hours']
+        ];
+        var results = [
+          ['Average power', document.getElementById('ek-kw').textContent + ' kW'],
+          ['Average power', document.getElementById('ek-w').textContent + ' W']
+        ];
+        generateSolarToolHubResultsPDF({
+          subtitle: 'kWh to kW — Results',
+          inputs: inputs,
+          resultsHeaders: ['Metric', 'Value'],
+          results: results,
+          nextSteps: {
+            text: 'Turn this into a system size with our:',
+            linkText: 'Energy Production Calculator',
+            url: 'https://ahmedtere44-coder.github.io/solartoolhub/tools/energy-production-calculator.html'
+          },
+          filename: 'solartoolhub-kwh-to-kw-results.pdf'
+        });
+      });
+    }
+  })();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+  (function () {
+    var canvas = document.getElementById('ek-curve');
+    if (!canvas || typeof Chart === 'undefined') return;
+    var eEl = document.getElementById('ek-kwh');
+    var hEl = document.getElementById('ek-hours');
+    var hoursAxis = [1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24];
+    function energy() { return parseFloat(eEl.value) || 0; }
+    function line() { var e = energy(); return hoursAxis.map(function (h) { return { x: h, y: Math.round(e / h * 1000) / 1000 }; }); }
+    function marker() { var h = parseFloat(hEl.value) || 0; return [{ x: h, y: h > 0 ? Math.round(energy() / h * 1000) / 1000 : 0 }]; }
+
+    var chart = new Chart(canvas, {
+      type: 'line',
+      data: {
+        datasets: [
+          { label: 'Average power (kW)', data: line(), borderColor: '#1E3A8A', backgroundColor: 'rgba(37,99,235,0.10)', borderWidth: 2, fill: true, tension: 0.2, pointRadius: 0 },
+          { label: 'Your time', data: marker(), borderColor: '#10B981', backgroundColor: '#10B981', showLine: false, pointRadius: 7, pointHoverRadius: 8, pointStyle: 'circle' }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: true, labels: { color: '#4B5563', boxWidth: 12 } } },
+        scales: {
+          x: { type: 'linear', min: 1, max: 24, title: { display: true, text: 'Time (hours)', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, grid: { display: false } },
+          y: { title: { display: true, text: 'Average power (kW)', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, beginAtZero: true }
+        }
+      }
+    });
+    function refresh() {
+      chart.data.datasets[0].data = line();
+      chart.data.datasets[1].data = marker();
+      chart.update();
+    }
+    [eEl, hEl].forEach(function (el) { if (el) el.addEventListener('input', refresh); });
+  })();
+</script>
+</body>
+</html>
