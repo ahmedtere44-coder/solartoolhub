@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>kVA to kW Calculator — Convert kVA to kW (kW = kVA × PF) | SolarToolHub</title>
+<meta name="description" content="Free kVA to kW calculator. Enter apparent power in kVA and the power factor to get real power in kW, using kW = kVA × PF — with a live chart and reverse conversion.">
+<link rel="canonical" href="https://ahmedtere44-coder.github.io/solartoolhub/tools/kva-to-kw-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SolarToolHub">
+<meta property="og:title" content="kVA to kW Calculator — Convert kVA to kW (kW = kVA × PF) | SolarToolHub">
+<meta property="og:description" content="Enter kVA and the power factor to get real power in kW, using kW = kVA × PF. Live chart and reverse conversion included.">
+<meta property="og:url" content="https://ahmedtere44-coder.github.io/solartoolhub/tools/kva-to-kw-calculator.html">
+<meta property="og:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="kVA to kW Calculator | SolarToolHub">
+<meta name="twitter:description" content="Convert kVA to kW with kW = kVA × PF.">
+<meta name="twitter:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do you convert kVA to kW?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiply the apparent power in kVA by the power factor: kW = kVA × power factor. For example, 10 kVA at a power factor of 0.8 gives 10 × 0.8 = 8 kW. To go the other way, divide: kVA = kW ÷ power factor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a typical power factor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Generators are usually rated at a power factor of 0.8, which is why their kVA and kW ratings differ. Purely resistive loads such as heaters have a power factor near 1.0, so their kVA and kW are almost equal. Motors and mixed commercial loads typically fall between 0.7 and 0.85."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between kVA and kW?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "kVA is apparent power — the total power the source or generator must supply. kW is real power — the part that does actual work. The power factor links them: kW = kVA × power factor. The remainder is reactive power, measured in kVAR, and together they form the power triangle."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ahmedtere44-coder.github.io/solartoolhub/" },
+    { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools.html" },
+    { "@type": "ListItem", "position": 3, "name": "kVA to kW calculator", "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools/kva-to-kw-calculator.html" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html" class="active">Tools</a></li>
+      <li><a href="../articles.html">Guides</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button">Resources</button>
+        <ul class="nav-dropdown-menu">
+          <li><a href="../comparisons.html">Compare</a></li>
+          <li><a href="../cheat-sheets.html">Cheat sheets</a></li>
+          <li><a href="../glossary.html">Glossary</a></li>
+        </ul>
+      </li>
+      <li><a href="../solar-by-country.html">Solar by Country</a></li>
+      <li><a href="../real-examples.html">Real Examples</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../tools.html">Tools</a> / kVA to kW calculator</div>
+    <div class="page-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 0 0-9 9h4a5 5 0 0 1 10 0h4a9 9 0 0 0-9-9z"/><path d="M12 12l4-2"/></svg></div>
+    <h1>kVA to kW calculator</h1>
+    <p class="lede">Convert apparent power to real power in one step. Enter the kVA and the power factor to get kW — the number that matters for sizing generators, inverters, and transformers. Based on kW = kVA × power factor.</p>
+  </div>
+</div>
+
+<div class="calc-layout">
+  <div class="container">
+    <div class="calc-card" style="max-width:680px;">
+      <form id="kv-calc-form">
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="kv-kva">Apparent power (kVA)</label>
+            <input type="number" id="kv-kva" value="10" min="0" step="0.1">
+            <span class="helper-text">The rating on the generator, inverter, or transformer.</span>
+          </div>
+          <div class="field-group">
+            <label for="kv-pf">Power factor</label>
+            <input type="number" id="kv-pf" value="0.8" min="0" max="1" step="0.01">
+            <span class="helper-text">Between 0 and 1. Generators are usually rated at 0.8.</span>
+          </div>
+        </div>
+      </form>
+
+      <div class="calc-result">
+        <div>
+          <span class="num" id="kv-kw">0</span>
+          <span class="lbl">real power (kW)</span>
+        </div>
+        <div>
+          <span class="num" id="kv-kvar">0</span>
+          <span class="lbl">reactive power (kVAR)</span>
+        </div>
+      </div>
+
+      <button type="button" id="kv-pdf-btn" class="btn btn-accent" style="margin-top:20px;">⬇️ Download results as PDF</button>
+      <p class="helper-text">kW = kVA × power factor. The reactive part is kVAR = kVA × sin(arccos PF). Together they form the power triangle: kVA² = kW² + kVAR². At a power factor of 1, kVA and kW are equal.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="calc-diagram">
+    <figure>
+      <svg viewBox="0 0 380 300" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="kv-t kv-d">
+        <title id="kv-t">Converting apparent power to real power</title>
+        <desc id="kv-d">Real power equals apparent power in kVA multiplied by the power factor.</desc>
+        <text x="190" y="26" text-anchor="middle" font-family="Manrope, sans-serif" font-size="14" font-weight="700" fill="#111827">What you enter</text>
+        <g>
+          <rect x="30" y="42" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="105" y="63" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E3A8A">Apparent power</text>
+          <text x="105" y="81" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">kVA</text>
+        </g>
+        <g>
+          <rect x="200" y="42" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="275" y="63" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E3A8A">Power factor</text>
+          <text x="275" y="81" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">0 to 1</text>
+        </g>
+        <line x1="105" y1="94" x2="180" y2="128" stroke="#9CA3AF" stroke-width="1.5"/>
+        <line x1="275" y1="94" x2="200" y2="128" stroke="#9CA3AF" stroke-width="1.5"/>
+        <g>
+          <rect x="90" y="130" width="200" height="52" rx="8" fill="#FEF9C3" stroke="#CA8A04" stroke-width="0.75"/>
+          <text x="190" y="153" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#854D0E">kW = kVA × power factor</text>
+          <text x="190" y="171" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#854D0E">the power triangle</text>
+        </g>
+        <line x1="190" y1="182" x2="190" y2="212" stroke="#9CA3AF" stroke-width="1.5"/>
+        <g>
+          <rect x="115" y="214" width="150" height="52" rx="8" fill="#E9FBF4" stroke="#10B981" stroke-width="0.75"/>
+          <text x="190" y="238" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#065F46">Real power (kW)</text>
+          <text x="190" y="256" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#065F46">the work actually done</text>
+        </g>
+      </svg>
+      <figcaption>Real power is apparent power scaled by the power factor — the figure you size real loads around.</figcaption>
+    </figure>
+  </div>
+
+  <div class="calc-chart">
+    <h2 class="calc-chart-title">How real power changes with power factor</h2>
+    <p class="calc-chart-intro">This line updates with your inputs. For a fixed kVA rating, the real power in kW rises straight in line with the power factor — from zero at PF 0 up to the full kVA figure at PF 1. The marker shows your power factor.</p>
+    <div class="calc-chart-canvas-wrap">
+      <canvas id="kv-curve" role="img" aria-label="Line chart showing real power in kW rising with power factor for a fixed kVA, with a marker for your power factor.">For a fixed kVA, kW rises with power factor.</canvas>
+    </div>
+  </div>
+
+  <article class="article">
+
+    <p>A generator or inverter is rated in <strong>kVA</strong> — apparent power. But the load it actually drives is measured in <strong>kW</strong> — real power. The two are not the same, and the gap between them is set by the <strong>power factor</strong>. The conversion is simply <strong>kW = kVA × power factor</strong>. It's one of the first sums you do when matching a generator to a load.</p>
+
+    <h2>A worked example</h2>
+    <p>Take a 10 kVA generator rated at the usual 0.8 power factor. Its real output is 10 × 0.8 = 8 kW. The reactive part is 10 × sin(arccos 0.8) = 6 kVAR. Notice the neat 3-4-5 shape: 8 kW, 6 kVAR, and 10 kVA form a right triangle, because kVA² = kW² + kVAR². That triangle is the whole story of apparent, real, and reactive power in one picture.</p>
+
+    <h2>Why it matters</h2>
+    <p>If you size a generator by its kVA number and ignore the power factor, you'll overestimate how much real load it can carry. A 10 kVA set won't run 10 kW of equipment — only 8 kW at a 0.8 power factor. For purely resistive loads like heaters, the power factor is close to 1, so kVA and kW nearly match; for motors it's lower, so the shortfall is bigger.</p>
+
+    <h2>Related tools</h2>
+    <p>Match the source to the load with the <a href="generator-sizing-calculator.html">generator sizing calculator</a> and the <a href="inverter-calculator.html">inverter calculator</a>. To go from power to current for wiring, use the <a href="watts-to-amps-calculator.html">watts to amps calculator</a>, and for energy over time see the <a href="kwh-to-kw-calculator.html">kWh to kW calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <h3>How do you convert kVA to kW?</h3>
+    <p>Multiply kVA by the power factor: kW = kVA × PF. For example, 10 kVA at 0.8 is 8 kW. To reverse it, divide: kVA = kW ÷ PF.</p>
+    <h3>What is a typical power factor?</h3>
+    <p>Generators are usually rated at 0.8. Resistive loads like heaters sit near 1.0; motors and mixed loads fall between 0.7 and 0.85.</p>
+    <h3>What is the difference between kVA and kW?</h3>
+    <p>kVA is apparent power the source must supply; kW is the real power that does work. The power factor links them, and the difference shows up as reactive power in kVAR.</p>
+
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="panel-calculator.html">Panel calculator</a></li>
+          <li><a href="battery-calculator.html">Battery calculator</a></li>
+          <li><a href="inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="cable-calculator.html">Cable calculator</a></li>
+          <li><a href="roi-calculator.html">ROI calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script src="../js/share.js"></script>
+<script>
+  (function () {
+    var form = document.getElementById('kv-calc-form');
+    if (!form) return;
+    function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+
+    function calcKV() {
+      var kva = val('kv-kva'), pf = val('kv-pf');
+      if (pf < 0) pf = 0;
+      if (pf > 1) pf = 1;
+      var kw = kva * pf;
+      var kvar = kva * Math.sin(Math.acos(pf));
+      document.getElementById('kv-kw').textContent = (Math.round(kw * 100) / 100).toFixed(2);
+      document.getElementById('kv-kvar').textContent = (Math.round(kvar * 100) / 100).toFixed(2);
+    }
+    form.addEventListener('input', calcKV);
+    calcKV();
+
+    var pdfBtn = document.getElementById('kv-pdf-btn');
+    if (pdfBtn) {
+      pdfBtn.addEventListener('click', function () {
+        var inputs = [
+          ['Apparent power', document.getElementById('kv-kva').value + ' kVA'],
+          ['Power factor', document.getElementById('kv-pf').value]
+        ];
+        var results = [
+          ['Real power', document.getElementById('kv-kw').textContent + ' kW'],
+          ['Reactive power', document.getElementById('kv-kvar').textContent + ' kVAR']
+        ];
+        generateSolarToolHubResultsPDF({
+          subtitle: 'kVA to kW — Results',
+          inputs: inputs,
+          resultsHeaders: ['Metric', 'Value'],
+          results: results,
+          nextSteps: {
+            text: 'Now match a generator to this real load with our:',
+            linkText: 'Generator Sizing Calculator',
+            url: 'https://ahmedtere44-coder.github.io/solartoolhub/tools/generator-sizing-calculator.html'
+          },
+          filename: 'solartoolhub-kva-to-kw-results.pdf'
+        });
+      });
+    }
+  })();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+  (function () {
+    var canvas = document.getElementById('kv-curve');
+    if (!canvas || typeof Chart === 'undefined') return;
+    var kvaEl = document.getElementById('kv-kva');
+    var pfEl = document.getElementById('kv-pf');
+    var pfs = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1];
+    function kva() { return parseFloat(kvaEl.value) || 0; }
+    function line() { var k = kva(); return pfs.map(function (p) { return { x: p, y: Math.round(k * p * 100) / 100 }; }); }
+    function marker() { var p = parseFloat(pfEl.value) || 0; if (p < 0) p = 0; if (p > 1) p = 1; return [{ x: p, y: Math.round(kva() * p * 100) / 100 }]; }
+
+    var chart = new Chart(canvas, {
+      type: 'line',
+      data: {
+        datasets: [
+          { label: 'Real power (kW)', data: line(), borderColor: '#1E3A8A', backgroundColor: 'rgba(37,99,235,0.10)', borderWidth: 2, fill: true, tension: 0.2, pointRadius: 0 },
+          { label: 'Your power factor', data: marker(), borderColor: '#10B981', backgroundColor: '#10B981', showLine: false, pointRadius: 7, pointHoverRadius: 8, pointStyle: 'circle' }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: true, labels: { color: '#4B5563', boxWidth: 12 } } },
+        scales: {
+          x: { type: 'linear', min: 0, max: 1, title: { display: true, text: 'Power factor', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, grid: { display: false } },
+          y: { title: { display: true, text: 'Real power (kW)', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, beginAtZero: true }
+        }
+      }
+    });
+    function refresh() {
+      chart.data.datasets[0].data = line();
+      chart.data.datasets[1].data = marker();
+      chart.update();
+    }
+    [kvaEl, pfEl].forEach(function (el) { if (el) el.addEventListener('input', refresh); });
+  })();
+</script>
+</body>
+</html>
