@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Net Metering Explained: How Solar Credits Actually Work — SolarToolHub</title>
+<meta name="description" content="Understand net metering step by step: how your bidirectional meter works, how monthly credits roll over, net metering vs net billing vs feed-in tariffs, how export rates differ by country and US state, and what it means for your system size and battery decision.">
+<link rel="canonical" href="https://ahmedtere44-coder.github.io/solartoolhub/articles/net-metering-guide.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SolarToolHub">
+<meta property="og:title" content="Net Metering Explained: How Solar Credits Actually Work | SolarToolHub">
+<meta property="og:description" content="Understand net metering step by step: how your bidirectional meter works, how monthly credits roll over, net metering vs net billing vs feed-in tariffs, how export rates differ by country and US state, and what it means for your system size and battery decision.">
+<meta property="og:url" content="https://ahmedtere44-coder.github.io/solartoolhub/articles/net-metering-guide.html">
+<meta property="og:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Net Metering Explained: How Solar Credits Actually Work | SolarToolHub">
+<meta name="twitter:description" content="Understand net metering: how solar bill credits work, how net billing differs, and what it means for your solar system size and battery decision.">
+<meta name="twitter:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What exactly happens to the electricity my panels produce?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your home uses what it can first. Anything left over flows through the bidirectional meter onto the grid, and your utility records it as exported kWh. Those exports become bill credits at whatever rate your local program offers — full retail under true net metering, or a reduced avoided-cost rate under net billing. At night or on cloudy days you pull from the grid, and the credit balance is drawn down."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between net metering and net billing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Net metering credits exports at the full retail rate (1:1 — if you pay 30 cents/kWh, you earn 30 cents/kWh). Net billing credits exports at a much lower rate, usually the utility's avoided cost (roughly 3–8 cents/kWh in places like California under NEM 3.0). Net billing cuts export income dramatically and makes self-consumption — ideally with a battery — far more valuable than grid export."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do net metering credits expire?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends entirely on your utility's program. Many US programs roll credits over month to month and then hold an annual true-up, paying out or zeroing the balance at year end; some European feed-in schemes pay monthly at a fixed tariff; some markets simply expire unused credits. Check your utility's tariff or the DSIRE database for your region before sizing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does net metering change how large my solar system should be?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Under 1:1 net metering, modest oversizing is fine because every exported kWh earns full credit. Under net billing, exported kWh are worth pennies, so the system should be sized to your self-consumption — and a battery becomes part of the design, not an option. Right-sizing against your actual load profile matters more than ever."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is net metering available everywhere?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most US states plus D.C. and Puerto Rico have mandatory net metering rules, and most other developed markets have an export-compensation scheme of some kind — net metering, net billing, or a feed-in tariff. But the details (rates, caps, grandfathering, true-up rules) vary enormously by state, country and utility. Check your local regulator's or utility's program before quoting savings."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guides",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/articles.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Net metering explained: how solar credits actually work",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/articles/net-metering-guide.html"
+    }
+  ]
+}
+</script>
+<!-- fallback styles -->
+<style>
+  .article figure, .article figure img { max-width: 100%; height: auto; border-radius: 12px; }
+  .article .data-table { border-collapse: collapse; width: 100%; }
+  .article .field-experience { border-left: 4px solid #F59E0B; }
+  .article .btn-row { display: flex; flex-wrap: wrap; gap: 10px; }
+</style>
+<!-- fallback styles -->
+<style>
+  .article figure, .article figure img { max-width: 100%; height: auto; border-radius: 12px; }
+  .article .data-table { border-collapse: collapse; width: 100%; }
+  .article .field-experience { border-left: 4px solid #F59E0B; }
+  .article .btn-row { display: flex; flex-wrap: wrap; gap: 10px; }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html">Tools</a></li>
+      <li><a href="../articles.html" class="active">Guides</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button">Resources</button>
+        <ul class="nav-dropdown-menu">
+          <li><a href="../comparisons.html">Compare</a></li>
+          <li><a href="../cheat-sheets.html">Cheat sheets</a></li>
+          <li><a href="../glossary.html">Glossary</a></li>
+        </ul>
+      </li>
+      <li><a href="../solar-by-country.html">Solar by Country</a></li>
+      <li><a href="../real-examples.html">Real Examples</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../articles.html">Guides</a> / Net metering explained: how solar credits actually work</div>
+    <div class="page-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 2 2h12a2 2 0 0 2 2-2V8z"></path><path d="M14 2v6h6"></path><path d="M8 13h8M8 17h8M8 9h2"></path></svg></div>
+    <h1>Net Metering Explained: How Solar Credits Actually Work</h1>
+    <p class="lede">Net metering is the policy that makes rooftop solar pay for itself: when your panels produce more than your home needs, the surplus flows to the grid and your meter literally runs in reverse, banking you credits that cover the power you pull back at night and in winter. This guide explains the full mechanism — the bidirectional meter, the monthly netting math, the difference between net metering, net billing and feed-in tariffs, and how the rules differ across the US, Europe, Australia and Asia — so you know exactly what your system will be compensated for, before you buy anything.</p>
+    <div class="btn-row" style="margin-top:18px;">
+      <button type="button" id="article-pdf-btn" class="btn btn-accent">⬇️ Download article as PDF</button>
+      <button type="button" id="article-share-btn" class="btn btn-outline">🔗 Share</button>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <article class="article" style="padding-top:48px;">
+        <figure style="margin:0 0 32px;">
+      <img src="../images/net-metering-global-web.jpg" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='800' height='450'&gt;&lt;rect width='800' height='450' fill='%23E5E7EB'/&gt;&lt;text x='400' y='225' text-anchor='middle' font-family='sans-serif' font-size='20' fill='%236B7280'&gt;Image loading...&lt;/text&gt;&lt;/svg&gt;'" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='450'><rect width='800' height='450' fill='%23E5E7EB'/><text x='400' y='225' text-anchor='middle' font-family='sans-serif' font-size='20' fill='%236B7280'>Image loading...</text></svg>'" alt="A modern house with rooftop solar panels under a clear blue sky, with a bidirectional smart electricity meter on the wall and arrows showing energy flowing to and from the grid" loading="lazy" style="width:100%; height:auto; border-radius:12px; display:block;" width="1200" height="675">
+      <figcaption style="text-align:center; font-size:0.88rem; color:var(--ink-faint); margin-top:10px;">The bidirectional meter is the heart of net metering — it counts energy flowing both ways.</figcaption>
+    </figure>
+    <p>Before any homeowner asks "how many panels do I need?", there is a quieter question that decides whether the answer pays back: <strong>what will the utility actually pay me for the power I send them?</strong> The answer lives in a one-word billing mechanism called net metering, and it is the single most important piece of solar policy you will ever read. In some markets it credits your exports at the full retail electricity rate; in others it pays a fraction of that. The difference is thousands of dollars over a system's life, and it is written into your utility's tariff.</p>
+    <p>This guide explains the mechanism from the meter outward: how the bidirectional meter works, how monthly netting produces bill credits, what the three competing schemes (net metering, net billing, feed-in tariff) actually mean, how the rules split by region in 2026, and — most practically — how the compensation model should change your system size and your battery decision.</p>
+    <h2>What net metering actually is</h2>
+    <p>Net metering is a utility billing arrangement: when your solar panels produce more electricity than your home is using at that moment, the surplus flows onto the local grid through a <strong>bidirectional (net) meter</strong>, and the utility credits your account for every exported kilowatt-hour. Those credits then offset the electricity you import at night, on cloudy days, and in winter. At the end of the billing period, you are billed for the <strong>net</strong> — imports minus exports — which is where the name comes from.</p>
+    <p>Think of it as a <strong>virtual battery run by your utility</strong>. You cannot see the energy you export, but the meter records it, the utility banks it in your account, and you withdraw it later against your next bill. Unlike a physical battery, there is no round-trip efficiency loss and no capacity limit — which is why, where full retail net metering exists, it remains the most valuable solar incentive on the market.</p>
+    <h2>How it works, step by step</h2>
+    <p>Walk the energy through a single sunny afternoon. Your panels produce 4 kW, your home draws 1 kW for the fridge and the router, so 3 kW leaves through the bidirectional meter onto the street. The meter spins (or counts, if it is digital) <em>backwards</em> for those three kilowatts. At sunset the panels go quiet, the house pulls 1 kW from the grid, and the meter runs forward again. At the end of the month, the utility subtracts total exports from total imports:</p>
+    <p style="text-align:center; font-family:var(--font-mono, 'IBM Plex Mono', monospace); background:#EEF2F7; padding:18px; border-radius:10px;">Net kWh billed = total imported kWh − total exported kWh</p>
+    <p>If the result is positive, you pay for the difference. If it is negative, you have banked a credit. Under true net metering that credit is worth the full retail rate per kWh; under net billing it is worth the lower export (avoided-cost) rate — and the number below is the one that decides your real savings:</p>
+    <table class="data-table" style="width:100%; border-collapse:collapse; margin:18px 0;">
+      <thead>
+        <tr style="text-align:left;">
+          <th style="padding:12px; border-bottom:2px solid var(--ink-soft, #E2E8F0);">Term</th>
+          <th style="padding:12px; border-bottom:2px solid var(--ink-soft, #E2E8F0);">What it means</th>
+          <th style="padding:12px; border-bottom:2px solid var(--ink-soft, #E2E8F0);">Why it matters to you</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);"><strong>Imported kWh</strong></td>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);">Energy drawn from the grid when solar isn't enough</td>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);">What you pay for — at your full retail rate</td>
+        </tr>
+        <tr>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);"><strong>Exported kWh</strong></td>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);">Surplus solar sent to the grid midday</td>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);">What earns credits — at retail or at the reduced export rate</td>
+        </tr>
+        <tr>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);"><strong>Export (credit) rate</strong></td>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);">The price per exported kWh your program pays</td>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);">The single number that sets your payback period</td>
+        </tr>
+        <tr>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);"><strong>True-up</strong></td>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);">The periodic (often annual) settlement of leftover credits</td>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);">Unused credits may be paid out, rolled over, or zeroed — check your program</td>
+        </tr>
+        <tr>
+          <td style="padding:12px;"><strong>Fixed charges</strong></td>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);">Meter fees, taxes, connection fees on every bill</td>
+          <td style="padding:12px;">Solar never removes these — they stay on even a zero-consumption bill</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>The fixed charges row deserves emphasis: even a home that exports more than it imports still pays the monthly connection and meter fees. A realistic solar bill under net metering is never zero — it is your energy charges reduced toward zero plus the fixed items. Expecting a literal $0.00 bill every month is the most common misconception we see, and it distorts payback expectations.</p>
+    <h2>Net metering vs net billing vs feed-in tariff</h2>
+    <p>Three schemes coexist worldwide, and marketing material often blurs them. The difference is simply <strong>which rate your exports are paid at</strong>:</p>
+    <table class="data-table" style="width:100%; border-collapse:collapse; margin:18px 0;">
+      <thead>
+        <tr style="text-align:left;">
+          <th style="padding:12px; border-bottom:2px solid var(--ink-soft, #E2E8F0);">Scheme</th>
+          <th style="padding:12px; border-bottom:2px solid var(--ink-soft, #E2E8F0);">Export rate</th>
+          <th style="padding:12px; border-bottom:2px solid var(--ink-soft, #E2E8F0);">Best-fit system design</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);"><strong>Net metering (1:1)</strong></td>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);">Full retail rate, same as what you pay to import</td>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);">Size to annual consumption; modest oversizing is fine</td>
+        </tr>
+        <tr>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);"><strong>Net billing</strong></td>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);">Reduced avoided-cost rate (often 3–8 cents/kWh vs 20–35 cents retail)</td>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);">Right-size to daytime load; battery becomes essential</td>
+        </tr>
+        <tr>
+          <td style="padding:12px;"><strong>Feed-in tariff (FiT)</strong></td>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);">A separate fixed tariff for all exported energy, sometimes time-varying</td>
+          <td style="padding:12px;">Production maximization can outweigh pure self-consumption</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>The practical reading rule: if your tariff calls your export payment a <em>credit at the retail rate</em>, you have net metering. If it quotes an <em>avoided-cost</em> or <em>export compensation</em> figure far below retail — like California's NEM 3.0, which cut export compensation by roughly 75% compared to its predecessor — you have net billing, and your savings case must be built on self-consumption, not on selling to the grid.</p>
+    <h2>How net metering shows up on your bill</h2>
+    <p>Under net metering your monthly statement still has the same skeleton as before: fixed charges first, then the energy section. The energy section now carries an import figure, an export figure, and a <strong>net</strong> figure. Months with surplus production show a negative net balance — that is your credit building. Watch for three details when you read it.</p>
+    <p>First, the <strong>credit rate applied</strong>: some utilities apply your full tariff including tiers, others apply only the lowest tier to credits. Second, the <strong>measurement period</strong>: most programs net monthly, but an increasing number of markets (including parts of California) net every hour or fifteen minutes, which is harsher on midday-only production. Third, the <strong>true-up terms</strong>: what happens at the end of the credit year — cash payout, carry-forward, or forfeiture — sets your ceiling on what the system can ever be worth.</p>
+    <p>The <a href="how-to-read-your-electricity-bill-for-solar.html">electricity bill guide</a> on this site walks through extracting the kWh figures these calculations need; this guide supplies the policy layer on top of them.</p>
+    <h2>Net metering around the world in 2026</h2>
+    <p>The landscape splits into three tiers, and the tier your market sits in decides your whole design philosophy. In the United States, roughly 38 states plus D.C. maintain some form of net metering or net billing, but the era of uniform 1:1 retail credits is fracturing. States like <strong>New Jersey, Massachusetts, New York, Maryland, Connecticut, Vermont and Maine</strong> still offer genuine full-retail net metering (often grandfathered for twenty years), while <strong>California, Nevada, Arizona, Arkansas and Indiana</strong> have moved to net billing with sharply reduced export rates, and a couple of states have no statewide program at all. The US resource to check is <a href="https://programs.dsireusa.org/" target="_blank" rel="noopener">DSIRE</a>, the national database of state incentive policies.</p>
+    <p>In <strong>Europe</strong>, the direction has largely been the opposite: countries are shifting from net-metering-style schemes toward dedicated <strong>prosumer feed-in tariffs</strong> and market-based compensation, with Germany's feed-in model being the reference point. In <strong>Australia</strong>, solar owners receive state-based solar feed-in tariffs for exports rather than true net metering, so the export rate varies by retailer and state. Across <strong>Asia</strong>, both models coexist — Malaysia runs a Net Energy Metering scheme, Indonesia has net metering for capped system sizes, Thailand operates NEM, net-billing and buy-all options side by side, and Singapore compensates rooftop exports under its licensing framework.</p>
+    <table class="data-table" style="width:100%; border-collapse:collapse; margin:18px 0;">
+      <thead>
+        <tr style="text-align:left;">
+          <th style="padding:12px; border-bottom:2px solid var(--ink-soft, #E2E8F0);">Region</th>
+          <th style="padding:12px; border-bottom:2px solid var(--ink-soft, #E2E8F0);">Dominant scheme</th>
+          <th style="padding:12px; border-bottom:2px solid var(--ink-soft, #E2E8F0);">2026 direction</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);"><strong>US (retail-rate states)</strong></td>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);">1:1 net metering, 20-year grandfathering common</td>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);">Stable but under review in several states</td>
+        </tr>
+        <tr>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);"><strong>US (transition states)</strong></td>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);">Net billing at avoided-cost rates</td>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);">Export rates declining; battery adoption rising</td>
+        </tr>
+        <tr>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);"><strong>Europe</strong></td>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);">Feed-in tariffs and prosumer compensation</td>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);">Moving toward market-based export pricing</td>
+        </tr>
+        <tr>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);"><strong>Australia</strong></td>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);">State-based feed-in tariffs via retailers</td>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);">FiT rates modest; self-consumption emphasis</td>
+        </tr>
+        <tr>
+          <td style="padding:12px;"><strong>Asia</strong></td>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);">Mixed: NEM, net billing, buy-all</td>
+          <td style="padding:12px;">Expanding rapidly with size caps and licensing</td>
+        </tr>
+      </tbody>
+    </table>
+    <h2>How net metering changes your system size</h2>
+    <p>The compensation model is a design input, not fine print. Under full retail net metering, every exported kilowatt-hour earns what you would have paid for it, so a system sized to your <strong>annual</strong> consumption — with some headroom — maximizes savings, and going slightly over is rarely punished. Under net billing the calculus inverts: exported energy is worth a fraction of imported energy, so the goal becomes <strong>matching production to your own daytime load</strong>. In those markets a smaller array plus a battery routinely beats a larger array alone, because a stored kilowatt-hour used at the evening peak is worth three to five times an exported one.</p>
+    <p>That is why the <a href="../tools/panel-calculator.html">panel calculator</a> step should always be preceded by the policy question: find your export rate first, then size. The <a href="../tools/roi-calculator.html">ROI calculator</a> then converts those numbers into a payback — and paybacks swing by years depending on which side of the net-metering line your utility sits. If you are on the fence between configurations, our <a href="grid-tied-vs-off-grid-vs-hybrid.html">grid-tied vs off-grid vs hybrid guide</a> maps the three architectures against exactly this kind of tariff reality.</p>
+    <h2>The battery question, honestly</h2>
+    <p>Under 1:1 net metering, a battery is largely optional: the grid is your free, lossless storage, and the battery only buys backup power and independence. Under net billing or time-of-use tariffs, the battery changes the economics — storing midday surplus for the expensive evening window can multiply the value of each kilowatt-hour several times over. The honest rule we use on projects: <strong>buy the battery for the tariff, not for the feeling</strong>. In retail-rate net-metering markets it is an insurance purchase; in avoided-cost markets it is a core part of the system design, and our <a href="../tools/battery-calculator.html">battery calculator</a> exists to size that storage against your actual evening load, not against marketing figures.</p>
+    <div class="field-experience">
+      <span class="tag">Field note</span>
+      <p>On a grid-tied project in Ma'an, southern Jordan, we watched the first summer under net metering do something no sales brochure could: the client's meter ran backwards most afternoons, and by the annual true-up the export balance had covered nearly all of the following year's winter consumption. What changed his next decision wasn't the savings — it was seeing the credit roll forward on paper, exactly as the program promised. Since then, before any design conversation, we open the client's last twelve bills and the utility's current export-compensation terms. The tariff decides the architecture; the architecture decides the hardware. Skip the first step and you will buy the wrong hardware at the right price.</p>
+    </div>
+    <h2>What to check before you sign anything</h2>
+    <p>Five questions answer 90% of the "will this pay back?" problem, and each one takes a phone call to the utility to resolve. <strong>One</strong>: is my area on net metering, net billing, or a feed-in tariff, and what is the exact export rate? <strong>Two</strong>: is my system size within the program's eligibility cap, and does my roof's orientation affect the credited output? <strong>Three</strong>: do credits roll over, and what happens at the annual true-up? <strong>Four</strong>: will my existing meter be replaced with a bidirectional one, and what does that cost? <strong>Five</strong>: if the program is under regulatory review, what grandfathering applies to systems connected this year? The answers go straight into the ROI calculator and convert a vague promise into a number.</p>
+    <h2>Common net metering questions, answered</h2>
+    <p><strong>"My bill went down but isn't zero — is something wrong?"</strong> Almost certainly not. Fixed charges, meter fees and taxes remain on every bill even when your net energy is zero. A small balance is the normal shape of a net-metered bill.</p>
+    <p><strong>"Can I sell power back for cash?"</strong> Generally no — net metering programs issue bill credits, not checks. Some utilities pay out unused credits at true-up at the avoided-cost rate, which is far below retail; most simply zero the balance.</p>
+    <p><strong>"Do credits cover my neighbor's house?"</strong> Only under virtual net metering or community solar arrangements, which exist in a limited number of markets. Standard net metering attaches credits to the meter/account, not the person.</p>
+    <p><strong>"Will net metering still exist when my system is 15 years old?"</strong> Programs evolve, but most jurisdictions grandfather existing customers at the rates in effect when they connected — often for a fixed term such as twenty years. That grandfathering is the strongest argument for not delaying a well-designed installation.</p>
+    <h2>Frequently asked questions</h2>
+    <h3>What exactly happens to the electricity my panels produce?</h3>
+    <p>Your home uses what it can first. Anything left over flows through the bidirectional meter onto the grid, and your utility records it as exported kWh. Those exports become bill credits at whatever rate your local program offers — full retail under true net metering, or a reduced avoided-cost rate under net billing. At night or on cloudy days you pull from the grid, and the credit balance is drawn down.</p>
+    <h3>What is the difference between net metering and net billing?</h3>
+    <p>Net metering credits exports at the full retail rate (1:1 — if you pay 30 cents/kWh, you earn 30 cents/kWh). Net billing credits exports at a much lower rate, usually the utility's avoided cost (roughly 3–8 cents/kWh in places like California under NEM 3.0). Net billing cuts export income dramatically and makes self-consumption — ideally with a battery — far more valuable than grid export.</p>
+    <h3>Do net metering credits expire?</h3>
+    <p>It depends entirely on your utility's program. Many US programs roll credits over month to month and then hold an annual true-up, paying out or zeroing the balance at year end; some European feed-in schemes pay monthly at a fixed tariff; some markets simply expire unused credits. Check your utility's tariff or the DSIRE database for your region before sizing.</p>
+    <h3>Does net metering change how large my solar system should be?</h3>
+    <p>Yes. Under 1:1 net metering, modest oversizing is fine because every exported kWh earns full credit. Under net billing, exported kWh are worth pennies, so the system should be sized to your self-consumption — and a battery becomes part of the design, not an option. Right-sizing against your actual load profile matters more than ever.</p>
+    <h3>Is net metering available everywhere?</h3>
+    <p>Most US states plus D.C. and Puerto Rico have mandatory net metering rules, and most other developed markets have an export-compensation scheme of some kind — net metering, net billing, or a feed-in tariff. But the details (rates, caps, grandfathering, true-up rules) vary enormously by state, country and utility. Check your local regulator's or utility's program before quoting savings.</p>
+  </article>
+</div>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"></rect><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"></rect><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"></rect><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"></rect></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="../tools/panel-calculator.html">Panel calculator</a></li>
+          <li><a href="../tools/battery-calculator.html">Battery calculator</a></li>
+          <li><a href="../tools/inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="../tools/cable-calculator.html">Cable calculator</a></li>
+          <li><a href="../tools/roi-calculator.html">ROI calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script src="../js/main.js"></script>
+<script>
+  // ---------- SolarToolHub html2canvas PDF export (pixel-perfect Arabic) ----------
+  function sthExportArticlePdf() {
+    var btn = document.getElementById('article-pdf-btn');
+    var origText = btn ? btn.textContent : '';
+    if (btn) { btn.textContent = 'Preparing PDF...'; btn.disabled = true; }
+    // find article container
+    var art = document.querySelector('.article') || document.querySelector('article') || document.querySelector('main');
+    if (!art) { alert('Could not find article content.'); if (btn) { btn.textContent = origText; btn.disabled = false; } return; }
+    // clone, hide interactive bits
+    var clone = art.cloneNode(true);
+    clone.querySelectorAll('button, .btn, script, noscript').forEach(function (n) { n.remove(); });
+    clone.querySelectorAll('a').forEach(function (a) { a.style.textDecoration = 'none'; });
+    var wrap = document.createElement('div');
+    wrap.style.cssText = 'position:fixed;left:-10000px;top:0;width:794px;background:#ffffff;padding:32px 30px;color:#1f2937;z-index:-1;';
+    wrap.appendChild(clone);
+    document.body.appendChild(wrap);
+    wrap.querySelectorAll('*').forEach(function (el) {
+      var p = getComputedStyle(el).position;
+      if (p === 'fixed' || p === 'sticky') el.style.position = 'absolute';
+    });
+    document.fonts.ready.then(function () {
+      window.html2canvas(wrap, {
+        scale: 1.6, useCORS: true, allowTaint: true,
+        backgroundColor: '#ffffff', windowWidth: 794, logging: false
+      }).then(function (canvas) {
+        wrap.remove();
+        var doc = new window.jspdf.jsPDF({ unit: 'mm', format: 'a4' });
+        var margin = 12, pageW = 210, pageH = 297;
+        var imgW = pageW - margin * 2;
+        var pxPerMM = canvas.width / imgW;
+        var totalH = (canvas.height * imgW) / canvas.width;
+        var left = totalH, firstPage = true;
+        while (left > 0.1) {
+          var sliceH_mm = Math.min(pageH - margin * 2, left);
+          var sliceH_px = Math.round(sliceH_mm * pxPerMM);
+          var srcY_px = Math.round((totalH - left) * pxPerMM);
+          var tmp = document.createElement('canvas');
+          tmp.width = canvas.width; tmp.height = sliceH_px;
+          tmp.getContext('2d').drawImage(canvas, 0, srcY_px, canvas.width, sliceH_px, 0, 0, canvas.width, sliceH_px);
+          if (!firstPage) doc.addPage();
+          doc.addImage(tmp.toDataURL('image/jpeg', 0.8), 'JPEG', margin, margin, imgW, sliceH_mm);
+          firstPage = false; left -= sliceH_mm;
+        }
+        doc.save('solartoolhub-net-metering-guide.pdf');
+        if (btn) { btn.textContent = origText; btn.disabled = false; }
+      }).catch(function (e) {
+        wrap.remove();
+        console.error('SolarToolHub PDF export failed', e);
+        alert('Could not generate the PDF. Please try again or use your browser print (Ctrl+P).');
+        if (btn) { btn.textContent = origText; btn.disabled = false; }
+      });
+    });
+  }
+  var articlePdfBtn = document.getElementById('article-pdf-btn');
+  if (articlePdfBtn) {
+    articlePdfBtn.addEventListener('click', sthExportArticlePdf);
+  }
+  var shareBtn = document.getElementById('article-share-btn');
+  if (shareBtn) {
+    shareBtn.addEventListener('click', function () {
+      var data = { title: 'Net Metering Explained: How Solar Credits Actually Work — SolarToolHub', url: window.location.href };
+      if (navigator.share) { navigator.share(data).catch(function () {}); }
+      else { navigator.clipboard.writeText(window.location.href).then(function () { shareBtn.textContent = '\u2713 Link copied'; setTimeout(function () { shareBtn.textContent = '\ud83d\udd17 Share'; }, 2000); }); }
+    });
+  }
+</script>
+</body>
+</html>
