@@ -299,19 +299,66 @@
 </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="../js/pdf-export.js"></script>
 <script src="../js/main.js"></script>
 <script>
-  var articlePdfBtn = document.getElementById('article-pdf-btn');
-  if (articlePdfBtn) {
-    articlePdfBtn.addEventListener('click', function () {
-      generateSolarToolHubArticlePDF({
-        title: document.querySelector('h1').textContent.trim(),
-        subtitle: document.querySelector('.lede') ? document.querySelector('.lede').textContent.trim() : '',
-        articleSelector: '.article',
-        filename: 'solartoolhub-how-to-read-your-electricity-bill-for-solar.pdf'
+  // ---------- SolarToolHub html2canvas PDF export (pixel-perfect Arabic) ----------
+  function sthExportArticlePdf() {
+    var btn = document.getElementById('article-pdf-btn');
+    var origText = btn ? btn.textContent : '';
+    if (btn) { btn.textContent = 'Preparing PDF...'; btn.disabled = true; }
+    // find article container
+    var art = document.querySelector('.article') || document.querySelector('article') || document.querySelector('main');
+    if (!art) { alert('Could not find article content.'); if (btn) { btn.textContent = origText; btn.disabled = false; } return; }
+    // clone, hide interactive bits
+    var clone = art.cloneNode(true);
+    clone.querySelectorAll('button, .btn, script, noscript').forEach(function (n) { n.remove(); });
+    clone.querySelectorAll('a').forEach(function (a) { a.style.textDecoration = 'none'; });
+    var wrap = document.createElement('div');
+    wrap.style.cssText = 'position:fixed;left:-10000px;top:0;width:794px;background:#ffffff;padding:32px 30px;color:#1f2937;z-index:-1;';
+    wrap.appendChild(clone);
+    document.body.appendChild(wrap);
+    wrap.querySelectorAll('*').forEach(function (el) {
+      var p = getComputedStyle(el).position;
+      if (p === 'fixed' || p === 'sticky') el.style.position = 'absolute';
+    });
+    document.fonts.ready.then(function () {
+      window.html2canvas(wrap, {
+        scale: 1.6, useCORS: true, allowTaint: true,
+        backgroundColor: '#ffffff', windowWidth: 794, logging: false
+      }).then(function (canvas) {
+        wrap.remove();
+        var doc = new window.jspdf.jsPDF({ unit: 'mm', format: 'a4' });
+        var margin = 12, pageW = 210, pageH = 297;
+        var imgW = pageW - margin * 2;
+        var pxPerMM = canvas.width / imgW;
+        var totalH = (canvas.height * imgW) / canvas.width;
+        var left = totalH, firstPage = true;
+        while (left > 0.1) {
+          var sliceH_mm = Math.min(pageH - margin * 2, left);
+          var sliceH_px = Math.round(sliceH_mm * pxPerMM);
+          var srcY_px = Math.round((totalH - left) * pxPerMM);
+          var tmp = document.createElement('canvas');
+          tmp.width = canvas.width; tmp.height = sliceH_px;
+          tmp.getContext('2d').drawImage(canvas, 0, srcY_px, canvas.width, sliceH_px, 0, 0, canvas.width, sliceH_px);
+          if (!firstPage) doc.addPage();
+          doc.addImage(tmp.toDataURL('image/jpeg', 0.8), 'JPEG', margin, margin, imgW, sliceH_mm);
+          firstPage = false; left -= sliceH_mm;
+        }
+        doc.save('solartoolhub-how-to-read-your-electricity-bill-for-solar.pdf');
+        if (btn) { btn.textContent = origText; btn.disabled = false; }
+      }).catch(function (e) {
+        wrap.remove();
+        console.error('SolarToolHub PDF export failed', e);
+        alert('Could not generate the PDF. Please try again or use your browser print (Ctrl+P).');
+        if (btn) { btn.textContent = origText; btn.disabled = false; }
       });
     });
+  }
+  var articlePdfBtn = document.getElementById('article-pdf-btn');
+  if (articlePdfBtn) {
+    articlePdfBtn.addEventListener('click', sthExportArticlePdf);
   }
   var shareBtn = document.getElementById('article-share-btn');
   if (shareBtn) {
