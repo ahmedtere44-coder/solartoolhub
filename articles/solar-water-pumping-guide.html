@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solar Water Pumping Guide: How Many Panels for Your Well?</title>
+<meta name="description" content="Understand net metering step by step: how your bidirectional meter works, how monthly credits roll over, net metering vs net billing vs feed-in tariffs, how export rates differ by country and US state, and what it means for your system size and battery decision.">
+<link rel="canonical" href="https://ahmedtere44-coder.github.io/solartoolhub/articles/solar-water-pumping-guide.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SolarToolHub">
+<meta property="og:title" content="Net Metering Explained: How Solar Credits Actually Work | SolarToolHub">
+<meta property="og:description" content="Understand net metering step by step: how your bidirectional meter works, how monthly credits roll over, net metering vs net billing vs feed-in tariffs, how export rates differ by country and US state, and what it means for your system size and battery decision.">
+<meta property="og:url" content="https://ahmedtere44-coder.github.io/solartoolhub/articles/solar-water-pumping-guide.html">
+<meta property="og:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Net Metering Explained: How Solar Credits Actually Work | SolarToolHub">
+<meta name="twitter:description" content="Understand net metering: how solar bill credits work, how net billing differs, and what it means for your solar system size and battery decision.">
+<meta name="twitter:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can a solar panel run a water pump directly without batteries?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — this is the most common configuration. A 'direct-drive' solar pump system connects panels to a pump controller that adjusts the pump's speed to the sunlight available. The pump runs faster at midday and slower in the morning, and no battery is needed. Instead of storing electricity, you store water: the solar system pumps more than you need into an elevated tank, and gravity delivers it when the sun is down. Water storage is far cheaper and longer-lasting than battery storage."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many solar panels do I need for my water pump?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A rule of thumb: the solar array should be roughly 1.3 to 1.5 times the pump's rated motor power. A 1 HP (750 W) DC pump typically needs about 1,000 to 1,100 W of panels — roughly three 380-450 W modules. For AC pumps, add the inverter loss on top: a 1 HP AC pump with a small inverter usually needs 1,300 to 1,500 W of panels. Your daily water need also matters: more litres per day means more panels or longer pumping hours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a DC pump or an AC pump better for solar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For small to medium systems, DC brushless pumps are the better match: they connect directly to the panels through a simple controller, lose no energy in an inverter, and start working at very low sunlight. AC pumps make sense when you already own a good submersible AC pump, or for large irrigation systems where cheap, powerful AC motors outweigh the inverter losses. Solar pump controllers with built-in small inverters now bridge this gap for AC motors too."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What depth of well can a solar pump handle?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Solar submersible pumps are commonly available for heads from 30 m (100 ft) up to 200 m (650 ft) and beyond. The two numbers that decide the pump are 'head' (vertical lift plus pipe friction loss) and 'flow' (litres per minute). Multiply head by flow and you get the hydraulic work your panels must do: higher head needs more voltage and more panels per litre pumped. Always size for the static water level plus drawdown, not just the well depth."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need batteries for a solar water pump?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Almost never. Over 90% of installed solar pumping systems are battery-free. Water storage tanks (roof tanks, ground reservoirs, or water towers) replace batteries at a fraction of the cost and with zero replacement cycle. Batteries only make sense where water cannot be stored — some pressurized irrigation networks — and even then a small dedicated battery bank, not your home battery, is the usual solution."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does a solar water pump system cost in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A typical homestead system (1 HP surface or submersible pump, 1,000-1,300 W of panels, controller, cabling and mounting) runs about $1,200 to $2,500 installed in most markets, and pays for itself in two to five years against diesel fuel or grid tariffs. Larger agricultural systems (5-10 HP irrigation pumps with 5-10 kW arrays) cost $6,000 to $15,000 and are usually financed against the fuel savings. Check your local agriculture program — many countries in the Middle East, India and Africa subsidize solar pump replacements."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Solar Water Pumping Guide: How Many Panels for Your Well?",
+  "datePublished": "2026-08-13",
+  "dateModified": "2026-08-13",
+  "author": {
+    "@type": "Person",
+    "name": "Ahmad",
+    "url": "https://ahmedtere44-coder.github.io/solartoolhub/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SolarToolHub",
+    "url": "https://ahmedtere44-coder.github.io/solartoolhub/"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://ahmedtere44-coder.github.io/solartoolhub/articles/solar-water-pumping-guide.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guides",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/articles.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Net metering explained: how solar credits actually work",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/articles/solar-water-pumping-guide.html"
+    }
+  ]
+}
+</script>
+<!-- fallback styles -->
+<style>
+  .article figure, .article figure img { max-width: 100%; height: auto; border-radius: 12px; }
+  .article .data-table { border-collapse: collapse; width: 100%; }
+  .article .field-experience { border-left: 4px solid #F59E0B; }
+  .article .btn-row { display: flex; flex-wrap: wrap; gap: 10px; }
+</style>
+<!-- fallback styles -->
+<style>
+  .article figure, .article figure img { max-width: 100%; height: auto; border-radius: 12px; }
+  .article .data-table { border-collapse: collapse; width: 100%; }
+  .article .field-experience { border-left: 4px solid #F59E0B; }
+  .article .btn-row { display: flex; flex-wrap: wrap; gap: 10px; }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html">Tools</a></li>
+      <li><a href="../articles.html" class="active">Guides</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button">Resources</button>
+        <ul class="nav-dropdown-menu">
+          <li><a href="../comparisons.html">Compare</a></li>
+          <li><a href="../cheat-sheets.html">Cheat sheets</a></li>
+          <li><a href="../glossary.html">Glossary</a></li>
+        </ul>
+      </li>
+      <li><a href="../solar-by-country.html">Solar by Country</a></li>
+      <li><a href="../real-examples.html">Real Examples</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../articles.html">Guides</a> / Solar water pumping guide: how many panels for your well?</div>
+    <div class="page-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 2 2h12a2 2 0 0 2 2-2V8z"></path><path d="M14 2v6h6"></path><path d="M8 13h8M8 17h8M8 9h2"></path></svg></div>
+    <h1>Solar Water Pumping Guide: How Many Panels for Your Well?</h1>
+    <p class="lede">Millions of wells, irrigation systems and rural water points now run on solar pumps, and the reason is simple economics: a solar pump pays for itself in fuel savings alone, then pumps for free for twenty years. But sizing one correctly is easy to get wrong — undersize the array and your pump barely turns; oversize it and you paid for panels your pump can never use. This guide walks through the whole decision in order: DC vs AC pumps, direct-drive vs battery systems, how to convert your pump's specs into a panel count, how much water storage replaces batteries, and what the job actually costs in 2026.</p>
+    <div class="btn-row" style="margin-top:18px;">
+      <button type="button" id="article-pdf-btn" class="btn btn-accent">⬇️ Download article as PDF</button>
+      <button type="button" id="article-share-btn" class="btn btn-outline">🔗 Share</button>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <article class="article" style="padding-top:48px;">
+            <figure style="margin:0 0 32px;">
+      <img src="../images/solar-water-pumping.jpg" alt="Solar water pump system in a field: photovoltaic panels mounted on a frame next to a water well, pumping water into an elevated storage tank through an irrigation pipe" loading="lazy" style="width:100%; height:auto; border-radius:12px; display:block;" width="1200" height="675">
+      <figcaption style="text-align:center; font-size:0.88rem; color:var(--ink-faint); margin-top:10px;">A direct-drive solar pump: panels feed the controller, the controller feeds the pump, and the tank stores the energy as water.</figcaption>
+    </figure>
+    <p>The single most expensive thing on many farms and homesteads is water that must be lifted from the ground, and the single most expensive way to lift it is with diesel. A solar water pump removes the fuel bill entirely, and because water can be stored in a simple tank, it removes the battery bill too. What remains is a decision that comes down to four questions: <strong>how deep is the water, how much water do you need per day, should the pump run on DC or AC, and how many panels does that actually require</strong> — and this guide answers all four in order.</p>
+    <h2>DC vs AC pumps: which one for solar?</h2>
+    <p>Water pumps for solar come in two electrical flavors, and the choice shapes the whole system. A <strong>DC pump</strong> connects straight to the panels through a simple pump controller: there is no inverter, no conversion loss, and the motor begins turning at surprisingly low morning light. DC pumps dominate the market for flows up to a few hundred litres per minute, and a brushless DC (BLDC) submersible is the default recommendation for wells under about 10 HP equivalent. An <strong>AC pump</strong> needs an inverter or a solar pump controller with a built-in mini-inverter — which adds roughly 5-10% losses — but makes sense when you already own a capable AC submersible, or when irrigation duties demand the cheap, powerful AC motors used in big systems.</p>
+    <table class="data-table" style="width:100%; border-collapse:collapse; margin:18px 0;">
+      <thead>
+        <tr style="text-align:left;">
+          <th style="padding:12px; border-bottom:2px solid var(--ink-soft, #E2E8F0);">Factor</th>
+          <th style="padding:12px; border-bottom:2px solid var(--ink-soft, #E2E8F0);">DC pump (direct drive)</th>
+          <th style="padding:12px; border-bottom:2px solid var(--ink-soft, #E2E8F0);">AC pump (with controller)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);">Efficiency</td>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);">Best — no inverter losses</td>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);">5-10% lost in conversion</td>
+        </tr>
+        <tr>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);">Start-up light</td>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);">Very low — pumps early morning</td>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);">Needs stronger sun</td>
+        </tr>
+        <tr>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);">Typical range</td>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);">Small homestead &amp; livestock</td>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);">Medium to large irrigation</td>
+        </tr>
+        <tr>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);">Reuse existing pump?</td>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);">No — new pump needed</td>
+          <td style="padding:12px; border-bottom:1px solid var(--ink-soft, #E2E8F0);">Often yes, with a controller</td>
+        </tr>
+      </tbody>
+    </table>
+    <h2>How many panels does a water pump need?</h2>
+    <p>The sizing rule is refreshingly simple: <strong>the solar array should be 1.3 to 1.5 times the pump motor's rated wattage</strong>. The extra capacity compensates for heat, dust, panel aging, and the fact that a pump controller needs headroom to reach full flow. A 1 HP motor draws about 750 W, so the array target is roughly 1,000-1,100 W — three modern 380-450 W panels for a DC pump, or 1,300-1,500 W if you are running it through an inverter. Then check the second constraint: your daily water volume. If the pump delivers 20 L/min and you need 10,000 L per day, that is 500 minutes of pumping — about 8.5 hours — which only a generously sized array can sustain in shoulder seasons.</p>
+    <p style="text-align:center; font-family:var(--font-mono, 'IBM Plex Mono', monospace); background:#EEF2F7; padding:18px; border-radius:10px;">Array (W) ≈ pump motor (W) × 1.3 … 1.5 — then check daily litres</p>
+    <p>The two numbers on every pump nameplate decide everything: <strong>head</strong> (vertical lift from water level to delivery point, plus friction loss in the pipe — every 100 m of horizontal pipe adds roughly 1-2 m of head) and <strong>flow</strong> in litres per minute. Multiply them and you get the hydraulic work. A shallow well at 30 m with modest flow is a three-panel job; a 120 m deep well at good flow is a twelve-panel job, even if the motors look similar.</p>
+    <h2>Why almost nobody needs batteries</h2>
+    <p>Batteries store electricity, and electricity is the expensive way to store energy for pumping. The cheap way is to <strong>store water</strong>: an elevated tank or ground reservoir pumped full during the day delivers water all evening by gravity, at zero maintenance and a twenty-year life. This is why the textbook solar pumping layout — panels, controller, pump, tank — has no battery in it. The one exception is a pressurized irrigation network that cannot tolerate a tank in the line; there, a small dedicated battery bank is better than nothing, but size it for the pump motor only, not for the house.</p>
+    <p>One caution from the field: size the <strong>tank for the worst month, not the average</strong>. In the dustiest, haziest month your array may deliver 70% of its rated output, so if your daily need is 10,000 L in summer but 3,000 L in winter, design the array and tank around the winter requirement — a pump that cannot meet winter demand is worse than one that over-pumps in summer.</p>
+    <h2>Real costs in 2026</h2>
+    <p>A complete 1 HP homestead system — submersible or surface pump, 1,000-1,300 W of panels, pump controller, cabling, and mounting frame — typically lands between <strong>$1,200 and $2,500 installed</strong> in most markets, and pays itself back in two to five years against diesel. Agricultural systems scale up smoothly: a 5-10 HP irrigation pump with a 5-10 kW array runs $6,000-15,000. The economics improve everywhere fuel is subsidized poorly or grid power is unreliable, and many countries now subsidize solar pump replacement directly, so always check your agriculture ministry's program before buying. In hot dusty regions, budget for an annual panel wash — dust alone can cost you 10-20% of daily output, which for a pump is water you never lifted.</p>
+    <div class="field-experience" style="margin:28px 0;">
+      <p><strong>Field note (Ma'an, southern Jordan):</strong> our first solar pump job was a 70 m well feeding a livestock trough in a place where the diesel bill was eating the whole farm budget. We put three 400 W panels on a fixed-tilt frame, a 1 HP DC submersible, and a 5,000 L tank on a 4 m stand. The pump never saw a battery, and the owner now fills the trough by 2 p.m. even in November. The lesson we repeat on every job: wash the panels monthly, and never trust a quoted "peak flow" — always ask for the flow curve at your actual well depth.</p>
+    </div>
+    <h2>Installation checklist</h2>
+    <p>Install in this order and you will avoid the common mistakes. First, measure the <strong>static water level</strong> and the drawdown during pumping — the pump must be rated for that total head, not just the well depth. Second, mount the panels on the south-facing tilt with a clear path from morning to afternoon sun; pumps suffer more from partial shade than any other solar load because the controller tracks a moving peak. Third, keep the DC cable run from panels to controller short and use the solar cable gauge the controller manual specifies — long thin DC runs are the number one cause of "my pump is slow." Finally, set the dry-run protection: a solar pump left spinning in an empty well burns a winding in minutes.</p>
+    <h2>Frequently asked questions</h2>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"></rect><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"></rect><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"></rect><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"></rect></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="../tools/panel-calculator.html">Panel calculator</a></li>
+          <li><a href="../tools/battery-calculator.html">Battery calculator</a></li>
+          <li><a href="../tools/inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="../tools/cable-calculator.html">Cable calculator</a></li>
+          <li><a href="../tools/roi-calculator.html">ROI calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script src="../js/main.js"></script>
+<script>
+  // ---------- SolarToolHub html2canvas PDF export (pixel-perfect Arabic) ----------
+  function sthExportArticlePdf() {
+    var btn = document.getElementById('article-pdf-btn');
+    var origText = btn ? btn.textContent : '';
+    if (btn) { btn.textContent = 'Preparing PDF...'; btn.disabled = true; }
+    // find article container
+    var art = document.querySelector('.article') || document.querySelector('article') || document.querySelector('main');
+    if (!art) { alert('Could not find article content.'); if (btn) { btn.textContent = origText; btn.disabled = false; } return; }
+    // clone, hide interactive bits
+    var clone = art.cloneNode(true);
+    clone.querySelectorAll('button, .btn, script, noscript').forEach(function (n) { n.remove(); });
+    clone.querySelectorAll('a').forEach(function (a) { a.style.textDecoration = 'none'; });
+    var wrap = document.createElement('div');
+    wrap.style.cssText = 'position:fixed;left:-10000px;top:0;width:794px;background:#ffffff;padding:32px 30px;color:#1f2937;z-index:-1;';
+    wrap.appendChild(clone);
+    document.body.appendChild(wrap);
+    wrap.querySelectorAll('*').forEach(function (el) {
+      var p = getComputedStyle(el).position;
+      if (p === 'fixed' || p === 'sticky') el.style.position = 'absolute';
+    });
+    document.fonts.ready.then(function () {
+      window.html2canvas(wrap, {
+        scale: 1.6, useCORS: true, allowTaint: true,
+        backgroundColor: '#ffffff', windowWidth: 794, logging: false
+      }).then(function (canvas) {
+        wrap.remove();
+        var doc = new window.jspdf.jsPDF({ unit: 'mm', format: 'a4' });
+        var margin = 12, pageW = 210, pageH = 297;
+        var imgW = pageW - margin * 2;
+        var pxPerMM = canvas.width / imgW;
+        var totalH = (canvas.height * imgW) / canvas.width;
+        var left = totalH, firstPage = true;
+        while (left > 0.1) {
+          var sliceH_mm = Math.min(pageH - margin * 2, left);
+          var sliceH_px = Math.round(sliceH_mm * pxPerMM);
+          var srcY_px = Math.round((totalH - left) * pxPerMM);
+          var tmp = document.createElement('canvas');
+          tmp.width = canvas.width; tmp.height = sliceH_px;
+          tmp.getContext('2d').drawImage(canvas, 0, srcY_px, canvas.width, sliceH_px, 0, 0, canvas.width, sliceH_px);
+          if (!firstPage) doc.addPage();
+          doc.addImage(tmp.toDataURL('image/jpeg', 0.8), 'JPEG', margin, margin, imgW, sliceH_mm);
+          firstPage = false; left -= sliceH_mm;
+        }
+        doc.save('solartoolhub-solar-water-pumping-guide.pdf');
+        if (btn) { btn.textContent = origText; btn.disabled = false; }
+      }).catch(function (e) {
+        wrap.remove();
+        console.error('SolarToolHub PDF export failed', e);
+        alert('Could not generate the PDF. Please try again or use your browser print (Ctrl+P).');
+        if (btn) { btn.textContent = origText; btn.disabled = false; }
+      });
+    });
+  }
+  var articlePdfBtn = document.getElementById('article-pdf-btn');
+  if (articlePdfBtn) {
+    articlePdfBtn.addEventListener('click', sthExportArticlePdf);
+  }
+  var shareBtn = document.getElementById('article-share-btn');
+  if (shareBtn) {
+    shareBtn.addEventListener('click', function () {
+      var data = { title: 'Solar Water Pumping Guide: How Many Panels for Your Well? — SolarToolHub', url: window.location.href };
+      if (navigator.share) { navigator.share(data).catch(function () {}); }
+      else { navigator.clipboard.writeText(window.location.href).then(function () { shareBtn.textContent = '\u2713 Link copied'; setTimeout(function () { shareBtn.textContent = '\ud83d\udd17 Share'; }, 2000); }); }
+    });
+  }
+</script>
+</body>
+</html>
