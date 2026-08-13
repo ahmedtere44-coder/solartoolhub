@@ -41,10 +41,34 @@
   "mainEntity": [
     {
       "@type": "Question",
+      "name": "Can I mix lithium and lead-acid batteries in the same bank?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This is generally not recommended. The two chemistries have different charging voltage profiles and charge/discharge characteristics, which can cause uneven charging, reduced lifespan, or damage to one or both battery types. Keep battery banks to a single chemistry."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does battery capacity need to match my inverter size?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not directly — they answer different questions. Inverter size is about how much power you can draw at once (see our inverter calculator), while battery capacity is about how much energy you can store and use over time. Both need to be sized for your system, but independently of each other."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does the calculator use kWh instead of just Ah?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ah (amp-hours) only tells you the full story once you know the voltage, since energy (kWh) is voltage × amp-hours ÷ 1000. The calculator shows both: kWh as the voltage-independent figure for comparing battery types, and Ah at your chosen system voltage for matching against real battery specs."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Can I use my existing grid-tied panels for backup?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Not directly \u2014 grid-tied inverters shut down during outages by law. You need a hybrid inverter (or an AC-coupled backup box) that can disconnect from the grid and run your home on battery power. Your existing panels can usually be reused with the right inverter."
+        "text": "Not directly — grid-tied inverters shut down during outages by law. You need a hybrid inverter (or an AC-coupled backup box) that can disconnect from the grid and run your home on battery power. Your existing panels can usually be reused with the right inverter, which is a big cost saving."
       }
     },
     {
@@ -52,7 +76,7 @@
       "name": "How much does a whole-home backup loop cost?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "For the essentials (fridge, lights, router, fan), a realistic build is a 5 kWh lithium battery plus about 1.5 kW of panels: roughly $2,000\u2013$3,500 in parts depending on your market. Whole-home coverage including AC runs 3\u20134\u00d7 that."
+        "text": "For the essentials (fridge, lights, router, fan), a realistic build is a 5 kWh lithium battery plus ~1.5 kW of panels: roughly $2,000–$3,500 in parts depending on your market. Whole-home coverage (including AC) runs 3–4× that. Our ROI calculator can compare this against generator fuel costs over time."
       }
     },
     {
@@ -60,7 +84,7 @@
       "name": "Why do I need more panels than my load requires?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Because the panels must refill the entire battery every day, not just match your momentary consumption. A 300 W load running 8 hours needs 2.4 kWh \u2014 but recharging that in 5 sun hours needs around 600 W of panels after accounting for losses."
+        "text": "Because the panels must refill the entire battery every day, not just match your momentary consumption. A 300 W load running 8 hours needs 2.4 kWh — but recharging that in 5 sun hours needs ~600 W of panels after accounting for losses."
       }
     }
   ]
@@ -508,18 +532,20 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script>
   (function () {
-        var canvas = document.getElementById('battery-curve');
+    var canvas = document.getElementById('battery-curve');
     if (!canvas || typeof Chart === 'undefined') return;
-    var usageEl = document.getElementById('battery-usage');
-    var pctSteps = [20, 30, 40, 50, 60, 70, 80, 90, 100];
-    if (!usageEl) return;
+    var ids = ['backup-fridge', 'backup-lights', 'backup-router', 'backup-fan', 'backup-tv', 'backup-other', 'backup-hours'];
+    function dailyKwh() {
+      var total = 0;
+      ids.forEach(function (id) {
+        var el = document.getElementById(id);
+        total += (el ? (parseFloat(el.value) || 0) : 0);
+      });
+      return Math.max(total, 1);
+    }
     function liFor(kwh, pct) { return (kwh * (pct / 100)) / 0.9; }
     function laFor(kwh, pct) { return (kwh * (pct / 100)) / 0.5; }
-    function dataFor(fn) {
-      var kwh = parseFloat(usageEl.value) || 0;
-      return pctSteps.map(function (p) { return Math.round(fn(kwh, p) * 10) / 10; });
-    }
-
+    var pctSteps = [20, 30, 40, 50, 60, 70, 80, 90, 100];
     var chart = new Chart(canvas, {
       type: 'line',
       data: {
@@ -527,39 +553,33 @@
         datasets: [
           {
             label: 'Lithium (kWh)',
-            data: dataFor(liFor),
-            borderColor: '#1E3A8A',
-            backgroundColor: 'rgba(30,58,138,0.08)',
-            borderWidth: 2, fill: false, tension: 0.3,
-            pointBackgroundColor: '#1E3A8A', pointRadius: 3
+            data: pctSteps.map(function (p) { return Math.round(liFor(dailyKwh(), p) * 10) / 10; }),
+            borderColor: '#1d4ed8', backgroundColor: 'rgba(29,78,216,0.12)', tension: 0.35, pointRadius: 3
           },
           {
             label: 'Lead-acid (kWh)',
-            data: dataFor(laFor),
-            borderColor: '#CA8A04',
-            backgroundColor: 'rgba(202,138,4,0.08)',
-            borderWidth: 2, fill: false, tension: 0.3, borderDash: [6, 4],
-            pointBackgroundColor: '#CA8A04', pointRadius: 3
+            data: pctSteps.map(function (p) { return Math.round(laFor(dailyKwh(), p) * 10) / 10; }),
+            borderColor: '#b45309', backgroundColor: 'rgba(180,83,9,0.10)', tension: 0.35, pointRadius: 3
           }
         ]
       },
       options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: { legend: { display: true, labels: { color: '#4B5563', boxWidth: 14 } } },
-        scales: {
-          x: { title: { display: true, text: 'Backup (% of daily usage)', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, grid: { display: false } },
-          y: { title: { display: true, text: 'Usable capacity (kWh)', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, beginAtZero: true }
-        }
+        responsive: true, maintainAspectRatio: false, animation: false,
+        plugins: { legend: { position: 'top' } },
+        scales: { y: { title: { display: true, text: 'Usable capacity (kWh)' }, beginAtZero: true }, x: { title: { display: true, text: 'Share of daily usage backed up' } } }
       }
     });
-
     function refresh() {
-      chart.data.datasets[0].data = dataFor(liFor);
-      chart.data.datasets[1].data = dataFor(laFor);
+      var kwh = dailyKwh();
+      chart.data.datasets[0].data = pctSteps.map(function (p) { return Math.round(liFor(kwh, p) * 10) / 10; });
+      chart.data.datasets[1].data = pctSteps.map(function (p) { return Math.round(laFor(kwh, p) * 10) / 10; });
       chart.update();
     }
-    if (usageEl) usageEl.addEventListener('input', refresh);
+    ids.forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) el.addEventListener('input', refresh);
+    });
+    refresh();
   })();
 </script>
 </body>
