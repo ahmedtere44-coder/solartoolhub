@@ -86,7 +86,7 @@
       </div>
       <a href="install.html" style="display:inline-flex; align-items:center; gap:8px; background:var(--orange-tint); color:var(--orange-deep); font-weight:700; font-size:0.85rem; padding:9px 18px; border-radius:999px; margin-bottom:28px;">📲 Install as an app on your phone →</a>
       <div class="hero-meta">
-        <div><span class="num">35</span><span class="lbl">Engineering calculators</span></div>
+        <div><span class="num" id="hero-tool-count">35</span><span class="lbl">Engineering calculators</span></div>
         <div><span class="num">100%</span><span class="lbl">Free, no signup</span></div>
         <div><span class="num">Instant</span><span class="lbl">Results, no waiting</span></div>
       </div>
@@ -512,6 +512,30 @@
   input.addEventListener('input', function () { render(input.value); });
   input.addEventListener('focus', function () { if (input.value) render(input.value); });
   document.addEventListener('click', function (e) { if (!e.target.closest('.tool-search')) { box.hidden = true; } });
+})();
+</script>
+<script>
+(function () {
+  // Dynamic hero counts: reads sitemap.xml (updated on every publish)
+  function countFromSitemap() {
+    return fetch('sitemap.xml', { cache: 'no-store' })
+      .then(function (r) { return r.ok ? r.text() : null; })
+      .then(function (xml) {
+        if (!xml) return null;
+        var tools = (xml.match(/\/tools\/[A-Za-z0-9-]+\.html/g) || []).length;
+        var articles = (xml.match(/\/articles\/[A-Za-z0-9-]+\.html/g) || []).length;
+        var countries = (xml.match(/solar-in-[A-Za-z0-9-]+\.html/g) || []).length;
+        return { tools: tools, articles: articles, countries: countries };
+      })
+      .catch(function () { return null; });
+  }
+  countFromSitemap().then(function (n) {
+    if (n) {
+      var tc = document.getElementById('hero-tool-count');
+      if (tc) tc.textContent = String(n.tools);
+      // future: expose on the tools page footer if a slot exists
+    }
+  });
 })();
 </script>
 </body>
