@@ -251,6 +251,20 @@
     <h2>Installation checklist</h2>
     <p>Install in this order and you will avoid the common mistakes. First, measure the <strong>static water level</strong> and the drawdown during pumping — the pump must be rated for that total head, not just the well depth. Second, mount the panels on the south-facing tilt with a clear path from morning to afternoon sun; pumps suffer more from partial shade than any other solar load because the controller tracks a moving peak. Third, keep the DC cable run from panels to controller short and use the solar cable gauge the controller manual specifies — long thin DC runs are the number one cause of "my pump is slow." Finally, set the dry-run protection: a solar pump left spinning in an empty well burns a winding in minutes.</p>
     <h2>Frequently asked questions</h2>
+    <h3>Can a solar panel run a water pump directly without batteries?</h3>
+    <p>Yes — this is the most common configuration. A 'direct-drive' solar pump system connects panels to a pump controller that adjusts the pump's speed to the sunlight available. The pump runs faster at midday and slower in the morning, and no battery is needed. Instead of storing electricity, you store water: the solar system pumps more than you need into an elevated tank, and gravity delivers it when the sun is down. Water storage is far cheaper and longer-lasting than battery storage.</p>
+    <h3>How many solar panels do I need for my water pump?</h3>
+    <p>A rule of thumb: the solar array should be roughly 1.3 to 1.5 times the pump's rated motor power. A 1 HP (750 W) DC pump typically needs about 1,000 to 1,100 W of panels — roughly three 380-450 W modules. For AC pumps, add the inverter loss on top: a 1 HP AC pump with a small inverter usually needs 1,300 to 1,500 W of panels. Your daily water need also matters: more litres per day means more panels or longer pumping hours.</p>
+    <h3>Is a DC pump or an AC pump better for solar?</h3>
+    <p>For small to medium systems, DC brushless pumps are the better match: they connect directly to the panels through a simple controller, lose no energy in an inverter, and start working at very low sunlight. AC pumps make sense when you already own a good submersible AC pump, or for large irrigation systems where cheap, powerful AC motors outweigh the inverter losses. Solar pump controllers with built-in small inverters now bridge this gap for AC motors too.</p>
+    <h3>What depth of well can a solar pump handle?</h3>
+    <p>Solar submersible pumps are commonly available for heads from 30 m (100 ft) up to 200 m (650 ft) and beyond. The two numbers that decide the pump are 'head' (vertical lift plus pipe friction loss) and 'flow' (litres per minute). Multiply head by flow and you get the hydraulic work your panels must do: higher head needs more voltage and more panels per litre pumped. Always size for the static water level plus drawdown, not just the well depth.</p>
+    <h3>Do I need batteries for a solar water pump?</h3>
+    <p>Almost never. Over 90% of installed solar pumping systems are battery-free. Water storage tanks (roof tanks, ground reservoirs, or water towers) replace batteries at a fraction of the cost and with zero replacement cycle. Batteries only make sense where water cannot be stored — some pressurized irrigation networks — and even then a small dedicated battery bank, not your home battery, is the usual solution.</p>
+    <h3>How much does a solar water pump system cost in 2026?</h3>
+    <p>A typical homestead system (1 HP surface or submersible pump, 1,000-1,300 W of panels, controller, cabling and mounting) runs about $1,200 to $2,500 installed in most markets, and pays for itself in two to five years against diesel fuel or grid tariffs. Larger agricultural systems (5-10 HP irrigation pumps with 5-10 kW arrays) cost $6,000 to $15,000 and are usually financed against the fuel savings. Check your local agriculture program — many countries in the Middle East, India and Africa subsidize solar pump replacements.</p>
+  </article>
+</div>
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
@@ -323,7 +337,7 @@
     });
     document.fonts.ready.then(function () {
       window.html2canvas(wrap, {
-        scale: 1.6, useCORS: true, allowTaint: true,
+        scale: 2.2, useCORS: true, allowTaint: true,
         backgroundColor: '#ffffff', windowWidth: 794, logging: false
       }).then(function (canvas) {
         wrap.remove();
@@ -335,13 +349,13 @@
         var left = totalH, firstPage = true;
         while (left > 0.1) {
           var sliceH_mm = Math.min(pageH - margin * 2, left);
-          var sliceH_px = Math.round(sliceH_mm * pxPerMM);
+          var sliceH_px = Math.round(Math.round(sliceH_mm * pxPerMM) / 24) * 24; // snap to line boundary
           var srcY_px = Math.round((totalH - left) * pxPerMM);
           var tmp = document.createElement('canvas');
           tmp.width = canvas.width; tmp.height = sliceH_px;
           tmp.getContext('2d').drawImage(canvas, 0, srcY_px, canvas.width, sliceH_px, 0, 0, canvas.width, sliceH_px);
           if (!firstPage) doc.addPage();
-          doc.addImage(tmp.toDataURL('image/jpeg', 0.8), 'JPEG', margin, margin, imgW, sliceH_mm);
+          doc.addImage(tmp.toDataURL('image/jpeg', 0.92), 'JPEG', margin, margin, imgW, sliceH_mm);
           firstPage = false; left -= sliceH_mm;
         }
         doc.save('solartoolhub-solar-water-pumping-guide.pdf');

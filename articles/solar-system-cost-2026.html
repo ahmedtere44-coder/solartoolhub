@@ -249,6 +249,20 @@
     <h2>Payback at 2026 prices</h2>
     <p>At current prices and typical electricity rates, a correctly sized grid-tied system pays back in about <strong>4-7 years</strong> in markets with good retail rates and full net metering, and 6-9 years elsewhere. Add a battery and the payback lengthens by 2-4 years unless your grid is unreliable or exports are poorly compensated. After payback, the system delivers essentially free electricity for two decades or more — with one likely mid-life cost: string inverters typically need replacement around year 10-12, at $500-1,500 depending on system size. Plan for it, and the 25-year economics stay excellent.</p>
     <h2>Frequently asked questions</h2>
+    <h3>How much does a complete solar system cost in 2026?</h3>
+    <p>In most markets, a complete grid-tied system costs roughly $800 to $1,200 per kW installed. A 3 kW home system runs about $2,500 to $3,500, a 5 kW system about $4,000 to $5,500, and a 10 kW system about $7,500 to $11,000 — before any local subsidy or net-metering incentive. Off-grid systems cost 30-50% more because of batteries. Prices vary by country: South Asia and parts of the Middle East sit at the lower end, while North America and Europe sit higher because of labor and permit costs.</p>
+    <h3>What is the cheapest part and the most expensive part of a solar system?</h3>
+    <p>The panels themselves are now the cheap part — often under 20 cents per watt at wholesale. The expensive parts are the battery (if you add one: $3,000 to $8,000 for home-scale lithium), the hybrid inverter, and installation labor plus mounting and cabling. A battery-less grid-tied system is always the budget entry point.</p>
+    <h3>Are cheap solar panels worth buying?</h3>
+    <p>For most buyers, tier-1 panels from established manufacturers are the right choice: the price gap between budget and tier-1 has collapsed to roughly 10-15%, while the difference in degradation warranty (25-30 years vs 10-12 years) is large. Budget panels often make sense only for small off-grid projects where the system life target is short.</p>
+    <h3>Does adding a battery double the system cost?</h3>
+    <p>Not quite, but close. A 5 kWh home battery adds roughly $3,000 to $5,000 installed, and a 10 kWh unit $5,000 to $8,000. Whether you need one depends on your grid reliability and your export compensation: where net metering pays full retail, batteries pay back slowly; where exports pay pennies or the grid cuts out daily, the battery earns its price quickly.</p>
+    <h3>What hidden costs should I check in a solar quote?</h3>
+    <p>Five line items catch most overcharging: (1) mounting structure and ballast for your roof type, (2) DC cable length and gauge — long runs need thicker cable, (3) earthing/grounding and lightning protection, (4) permit, inspection and net-metering paperwork fees, and (5) the warranty on workmanship, not just on the panels. A quote that lumps everything into one number without these breakdowns should raise a red flag.</p>
+    <h3>How fast does a solar system pay for itself?</h3>
+    <p>At 2026 prices, a well-sized grid-tied system typically pays back in 4 to 7 years in markets with good electricity rates and full-retail net metering, and in 6 to 9 years elsewhere. After payback, the system produces essentially free electricity for 20+ years, with only inverter replacement (around year 10-12) as a likely future cost.</p>
+  </article>
+</div>
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
@@ -321,7 +335,7 @@
     });
     document.fonts.ready.then(function () {
       window.html2canvas(wrap, {
-        scale: 1.6, useCORS: true, allowTaint: true,
+        scale: 2.2, useCORS: true, allowTaint: true,
         backgroundColor: '#ffffff', windowWidth: 794, logging: false
       }).then(function (canvas) {
         wrap.remove();
@@ -333,13 +347,13 @@
         var left = totalH, firstPage = true;
         while (left > 0.1) {
           var sliceH_mm = Math.min(pageH - margin * 2, left);
-          var sliceH_px = Math.round(sliceH_mm * pxPerMM);
+          var sliceH_px = Math.round(Math.round(sliceH_mm * pxPerMM) / 24) * 24; // snap to line boundary
           var srcY_px = Math.round((totalH - left) * pxPerMM);
           var tmp = document.createElement('canvas');
           tmp.width = canvas.width; tmp.height = sliceH_px;
           tmp.getContext('2d').drawImage(canvas, 0, srcY_px, canvas.width, sliceH_px, 0, 0, canvas.width, sliceH_px);
           if (!firstPage) doc.addPage();
-          doc.addImage(tmp.toDataURL('image/jpeg', 0.8), 'JPEG', margin, margin, imgW, sliceH_mm);
+          doc.addImage(tmp.toDataURL('image/jpeg', 0.92), 'JPEG', margin, margin, imgW, sliceH_mm);
           firstPage = false; left -= sliceH_mm;
         }
         doc.save('solartoolhub-solar-system-cost-2026.pdf');
