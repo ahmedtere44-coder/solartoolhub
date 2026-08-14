@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wire Ampacity Calculator — Safe Current Rating per NEC 310.16 | SolarToolHub</title>
+<meta name="description" content="Free wire ampacity calculator. Enter your wire size (AWG/kcmil), insulation rating, ambient temperature, and bundling to get the safe current rating and the correct breaker size.">
+<link rel="canonical" href="https://ahmedtere44-coder.github.io/solartoolhub/tools/wire-ampacity-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SolarToolHub">
+<meta property="og:title" content="Wire Ampacity Calculator — Safe Current Rating per NEC 310.16 | SolarToolHub">
+<meta property="og:description" content="Find the safe current rating (ampacity) of any solar cable with temperature and bundling corrections, plus the matching breaker size — based on NEC Table 310.16.">
+<meta property="og:url" content="https://ahmedtere44-coder.github.io/solartoolhub/tools/wire-ampacity-calculator.html">
+<meta property="og:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Wire Ampacity Calculator — Safe Current Rating | SolarToolHub">
+<meta name="twitter:description" content="Find the safe current rating of any solar cable with temperature and bundling corrections, plus the matching breaker size.">
+<meta name="twitter:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is wire ampacity?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ampacity is the maximum continuous current a wire can safely carry without overheating. It depends on the wire size (AWG or kcmil), the insulation's temperature rating (60°C, 75°C, or 90°C), the ambient temperature around the wire, and how many current-carrying conductors are bundled together in the same conduit or tray. NEC Table 310.16 is the standard reference."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which insulation rating should I use for solar wire?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most modern THHN/THWN-2 building wire is rated 90°C in dry locations and 75°C wet. USE-2 / PV wire (rated for rooftop and outdoor runs) is typically 90°C, while NM-B (Romex) indoor cable is limited to 60°C ampacity even though the insulation is 90°C. For PV module wiring use PV wire or USE-2; for the DC run from combiner to charge controller, THWN-2 in conduit is common."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does ambient temperature reduce ampacity?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ampacity tables assume a 30°C ambient. When a wire runs through a hotter environment, it sheds heat more slowly, so the safe current must be reduced by a temperature correction factor. On a rooftop conduit in summer the wire can sit at 45-50°C or more, which can cut ampacity by 15-25%. This calculator applies the NEC correction factors automatically."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does bundling wires together reduce ampacity?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "When three or more current-carrying conductors share one conduit or cable tray, each wire heats its neighbors. NEC Table 310.15(C)(1) applies adjustment factors: 3 or fewer conductors get 100%, 4-6 get 80%, 7-9 get 70%, and 10-20 get 50% of the base ampacity. In a typical solar string home-run with positive and negative conductors plus equipment ground, the ground doesn't count, so two conductors usually means no derating."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I pick the breaker size from the ampacity?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The breaker must not exceed the wire's adjusted ampacity, and for continuous solar circuits the load should not exceed 80% of the breaker rating. In practice: size the breaker at or just below the adjusted ampacity, rounding to the next standard size. If the adjusted value falls between standard sizes, NEC 240.4(B) allows the next standard size up as long as the load current fits. This calculator shows the result directly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this calculator work for both DC and AC wiring?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Ampacity is a property of the conductor itself, so the same NEC Table 310.16 values apply to PV string runs (DC) and inverter output circuits (AC). What changes is the current you enter: for DC strings use the array Isc × 1.25, and for AC circuits use the continuous load current at the circuit voltage."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ahmedtere44-coder.github.io/solartoolhub/" },
+    { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools.html" },
+    { "@type": "ListItem", "position": 3, "name": "Wire ampacity calculator", "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools/wire-ampacity-calculator.html" }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html" class="active">Tools</a></li>
+      <li><a href="../articles.html">Guides</a></li>
+      <li class="nav-dropdown">
+        <a href="../resources.html">Resources</a>
+        <ul>
+          <li><a href="../comparisons.html">Compare</a></li>
+          <li><a href="../cheat-sheets.html">Cheat sheets</a></li>
+          <li><a href="../glossary.html">Glossary</a></li>
+        </ul>
+      </li>
+      <li><a href="../solar-by-country.html">Solar by Country</a></li>
+      <li><a href="../real-examples.html">Real Examples</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../tools.html">Tools</a> / Wire ampacity calculator</div>
+    <div class="page-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="M8 6h8v3a4 4 0 0 1-4 4v2"/><path d="M12 15v5"/><path d="M9 22h6"/><circle cx="12" cy="11" r="1.2" fill="#FACC15" stroke="none"/></svg></div>
+    <h1>Wire ampacity calculator</h1>
+    <p class="lede">Find the safe continuous current for any solar wire using NEC Table 310.16. Enter the size, insulation rating, ambient temperature, and bundling — get the corrected ampacity and the matching breaker size in one step.</p>
+  </div>
+</div>
+<div class="calc-layout">
+  <div class="container">
+    <div class="calc-card" style="max-width:680px;">
+      <form id="amp-calc-form">
+        <div class="field-group">
+          <label for="amp-wire">Wire size (AWG / kcmil, copper)</label>
+          <select id="amp-wire">
+            <option value="14">14 AWG</option>
+            <option value="12">12 AWG</option>
+            <option value="10" selected>10 AWG</option>
+            <option value="8">8 AWG</option>
+            <option value="6">6 AWG</option>
+            <option value="4">4 AWG</option>
+            <option value="2">2 AWG</option>
+            <option value="1">1 AWG</option>
+            <option value="1/0">1/0 AWG</option>
+            <option value="2/0">2/0 AWG</option>
+            <option value="3/0">3/0 AWG</option>
+            <option value="4/0">4/0 AWG</option>
+            <option value="250">250 kcmil</option>
+            <option value="300">300 kcmil</option>
+            <option value="350">350 kcmil</option>
+            <option value="400">400 kcmil</option>
+            <option value="500">500 kcmil</option>
+          </select>
+          <span class="helper-text">NEC Table 310.16 copper conductor values.</span>
+        </div>
+        <div class="field-group">
+          <label for="amp-insulation">Insulation temperature rating</label>
+          <select id="amp-insulation">
+            <option value="60">60°C — NM-B, TW, UF (indoor)</option>
+            <option value="75" selected>75°C — THHN/THWN-2 wet, XHHW</option>
+            <option value="90">90°C — THHN dry, THWN-2, XHHW-2, USE-2, PV wire</option>
+          </select>
+          <span class="helper-text">Most solar DC runs use 90°C rated USE-2 / PV wire; NM-B indoor cable is limited to the 60°C column even with 90°C insulation.</span>
+        </div>
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="amp-ambient">Ambient temperature (°C)</label>
+            <input type="number" id="amp-ambient" value="40" min="20" max="60" step="1">
+            <span class="helper-text">Temperature of the air/conduit around the wire. Tables assume 30°C.</span>
+          </div>
+          <div class="field-group">
+            <label for="amp-bundled">Conductors in same raceway</label>
+            <select id="amp-bundled">
+              <option value="1" selected>1-3 (no derating)</option>
+              <option value="4">4-6 conductors</option>
+              <option value="7">7-9 conductors</option>
+              <option value="10">10-20 conductors</option>
+            </select>
+            <span class="helper-text">More bundled wires heat each other — the safe current drops.</span>
+          </div>
+        </div>
+        <div class="field-group">
+          <label for="amp-load">Your circuit current (A) — optional</label>
+          <input type="number" id="amp-load" value="10" min="0" step="0.5">
+          <span class="helper-text">Enter your circuit's continuous current to check the wire passes or fails. For a PV string use array Isc × 1.25.</span>
+        </div>
+      </form>
+      <div class="calc-result">
+        <div>
+          <span class="num" id="amp-base">0</span>
+          <span class="lbl">base ampacity from table (A)</span>
+        </div>
+        <div>
+          <span class="num" id="amp-adjusted">0</span>
+          <span class="lbl">adjusted ampacity (A)</span>
+        </div>
+        <div>
+          <span class="num" id="amp-breaker">0</span>
+          <span class="lbl">max breaker / fuse (A)</span>
+        </div>
+      </div>
+      <p class="helper-text" id="amp-status" style="margin-top:14px; font-weight:600;"></p>
+      <button type="button" id="amp-pdf-btn" class="btn btn-accent" style="margin-top:20px;">⬇️ Download results as PDF</button>
+      <p class="helper-text">Adjusted ampacity = base table value × temperature factor × bundling factor. The breaker must not exceed the adjusted ampacity. Always verify against your local electrical code.</p>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="calc-diagram">
+    <figure>
+      <svg viewBox="0 0 380 374" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="amp-title amp-desc">
+        <title id="amp-title">How the wire ampacity calculator works</title>
+        <desc id="amp-desc">The base ampacity from NEC Table 310.16 is reduced by the ambient temperature and bundling factors, then used to select the maximum breaker size.</desc>
+        <defs>
+          <marker id="ampArrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+            <path d="M0 0 L8 4 L0 8 z" fill="#9CA3AF"/>
+          </marker>
+        </defs>
+        <text x="190" y="26" text-anchor="middle" font-family="Manrope, sans-serif" font-size="14" font-weight="700" fill="#111827">What you enter</text>
+        <g>
+          <rect x="30" y="42" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="105" y="63" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E3A8A">Wire size</text>
+          <text x="105" y="81" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">AWG / kcmil</text>
+        </g>
+        <g>
+          <rect x="200" y="42" width="150" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="275" y="63" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E3A8A">Insulation rating</text>
+          <text x="275" y="81" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">60 / 75 / 90°C</text>
+        </g>
+        <line x1="105" y1="94" x2="180" y2="128" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#ampArrow)"/>
+        <line x1="275" y1="94" x2="200" y2="128" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#ampArrow)"/>
+        <g>
+          <rect x="70" y="130" width="240" height="52" rx="8" fill="#FEF9C3" stroke="#CA8A04" stroke-width="0.75"/>
+          <text x="190" y="151" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#854D0E">Base ampacity (A)</text>
+          <text x="190" y="169" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#854D0E">NEC Table 310.16</text>
+        </g>
+        <g>
+          <rect x="30" y="200" width="150" height="44" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="105" y="217" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#1E3A8A">Temp. factor</text>
+          <text x="105" y="233" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#2563EB">ambient above 30°C</text>
+        </g>
+        <g>
+          <rect x="200" y="200" width="150" height="44" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="275" y="217" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#1E3A8A">Bundling factor</text>
+          <text x="275" y="233" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#2563EB">wires in one conduit</text>
+        </g>
+        <line x1="190" y1="182" x2="190" y2="262" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#ampArrow)"/>
+        <g>
+          <rect x="70" y="264" width="240" height="52" rx="8" fill="#E9FBF4" stroke="#10B981" stroke-width="0.75"/>
+          <text x="190" y="285" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#065F46">Adjusted ampacity (A)</text>
+          <text x="190" y="303" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#065F46">base × both factors</text>
+        </g>
+        <line x1="190" y1="316" x2="190" y2="336" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#ampArrow)"/>
+        <g>
+          <rect x="85" y="338" width="210" height="30" rx="8" fill="#E9FBF4" stroke="#10B981" stroke-width="0.75"/>
+          <text x="190" y="358" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#065F46">Max breaker = next standard ≤ adjusted</text>
+        </g>
+      </svg>
+      <figcaption>How the calculator turns your wire size and conditions into a safe current rating and breaker size.</figcaption>
+    </figure>
+  </div>
+  <div class="calc-chart">
+    <h2 class="calc-chart-title">Ampacity vs ambient temperature</h2>
+    <p class="calc-chart-intro">This curve updates with your inputs. It shows how the adjusted ampacity of your selected wire falls as ambient temperature rises at your chosen insulation rating and bundling — the dashed line marks where standard breakers land, so you can see which breaker sizes stay safe.</p>
+    <div class="calc-chart-canvas-wrap">
+      <canvas id="amp-curve" role="img" aria-label="Line chart showing adjusted ampacity decreasing with ambient temperature for the selected wire size, insulation rating, and bundling.">Adjusted ampacity falls as ambient temperature rises.</canvas>
+    </div>
+  </div>
+  <article class="article">
+    <p>The ampacity of a wire is the maximum continuous current it can carry without overheating — and it is the number that decides whether your fuse or breaker actually protects the cable. Get it wrong and a breaker sized too large lets an overloaded wire cook quietly inside the conduit; get it right and every component in the chain is protected.</p>
+    <h2>The rule: base table value × correction factors</h2>
+    <p>NEC Table 310.16 gives the base ampacity for each conductor size and insulation rating, assuming 30°C ambient and three or fewer current-carrying conductors. Your real installation rarely matches those conditions, so the code applies correction factors on top:</p>
+    <p style="font-family:monospace; background:var(--bg-soft); padding:14px 18px; border-radius:8px; font-size:0.95rem;">Adjusted ampacity = base ampacity × temperature factor × bundling factor</p>
+    <p>Then the breaker or fuse must be rated at or below that adjusted value. For example, 10 AWG THWN-2 has a base ampacity of 40 A at 90°C; in a 45°C rooftop conduit with 4 bundled conductors that becomes 40 × 0.87 × 0.80 = 27.8 A, so the maximum breaker is 25 A, not the 40 A you might guess from the table alone.</p>
+    <h2>Choosing the insulation column</h2>
+    <p>The column you use is set by the wire's insulation, not its size. USE-2 and PV wire common on rooftops are rated 90°C, as is THHN/THWN-2 in dry locations. NM-B (Romex) is a special case: even though its insulation is rated 90°C, the code limits it to the 60°C column for ampacity. When terminations are rated 75°C, use the 75°C column for the final run — a detail covered by NEC 110.14(C).</p>
+    <h2>Ambient temperature and bundling</h2>
+    <p>Every degree above 30°C reduces what the wire can safely carry — the correction factors come from NEC Table 310.15(B)(1). A conduit on a sun-baked roof in Amman or Arizona can sit at 45-50°C in summer, cutting ampacity by a quarter. Bundling adds up fast too: 4-6 conductors in one conduit derate to 80%, 7-9 to 70%, and 10-20 to 50%. The equipment ground doesn't count as a current-carrying conductor, so a typical PV pair plus ground stays in the "no derating" zone.</p>
+    <h2>Picking the breaker</h2>
+    <p>Round the adjusted ampacity down to the next standard breaker size — 15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90, 100 A and so on. NEC 240.4(B) allows the next standard size up when the adjusted value falls between sizes and the load fits, which is how many solar installs land on a 30 A breaker for a 26 A adjusted value. On the load side, keep continuous solar circuits at or under 80% of the breaker rating.</p>
+    <h2>Field note from a Jordanian installer</h2>
+    <p>On the Ma'an projects the rooftop conduit runs were the real test: 40°C+ summer ambient, dark conduits on bare roofs, and string home-runs bundled with monitoring cables. The 10 AWG THHN runs that looked fine on paper needed re-checking against the derated value — several needed upsizing to 8 AWG to keep the 30 A breaker legit. The lesson: always calculate with worst-case summer temperature, not the comfortable spring day you install on.</p>
+    <h2>Work it with the other wiring tools</h2>
+    <p>Ampacity is only half the story — the other half is voltage drop. Once this calculator confirms the wire is safe, check the run length with the <a href="voltage-drop-calculator.html">voltage drop calculator</a>, and if you're starting from a load, the <a href="cable-calculator.html">cable size calculator</a> does both checks in one. For the breaker side, the <a href="fuse-breaker-sizing-calculator.html">fuse &amp; breaker sizing calculator</a> applies the 1.25 continuous-load rule, and the <a href="watts-to-amps-calculator.html">watts to amps calculator</a> turns your power figure into the current this tool needs.</p>
+    <h2>Related guides</h2>
+    <p>For a full walk-through of conductor sizing on the DC side, see the guide on <a href="../articles/what-size-cable-for-solar-panels.html">what size cable you need for solar panels and inverters</a>, and for choosing overcurrent protection on the PV array side, read the <a href="../articles/solar-inverter-buying-guide.html">solar inverter buying guide</a> protection sections.</p>
+    <h2>Frequently asked questions</h2>
+    <h3>What is wire ampacity?</h3>
+    <p>It is the maximum continuous current a conductor can carry without exceeding its insulation temperature. It depends on size, insulation rating, ambient temperature, and bundling — NEC Table 310.16 is the standard reference.</p>
+    <h3>Which insulation rating should I use for solar wire?</h3>
+    <p>Most PV wire and USE-2 is 90°C; THHN/THWN-2 is 90°C dry and 75°C wet; NM-B indoor cable is limited to the 60°C column. Use the rating printed on the cable sheath, limited by termination ratings.</p>
+    <h3>Why does ambient temperature reduce ampacity?</h3>
+    <p>Tables assume 30°C. Hotter surroundings slow heat shedding, so the code applies correction factors — a 50°C rooftop run can cut ampacity by up to 25% versus the table value.</p>
+    <h3>How does bundling wires together reduce ampacity?</h3>
+    <p>Bundled conductors heat each other. NEC derating: 1-3 conductors = 100%, 4-6 = 80%, 7-9 = 70%, 10-20 = 50% of base ampacity. The equipment ground doesn't count.</p>
+    <h3>How do I pick the breaker size from the ampacity?</h3>
+    <p>Choose the next standard breaker size at or below the adjusted ampacity. NEC 240.4(B) allows the next size up when the adjusted value falls between sizes and the continuous load fits.</p>
+    <h3>Does this calculator work for both DC and AC wiring?</h3>
+    <p>Yes — ampacity is a property of the conductor. Use array Isc × 1.25 for PV string currents on the DC side and the continuous load current on AC circuits; the table and factors are the same.</p>
+  </article>
+</div>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="panel-calculator.html">Panel calculator</a></li>
+          <li><a href="battery-calculator.html">Battery calculator</a></li>
+          <li><a href="inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="cable-calculator.html">Cable calculator</a></li>
+          <li><a href="roi-calculator.html">ROI calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+<script src="../js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script src="../js/share.js"></script>
+<script>
+  (function () {
+    var form = document.getElementById('amp-calc-form');
+    if (!form) return;
+
+    // NEC Table 310.16 copper: [60°C, 75°C, 90°C]
+    var TABLE = {
+      '14': [15, 20, 25],
+      '12': [20, 25, 30],
+      '10': [30, 35, 40],
+      '8':  [40, 50, 55],
+      '6':  [55, 65, 75],
+      '4':  [70, 85, 95],
+      '2':  [95, 115, 130],
+      '1':  [110, 130, 150],
+      '1/0': [125, 150, 170],
+      '2/0': [145, 175, 195],
+      '3/0': [165, 200, 225],
+      '4/0': [195, 230, 260],
+      '250': [215, 255, 290],
+      '300': [240, 285, 320],
+      '350': [260, 310, 350],
+      '400': [280, 335, 380],
+      '500': [320, 380, 430]
+    };
+
+    // NEC Table 310.15(B)(1) temperature correction factors
+    var TEMP = {
+      '60': { 20: 1.29, 25: 1.15, 30: 1.00, 35: 0.94, 40: 0.87, 45: 0.79, 50: 0.71, 55: 0.62, 60: 0.51 },
+      '75': { 20: 1.22, 25: 1.11, 30: 1.00, 35: 0.97, 40: 0.93, 45: 0.87, 50: 0.82, 55: 0.75, 60: 0.68 },
+      '90': { 20: 1.20, 25: 1.09, 30: 1.00, 35: 0.96, 40: 0.91, 45: 0.87, 50: 0.82, 55: 0.76, 60: 0.71 }
+    };
+
+    // NEC Table 310.15(C)(1) adjustment for conductors in raceway/cable
+    var BUNDLE = { '1': 1.0, '4': 0.80, '7': 0.70, '10': 0.50 };
+
+    var STANDARD = [15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90, 100, 110, 125, 150, 175, 200, 225, 250, 300, 350, 400];
+
+    function atOrBelow(v) {
+      for (var i = STANDARD.length - 1; i >= 0; i--) { if (STANDARD[i] <= v) return STANDARD[i]; }
+      return 0;
+    }
+
+    function tempFactor(rating, ambient) {
+      var f = TEMP[rating];
+      if (f[ambient]) return f[ambient];
+      // linear interpolation between table points
+      var keys = Object.keys(f).map(Number).sort(function (a, b) { return a - b; });
+      for (var i = 1; i < keys.length; i++) {
+        if (ambient >= keys[i - 1] && ambient <= keys[i]) {
+          var t = (ambient - keys[i - 1]) / (keys[i] - keys[i - 1]);
+          return f[keys[i - 1]] + t * (f[keys[i]] - f[keys[i - 1]]);
+        }
+      }
+      if (ambient < keys[0]) return f[keys[0]];
+      return f[keys[keys.length - 1]];
+    }
+
+    function compute(wire, insulation, ambient, bundled) {
+      var base = TABLE[wire] ? TABLE[wire][insulation === '90' ? 2 : insulation === '75' ? 1 : 0] : 0;
+      var adj = base * tempFactor(insulation, ambient) * (BUNDLE[bundled] || 1);
+      return { base: base, adjusted: adj, breaker: atOrBelow(adj) };
+    }
+
+    function calcAmp() {
+      var wire = document.getElementById('amp-wire').value;
+      var insulation = document.getElementById('amp-insulation').value;
+      var ambient = parseFloat(document.getElementById('amp-ambient').value) || 30;
+      var bundled = document.getElementById('amp-bundled').value;
+      var load = parseFloat(document.getElementById('amp-load').value) || 0;
+
+      var r = compute(wire, insulation, ambient, bundled);
+
+      document.getElementById('amp-base').textContent = r.base;
+      document.getElementById('amp-adjusted').textContent = r.adjusted.toFixed(1);
+      document.getElementById('amp-breaker').textContent = r.breaker;
+
+      var st = document.getElementById('amp-status');
+      if (load > 0) {
+        if (load <= r.adjusted * 0.8) {
+          st.textContent = '✓ Pass: wire ampacity covers your ' + load.toFixed(1) + ' A continuous load (load ≤ 80% of ' + r.adjusted.toFixed(1) + ' A). Max breaker: ' + r.breaker + ' A.';
+          st.style.color = '#059669';
+        } else if (load <= r.adjusted) {
+          st.textContent = '◐ Barely OK: load ' + load.toFixed(1) + ' A ≤ adjusted ' + r.adjusted.toFixed(1) + ' A, but exceeds the 80% continuous rule — upsize the wire or derate the load.';
+          st.style.color = '#B45309';
+        } else {
+          st.textContent = '✗ Fail: load ' + load.toFixed(1) + ' A exceeds adjusted ampacity ' + r.adjusted.toFixed(1) + ' A — upsize the wire, reduce bundling, or shorten the hot run.';
+          st.style.color = '#DC2626';
+        }
+      } else {
+        st.textContent = '';
+      }
+    }
+
+    var pdfBtn = document.getElementById('amp-pdf-btn');
+    if (pdfBtn) {
+      pdfBtn.addEventListener('click', function () {
+        var wire = document.getElementById('amp-wire');
+        var ins = document.getElementById('amp-insulation');
+        var ambient = document.getElementById('amp-ambient').value;
+        var bundled = document.getElementById('amp-bundled');
+        var load = document.getElementById('amp-load').value;
+        var bundleLabel = { '1': '1-3 (no derating)', '4': '4-6 conductors', '7': '7-9 conductors', '10': '10-20 conductors' };
+        var insLabel = { '60': '60°C', '75': '75°C', '90': '90°C' };
+        var r = compute(wire.value, ins.value, parseFloat(ambient) || 30, bundled.value);
+        generateSolarToolHubResultsPDF({
+          subtitle: 'Wire Ampacity — Results',
+          inputs: [
+            ['Wire size', wire.options[wire.selectedIndex].text],
+            ['Insulation rating', insLabel[ins.value]],
+            ['Ambient temperature', ambient + ' °C'],
+            ['Bundling', bundleLabel[bundled.value]],
+            ['Circuit load (optional)', load + ' A']
+          ],
+          resultsHeaders: ['Metric', 'Value', 'Protection', 'Value'],
+          results: [
+            ['Base ampacity', r.base + ' A', 'Max breaker', r.breaker + ' A'],
+            ['Adjusted ampacity', r.adjusted.toFixed(1) + ' A', 'Load check', (parseFloat(load) || 0) ? (parseFloat(load) <= r.adjusted ? 'Pass' : 'Fail') + ' @ ' + load + ' A' : '—']
+          ],
+          nextSteps: {
+            text: 'Next, check the voltage drop over your cable run with our:',
+            linkText: 'Voltage Drop Calculator',
+            url: 'https://ahmedtere44-coder.github.io/solartoolhub/tools/voltage-drop-calculator.html'
+          },
+          filename: 'solartoolhub-wire-ampacity-results.pdf'
+        });
+      });
+    }
+
+    var ids = ['amp-wire', 'amp-insulation', 'amp-ambient', 'amp-bundled', 'amp-load'];
+    ids.forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) el.addEventListener('input', calcAmp);
+      if (el) el.addEventListener('change', calcAmp);
+    });
+    if (document.readyState === 'complete') calcAmp(); else window.addEventListener('load', calcAmp);
+  })();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+  (function () {
+    var canvas = document.getElementById('amp-curve');
+    if (!canvas || typeof Chart === 'undefined') return;
+    var wireEl = document.getElementById('amp-wire');
+    var insEl = document.getElementById('amp-insulation');
+    var bundEl = document.getElementById('amp-bundled');
+    var temps = [30, 35, 40, 45, 50, 55, 60];
+
+    var TABLE = {
+      '14': [15, 20, 25],
+      '12': [20, 25, 30],
+      '10': [30, 35, 40],
+      '8':  [40, 50, 55],
+      '6':  [55, 65, 75],
+      '4':  [70, 85, 95],
+      '2':  [95, 115, 130],
+      '1':  [110, 130, 150],
+      '1/0': [125, 150, 170],
+      '2/0': [145, 175, 195],
+      '3/0': [165, 200, 225],
+      '4/0': [195, 230, 260],
+      '250': [215, 255, 290],
+      '300': [240, 285, 320],
+      '350': [260, 310, 350],
+      '400': [280, 335, 380],
+      '500': [320, 380, 430]
+    };
+    var TEMP = {
+      '60': { 30: 1.00, 35: 0.94, 40: 0.87, 45: 0.79, 50: 0.71, 55: 0.62, 60: 0.51 },
+      '75': { 30: 1.00, 35: 0.97, 40: 0.93, 45: 0.87, 50: 0.82, 55: 0.75, 60: 0.68 },
+      '90': { 30: 1.00, 35: 0.96, 40: 0.91, 45: 0.87, 50: 0.82, 55: 0.76, 60: 0.71 }
+    };
+    var BUNDLE = { '1': 1.0, '4': 0.80, '7': 0.70, '10': 0.50 };
+    var STANDARD = [15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90, 100, 110, 125, 150, 175, 200, 225, 250, 300, 350, 400];
+
+    function ampData() {
+      var base = TABLE[wireEl.value] ? TABLE[wireEl.value][insEl.value === '90' ? 2 : insEl.value === '75' ? 1 : 0] : 0;
+      var f = TEMP[insEl.value];
+      var bund = BUNDLE[bundEl.value] || 1;
+      return temps.map(function (t) { return Math.round(base * (f[t] || 1) * bund * 10) / 10; });
+    }
+
+    var chart = new Chart(canvas, {
+      type: 'line',
+      data: {
+        labels: temps.map(function (t) { return t + '°C'; }),
+        datasets: [{
+          label: 'Adjusted ampacity (A)',
+          data: ampData(),
+          borderColor: '#1E3A8A',
+          backgroundColor: 'rgba(30,58,138,0.10)',
+          borderWidth: 2, fill: true, tension: 0.3,
+          pointBackgroundColor: '#FACC15', pointRadius: 4
+        }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false, animation: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { title: { display: true, text: 'Ambient temperature (°C)', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, grid: { display: false } },
+          y: { title: { display: true, text: 'Adjusted ampacity (A)', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, beginAtZero: true }
+        }
+      }
+    });
+    function refresh() { chart.data.datasets[0].data = ampData(); chart.update(); }
+    [wireEl, insEl, bundEl].forEach(function (el) { if (el) el.addEventListener('change', refresh); });
+    if (document.readyState === 'complete') refresh(); else window.addEventListener('load', refresh);
+  })();
+</script>
+</body>
+</html>
