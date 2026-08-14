@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Choose a Solar Inverter in 2026: A Buyer Guide — SolarToolHub</title>
+<meta name="description" content="String, micro, hybrid or off-grid — which inverter fits your system? This guide compares the four inverter types with real 2026 prices, explains peak watt vs continuous watt sizing, MPPT count, efficiency curves, IP rating and ventilation, warranty and firmware, and how to spot an under-specced quote before you sign. Includes a sizing table for 3 kW, 5 kW and 10 kW systems and field notes from hot-climate desert installations.": how your bidirectional meter works, how monthly credits roll over, net metering vs net billing vs feed-in tariffs, how export rates differ by country and US state, and what it means for your system size and battery decision.">
+<link rel="canonical" href="https://ahmedtere44-coder.github.io/solartoolhub/articles/solar-inverter-buying-guide.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SolarToolHub">
+<meta property="og:title" content="How to Choose a Solar Inverter in 2026 | SolarToolHub">
+<meta property="og:description" content="Understand net metering step by step: how your bidirectional meter works, how monthly credits roll over, net metering vs net billing vs feed-in tariffs, how export rates differ by country and US state, and what it means for your system size and battery decision.">
+<meta property="og:url" content="https://ahmedtere44-coder.github.io/solartoolhub/articles/solar-inverter-buying-guide.html">
+<meta property="og:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How to Choose a Solar Inverter in 2026 | SolarToolHub">
+<meta name="twitter:description" content="String, micro, hybrid or off-grid inverters compared with 2026 prices, sizing math, and the checks that expose a bad quote.">
+<meta name="twitter:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do I need a string inverter, microinverters, or a hybrid inverter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on your wiring. A string inverter is the cheapest option per watt and suits a clean, unshaded roof. Microinverters give panel-level control and shine when shading, multiple roof planes or module-level monitoring matter. A hybrid inverter adds a battery port so you can store solar for night use without a separate battery inverter - the right choice for most new battery projects in 2026. An off-grid inverter is only needed when there is no grid connection at all."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I size an inverter for my solar array?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Match the inverter's continuous watt rating to your array with a DC-to-AC ratio between 1.0 and 1.3. A 5 kW array feeding a 4 kW string inverter (ratio 1.25) clips only a few percent of annual output while costing much less than a 5 kW unit. Never undersize below your winter peak, and check the manufacturer's max DC input limit - exceeding it voids the warranty."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do inverter prices vary so much between brands?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The spread comes from efficiency (97% versus 98.5%+), cooling design, IP rating, MPPT count, transformer quality, warranty length (5 versus 10-12 years), and local service support. A branded 5 kW string inverter ran roughly $800-1,200 in 2026 while a budget import with the same nameplate rating can cost half that but often has worse low-light efficiency and a short warranty."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does inverter efficiency really matter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes - the difference between a 97% and 98.5% efficient inverter is about 1.5% of your annual energy, roughly 75-100 kWh per year on a 5 kW system. Over 20 years that adds up to 1,500-2,000 kWh. Efficiency also drops at low load, so check the CEC or European efficiency curve, not just the peak number."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should I check in the warranty?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Look for at least 10 years of product warranty and confirm what it covers: parts, labor, shipping, and whether replacement is on-site or mail-in. Check the thermal shutdown behavior - inverters in hot climates derate above 45 degrees C, and a warranty that requires a roof removal for service makes that worse. Register the serial number immediately; many warranties start at shipment, not installation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I add batteries later with a normal string inverter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only through an AC-coupled battery inverter, which adds cost and a conversion loss (typically 3-5% round trip). If there is any chance of a battery within the next few years, buying a hybrid inverter from the start is cheaper and more efficient than retrofitting an AC-coupled unit onto a standard string inverter."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guides",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/articles.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "How to choose a solar inverter in 2026",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/articles/solar-inverter-buying-guide.html"
+    }
+  ]
+}
+</script>
+<!-- fallback styles -->
+<style>
+  .article figure, .article figure img { max-width: 100%; height: auto; border-radius: 12px; }
+  .article .data-table { border-collapse: collapse; width: 100%; }
+  .article .field-experience { border-left: 4px solid #F59E0B; }
+  .article .btn-row { display: flex; flex-wrap: wrap; gap: 10px; }
+</style>
+<!-- fallback styles -->
+<style>
+  .article figure, .article figure img { max-width: 100%; height: auto; border-radius: 12px; }
+  .article .data-table { border-collapse: collapse; width: 100%; }
+  .article .field-experience { border-left: 4px solid #F59E0B; }
+  .article .btn-row { display: flex; flex-wrap: wrap; gap: 10px; }
+</style>
+<body>
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark"><svg viewBox="0 0 24 24" width="24" height="24"><rect x="3" y="3" width="8" height="8" fill="#1E3A8A"/><rect x="13" y="3" width="8" height="8" fill="#1E3A8A" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#1E3A8A" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#1E3A8A"/></svg></span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html">Tools</a></li>
+      <li><a href="../articles.html" class="active">Guides</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button">Resources</button>
+        <ul class="nav-dropdown-menu">
+          <li><a href="../comparisons.html">Compare</a></li>
+          <li><a href="../cheat-sheets.html">Cheat sheets</a></li>
+          <li><a href="../glossary.html">Glossary</a></li>
+        </ul>
+      </li>
+      <li><a href="../solar-by-country.html">Solar by Country</a></li>
+      <li><a href="../real-examples.html">Real Examples</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../articles.html">Guides</a> / How to choose a solar inverter in 2026</div>
+    <div class="page-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+    <h1>How to Choose a Solar Inverter in 2026: A Complete Buyer Guide</h1>
+    <p class="lede">The inverter is the most misunderstood component of a solar system: it is the part that actually converts sunlight into usable electricity, and its quality decides whether your panels perform or disappoint for the next twenty years. This guide compares the four inverter types — string, micro, hybrid and off-grid — with real 2026 prices, explains peak versus continuous watt sizing, MPPT count, efficiency curves, IP rating and ventilation, and gives you the exact questions to ask before signing any quote. By the end you will know which inverter fits your roof, your budget and your battery plans.</p>
+    <div class="btn-row" style="margin-top:18px;">
+      <button type="button" id="article-pdf-btn" class="btn btn-accent">⬇️ Download article as PDF</button>
+      <button type="button" id="article-share-btn" class="btn btn-outline">🔗 Share</button>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <article class="article" style="padding-top:48px;">
+        <figure style="margin:0 0 32px;">
+      <img src="../images/solar-inverter-buying-guide-web.jpg" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='800' height='450'&gt;&lt;rect width='800' height='450' fill='%23E5E7EB'/&gt;&lt;text x='400' y='225' text-anchor='middle' font-family='sans-serif' font-size='20' fill='%236B7280'&gt;Image loading...&lt;/text&gt;&lt;/svg&gt;'" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='450'><rect width='800' height='450' fill='%23E5E7EB'/><text x='400' y='225' text-anchor='middle' font-family='sans-serif' font-size='20' fill='%236B7280'>Image loading...</text></svg>'" alt="A wall-mounted solar string inverter with LED status indicators installed in a shaded utility area, with solar cables running from the roof and to the distribution panel" loading="lazy" style="width:100%; height:auto; border-radius:12px; display:block;" width="1200" height="675">
+      <figcaption style="text-align:center; font-size:0.88rem; color:var(--ink-faint); margin-top:10px;">The inverter lives between your panels and your loads — everything your system produces passes through it.</figcaption>
+    </figure>
+    <p>Solar quotes obsess over panel brand and count, but the inverter quietly governs more of your long-term outcome than almost anything else in the box. It throttles your peak power, decides how your system behaves in shade and low light, connects or refuses to connect a battery, and is the single most common point of failure in the first five years. Choose wrong and you lose 3-5% of lifetime production, pay for expensive retrofits, or — in the worst case — void your panel warranty by exceeding DC input limits.</p>
+    <p>This guide walks through the decision the way a working engineer does: first pick the type, then the size, then the quality details that survive a twenty-year life in the field. Every section ends with the practical check you can do with the quote in your hand.</p>
+
+    <h2>The four inverter types, honestly compared</h2>
+    <p>A <strong>string inverter</strong> takes all panels in series and converts them as one unit. It is the cheapest per watt — typically $0.15-0.22/W in 2026 — and works beautifully on a clean, unshaded, single-plane roof. Its weakness is shade: one shaded panel drags down its entire string, and once it dies your whole system goes dark. A <strong>microinverter</strong> sits behind every panel and converts at module level. Shade on one panel no longer affects the others, and you get panel-level monitoring; the cost runs $0.35-0.45/W installed. A <strong>hybrid inverter</strong> adds a battery port — one unit manages solar, the grid and battery charging together, which is the cleanest architecture for any new system that might store energy. An <strong>off-grid inverter</strong> only appears where there is no utility connection; it must handle surge loads and generator backup on its own.</p>
+    <table class="data-table" style="width:100%; border-collapse:collapse;">
+      <thead>
+        <tr>
+          <th style="padding:12px; text-align:left; border-bottom:2px solid #1E3A8A;">Type</th>
+          <th style="padding:12px; text-align:left; border-bottom:2px solid #1E3A8A;">Best for</th>
+          <th style="padding:12px; text-align:left; border-bottom:2px solid #1E3A8A;">2026 price ($/W)</th>
+          <th style="padding:12px; text-align:left; border-bottom:2px solid #1E3A8A;">Weakness</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;"><strong>String</strong></td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">Clean unshaded roofs, tight budgets</td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">0.15 – 0.22</td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">Shade drags down the whole string</td>
+        </tr>
+        <tr>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;"><strong>Microinverter</strong></td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">Shaded roofs, multiple planes, monitoring</td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">0.35 – 0.45</td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">Twice the electronics, more failure points</td>
+        </tr>
+        <tr>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;"><strong>Hybrid</strong></td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">Solar + battery projects, backup plans</td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">0.25 – 0.40</td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">Vendor lock-in to one battery brand</td>
+        </tr>
+        <tr>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;"><strong>Off-grid</strong></td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">Remote sites, wells, farms without grid</td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">0.30 – 0.50</td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">Must be oversized for surge loads</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>How much inverter do you actually need?</h2>
+    <p>The single biggest sizing mistake is matching inverter watts to panel watts one-to-one. Inverters are rated for <strong>continuous</strong> output at 45 degrees C, while panels produce their nameplate only briefly on cold sunny mornings. The industry norm is a DC-to-AC ratio of <strong>1.1 to 1.3</strong> — meaning a 6.6 kW array happily runs on a 5 kW string inverter with only 1-2% annual clipping. Undersizing below your winter peak (when production is lowest anyway) saves real money; undersizing below your summer peak clips energy you would otherwise export at retail rates.</p>
+    <p>Surge matters even more for off-grid and battery systems: a well pump or refrigerator compressor can draw 4-6 times its running wattage for a few seconds. A 3 kW off-grid inverter powering a pump may need a 5 kW unit to survive the start. Always check the surge rating, not just the continuous rating — this is the number that kills cheap inverters in the field.</p>
+    <table class="data-table" style="width:100%; border-collapse:collapse;">
+      <thead>
+        <tr>
+          <th style="padding:12px; text-align:left; border-bottom:2px solid #1E3A8A;">Array size</th>
+          <th style="padding:12px; text-align:left; border-bottom:2px solid #1E3A8A;">String inverter (1.2 ratio)</th>
+          <th style="padding:12px; text-align:left; border-bottom:2px solid #1E3A8A;">Hybrid (with 5 kWh battery)</th>
+          <th style="padding:12px; text-align:left; border-bottom:2px solid #1E3A8A;">Microinverters (count)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">3 kW</td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">2.5 – 3 kW</td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">3 kW hybrid, ~$1,100</td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">7 × 450 W micro</td>
+        </tr>
+        <tr>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">5 kW</td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">4 – 4.2 kW</td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">5 kW hybrid, ~$1,500</td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">11 × 450 W micro</td>
+        </tr>
+        <tr>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">10 kW</td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">8 – 9 kW</td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">10 kW hybrid, ~$2,600</td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">22 × 450 W micro</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.9rem; color:var(--ink-faint);">Prices are unit-only street prices in 2026 for mid-tier branded equipment; installation and balance-of-system costs are separate. Sizing follows the 1.2 DC/AC rule described above.</p>
+
+    <h2>MPPT count: why two trackers beat one</h2>
+    <p>Each MPPT channel handles a separate string orientation or tilt. A roof with east and west faces, or a single roof plus a ground array, performs measurably better with a <strong>two-MPPT</strong> inverter than a single-MPPT unit, because each string tracks its own maximum independently. The price gap is now small (roughly $80-150), which is why a dual-MPPT inverter is the default recommendation unless the entire array faces one direction on one plane. For three or more orientations, step up to three MPPTs or use power optimizers.</p>
+
+    <h2>The quality details that survive twenty years</h2>
+    <p>Efficiency numbers on spec sheets are peak values taken at perfect conditions; what actually matters is the <strong>weighted efficiency curve</strong> (CEC or Euro), because your inverter spends most of its life at partial load. The gap between a 97% and 98.5% weighted unit is 1.5-2% of lifetime energy — about 1,500-2,000 kWh over twenty years on a typical residential system. <strong>IP rating</strong> determines where the unit can live: IP65 units survive outdoors exposed; IP42 needs a shaded wall or shed; indoor-only units in a hot attic derate badly in summer. <strong>Cooling design</strong> matters too — fan-cooled units move more dust in desert environments and the fans are a failure item; fanless convection designs (common above 5 kW) are quieter and more reliable in dusty, sandy air.</p>
+    <p><strong>Warranty</strong> is where cheap brands show their true cost. A 5-year warranty that requires the unit to be shipped back to the factory — often across an ocean — can strand your system for weeks. Look for 10-12 years of on-site replacement from a brand with local service stock. And register the serial number at installation: some warranties run from shipment date, not installation date, and an unregistered unit can lose years of coverage.</p>
+
+    <div class="field-experience" style="border-left:4px solid #F59E0B; background:#FFFBEB; padding:16px 20px; border-radius:8px; margin:24px 0;">
+      <strong>Field note:</strong> In southern Jordan — Ma'an and the desert sites near Al-Mafraq — inverters live in summer heat above 45 degrees C with blowing sand. On those sites, three patterns keep repeating: fan-cooled string inverters mounted in direct sun fail within two seasons, and a shaded north-wall or ventilated shelter location doubles their life; budget off-grid units with inflated surge ratings trip constantly under well-pump start current, so the pump needs a soft starter or a deliberately oversized inverter; and hybrid inverter battery ports save real money when the battery comes later, because AC-retrofitting costs more than the battery-port premium. On every project the rule is the same — the inverter's datasheet max DC input must never be exceeded, even when the panels are cold, because cold morning voltage can exceed STC values by 15% and void the warranty instantly.
+    </div>
+
+    <h2>Red flags in any inverter quote</h2>
+    <p>Four things expose an inflated or risky quote quickly. <strong>One</strong>: the inverter DC input limit is below your array's cold-weather voltage — check Voc multiplied by the temperature coefficient at your coldest expected temperature. <strong>Two</strong>: the quoted efficiency is peak-only with no weighted figure published; ask for the CEC or Euro number. <strong>Three</strong>: the warranty is five years with return-to-factory service in another country; that is a hidden five-figure labor risk. <strong>Four</strong>: a hybrid inverter locked to a single battery brand with no certification for alternatives — that lock-in becomes expensive the moment the battery vendor changes pricing or exits the market. Run these four checks against any quote before signing and you will avoid the vast majority of bad installs.</p>
+
+    <h2>Common inverter questions, answered</h2>
+    <p><strong>"Can I use one string inverter for panels on different roofs?"</strong> Yes, if it has two MPPTs — one string per roof plane. With a single-MPPT unit, mismatched orientations cost you real energy every day, so upgrade to dual-MPPT or add optimizers.</p>
+    <p><strong>"Do microinverters last as long as string inverters?"</strong> Usually longer — microinverters carry 25-year warranties in many cases versus 10-12 for string units, partly because each one dissipates less heat. Their failure rate is lower per unit, though a system with twenty of them has more total electronics.</p>
+    <p><strong>"What happens when the grid goes down with a normal string inverter?"</strong> It shuts off automatically — anti-islanding protection prevents it from energizing a dead grid that lineworkers might be repairing. If backup power matters, you need a hybrid inverter with battery or a dedicated battery inverter with islanding capability.</p>
+    <p><strong>"Is a bigger inverter always better?"</strong> No. Oversizing beyond a 1.3 DC/AC ratio adds cost for nearly zero extra energy, and an oversized inverter running at very low load operates at its worst efficiency point most of the day. Size to your array with the 1.1-1.3 rule and let the numbers decide.</p>
+
+    <h2>Frequently asked questions</h2>
+    <h3>Do I need a string inverter, microinverters, or a hybrid inverter?</h3>
+    <p>It depends on your wiring. A string inverter is the cheapest option per watt and suits a clean, unshaded roof. Microinverters give panel-level control and shine when shading, multiple roof planes or module-level monitoring matter. A hybrid inverter adds a battery port so you can store solar for night use without a separate battery inverter — the right choice for most new battery projects in 2026. An off-grid inverter is only needed when there is no grid connection at all.</p>
+    <h3>How do I size an inverter for my solar array?</h3>
+    <p>Match the inverter's continuous watt rating to your array with a DC-to-AC ratio between 1.0 and 1.3. A 5 kW array feeding a 4 kW string inverter (ratio 1.25) clips only a few percent of annual output while costing much less than a 5 kW unit. Never undersize below your winter peak, and check the manufacturer's max DC input limit — exceeding it voids the warranty.</p>
+    <h3>Why do inverter prices vary so much between brands?</h3>
+    <p>The spread comes from efficiency (97% versus 98.5%+), cooling design, IP rating, MPPT count, transformer quality, warranty length (5 versus 10-12 years), and local service support. A branded 5 kW string inverter ran roughly $800-1,200 in 2026 while a budget import with the same nameplate rating can cost half that but often has worse low-light efficiency and a short warranty.</p>
+    <h3>Does inverter efficiency really matter?</h3>
+    <p>Yes — the difference between a 97% and 98.5% efficient inverter is about 1.5% of your annual energy, roughly 75-100 kWh per year on a 5 kW system. Over 20 years that adds up to 1,500-2,000 kWh. Efficiency also drops at low load, so check the CEC or European efficiency curve, not just the peak number.</p>
+    <h3>What should I check in the warranty?</h3>
+    <p>Look for at least 10 years of product warranty and confirm what it covers: parts, labor, shipping, and whether replacement is on-site or mail-in. Check the thermal shutdown behavior — inverters in hot climates derate above 45 degrees C, and a warranty that requires a roof removal for service makes that worse. Register the serial number immediately; many warranties start at shipment, not installation.</p>
+    <h3>Can I add batteries later with a normal string inverter?</h3>
+    <p>Only through an AC-coupled battery inverter, which adds cost and a conversion loss (typically 3-5% round trip). If there is any chance of a battery within the next few years, buying a hybrid inverter from the start is cheaper and more efficient than retrofitting an AC-coupled unit onto a standard string inverter.</p>
+
+  </article>
+</div>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"></rect><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"></rect><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"></rect><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"></rect></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="../tools/panel-calculator.html">Panel calculator</a></li>
+          <li><a href="../tools/battery-calculator.html">Battery calculator</a></li>
+          <li><a href="../tools/inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="../tools/cable-calculator.html">Cable calculator</a></li>
+          <li><a href="../tools/roi-calculator.html">ROI calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script src="../js/main.js"></script>
+<script>
+  // ---------- SolarToolHub html2canvas PDF export (pixel-perfect Arabic) ----------
+  function sthExportArticlePdf() {
+    var btn = document.getElementById('article-pdf-btn');
+    var origText = btn ? btn.textContent : '';
+    if (btn) { btn.textContent = 'Preparing PDF...'; btn.disabled = true; }
+    // find article container
+    var art = document.querySelector('.article') || document.querySelector('article') || document.querySelector('main');
+    if (!art) { alert('Could not find article content.'); if (btn) { btn.textContent = origText; btn.disabled = false; } return; }
+    // clone, hide interactive bits
+    var clone = art.cloneNode(true);
+    clone.querySelectorAll('button, .btn, script, noscript').forEach(function (n) { n.remove(); });
+    clone.querySelectorAll('a').forEach(function (a) { a.style.textDecoration = 'none'; });
+    var wrap = document.createElement('div');
+    wrap.style.cssText = 'position:fixed;left:-10000px;top:0;width:794px;background:#ffffff;padding:32px 30px;color:#1f2937;z-index:-1;';
+    wrap.appendChild(clone);
+    document.body.appendChild(wrap);
+    wrap.querySelectorAll('*').forEach(function (el) {
+      var p = getComputedStyle(el).position;
+      if (p === 'fixed' || p === 'sticky') el.style.position = 'absolute';
+    });
+    document.fonts.ready.then(function () {
+      window.html2canvas(wrap, {
+        scale: 1.6, useCORS: true, allowTaint: true,
+        backgroundColor: '#ffffff', windowWidth: 794, logging: false
+      }).then(function (canvas) {
+        wrap.remove();
+        var doc = new window.jspdf.jsPDF({ unit: 'mm', format: 'a4' });
+        var margin = 12, pageW = 210, pageH = 297;
+        var imgW = pageW - margin * 2;
+        var pxPerMM = canvas.width / imgW;
+        var totalH = (canvas.height * imgW) / canvas.width;
+        var left = totalH, firstPage = true;
+        while (left > 0.1) {
+          var sliceH_mm = Math.min(pageH - margin * 2, left);
+          var sliceH_px = Math.round(sliceH_mm * pxPerMM);
+          var srcY_px = Math.round((totalH - left) * pxPerMM);
+          var tmp = document.createElement('canvas');
+          tmp.width = canvas.width; tmp.height = sliceH_px;
+          tmp.getContext('2d').drawImage(canvas, 0, srcY_px, canvas.width, sliceH_px, 0, 0, canvas.width, sliceH_px);
+          if (!firstPage) doc.addPage();
+          doc.addImage(tmp.toDataURL('image/jpeg', 0.8), 'JPEG', margin, margin, imgW, sliceH_mm);
+          firstPage = false; left -= sliceH_mm;
+        }
+        doc.save('solartoolhub-solar-inverter-buying-guide.pdf');
+        if (btn) { btn.textContent = origText; btn.disabled = false; }
+      }).catch(function (e) {
+        wrap.remove();
+        console.error('SolarToolHub PDF export failed', e);
+        alert('Could not generate the PDF. Please try again or use your browser print (Ctrl+P).');
+        if (btn) { btn.textContent = origText; btn.disabled = false; }
+      });
+    });
+  }
+  var articlePdfBtn = document.getElementById('article-pdf-btn');
+  if (articlePdfBtn) {
+    articlePdfBtn.addEventListener('click', sthExportArticlePdf);
+  }
+  var shareBtn = document.getElementById('article-share-btn');
+  if (shareBtn) {
+    shareBtn.addEventListener('click', function () {
+      var data = { title: 'How to Choose a Solar Inverter in 2026: A Buyer Guide — SolarToolHub', url: window.location.href };
+      if (navigator.share) { navigator.share(data).catch(function () {}); }
+      else { navigator.clipboard.writeText(window.location.href).then(function () { shareBtn.textContent = '\u2713 Link copied'; setTimeout(function () { shareBtn.textContent = '\ud83d\udd17 Share'; }, 2000); }); }
+    });
+  }
+</script>
+</body>
+</html>

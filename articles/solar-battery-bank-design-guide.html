@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solar Battery Bank Design Guide: Sizing, Chemistry & Lifespan — SolarToolHub</title>
+<meta name="description" content="How to design a battery bank that actually survives: lithium vs lead-acid vs gel, usable depth of discharge math, cycle life, temperature effects in hot climates, BMS and balancing, inverter compatibility, and how to read a battery quote so the bank matches your nights, not the sales pitch.">
+<link rel="canonical" href="https://ahmedtere44-coder.github.io/solartoolhub/articles/solar-battery-bank-design-guide.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SolarToolHub">
+<meta property="og:title" content="Solar Battery Bank Design Guide | SolarToolHub">
+<meta property="og:description" content="Understand net metering step by step: how your bidirectional meter works, how monthly credits roll over, net metering vs net billing vs feed-in tariffs, how export rates differ by country and US state, and what it means for your system size and battery decision.">
+<meta property="og:url" content="https://ahmedtere44-coder.github.io/solartoolhub/articles/solar-battery-bank-design-guide.html">
+<meta property="og:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Solar Battery Bank Design Guide | SolarToolHub">
+<meta name="twitter:description" content="How to design a battery bank that survives: sizing, chemistry, heat and the checks that expose a bad quote.">
+<meta name="twitter:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How big should my battery bank be?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Start from your usable nightly consumption, not the inverter size. Take your essential night load in kWh and divide by the usable depth of discharge: a 10 kWh night need on lithium (80% DoD usable) needs a 12.5 kWh bank; the same need on lead-acid (50% DoD) needs 20 kWh. Add 15-20% for aging in hot climates, and you have your real number."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Lithium or lead-acid - which is worth the extra money?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Lithium (LiFePO4) costs roughly twice as much per kWh upfront but gives 4-6 times the cycle life, 80% usable depth versus 50%, and holds up far better in partial-state cycling. Over a ten-year horizon lithium almost always wins on cost per usable kWh - the exception is very low-budget seasonal systems where lead-acid's low entry price and tolerance for simple charge controllers still makes sense."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does heat really shorten battery life that much?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes - it is the number one silent killer in desert installations. Every 10 degrees C above the rated 25 degrees C roughly halves lead-acid life and degrades lithium around 20-30% faster. A bank stored at 35 degrees C year-round can lose a third of its rated life. In hot climates the fix is cheap: shade the enclosure, ventilate it, bury or mount in the coolest available wall, and derate the capacity by 15-20% when sizing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does a BMS actually protect against?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A battery management system watches each cell's voltage and temperature and disconnects the pack on overcharge, deep discharge, overcurrent and over-temperature. Without it, one weak cell can be pushed into failure by the series string around it. Every lithium bank needs an active BMS; on large banks check that the BMS communicates with your inverter or charger so the inverter throttles before the BMS is forced to cut hard."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I mix old and new batteries in the same bank?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No - it is the fastest way to kill a battery bank. In a series string, the weakest cell defines the whole pack's usable capacity, and a new battery sitting beside an aged one gets chronically overworked. Replace banks as a complete set. The one exception: parallel strings of the same age, chemistry and capacity can be added if the voltages are matched before connection."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my battery read full but run out fast?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three common causes: the bank was never fully charged (lead-acid sulfation builds up when it lives at partial state, and the meter tells you voltage, not capacity); the capacity was undersized so you are running deeper cycles than rated; or - very common in hot climates - one string aged faster and drags the whole bank down. A controlled capacity test with a known load is the honest diagnostic."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guides",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/articles.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Solar battery bank design guide",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/articles/solar-battery-bank-design-guide.html"
+    }
+  ]
+}
+</script>
+<!-- fallback styles -->
+<style>
+  .article figure, .article figure img { max-width: 100%; height: auto; border-radius: 12px; }
+  .article .data-table { border-collapse: collapse; width: 100%; }
+  .article .field-experience { border-left: 4px solid #F59E0B; }
+  .article .btn-row { display: flex; flex-wrap: wrap; gap: 10px; }
+</style>
+<!-- fallback styles -->
+<style>
+  .article figure, .article figure img { max-width: 100%; height: auto; border-radius: 12px; }
+  .article .data-table { border-collapse: collapse; width: 100%; }
+  .article .field-experience { border-left: 4px solid #F59E0B; }
+  .article .btn-row { display: flex; flex-wrap: wrap; gap: 10px; }
+</style>
+<body>
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark"><svg viewBox="0 0 24 24" width="24" height="24"><rect x="3" y="3" width="8" height="8" fill="#1E3A8A"/><rect x="13" y="3" width="8" height="8" fill="#1E3A8A" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#1E3A8A" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#1E3A8A"/></svg></span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html">Tools</a></li>
+      <li><a href="../articles.html" class="active">Guides</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button">Resources</button>
+        <ul class="nav-dropdown-menu">
+          <li><a href="../comparisons.html">Compare</a></li>
+          <li><a href="../cheat-sheets.html">Cheat sheets</a></li>
+          <li><a href="../glossary.html">Glossary</a></li>
+        </ul>
+      </li>
+      <li><a href="../solar-by-country.html">Solar by Country</a></li>
+      <li><a href="../real-examples.html">Real Examples</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../articles.html">Guides</a> / Solar battery bank design guide</div>
+    <div class="page-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 2 2h12a2 2 0 0 2 2-2V8z"></path><path d="M14 2v6h6"></path><path d="M8 13h8M8 17h8M8 9h2"></path></svg></div>
+    <h1>Solar Battery Bank Design Guide: Sizing, Chemistry & Real Lifespan</h1>
+    <p class="lede">A battery bank is the most expensive and most abused part of any solar system — it costs more per kWh than the panels, and it fails first when it is sized from a brochure instead of a load profile. This guide shows how to design a bank that survives: how to size from your real nightly consumption, how lithium, lead-acid and gel compare on usable capacity and cycle life, what heat does to every chemistry, why the BMS matters more than the brand, and how to read a battery quote so the bank you buy matches your nights rather than the sales pitch.</p>
+    <div class="btn-row" style="margin-top:18px;">
+      <button type="button" id="article-pdf-btn" class="btn btn-accent">⬇️ Download article as PDF</button>
+      <button type="button" id="article-share-btn" class="btn btn-outline">🔗 Share</button>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <article class="article" style="padding-top:48px;">
+        <figure style="margin:0 0 32px;">
+      <img src="../images/solar-battery-bank-design-guide-web.jpg" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='800' height='450'&gt;&lt;rect width='800' height='450' fill='%23E5E7EB'/&gt;&lt;text x='400' y='225' text-anchor='middle' font-family='sans-serif' font-size='20' fill='%236B7280'&gt;Image loading...&lt;/text&gt;&lt;/svg&gt;'" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='450'><rect width='800' height='450' fill='%23E5E7EB'/><text x='400' y='225' text-anchor='middle' font-family='sans-serif' font-size='20' fill='%236B7280'>Image loading...</text></svg>'" alt="A wall-mounted lithium battery bank with a BMS display next to a solar charge controller and hybrid inverter in a ventilated utility room" loading="lazy" style="width:100%; height:auto; border-radius:12px; display:block;" width="1200" height="675">
+      <figcaption style="text-align:center; font-size:0.88rem; color:var(--ink-faint); margin-top:10px;">A well-ventilated battery corner — the three things that matter most are sizing, temperature and the BMS.</figcaption>
+    </figure>
+    <p>The brochure numbers on a battery are the least honest numbers in solar. A "200 Ah" lead-acid battery gives you 100 usable amp-hours at best; a "10 kWh" lithium pack with a conservative BMS gives you 8-8.5. Vendors sell nameplate capacity; your nights consume usable capacity. The entire design problem of a battery bank is closing the gap between those two numbers — and the gap widens with every hot season, every deep cycle, and every mismatched battery added to an old string.</p>
+    <p>This guide follows the design sequence a working engineer uses: define the load, pick the chemistry, size for usable depth of discharge, plan for heat and aging, then verify inverter and charge controller compatibility. Each step has one calculation and one field rule attached to it.</p>
+
+    <h2>Step one: size from your real nights, not from the inverter</h2>
+    <p>The most common battery mistake is "I have a 5 kW inverter, so I need a 5 kWh battery." Inverter size says nothing about runtime. What matters is your <strong>essential nightly load</strong> — the kWh you actually consume between sunset and sunrise when the panels are dark. Measure it honestly: list the fridge, lights, fans, TV, water pump runtime and any night-load devices, multiply each by its hours, and add them up. A typical small household runs 8-12 kWh of essentials per night; a desert homestead with a well pump and freezer can run 20-30 kWh.</p>
+    <p>Once you have the nightly number, divide by usable depth of discharge. The formula is the whole design in one line:</p>
+    <p style="text-align:center; font-size:1.05rem; background:#F1F5F9; padding:12px; border-radius:8px;"><strong>Bank size = nightly load (kWh) ÷ usable DoD + 15% aging margin</strong></p>
+    <p>A 10 kWh nightly need on lithium at 80% usable DoD gives 12.5 kWh of bank; the same need on lead-acid at 50% usable DoD gives 20 kWh. That is why a lithium bank looks expensive on the sticker and cheap on the bill — you are buying usable kWh, not nameplate.</p>
+
+    <h2>Chemistry: lithium, lead-acid, gel — the honest comparison</h2>
+    <p><strong>Lithium iron phosphate (LiFePO4)</strong> is the default for anything used daily: 80% usable depth, 3,000-6,000 cycles to 80% capacity, tolerance for partial-state cycling, and a BMS that prevents the fatal abuse modes. Street prices in 2026 ran roughly $150-250 per usable kWh. <strong>Lead-acid (AGM and flooded)</strong> gives 50% usable depth and 500-1,200 cycles, but enters at half the upfront price and works fine for seasonal or backup-only systems that rarely cycle. <strong>Gel</strong> sits between the two — sealed and maintenance-free like AGM, with slightly better deep-cycle tolerance but a real sensitivity to overcharging that cheap charge controllers ignore.</p>
+    <table class="data-table" style="width:100%; border-collapse:collapse;">
+      <thead>
+        <tr>
+          <th style="padding:12px; text-align:left; border-bottom:2px solid #1E3A8A;">Chemistry</th>
+          <th style="padding:12px; text-align:left; border-bottom:2px solid #1E3A8A;">Usable DoD</th>
+          <th style="padding:12px; text-align:left; border-bottom:2px solid #1E3A8A;">Cycles to 80%</th>
+          <th style="padding:12px; text-align:left; border-bottom:2px solid #1E3A8A;">2026 $/usable kWh</th>
+          <th style="padding:12px; text-align:left; border-bottom:2px solid #1E3A8A;">Best use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;"><strong>LiFePO4</strong></td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">80%</td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">3,000 – 6,000</td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">150 – 250</td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">Daily cycling, backup, off-grid</td>
+        </tr>
+        <tr>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;"><strong>Lead-acid AGM</strong></td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">50%</td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">500 – 1,200</td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">80 – 140</td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">Backup-only, low budget</td>
+        </tr>
+        <tr>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;"><strong>Gel</strong></td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">50 – 60%</td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">700 – 1,500</td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">100 – 170</td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">Remote cabins, solar street systems</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Heat: the silent killer nobody quotes</h2>
+    <p>In hot climates the battery bank dies of temperature long before it dies of cycling. The rule of thumb for lead-acid is brutal and reliable: <strong>every 10 degrees C above the rated 25 degrees C roughly halves cycle life</strong>. A bank living at 35-40 degrees C in an uninsulated shed — the normal state of many desert installations — will last two to three years where the datasheet promises six. Lithium degrades more slowly with heat, roughly 20-30% faster aging per 10 degrees above rating, but a BMS will disconnect a hot pack in a heat wave and leave you in the dark at the exact moment you wanted it most.</p>
+    <p>The field fixes are all cheap: mount the bank on a shaded north-facing wall rather than in a west-facing shed; provide cross-ventilation or a small exhaust fan; keep the bank at least 10 cm off the floor and away from the inverter's own heat; and derate the capacity by 15-20% when sizing so the aged bank still meets the nightly load in year five. In Ma'an and Mafraq installations the difference between a bank that survives four summers and one that survives ten is the enclosure, not the brand.</p>
+
+    <div class="field-experience" style="border-left:4px solid #F59E0B; background:#FFFBEB; padding:16px 20px; border-radius:8px; margin:24px 0;">
+      <strong>Field note:</strong> The pattern that repeats on desert sites in southern Jordan: banks quoted by nameplate capacity, installed in direct sun or unventilated sheds, and replaced every two years — while the same chemistry in a shaded, ventilated enclosure runs five-plus years. The other repeat offender is mixing aged batteries with new ones in a series string: one weak cell limits the whole pack, the BMS trips at lower and lower charge levels, and the customer concludes "lithium is bad." It was never the chemistry. Third pattern: cheap charge controllers without lithium communication leave the pack charging at lead-acid voltages, which the BMS fights all day — always match the charge profile to the exact battery model, or use a controller with CAN/RS485 battery communication.
+    </div>
+
+    <h2>The BMS: the difference between a bank and a bomb</h2>
+    <p>A battery management system measures every cell's voltage and temperature and disconnects the pack on overcharge, deep discharge, overcurrent, and over-temperature. Without one, a lithium bank is just a collection of cells waiting for a mismatch to escalate — one weak cell pushed past 4.2 V or below 2.5 V fails, and the series string around it fails with it. When choosing a lithium bank, check three things: that the BMS is active and per-cell balanced (not just total-pack protection), that it communicates with your inverter or charger so the system throttles before the BMS is forced to cut, and that the BMS current rating exceeds your inverter's maximum draw with margin — a 100 A BMS on a 5 kW inverter will trip during surge loads.</p>
+
+    <h2>Inverter and charger compatibility</h2>
+    <p>The bank does not exist in isolation — it must be matched to the equipment that charges and drains it. A lead-acid bank needs a charge controller with the correct absorption and float voltages; a lithium bank needs either a controller with a lithium profile for its exact model or CAN/RS485 communication so the BMS sets the parameters. On the discharge side, the inverter's low-voltage cutoff must sit above the battery's BMS cutoff — otherwise the battery and the inverter fight over who gets to decide the system is empty, and the result is nuisance tripping. If you are designing around a hybrid inverter, confirm its battery port supports your chemistry and voltage (48 V for most residential lithium), because a port locked to a single vendor's battery turns a component choice into an ecosystem lock-in.</p>
+
+    <h2>Reading a battery quote: five checks before signing</h2>
+    <p>Four questions turn any battery quote transparent. <strong>One</strong>: is this price per nameplate kWh or per usable kWh — divide the quote by nameplate capacity times usable DoD and compare that number across vendors. <strong>Two</strong>: what is the warranty cycle count and at what depth — a "10 year" warranty that assumes 0.7 cycles per day at 80% DoD is not the same as one assuming daily full cycling. <strong>Three</strong>: what happens at 40 degrees C — does the datasheet derate, and does the warranty survive a hot installation? <strong>Four</strong>: is the BMS communicating or standalone — communication avoids most tripping problems. <strong>Five</strong>: what does replacement labor cost in year three — a bank whose warranty requires return-to-factory shipping is a five-figure labor risk wearing a two-year sticker.</p>
+
+    <h2>Common battery bank questions, answered</h2>
+    <p><strong>"Can I add batteries to an existing bank later?"</strong> Only in parallel strings of the same age, chemistry and capacity, matched in voltage before connection. Never add to a series string, and never mix old and new — the new battery does the old one's work and dies young.</p>
+    <p><strong>"Why does my bank show full but run out quickly?"</strong> Voltage is not capacity. A sulfated lead-acid bank reads full at float but delivers a fraction of its rated Ah; a hot lithium pack with an unbalanced string does the same. The honest diagnostic is a controlled discharge test with a known load, not the meter.</p>
+    <p><strong>"Do I need a battery for a grid-tied system?"</strong> Only if your export rate is low (net billing), your grid is unreliable, or your tariff makes night power expensive (time-of-use). Under true 1:1 net metering, the grid itself is your battery and adding storage usually hurts the payback.</p>
+    <p><strong>"How long will my battery actually last?"</strong> Count cycles, not years. A LiFePO4 bank cycled once daily to 80% DoD at 25 degrees C gives 3,000-6,000 cycles — ten to fifteen years. The same bank at 40 degrees C doing two cycles a day gives three to five. The environment writes the warranty, not the vendor.</p>
+
+    <h2>Frequently asked questions</h2>
+    <h3>How big should my battery bank be?</h3>
+    <p>Start from your usable nightly consumption, not the inverter size. Take your essential night load in kWh and divide by the usable depth of discharge: a 10 kWh night need on lithium (80% DoD usable) needs a 12.5 kWh bank; the same need on lead-acid (50% DoD) needs 20 kWh. Add 15-20% for aging in hot climates, and you have your real number.</p>
+    <h3>Lithium or lead-acid — which is worth the extra money?</h3>
+    <p>Lithium (LiFePO4) costs roughly twice as much per kWh upfront but gives 4-6 times the cycle life, 80% usable depth versus 50%, and holds up far better in partial-state cycling. Over a ten-year horizon lithium almost always wins on cost per usable kWh — the exception is very low-budget seasonal systems where lead-acid's low entry price and tolerance for simple charge controllers still makes sense.</p>
+    <h3>Does heat really shorten battery life that much?</h3>
+    <p>Yes — it is the number one silent killer in desert installations. Every 10 degrees C above the rated 25 degrees C roughly halves lead-acid life and degrades lithium around 20-30% faster. A bank stored at 35 degrees C year-round can lose a third of its rated life. In hot climates the fix is cheap: shade the enclosure, ventilate it, bury or mount in the coolest available wall, and derate the capacity by 15-20% when sizing.</p>
+    <h3>What does a BMS actually protect against?</h3>
+    <p>A battery management system watches each cell's voltage and temperature and disconnects the pack on overcharge, deep discharge, overcurrent and over-temperature. Without it, one weak cell can be pushed into failure by the series string around it. Every lithium bank needs an active BMS; on large banks check that the BMS communicates with your inverter or charger so the inverter throttles before the BMS is forced to cut hard.</p>
+    <h3>Can I mix old and new batteries in the same bank?</h3>
+    <p>No — it is the fastest way to kill a battery bank. In a series string, the weakest cell defines the whole pack's usable capacity, and a new battery sitting beside an aged one gets chronically overworked. Replace banks as a complete set. The one exception: parallel strings of the same age, chemistry and capacity can be added if the voltages are matched before connection.</p>
+    <h3>Why does my battery read full but run out fast?</h3>
+    <p>Three common causes: the bank was never fully charged (lead-acid sulfation builds up when it lives at partial state, and the meter tells you voltage, not capacity); the capacity was undersized so you are running deeper cycles than rated; or — very common in hot climates — one string aged faster and drags the whole bank down. A controlled capacity test with a known load is the honest diagnostic.</p>
+
+  </article>
+</div>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"></rect><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"></rect><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"></rect><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"></rect></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="../tools/panel-calculator.html">Panel calculator</a></li>
+          <li><a href="../tools/battery-calculator.html">Battery calculator</a></li>
+          <li><a href="../tools/inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="../tools/cable-calculator.html">Cable calculator</a></li>
+          <li><a href="../tools/roi-calculator.html">ROI calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script src="../js/main.js"></script>
+<script>
+  // ---------- SolarToolHub html2canvas PDF export (pixel-perfect Arabic) ----------
+  function sthExportArticlePdf() {
+    var btn = document.getElementById('article-pdf-btn');
+    var origText = btn ? btn.textContent : '';
+    if (btn) { btn.textContent = 'Preparing PDF...'; btn.disabled = true; }
+    // find article container
+    var art = document.querySelector('.article') || document.querySelector('article') || document.querySelector('main');
+    if (!art) { alert('Could not find article content.'); if (btn) { btn.textContent = origText; btn.disabled = false; } return; }
+    // clone, hide interactive bits
+    var clone = art.cloneNode(true);
+    clone.querySelectorAll('button, .btn, script, noscript').forEach(function (n) { n.remove(); });
+    clone.querySelectorAll('a').forEach(function (a) { a.style.textDecoration = 'none'; });
+    var wrap = document.createElement('div');
+    wrap.style.cssText = 'position:fixed;left:-10000px;top:0;width:794px;background:#ffffff;padding:32px 30px;color:#1f2937;z-index:-1;';
+    wrap.appendChild(clone);
+    document.body.appendChild(wrap);
+    wrap.querySelectorAll('*').forEach(function (el) {
+      var p = getComputedStyle(el).position;
+      if (p === 'fixed' || p === 'sticky') el.style.position = 'absolute';
+    });
+    document.fonts.ready.then(function () {
+      window.html2canvas(wrap, {
+        scale: 1.6, useCORS: true, allowTaint: true,
+        backgroundColor: '#ffffff', windowWidth: 794, logging: false
+      }).then(function (canvas) {
+        wrap.remove();
+        var doc = new window.jspdf.jsPDF({ unit: 'mm', format: 'a4' });
+        var margin = 12, pageW = 210, pageH = 297;
+        var imgW = pageW - margin * 2;
+        var pxPerMM = canvas.width / imgW;
+        var totalH = (canvas.height * imgW) / canvas.width;
+        var left = totalH, firstPage = true;
+        while (left > 0.1) {
+          var sliceH_mm = Math.min(pageH - margin * 2, left);
+          var sliceH_px = Math.round(sliceH_mm * pxPerMM);
+          var srcY_px = Math.round((totalH - left) * pxPerMM);
+          var tmp = document.createElement('canvas');
+          tmp.width = canvas.width; tmp.height = sliceH_px;
+          tmp.getContext('2d').drawImage(canvas, 0, srcY_px, canvas.width, sliceH_px, 0, 0, canvas.width, sliceH_px);
+          if (!firstPage) doc.addPage();
+          doc.addImage(tmp.toDataURL('image/jpeg', 0.8), 'JPEG', margin, margin, imgW, sliceH_mm);
+          firstPage = false; left -= sliceH_mm;
+        }
+        doc.save('solartoolhub-solar-battery-bank-design-guide.pdf');
+        if (btn) { btn.textContent = origText; btn.disabled = false; }
+      }).catch(function (e) {
+        wrap.remove();
+        console.error('SolarToolHub PDF export failed', e);
+        alert('Could not generate the PDF. Please try again or use your browser print (Ctrl+P).');
+        if (btn) { btn.textContent = origText; btn.disabled = false; }
+      });
+    });
+  }
+  var articlePdfBtn = document.getElementById('article-pdf-btn');
+  if (articlePdfBtn) {
+    articlePdfBtn.addEventListener('click', sthExportArticlePdf);
+  }
+  var shareBtn = document.getElementById('article-share-btn');
+  if (shareBtn) {
+    shareBtn.addEventListener('click', function () {
+      var data = { title: 'Solar Battery Bank Design Guide: Sizing, Chemistry & Real Lifespan — SolarToolHub', url: window.location.href };
+      if (navigator.share) { navigator.share(data).catch(function () {}); }
+      else { navigator.clipboard.writeText(window.location.href).then(function () { shareBtn.textContent = '\u2713 Link copied'; setTimeout(function () { shareBtn.textContent = '\ud83d\udd17 Share'; }, 2000); }); }
+    });
+  }
+</script>
+</body>
+</html>
