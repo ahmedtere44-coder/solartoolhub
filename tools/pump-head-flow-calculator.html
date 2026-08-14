@@ -392,27 +392,24 @@
 <script>
   (function () {
     var ids = ['pump-depth', 'pump-drawdown', 'pump-delivery', 'pump-pipe', 'pump-dia', 'pump-water', 'pump-hours', 'pump-eff'];
-    function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+    var canvas = document.getElementById('pump-curve');
+    var chart = null;
+    function val(id) { var el = document.getElementById(id); return el ? (parseFloat(el.value) || 0) : 0; }
     function refresh() {
       var depth = val('pump-depth');
       var dd = val('pump-drawdown');
       var deliv = val('pump-delivery');
       var pipe = val('pump-pipe');
-      var dia = parseFloat(document.getElementById('pump-dia').value) || 25;
+      var dia = val('pump-dia') || 25;
       var water = val('pump-water');
       var sun = val('pump-hours');
       var eff = (val('pump-eff') || 60) / 100;
-      var d_m3h = water / sun / 1000; // m3/h at the design point
-      // Friction (Hazen-Williams, C=100 PVC), v = Q/A, hf = 10.67*L*Q^1.852/(C^1.852*D^4.87)  [SI form]
-      var q = d_m3h / 3600; // m3/s
-      var d = dia / 1000; // m
-      var v = q / (Math.PI * d * d / 4);
-      var hf = pipe > 0 ? 10.67 * pipe * Math.pow(q, 1.852) / (Math.pow(100, 1.852) * Math.pow(d, 4.87)) : 0;
-      // minor losses ~ 5% of friction for fittings/elbows
-      hf *= 1.05;
+      var d_m3h = water / sun / 1000;
+      var q = d_m3h / 3600;
+      var d = dia / 1000;
+      var hf = pipe > 0 && d > 0 ? 10.67 * pipe * Math.pow(q, 1.852) / (Math.pow(100, 1.852) * Math.pow(d, 4.87)) * 1.05 : 0;
       var tdh = depth + dd + deliv + hf;
-      // Hydraulic power: rho*g*Q*H
-      var hyd = 1000 * 9.81 * q * tdh; // W
+      var hyd = 1000 * 9.81 * q * tdh;
       var array = eff > 0 ? hyd / eff * 1.15 : 0;
       document.getElementById('pk-tdh').textContent = tdh.toFixed(0);
       document.getElementById('pk-friction').textContent = hf.toFixed(1);
@@ -420,15 +417,13 @@
       document.getElementById('pk-minflow').textContent = d_m3h.toFixed(2);
       document.getElementById('pk-hyd').textContent = Math.round(hyd);
       document.getElementById('pk-array').textContent = Math.round(array);
-      drawChart(water, sun, d_m3h, tdh);
+      drawChart(water, sun);
     }
-    function drawChart(water, sun, designM3h, tdh) {
-      var canvas = document.getElementById('pump-curve');
-      if (!canvas || typeof Chart === 'undefined' || typeof Chart.getChart === 'undefined' || Chart.getChart(canvas)) return;
+    function drawChart(water, sun) {
       var steps = [200, 400, 600, 800, 1000, 1200, 1500, 2000, 2500, 3000];
       var sunOut = steps.map(function (lph) { return Math.round(lph * sun); });
-      if (!window.__pumpChart) {
-        window.__pumpChart = new Chart(canvas, {
+      if (!chart && canvas && typeof Chart !== 'undefined') {
+        chart = new Chart(canvas, {
           type: 'line',
           data: {
             labels: steps,
@@ -443,12 +438,12 @@
             scales: { y: { title: { display: true, text: 'Daily water output (L/day)' }, beginAtZero: true }, x: { title: { display: true, text: 'Hourly flow rate (L/h)' } } }
           }
         });
-      } else {
-        window.__pumpChart.data.labels = steps;
-        window.__pumpChart.data.datasets[0].data = sunOut;
-        window.__pumpChart.data.datasets[0].label = 'Daily output at ' + sun + ' sun h (L/day)';
-        window.__pumpChart.data.datasets[1].data = steps.map(function () { return water; });
-        window.__pumpChart.update();
+      } else if (chart) {
+        chart.data.labels = steps;
+        chart.data.datasets[0].data = sunOut;
+        chart.data.datasets[0].label = 'Daily output at ' + sun + ' sun h (L/day)';
+        chart.data.datasets[1].data = steps.map(function () { return water; });
+        chart.update();
       }
     }
     var pdfBtn = document.getElementById('pump-pdf-btn');
@@ -458,7 +453,7 @@
         var dd = val('pump-drawdown');
         var deliv = val('pump-delivery');
         var pipe = val('pump-pipe');
-        var dia = parseFloat(document.getElementById('pump-dia').value) || 25;
+        var dia = val('pump-dia') || 25;
         var water = val('pump-water');
         var sun = val('pump-hours');
         generateSolarToolHubResultsPDF({
@@ -489,13 +484,10 @@
     ids.forEach(function (id) {
       var el = document.getElementById(id);
       if (el) el.addEventListener('input', refresh);
-      if (el && el.tagName === 'SELECT') el.addEventListener('change', refresh);
     });
-    if (document.readyState === 'complete' && typeof Chart !== 'undefined' && Chart.getChart) {
-      refresh();
-    } else {
-      window.addEventListener('load', refresh);
-    }
+    refresh();
+    window.addEventListener('load', refresh);
+
   })();
 </script>
 </body>

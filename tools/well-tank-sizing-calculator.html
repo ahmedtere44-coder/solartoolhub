@@ -374,8 +374,10 @@
 <script>
   (function () {
     var ids = ['tank-demand', 'tank-flow', 'tank-sun', 'tank-buffer', 'tank-evap', 'tank-stand'];
-    function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
-    function bval() { return parseFloat(document.getElementById('tank-buffer').value) || 2; }
+    var canvas = document.getElementById('tank-chart');
+    var chart = null;
+    function val(id) { var el = document.getElementById(id); return el ? (parseFloat(el.value) || 0) : 0; }
+    function bval() { var el = document.getElementById('tank-buffer'); return el ? (parseFloat(el.value) || 2) : 2; }
     function refresh() {
       var demand = val('tank-demand');
       var flow = val('tank-flow');
@@ -385,30 +387,27 @@
       var stand = val('tank-stand');
       var volume = demand * buffer * 1.10;
       var hours = flow > 0 ? volume / flow : 0;
-      var m3 = volume / 1000;
       var bar = stand / 10;
       var dailyRefill = demand + demand * evap;
       var fits = hours <= sun;
       document.getElementById('tk-volume').textContent = Math.round(volume);
       document.getElementById('tk-usable').textContent = Math.round(demand * buffer);
       document.getElementById('tk-hours').textContent = hours.toFixed(1);
-      document.getElementById('tk-status').textContent = fits ? 'Yes ✓' : 'No ✗';
+      document.getElementById('tk-status').textContent = fits ? 'Yes \u2713' : 'No \u2717';
       document.getElementById('tk-bar').textContent = bar.toFixed(1);
       document.getElementById('tk-m3').textContent = (dailyRefill / 1000).toFixed(2);
-      drawChart(demand, flow, sun, buffer);
+      drawChart(demand, flow, sun);
     }
-    function drawChart(demand, flow, sun, buffer) {
-      var canvas = document.getElementById('tank-chart');
-      if (!canvas || typeof Chart === 'undefined' || typeof Chart.getChart === 'undefined' || Chart.getChart(canvas)) return;
+    function drawChart(demand, flow, sun) {
       var days = [1, 2, 3, 4];
       var vols = days.map(function (d) { return demand * d * 1.10; });
       var hrs = vols.map(function (v) { return flow > 0 ? +(v / flow).toFixed(1) : 0; });
-      if (!window.__tankChart) {
-        window.__tankChart = new Chart(canvas, {
+      if (!chart && canvas && typeof Chart !== 'undefined') {
+        chart = new Chart(canvas, {
           data: {
             labels: days.map(function (d) { return d + ' day buffer' }),
             datasets: [
-              { type: 'bar', label: 'Pump hours to refill', data: hrs, backgroundColor: ['rgba(16,185,129,0.75)', 'rgba(16,185,129,0.75)', 'rgba(16,185,129,0.75)', 'rgba(16,185,129,0.75)'], borderColor: '#10B981', borderWidth: 1.5, barPercentage: 0.6 },
+              { type: 'bar', label: 'Pump hours to refill', data: hrs, backgroundColor: 'rgba(16,185,129,0.75)', borderColor: '#10B981', borderWidth: 1.5, barPercentage: 0.6 },
               { type: 'line', label: 'Sun hours available', data: [sun, sun, sun, sun], borderColor: '#1E3A8A', borderDash: [7, 5], pointRadius: 0, borderWidth: 2 }
             ]
           },
@@ -418,11 +417,10 @@
             scales: { y: { title: { display: true, text: 'Pump hours' }, beginAtZero: true }, x: { title: { display: true, text: 'Tank buffer (days of demand)' } } }
           }
         });
-      } else {
-        window.__tankChart.data.datasets[0].data = hrs;
-        window.__tankChart.data.datasets[1].data = [sun, sun, sun, sun];
-        window.__tankChart.data.datasets[1].label = 'Sun hours available';
-        window.__tankChart.update();
+      } else if (chart) {
+        chart.data.datasets[0].data = hrs;
+        chart.data.datasets[1].data = [sun, sun, sun, sun];
+        chart.update();
       }
     }
     var pdfBtn = document.getElementById('tank-pdf-btn');
@@ -459,14 +457,14 @@
     }
     ids.forEach(function (id) {
       var el = document.getElementById(id);
-      if (el) el.addEventListener('input', refresh);
-      if (el && el.tagName === 'SELECT') el.addEventListener('change', refresh);
+      if (el) {
+        el.addEventListener('input', refresh);
+        if (el.tagName === 'SELECT') el.addEventListener('change', refresh);
+      }
     });
-    if (document.readyState === 'complete' && typeof Chart !== 'undefined' && Chart.getChart) {
-      refresh();
-    } else {
-      window.addEventListener('load', refresh);
-    }
+    refresh();
+    window.addEventListener('load', refresh);
+
   })();
 </script>
 </body>
