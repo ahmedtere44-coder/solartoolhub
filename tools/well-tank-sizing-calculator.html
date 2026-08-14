@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Well Pump Tank Sizing Calculator — Storage Volume &amp; Pumping Hours | SolarToolHub</title>
+<meta name="description" content="Size the water storage tank for a solar well pump: storage volume, required pumping hours, refill rate, and the pump-and-tank balance for farms and off-grid homes.">
+<link rel="canonical" href="https://ahmedtere44-coder.github.io/solartoolhub/tools/well-tank-sizing-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Well Pump Tank Sizing Calculator | SolarToolHub">
+<meta property="og:description" content="Size the water storage tank for a solar well pump — storage volume, pumping hours and refill rate.">
+<meta property="og:url" content="https://ahmedtere44-coder.github.io/solartoolhub/tools/well-tank-sizing-calculator.html">
+<meta property="og:image" content="https://ahmedtere44-coder.github.io/solartoolhub/images/social/well-tank-sizing.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Well Pump Tank Sizing Calculator | SolarToolHub">
+<meta name="twitter:description" content="Water storage tank sizing for solar well pumps — pumping hours, refill rate and buffer days.">
+<link rel="icon" type="image/png" href="../icons/favicon-32.png">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How big should my water tank be for a solar pump?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A practical rule is one to two days of your water demand as storage. A farm using 5,000 liters per day should aim for a 5,000–10,000 L tank. Because water storage is far cheaper than battery storage, going bigger is almost always the right move with solar pumps — it buys you cloudy-day reserves and lets the pump run fewer hours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is a tank better than batteries for a solar pump?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because storing water costs a fraction of storing electricity. A 10,000 L concrete or plastic tank costs roughly $500–1,500 and lasts 15–30 years, while batteries delivering the same "energy reserve" cost several times more and degrade. The tank turns every sunny hour into stored water automatically."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many hours does the pump need to run to fill the tank?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Divide the tank volume by the pump's hourly flow. A pump delivering 1,000 L/h fills a 5,000 L tank in about 5 hours — which fits a typical sunny day with 5–6 peak sun hours. If the refill time is longer than your sun hours, you need a bigger pump or a smaller tank strategy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if some days are cloudy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "That is what the storage buffer is for. If your tank holds 2 days of demand, one cloudy day uses only half the reserve and you recover the next sunny day. For areas with frequent cloudy stretches, increase the buffer to 3–4 days — it is the cheapest insurance available for a solar pump system."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does tank size affect the pump size I need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Indirectly, yes. A larger tank means more volume to refill within your available sun hours, which pushes the required pump flow rate up. The calculator shows both sides of the balance: tank volume against refill hours, so you can size the tank and the pump together instead of guessing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How high should I place the tank?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "High enough for gravity flow to your point of use. Every 10 m of tank height gives roughly 1 bar of pressure. A tank on a 3–5 m stand gives gentle gravity pressure for irrigation and animal troughs; for household pressure you typically want 10–15 m of elevation or a small pressure pump after the tank."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/index.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Well pump tank sizing calculator",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools/well-tank-sizing-calculator.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html" class="active">Tools</a></li>
+      <li><a href="../articles.html">Guides</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button">Resources</button>
+        <ul class="nav-dropdown-menu">
+          <li><a href="../comparisons.html">Compare</a></li>
+          <li><a href="../cheat-sheets.html">Cheat sheets</a></li>
+          <li><a href="../glossary.html">Glossary</a></li>
+        </ul>
+      </li>
+      <li><a href="../solar-by-country.html">Solar by Country</a></li>
+      <li><a href="../real-examples.html">Real Examples</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../tools.html">Tools</a> / Well pump tank sizing calculator</div>
+    <div class="page-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h12v16H6z"/><path d="M9 4V2M15 4V2"/><path d="M6 10h12"/><path d="M12 10v10"/></svg></div>
+    <h1>Well pump tank sizing calculator</h1>
+    <p class="lede">Tell us your daily water use, your pump's flow rate and how many sun hours you get — see the tank size you need, how many hours the pump must run, and how many cloudy days your storage protects you.</p>
+  </div>
+</div>
+<div class="calc-layout">
+  <div class="container">
+    <div class="calc-card" style="max-width:740px;">
+      <form id="tank-calc-form">
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="tank-demand">Daily water use (liters/day)</label>
+            <input type="number" id="tank-demand" value="5000" min="100" max="200000" step="100">
+            <span class="helper-text">Irrigation, livestock and household use combined. A small farm: 3,000–8,000 L/day.</span>
+          </div>
+          <div class="field-group">
+            <label for="tank-flow">Pump flow rate (liters/hour)</label>
+            <input type="number" id="tank-flow" value="1000" min="50" max="20000" step="50">
+            <span class="helper-text">The pump's real flow at your total dynamic head — use the result from our pump head calculator.</span>
+          </div>
+          <div class="field-group">
+            <label for="tank-sun">Sun hours per day (local average)</label>
+            <input type="number" id="tank-sun" value="6" min="2" max="9" step="0.5">
+            <span class="helper-text">Peak sun hours at your location. Desert: 6–7. Mediterranean: 5–6.</span>
+          </div>
+          <div class="field-group">
+            <label for="tank-buffer">Storage buffer (days of demand)</label>
+            <select id="tank-buffer">
+              <option value="1">1 day — sunny region, reliable pump</option>
+              <option value="2" selected>2 days — typical safe choice</option>
+              <option value="3">3 days — frequent cloudy days</option>
+              <option value="4">4 days — dusty or winter season</option>
+            </select>
+            <span class="helper-text">More buffer = bigger tank = more security on cloudy days.</span>
+          </div>
+          <div class="field-group">
+            <label for="tank-evap">Evaporation &amp; losses (%/day)</label>
+            <input type="number" id="tank-evap" value="1" min="0" max="5" step="0.5">
+            <span class="helper-text">Open tanks in hot climates lose 0.5–2% per day. Covered tanks: ~0.2%.</span>
+          </div>
+          <div class="field-group">
+            <label for="tank-stand">Tank stand height (m)</label>
+            <input type="number" id="tank-stand" value="3" min="0" max="30" step="1">
+            <span class="helper-text">Every 10 m of height gives ~1 bar of gravity pressure.</span>
+          </div>
+        </div>
+      </form>
+      <div class="battery-compare">
+        <div class="battery-col">
+          <h3>Tank you need</h3>
+          <div class="calc-result" style="grid-template-columns:1fr 1fr;">
+            <div>
+              <span class="num" id="tk-volume">0</span>
+              <span class="lbl">liters total capacity</span>
+            </div>
+            <div>
+              <span class="num" id="tk-usable">0</span>
+              <span class="lbl">L usable buffer</span>
+            </div>
+          </div>
+        </div>
+        <div class="battery-col">
+          <h3>Pump work per day</h3>
+          <div class="calc-result" style="grid-template-columns:1fr 1fr;">
+            <div>
+              <span class="num" id="tk-hours">0</span>
+              <span class="lbl">pump hours to refill</span>
+            </div>
+            <div>
+              <span class="num" id="tk-status">—</span>
+              <span class="lbl">fits the sun hours</span>
+            </div>
+          </div>
+        </div>
+        <div class="battery-col">
+          <h3>Gravity pressure &amp; refill</h3>
+          <div class="calc-result" style="grid-template-columns:1fr 1fr;">
+            <div>
+              <span class="num" id="tk-bar">0</span>
+              <span class="lbl">bar gravity pressure</span>
+            </div>
+            <div>
+              <span class="num" id="tk-m3">0</span>
+              <span class="lbl">m³ to refill daily</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="helper-text" style="margin-top:16px;">Tank size = (daily demand × buffer days) × 1.10 reserve. Refill time = tank volume ÷ pump flow. The calculator also checks whether the refill fits inside your available sun hours.</p>
+      <button type="button" id="tank-pdf-btn" class="btn btn-accent" style="margin-top:16px;">⬇️ Download results as PDF</button>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="calc-diagram">
+    <figure>
+      <svg viewBox="0 0 380 390" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="tk-title tk-desc">
+        <title id="tk-title">How the tank balances the pump against daily use</title>
+        <desc id="tk-desc">The pump fills the tank during sun hours; the farm draws from it all day and through cloudy stretches. Tank size is demand times buffer days.</desc>
+        <defs>
+          <marker id="tkArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <text x="190" y="26" text-anchor="middle" font-family="Manrope, sans-serif" font-size="14" font-weight="700" fill="#111827">What you enter</text>
+        <g>
+          <rect x="25" y="40" width="160" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="105" y="60" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1E3A8A">Daily water use</text>
+          <text x="105" y="78" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">liters per day</text>
+        </g>
+        <g>
+          <rect x="195" y="40" width="160" height="52" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="275" y="60" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1E3A8A">Storage buffer</text>
+          <text x="275" y="78" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">days of demand</text>
+        </g>
+        <line x1="105" y1="92" x2="160" y2="140" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#tkArrow)"/>
+        <line x1="275" y1="92" x2="220" y2="140" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#tkArrow)"/>
+        <g>
+          <rect x="70" y="142" width="240" height="52" rx="8" fill="#FEF9C3" stroke="#CA8A04" stroke-width="0.75"/>
+          <text x="190" y="162" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#854D0E">Tank capacity = demand × days × 1.1</text>
+          <text x="190" y="180" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#854D0E">+10% reserve above the buffer</text>
+        </g>
+        <line x1="190" y1="194" x2="190" y2="222" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#tkArrow)"/>
+        <g>
+          <rect x="70" y="224" width="240" height="52" rx="8" fill="#FEF9C3" stroke="#CA8A04" stroke-width="0.75"/>
+          <text x="190" y="244" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#854D0E">Refill hours = volume ÷ pump flow</text>
+          <text x="190" y="262" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#854D0E">must fit inside your sun hours</text>
+        </g>
+        <line x1="190" y1="276" x2="190" y2="304" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#tkArrow)"/>
+        <g>
+          <rect x="45" y="306" width="290" height="52" rx="8" fill="#E9FBF4" stroke="#10B981" stroke-width="0.75"/>
+          <text x="190" y="328" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#065F46">Balanced system: pump, tank &amp; demand match</text>
+          <text x="190" y="346" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#065F46">with gravity pressure from your stand</text>
+        </g>
+        <text x="190" y="380" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#6B7280">Pump fills by day — the tank releases day and night, sun or cloud.</text>
+      </svg>
+      <figcaption>How tank size, pump flow and daily use balance against each other.</figcaption>
+    </figure>
+  </div>
+  <div class="calc-chart">
+    <h2 class="calc-chart-title">Tank refill vs pump hours available</h2>
+    <p class="calc-chart-intro">This chart updates with your inputs. The green bars show how many hours the pump needs to refill tanks of different sizes; the blue dashed line is the sun hours you have available each day.</p>
+    <div class="calc-chart-canvas-wrap">
+      <canvas id="tank-chart" role="img" aria-label="Bar chart comparing pump hours required to refill tanks of increasing size against the available sun hours per day.">Bars show refill hours for tanks sized 1 to 4 days of demand; the dashed line marks available sun hours.</canvas>
+    </div>
+  </div>
+  <article class="article">
+    <p>The tank is the battery of a solar pump system — except it costs a tenth as much. Getting its size right is about balancing three numbers: how much water you use per day, how fast your pump can refill, and how many cloudy days you want to survive. This calculator works all three out together so the pump, tank and farm fit each other instead of fighting.</p>
+    <h2>The sizing rule in plain terms</h2>
+    <p>Take your daily water use and multiply by the number of buffer days you choose — 2 days is the typical safe choice, 3–4 for climates with frequent cloud or dust storms. Add a 10% reserve on top and you have your total tank capacity. A 5,000 L/day farm with a 2-day buffer needs about 11,000 liters of tank. Bigger is cheaper insurance than any other option in the system.</p>
+    <h2>The refill check nobody does</h2>
+    <p>A big tank is useless if the pump cannot refill it within the sun hours available. Divide the tank volume by the pump's hourly flow at your real total dynamic head: that is the refill time. If it is longer than your sun hours, the tank never fills, and the buffer you paid for does not exist. The calculator flags this immediately — and the chart shows where larger tanks start to break the balance.</p>
+    <h2>Gravity pressure from tank height</h2>
+    <p>Every 10 meters of tank height gives about 1 bar of pressure. A tank on a 3 m stand gives gentle gravity flow — enough for irrigation channels and animal troughs. For household pressure (showers, taps) you want 10–15 m of elevation, or a small pressure pump after the tank. Do not put the tank on the ground and expect pressure; the height is free energy that works while the sun is down.</p>
+    <h2>A worked example</h2>
+    <p>A small farm uses 5,000 L/day, has a pump giving 1,000 L/h and 6 sun hours. With a 2-day buffer the tank should be ~11,000 L (the calculator suggests the nearest practical size, e.g. 10,000–12,000 L). Refill takes 11 hours — longer than the sun hours — so the sensible answer is either a 5,000 L tank (fills in 5 h) with a 1-day buffer, or a faster pump. That trade-off is exactly what the chart shows.</p>
+    <h2>Evaporation and losses</h2>
+    <p>In hot climates an open tank loses 0.5–2% of its volume every day to evaporation. Over a 10,000 L tank that is 50–200 liters lost daily — meaningful for tight budgets. Cover the tank, and losses drop near zero. The calculator includes your loss rate when it checks whether the daily refill covers both demand and losses.</p>
+    <h2>Frequently asked questions</h2>
+    <h3>How big should my water tank be for a solar pump?</h3>
+    <p>A practical rule is one to two days of your water demand as storage. A farm using 5,000 liters per day should aim for a 5,000–10,000 L tank. Because water storage is far cheaper than battery storage, going bigger is almost always the right move with solar pumps — it buys you cloudy-day reserves and lets the pump run fewer hours.</p>
+    <h3>Why is a tank better than batteries for a solar pump?</h3>
+    <p>Because storing water costs a fraction of storing electricity. A 10,000 L concrete or plastic tank costs roughly $500–1,500 and lasts 15–30 years, while batteries delivering the same "energy reserve" cost several times more and degrade. The tank turns every sunny hour into stored water automatically.</p>
+    <h3>How many hours does the pump need to run to fill the tank?</h3>
+    <p>Divide the tank volume by the pump's hourly flow. A pump delivering 1,000 L/h fills a 5,000 L tank in about 5 hours — which fits a typical sunny day with 5–6 peak sun hours. If the refill time is longer than your sun hours, you need a bigger pump or a smaller tank strategy.</p>
+    <h3>What if some days are cloudy?</h3>
+    <p>That is what the storage buffer is for. If your tank holds 2 days of demand, one cloudy day uses only half the reserve and you recover the next sunny day. For areas with frequent cloudy stretches, increase the buffer to 3–4 days — it is the cheapest insurance available for a solar pump system.</p>
+    <h3>Does tank size affect the pump size I need?</h3>
+    <p>Indirectly, yes. A larger tank means more volume to refill within your available sun hours, which pushes the required pump flow rate up. The calculator shows both sides of the balance: tank volume against refill hours, so you can size the tank and the pump together instead of guessing.</p>
+    <h3>How high should I place the tank?</h3>
+    <p>High enough for gravity flow to your point of use. Every 10 m of tank height gives roughly 1 bar of pressure. A tank on a 3–5 m stand gives gentle gravity pressure for irrigation and animal troughs; for household pressure you typically want 10–15 m of elevation or a small pressure pump after the tank.</p>
+  </article>
+</div>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="../tools.html">All calculators</a></li>
+          <li><a href="panel-calculator.html">Panel calculator</a></li>
+          <li><a href="battery-calculator.html">Battery calculator</a></li>
+          <li><a href="pump-head-flow-calculator.html">Pump head &amp; flow</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Guides</h4>
+        <ul>
+          <li><a href="../articles.html">All guides</a></li>
+          <li><a href="../articles/net-metering-guide.html">Net metering</a></li>
+          <li><a href="../articles/solar-system-cost-2026.html">System cost 2026</a></li>
+          <li><a href="../articles/solar-water-pumping-guide.html">Solar water pumping</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>More</h4>
+        <ul>
+          <li><a href="../solar-by-country.html">Solar by country</a></li>
+          <li><a href="../real-examples.html">Real examples</a></li>
+          <li><a href="../glossary.html">Glossary</a></li>
+          <li><a href="../about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 SolarToolHub. Free solar calculators and guides. Not professional engineering advice — verify sizing with a licensed installer for large systems.</p>
+    </div>
+  </div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script src="../js/share.js"></script>
+<script>
+  (function () {
+    var ids = ['tank-demand', 'tank-flow', 'tank-sun', 'tank-buffer', 'tank-evap', 'tank-stand'];
+    function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+    function bval() { return parseFloat(document.getElementById('tank-buffer').value) || 2; }
+    function refresh() {
+      var demand = val('tank-demand');
+      var flow = val('tank-flow');
+      var sun = val('tank-sun');
+      var buffer = bval();
+      var evap = val('tank-evap') / 100;
+      var stand = val('tank-stand');
+      var volume = demand * buffer * 1.10;
+      var hours = flow > 0 ? volume / flow : 0;
+      var m3 = volume / 1000;
+      var bar = stand / 10;
+      var dailyRefill = demand + demand * evap;
+      var fits = hours <= sun;
+      document.getElementById('tk-volume').textContent = Math.round(volume);
+      document.getElementById('tk-usable').textContent = Math.round(demand * buffer);
+      document.getElementById('tk-hours').textContent = hours.toFixed(1);
+      document.getElementById('tk-status').textContent = fits ? 'Yes ✓' : 'No ✗';
+      document.getElementById('tk-bar').textContent = bar.toFixed(1);
+      document.getElementById('tk-m3').textContent = (dailyRefill / 1000).toFixed(2);
+      drawChart(demand, flow, sun, buffer);
+    }
+    function drawChart(demand, flow, sun, buffer) {
+      var canvas = document.getElementById('tank-chart');
+      if (!canvas || typeof Chart === 'undefined' || typeof Chart.getChart === 'undefined' || Chart.getChart(canvas)) return;
+      var days = [1, 2, 3, 4];
+      var vols = days.map(function (d) { return demand * d * 1.10; });
+      var hrs = vols.map(function (v) { return flow > 0 ? +(v / flow).toFixed(1) : 0; });
+      if (!window.__tankChart) {
+        window.__tankChart = new Chart(canvas, {
+          data: {
+            labels: days.map(function (d) { return d + ' day buffer' }),
+            datasets: [
+              { type: 'bar', label: 'Pump hours to refill', data: hrs, backgroundColor: ['rgba(16,185,129,0.75)', 'rgba(16,185,129,0.75)', 'rgba(16,185,129,0.75)', 'rgba(16,185,129,0.75)'], borderColor: '#10B981', borderWidth: 1.5, barPercentage: 0.6 },
+              { type: 'line', label: 'Sun hours available', data: [sun, sun, sun, sun], borderColor: '#1E3A8A', borderDash: [7, 5], pointRadius: 0, borderWidth: 2 }
+            ]
+          },
+          options: {
+            responsive: true,
+            plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 12 } } } },
+            scales: { y: { title: { display: true, text: 'Pump hours' }, beginAtZero: true }, x: { title: { display: true, text: 'Tank buffer (days of demand)' } } }
+          }
+        });
+      } else {
+        window.__tankChart.data.datasets[0].data = hrs;
+        window.__tankChart.data.datasets[1].data = [sun, sun, sun, sun];
+        window.__tankChart.data.datasets[1].label = 'Sun hours available';
+        window.__tankChart.update();
+      }
+    }
+    var pdfBtn = document.getElementById('tank-pdf-btn');
+    if (pdfBtn) {
+      pdfBtn.addEventListener('click', function () {
+        var demand = val('tank-demand');
+        var flow = val('tank-flow');
+        var sun = val('tank-sun');
+        var buffer = bval();
+        var stand = val('tank-stand');
+        generateSolarToolHubResultsPDF({
+          subtitle: 'Well Pump Tank Sizing — Results',
+          inputs: [
+            ['Daily water use', demand.toLocaleString() + ' L/day'],
+            ['Pump flow rate', flow.toLocaleString() + ' L/h'],
+            ['Sun hours', sun + ' h/day'],
+            ['Storage buffer', buffer + ' day(s)'],
+            ['Tank stand height', stand + ' m']
+          ],
+          resultsHeaders: ['Parameter', 'Value', 'Parameter', 'Value'],
+          results: [
+            ['Tank capacity', document.getElementById('tk-volume').textContent + ' L', 'Usable buffer', document.getElementById('tk-usable').textContent + ' L'],
+            ['Refill hours', document.getElementById('tk-hours').textContent + ' h', 'Fits sun hours', document.getElementById('tk-status').textContent],
+            ['Gravity pressure', document.getElementById('tk-bar').textContent + ' bar', 'Daily refill', document.getElementById('tk-m3').textContent + ' m³']
+          ],
+          nextSteps: {
+            text: 'Next, size the pump and array that will refill this tank:',
+            linkText: 'Pump Head &amp; Flow Calculator',
+            url: 'https://ahmedtere44-coder.github.io/solartoolhub/tools/pump-head-flow-calculator.html'
+          },
+          filename: 'solartoolhub-well-tank-sizing-results.pdf'
+        });
+      });
+    }
+    ids.forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) el.addEventListener('input', refresh);
+      if (el && el.tagName === 'SELECT') el.addEventListener('change', refresh);
+    });
+    if (document.readyState === 'complete' && typeof Chart !== 'undefined' && Chart.getChart) {
+      refresh();
+    } else {
+      window.addEventListener('load', refresh);
+    }
+  })();
+</script>
+</body>
+</html>
