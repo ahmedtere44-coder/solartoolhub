@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dust and Sand Loss on Solar Panels in Desert Climates — SolarToolHub</title>
+<meta name="description" content="Dust and sand quietly steal more energy from desert solar systems than heat does: soiling rates of 0.1-0.5% per day can reach 20-40% loss within months. This guide explains how desert soiling actually builds up (including the dew-cemented layer most guides ignore), which climates are affected, real cleaning cost and frequency data from field studies, how tilt angle and rainfall change the math, and a simple way to decide whether paid cleaning earns its keep.">
+<link rel="canonical" href="https://ahmedtere44-coder.github.io/solartoolhub/articles/desert-dust-solar-panels.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SolarToolHub">
+<meta property="og:title" content="Dust and Sand Loss on Solar Panels in Desert Climates | SolarToolHub">
+<meta property="og:description" content="Soiling rates of 0.1-0.5% per day can reach 20-40% loss within months in desert climates. Real field data, cleaning costs, optimal frequency and the dew-cemented layer most guides ignore.">
+<meta property="og:url" content="https://ahmedtere44-coder.github.io/solartoolhub/articles/desert-dust-solar-panels.html">
+<meta property="og:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Dust and Sand Loss on Solar Panels in Desert Climates | SolarToolHub">
+<meta name="twitter:description" content="Soiling rates of 0.1-0.5% per day can reach 20-40% loss within months in desert climates. Real field data, cleaning costs, optimal frequency and the dew-cemented layer most guides ignore.">
+<meta name="twitter:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much energy do solar panels really lose to dust and sand?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In desert and dusty climates, soiling typically builds up at 0.1% to 0.5% per day, which compounds to 20-40% loss within a few months if panels are never cleaned. In global terms, the IEA estimates average soiling losses of 3-5% of annual production worldwide, but arid regions run far higher — field studies in the Middle East, North Africa and the Atacama report losses of 20-30% over extended exposure, and up to 40% in severe cases."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is desert dust worse than ordinary dirt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Desert dust is finer, more abundant and — this is the part most guides miss — it combines with morning dew to form a cemented layer that no wind will blow off. In many arid regions dew forms almost every clear morning, and each cycle bakes a thin mud film onto the glass. That cemented soiling is the reason desert arrays need water cleaning rather than just brushing, and why loss curves jump steeply in humid desert mornings."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often should desert solar panels be cleaned?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Field data from seasonal studies show the frequency should follow the dust and humidity calendar rather than a fixed interval. In tested Middle Eastern climates, the optimal pattern was cleaning every two months during the cool, calm season, monthly during dust-prone spring and autumn months, and more often during known storm seasons. A practical rule: check production against your energy-production estimate every 3-4 weeks, and clean whenever output drops about 8-10% below expected."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does cleaning solar panels pay for itself?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually yes in dusty climates. Panels left uncleaned for three months lost up to 13% more power than daily-cleaned reference panels in comparative field studies. On a typical 5 kW home system producing 800 kWh per month in a dusty area, a 15% soiling loss equals roughly 120 kWh per month — at $0.15-0.25 per kWh that is $18-30 per month of lost energy, which covers a $30-60 cleaning visit every other month with margin. Our panel cleaning ROI calculator does this math for your exact system."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What can I do to reduce dust buildup on my panels?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Four things help measurably: mount panels at a steeper tilt (steeper angles shed more dust and let rain reach the surface), orient rows to avoid prevailing dust-bearing wind directions where possible, avoid placing arrays near unpaved driveways and loose-soil areas, and consider anti-soiling or hydrophobic coatings for large installations where cleaning labor dominates. None of these replace cleaning entirely in a desert — but together they can stretch cleaning intervals by 30-50%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a difference between cleaning rooftop home panels and a large ground-mount plant?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Rooftop residential panels are cleaned by hand with water and a soft brush at roughly $10-30 per visit. Utility-scale desert plants use scheduled water trucks, dry robotic brushes between water cycles, and increasingly drone-mounted cleaning — experiments show robotic dry brushing recovers most of the soiling loss at a fraction of truck-water cost. For a home owner, the decision is simply whether a scheduled cleaning service pays for itself, which the ROI calculator answers with your production and electricity price."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guides",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/articles.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Dust and sand loss on solar panels in desert climates",
+      "item": "https://ahmedtere44-coder.github.io/solartoolhub/articles/desert-dust-solar-panels.html"
+    }
+  ]
+}
+</script>
+<!-- fallback styles -->
+<style>
+</style>
+</head>
+<body>
+<header class="site-header">
+  <nav class="nav container">
+    <a href="../index.html" class="logo" style="color:#ffffff;">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"></rect><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"></rect><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"></rect><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"></rect></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html">Tools</a></li>
+      <li><a href="../articles.html" class="active">Guides</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button">Resources</button>
+        <ul class="nav-dropdown-menu">
+          <li><a href="../comparisons.html">Compare</a></li>
+          <li><a href="../cheat-sheets.html">Cheat sheets</a></li>
+          <li><a href="../glossary.html">Glossary</a></li>
+        </ul>
+      </li>
+      <li><a href="../solar-by-country.html">Solar by Country</a></li>
+      <li><a href="../real-examples.html">Real Examples</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../articles.html">Guides</a> / Dust and sand loss on solar panels in desert climates</div>
+    <div class="page-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+    <h1>Dust and Sand Loss on Solar Panels in Desert Climates: What Field Data Actually Shows</h1>
+    <p class="lede">Everyone who installs solar in a dry, dusty region knows the question that comes back every summer: "how much is the dust costing me?" The honest answer is more than most installers quote and fewer website guides get right — because dust loss is not a fixed percentage, it is a compounding daily rate, and in desert climates it builds up in a way that no brochure mentions. This guide explains how soiling really accumulates on the glass, the dew-cemented layer that keeps loss going even after a wind event, real loss numbers from field studies in arid regions, how cleaning frequency and cost balance out, and the simple test that tells you whether a cleaning service earns its fee on your specific system.</p>
+    <div class="btn-row" style="margin-top:18px;">
+      <button type="button" id="article-pdf-btn" class="btn btn-accent">⬇️ Download article as PDF</button>
+      <button type="button" id="article-share-btn" class="btn btn-outline">🔗 Share</button>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <article class="article" style="padding-top:48px;">
+        <figure style="margin:0 0 32px;">
+      <img src="../images/dust-sand-solar-panels-web.jpg" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='800' height='450'&gt;&lt;rect width='800' height='450' fill='%23E5E7EB'/&gt;&lt;text x='400' y='225' text-anchor='middle' font-family='sans-serif' font-size='20' fill='%236B7280'&gt;Image loading...&lt;/text&gt;&lt;/svg&gt;'" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='450'><rect width='800' height='450' fill='%23E5E7EB'/><text x='400' y='225' text-anchor='middle' font-family='sans-serif' font-size='20' fill='%236B7280'>Image loading...</text></svg>'" alt="A technician wiping a dust-covered ground-mounted solar panel in a desert landscape, showing the contrast between the cleaned strip and the dusty surface" loading="lazy" style="width:100%; height:auto; border-radius:12px; display:block;" width="1200" height="675">
+      <figcaption style="text-align:center; font-size:0.88rem; color:var(--ink-faint); margin-top:10px;">The cleaned strip on the left tells the whole story — every centimeter of dust on that glass is electricity that never got produced.</figcaption>
+    </figure>
+    <p>Soiling — the industry word for dust, sand, pollen and bird droppings on the glass — is the single most ignored loss mechanism in sunny, dry climates. When engineers model a desert solar system they dutifully calculate temperature derating, wiring losses and inverter efficiency, then quietly leave the dust out. The result: systems that were predicted to produce one figure and deliver a different one, with the owner blaming the panels, the installer, or the sun itself, when the real thief was sitting on top of the glass the entire time.</p>
+    <p>This guide is built from what field measurements actually show rather than manufacturer estimates. The numbers below come from published soiling studies in arid regions — the Middle East and North Africa, the Atacama, the American Southwest and the Australian outback — plus day-to-day observations that anyone who has walked a dusty array recognizes immediately. If your installation sits anywhere that gets sandstorms, unpaved roads nearby, or simply months without rain, this is the guide your system was missing.</p>
+
+    <h2>How dust loss actually builds up: a daily rate, not a fixed number</h2>
+    <p>Soiling loss compounds day by day. Published measurements put dry-region accumulation rates at <strong>0.1% to 0.5% per day</strong> depending on dust load, with extremely dusty locations at the top of that range. That sounds small until you do the arithmetic: 0.2% per day becomes 6% after a month, 12% after two months, and 18% after three — before you even count a single sandstorm. Field studies confirm exactly this shape: panels left uncleaned for three months lost up to 13% more power than the same panels cleaned daily, and extended-exposure studies in the Middle East and North Africa report cumulative losses of 20-30%, with individual severe cases reaching 40%. The global average is lower (the IEA estimates 3-5% of annual production worldwide) only because humid and rainy climates wash panels for free; arid regions carry the entire soiling burden on their own.</p>
+    <table class="data-table" style="width:100%; border-collapse:collapse;">
+      <thead>
+        <tr>
+          <th style="padding:12px; text-align:left; border-bottom:2px solid #1E3A8A;">Environment</th>
+          <th style="padding:12px; text-align:left; border-bottom:2px solid #1E3A8A;">Typical daily accumulation</th>
+          <th style="padding:12px; text-align:left; border-bottom:2px solid #1E3A8A;">Loss after 3 months uncleaned</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">Temperate, regular rain</td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">~0.01% / day</td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">Minimal — rain washes panels</td>
+        </tr>
+        <tr>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">Semi-arid, occasional dust</td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">0.05 – 0.1% / day</td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">5 – 10%</td>
+        </tr>
+        <tr>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">Desert, frequent dust</td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">0.1 – 0.3% / day</td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">10 – 25%</td>
+        </tr>
+        <tr>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">Extremely dusty (storm-prone)</td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">0.3 – 0.5% / day</td>
+          <td style="padding:12px; border-bottom:1px solid #E2E8F0;">25 – 40%+</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>The dew-cemented layer: why desert dust does not just blow away</h2>
+    <p>Here is the mechanism most guides skip. In arid regions, clear nights produce morning dew on the panels almost daily. Dust that settled the day before — fine desert particulate at roughly 0.3 grams per square meter per day in the Middle East — meets that moisture and turns into a thin film of mud. As the morning sun dries it, the film hardens. <strong>Wind can shift loose dust; it cannot shift cemented dust.</strong> After several dew cycles, the panel carries a layer that no breeze will remove and that scatters light across the whole glass surface, not just where you can see dirt with your eye.</p>
+    <p>Two practical consequences follow. First, <strong>brushing a dry desert panel is mostly cosmetic</strong> — it removes the loose top layer but leaves the cemented film, which is why water (or a water-assisted robotic cycle) recovers dramatically more output than a dry brush alone. Second, soiling curves in arid climates are not smooth: they step up after each storm and then creep upward with every dew cycle, so a "clean" reading two weeks after a storm can already be wrong.</p>
+
+    <h2>What actually changes the loss rate on your array</h2>
+    <p><strong>Tilt angle</strong> matters more than people expect. Steeper-mounted panels shed loose dust better, let the little rain that falls actually reach the glass, and accumulate cemented layers more slowly. An array at 10 degrees behaves like a dust trap; the same array at 25-30 degrees buys meaningful extension between cleanings. <strong>Location exposure</strong> matters too: rows next to unpaved driveways, fields and construction sites accumulate faster than anything else, and this is a layout decision, not a weather one. <strong>Module coating</strong> — anti-soiling and hydrophobic glass treatments — measurably slows cemented-layer formation on large plants where cleaning labor is the dominant cost. And <strong>bifacial panels</strong> in deserts deserve special mention: their rear side collects ground-reflected dust and shows soiling losses as high as 43% over six months in uncovered installations, which makes rear-side cleaning (or elevated mounting over clean gravel) part of the design conversation, not an afterthought.</p>
+
+    <h2>The cleaning decision: cost versus recovered energy</h2>
+    <p>For a home system, the decision reduces to one comparison. A typical 5 kW system in a sunny location produces around 700-900 kWh per month. At a 15% soiling loss — entirely realistic for three months of desert accumulation — that is roughly 120 kWh per month of energy that never appears on your meter. At retail rates of $0.15-0.25 per kWh, the lost energy is worth <strong>$18-30 per month</strong>. A professional residential cleaning runs about $30-60 per visit in most markets, so a cleaning every two months recovers most of the loss with margin to spare — and that is a conservative case. On larger or dustier systems the margin grows, which is exactly why desert utility plants run scheduled cleaning fleets and robotic cycles between water washes.</p>
+    <p>Use our <a href="../tools/panel-cleaning-roi-calculator.html">panel cleaning ROI calculator</a> to run your exact numbers: enter your system size, local daily sun hours, estimated dust loss and cleaning cost, and it shows whether a paid cleaning schedule earns back its fee and how often it should repeat. Pair it with the <a href="../tools/energy-production-calculator.html">energy production calculator</a> to establish what your clean-system baseline should be, and the comparison between baseline and actual output becomes your dust gauge — no instruments needed. The <a href="../tools/solar-bill-savings-calculator.html">bill savings calculator</a> then converts recovered kWh into real money against your tariff.</p>
+
+    <div class="field-experience" style="border-left:4px solid #F59E0B; background:#FFFBEB; padding:16px 20px; border-radius:8px; margin:24px 0;">
+      <strong>Field note:</strong> Seasonal soiling studies in Middle Eastern climates found that one fixed cleaning interval does not fit the whole year. The optimal pattern followed the dust and dew calendar: cleaning every two months through the cool, calm season; monthly during the dust-prone spring and autumn months; and additional cleanings through known storm periods. The practical version of this for any homeowner is simple: once a month, compare your meter or app reading against the <a href="../tools/energy-production-calculator.html">expected production figure</a> for that month. When actual output drops about 8-10% below expected on a clear week, clean — and note the date. Within one year you will know your site's personal soiling rhythm better than any generic schedule, and every subsequent cleaning decision becomes obvious rather than a guess. One caution: never clean in full midday sun. Cold water on hot glass in peak heat is how micro-cracks start; clean early morning or in the evening, and use soft water — hard well water leaves mineral spots that act like a second soiling layer.
+    </div>
+
+    <h2>Common dust questions, answered</h2>
+    <p><strong>"Will rain clean my panels?"</strong> Only in climates with meaningful rainfall — and even there, light rain often makes cemented dust worse before it is better. In any genuinely arid location, plan on manual or scheduled cleaning; waiting for rain means planning for nothing.</p>
+    <p><strong>"Does a sandstorm clean or dirty the panels?"</strong> Both, in sequence. The storm lays down a heavy fresh layer, but the wind that follows can remove some of the loose fraction. What remains is the dew-cemented portion, which never leaves without water or brushing — so production dips after a storm and does not recover by itself.</p>
+    <p><strong>"Can anti-soiling coating replace cleaning?"</strong> No, but it stretches the interval. Good hydrophobic treatments slow cemented-layer formation and reduce the adhesion strength, extending cleaning cycles by 30-50% in measured cases. On a home rooftop the payback is marginal; on a multi-thousand-panel plant it changes the operating budget.</p>
+    <p><strong>"Is robot cleaning worth it for a home?"</strong> Not yet — the economics favor water-crew visits for residential scale and robots for utility scale, where one machine services thousands of panels per cycle. If a service near you offers robotic or drone-assisted cleaning at near-crew prices, it is worth trying for the consistency alone.</p>
+
+    <h2>Frequently asked questions</h2>
+    <h3>How much energy do solar panels really lose to dust and sand?</h3>
+    <p>In desert and dusty climates, soiling builds at 0.1-0.5% per day and compounds to 20-40% loss within a few months uncleaned. The global average is 3-5% of annual production, but arid regions carry far higher burdens because nothing washes the panels for free.</p>
+    <h3>Why is desert dust worse than ordinary dirt?</h3>
+    <p>Desert dust is finer and more abundant, and it combines with near-daily morning dew to form a cemented mud film on the glass that wind cannot remove. That cemented layer is why desert arrays need water cleaning rather than brushing alone, and why losses keep climbing after every storm.</p>
+    <h3>How often should desert solar panels be cleaned?</h3>
+    <p>Follow the dust calendar, not a fixed interval: every two months in the calm cool season, monthly in dust-prone spring and autumn, and more often during storm periods. Practically, clean whenever monthly output drops 8-10% below the expected production figure for that month.</p>
+    <h3>Does cleaning solar panels pay for itself?</h3>
+    <p>Usually yes in dusty climates. A 15% soiling loss on a 5 kW system equals roughly 120 kWh per month — $18-30 of lost energy — which covers a $30-60 cleaning visit every other month with margin. Use the panel cleaning ROI calculator with your own production and tariff to confirm for your system.</p>
+    <h3>What can I do to reduce dust buildup on my panels?</h3>
+    <p>Steeper tilt angles shed more dust and admit more rain; keeping arrays away from unpaved driveways and loose-soil areas cuts local dust load; anti-soiling coatings slow cemented-layer formation and can extend cleaning intervals 30-50%; and elevated mounting helps bifacial panels whose rear sides collect ground dust.</p>
+    <h3>Is there a difference between cleaning rooftop home panels and a large ground-mount plant?</h3>
+    <p>Yes. Rooftop panels are hand-cleaned with water at roughly $10-30 per visit; utility plants run scheduled water trucks, dry robotic brushing between water cycles, and increasingly drone-mounted cleaning. The home-owner decision is simply whether a scheduled service's cost is below the value of the energy it recovers.</p>
+
+  </article>
+</div>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"></rect><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"></rect><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"></rect><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"></rect></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="../tools/panel-calculator.html">Panel calculator</a></li>
+          <li><a href="../tools/battery-calculator.html">Battery calculator</a></li>
+          <li><a href="../tools/inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="../tools/cable-calculator.html">Cable calculator</a></li>
+          <li><a href="../tools/roi-calculator.html">ROI calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script src="../js/main.js"></script>
+<script>
+  // ---------- SolarToolHub html2canvas PDF export ----------
+  function sthExportArticlePdf() {
+    var btn = document.getElementById('article-pdf-btn');
+    var origText = btn ? btn.textContent : '';
+    if (btn) { btn.textContent = 'Preparing PDF...'; btn.disabled = true; }
+    var art = document.querySelector('.article') || document.querySelector('article') || document.querySelector('main');
+    if (!art) { alert('Could not find article content.'); if (btn) { btn.textContent = origText; btn.disabled = false; } return; }
+    var clone = art.cloneNode(true);
+    clone.querySelectorAll('button, .btn, script, noscript').forEach(function (n) { n.remove(); });
+    clone.querySelectorAll('a').forEach(function (a) { a.style.textDecoration = 'none'; });
+    var wrap = document.createElement('div');
+    wrap.style.cssText = 'position:fixed;left:-10000px;top:0;width:794px;background:#ffffff;padding:32px 30px;color:#1f2937;z-index:-1;';
+    wrap.appendChild(clone);
+    document.body.appendChild(wrap);
+    wrap.querySelectorAll('*').forEach(function (el) {
+      var p = getComputedStyle(el).position;
+      if (p === 'fixed' || p === 'sticky') el.style.position = 'absolute';
+    });
+    document.fonts.ready.then(function () {
+      window.html2canvas(wrap, {
+        scale: 1.6, useCORS: true, allowTaint: true,
+        backgroundColor: '#ffffff', windowWidth: 794, logging: false
+      }).then(function (canvas) {
+        wrap.remove();
+        var doc = new window.jspdf.jsPDF({ unit: 'mm', format: 'a4' });
+        var margin = 12, pageW = 210, pageH = 297;
+        var imgW = pageW - margin * 2;
+        var pxPerMM = canvas.width / imgW;
+        var totalH = (canvas.height * imgW) / canvas.width;
+        var left = totalH, firstPage = true;
+        while (left > 0.1) {
+          var sliceH_mm = Math.min(pageH - margin * 2, left);
+          var sliceH_px = Math.round(sliceH_mm * pxPerMM);
+          var srcY_px = Math.round((totalH - left) * pxPerMM);
+          var tmp = document.createElement('canvas');
+          tmp.width = canvas.width; tmp.height = sliceH_px;
+          tmp.getContext('2d').drawImage(canvas, 0, srcY_px, canvas.width, sliceH_px, 0, 0, canvas.width, sliceH_px);
+          if (!firstPage) doc.addPage();
+          doc.addImage(tmp.toDataURL('image/jpeg', 0.8), 'JPEG', margin, margin, imgW, sliceH_mm);
+          firstPage = false; left -= sliceH_mm;
+        }
+        doc.save('solartoolhub-desert-dust-solar-panels.pdf');
+        if (btn) { btn.textContent = origText; btn.disabled = false; }
+      }).catch(function (e) {
+        wrap.remove();
+        console.error('SolarToolHub PDF export failed', e);
+        alert('Could not generate the PDF. Please try again or use your browser print (Ctrl+P).');
+        if (btn) { btn.textContent = origText; btn.disabled = false; }
+      });
+    });
+  }
+  var articlePdfBtn = document.getElementById('article-pdf-btn');
+  if (articlePdfBtn) {
+    articlePdfBtn.addEventListener('click', sthExportArticlePdf);
+  }
+  var shareBtn = document.getElementById('article-share-btn');
+  if (shareBtn) {
+    shareBtn.addEventListener('click', function () {
+      var data = { title: 'Dust and Sand Loss on Solar Panels in Desert Climates — SolarToolHub', url: window.location.href };
+      if (navigator.share) { navigator.share(data).catch(function () {}); }
+      else { navigator.clipboard.writeText(window.location.href).then(function () { shareBtn.textContent = '\u2713 Link copied'; setTimeout(function () { shareBtn.textContent = '\ud83d\udd17 Share'; }, 2000); }); }
+    });
+  }
+</script>
+</body>
+</html>
