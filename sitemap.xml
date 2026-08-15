@@ -173,4 +173,16 @@
   <url>
     <loc>https://ahmedtere44-coder.github.io/solartoolhub/solar-in-cyprus.html</loc>
   </url>
+    <url>
+        <loc>https://ahmedtere44-coder.github.io/solartoolhub/real-example-3kw-residential.html</loc>
+        <lastmod>2026-08-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://ahmedtere44-coder.github.io/solartoolhub/real-example-6kw-hybrid-carpentry.html</loc>
+        <lastmod>2026-08-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
 </urlset>
