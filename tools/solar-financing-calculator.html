@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solar Financing Calculator — Cash vs Loan vs Lease/PPA Comparison | SolarToolHub</title>
+<meta name="description" content="Compare cash, solar loan and lease/PPA financing options for your solar system. See total 20-year cost, payback and monthly figures for each option.">
+<link rel="canonical" href="https://ahmedtere44-coder.github.io/solartoolhub/tools/solar-financing-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SolarToolHub">
+<meta property="og:title" content="Solar Financing Calculator — Cash vs Loan vs Lease/PPA Comparison | SolarToolHub">
+<meta property="og:description" content="Compare cash, solar loan and lease/PPA financing options for your solar system. See total 20-year cost, payback and monthly figures for each option.">
+<meta property="og:url" content="https://ahmedtere44-coder.github.io/solartoolhub/tools/solar-financing-calculator.html">
+<meta property="og:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Solar Financing Calculator | SolarToolHub">
+<meta name="twitter:description" content="Compare cash, solar loan and lease/PPA financing options for your solar system. See total 20-year cost, payback and monthly figures for each option.">
+<meta name="twitter:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What size fuse do I need for my solar panel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Take the circuit's continuous current, multiply by 1.25 (the standard safety factor for continuous loads), then round up to the next standard fuse or breaker rating. For example, a string carrying 10 A needs 10 x 1.25 = 12.5 A, so you'd use the next standard size, a 15 A fuse. This calculator does the multiplication and rounding for you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why multiply by 1.25 for fuse sizing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Solar circuits are treated as continuous loads (running 3 or more hours), and electrical codes require overcurrent protection and conductors to be rated at 125% of the continuous current. The 1.25 factor gives that margin so the fuse doesn't nuisance-trip at normal full current while still protecting the circuit. For solar strings, the current used is usually the panel's short-circuit current (Isc), which itself is often multiplied by 1.25 first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are standard fuse and breaker sizes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Common standard ratings are 1, 2, 3, 6, 10, 15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90, 100, 110, 125, 150, 175, and 200 amps. After calculating your required current, you always round UP to the next standard size on this list, never down, so the protection is rated at or above your calculated value."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ahmedtere44-coder.github.io/solartoolhub/" },
+    { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools.html" },
+    { "@type": "ListItem", "position": 3, "name": "Solar financing calculator", "item": "/tools/fuse-breaker-sizing-calculator.html" }
+  ]
+}
+</script>
+</head>
+<body>
+
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html" class="active">Tools</a></li>
+      <li><a href="../articles.html">Guides</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button">Resources</button>
+        <ul class="nav-dropdown-menu">
+          <li><a href="../comparisons.html">Compare</a></li>
+      <li><a href="../cheat-sheets.html">Cheat sheets</a></li>
+      <li><a href="../glossary.html">Glossary</a></li>
+        </ul>
+      </li>
+      <li><a href="../solar-by-country.html">Solar by Country</a></li>
+      <li><a href="../real-examples.html">Real Examples</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../tools.html">Tools</a> / Solar financing calculator</div>
+    <div class="page-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M12 15v3"/><circle cx="17" cy="9" r="1.5" fill="currentColor" stroke="none"/></svg></div>
+    <h1>Solar financing calculator</h1>
+    <p class="lede">Cash, loan or lease/PPA — which way of paying for solar saves you the most? Enter your system price, loan terms or monthly lease fee and we will total up each option over 20 years, so you can compare like-for-like before signing anything.</p>
+  </div>
+</div>
+<div class="calc-layout">
+  <div class="container">
+    <div class="calc-card" style="max-width:760px;">
+      <form id="fn-calc-form">
+        <div class="field-group">
+          <label for="fn-cost">System cost ($)</label>
+          <input type="number" id="fn-cost" value="15000" min="1000" step="100">
+          <span class="helper-text">Total installed price of the system before any incentives.</span>
+        </div>
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="fn-rate">Loan interest rate (% per year)</label>
+            <input type="number" id="fn-rate" value="8" min="0" max="25" step="0.1">
+            <span class="helper-text">Annual rate on a typical solar loan.</span>
+          </div>
+          <div class="field-group">
+            <label for="fn-term">Loan term (years)</label>
+            <input type="number" id="fn-term" value="10" min="1" max="25" step="1">
+            <span class="helper-text">Common terms are 5–20 years.</span>
+          </div>
+          <div class="field-group">
+            <label for="fn-lease">Lease / PPA monthly payment ($)</label>
+            <input type="number" id="fn-lease" value="120" min="0" step="5">
+            <span class="helper-text">The fixed monthly fee charged by the lease or PPA provider.</span>
+          </div>
+          <div class="field-group">
+            <label for="fn-maintenance">Annual maintenance ($)</label>
+            <input type="number" id="fn-maintenance" value="75" min="0" step="10">
+            <span class="helper-text">Inverter servicing, cleaning and check-ups. Lease usually includes this.</span>
+          </div>
+        </div>
+      </form>
+      <div class="calc-result">
+        <div>
+          <span class="num" id="fn-cash-total">0</span>
+          <span class="lbl">cash total cost over 20 yrs ($)</span>
+        </div>
+        <div>
+          <span class="num" id="fn-loan-total">0</span>
+          <span class="lbl">loan total cost over 20 yrs ($)</span>
+        </div>
+        <div>
+          <span class="num" id="fn-lease-total">0</span>
+          <span class="lbl">lease/PPA total cost over 20 yrs ($)</span>
+        </div>
+        <div>
+          <span class="num" id="fn-loan-monthly">0</span>
+          <span class="lbl">loan monthly payment ($)</span>
+        </div>
+      </div>
+      <p class="helper-text" id="fn-note" style="margin-top:14px; font-weight:600;"></p>
+      <button type="button" id="fn-pdf-btn" class="btn btn-accent" style="margin-top:20px;">⬇️ Download results as PDF</button>
+      <p class="helper-text">The cash option costs only the system price plus maintenance, because you own it outright. Loan and lease totals include all interest or fees over the term. Lower total = better deal. In most cases cash wins on total cost, and the loan comes second if the interest rate is reasonable.</p>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="calc-diagram">
+    <figure>
+      <svg viewBox="0 0 380 330" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="fn-title fn-desc">
+        <title id="fn-title">How the solar financing calculator works</title>
+        <desc id="fn-desc">The system price, loan terms and lease fee are each projected over 20 years, then compared as cumulative cost to find the cheapest financing option.</desc>
+        <text x="190" y="26" text-anchor="middle" font-family="Manrope, sans-serif" font-size="14" font-weight="700" fill="#111827">What you enter</text>
+        <g>
+          <rect x="20" y="40" width="110" height="50" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="75" y="61" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E3A8A">System cost</text>
+          <text x="75" y="78" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">upfront $</text>
+        </g>
+        <g>
+          <rect x="138" y="40" width="110" height="50" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="193" y="61" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E3A8A">Loan terms</text>
+          <text x="193" y="78" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">rate + term</text>
+        </g>
+        <g>
+          <rect x="256" y="40" width="110" height="50" rx="8" fill="#EFF4FD" stroke="#1E3A8A" stroke-width="0.75"/>
+          <text x="311" y="61" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E3A8A">Lease fee</text>
+          <text x="311" y="78" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#2563EB">$/month</text>
+        </g>
+        <line x1="75" y1="90" x2="145" y2="130" stroke="#9CA3AF" stroke-width="1.5"/>
+        <line x1="193" y1="90" x2="190" y2="130" stroke="#9CA3AF" stroke-width="1.5"/>
+        <line x1="311" y1="90" x2="240" y2="130" stroke="#9CA3AF" stroke-width="1.5"/>
+        <g>
+          <rect x="70" y="132" width="245" height="50" rx="8" fill="#FEF9C3" stroke="#CA8A04" stroke-width="0.75"/>
+          <text x="192" y="152" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#854D0E">20-year projection per option</text>
+          <text x="192" y="170" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#854D0E">payments + interest/fees + maintenance</text>
+        </g>
+        <line x1="192" y1="182" x2="192" y2="214" stroke="#9CA3AF" stroke-width="1.5"/>
+        <g>
+          <rect x="60" y="216" width="265" height="56" rx="8" fill="#E9FBF4" stroke="#10B981" stroke-width="0.75"/>
+          <text x="192" y="238" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#065F46">Lowest 20-year total wins</text>
+          <text x="192" y="257" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#065F46">cash vs loan vs lease side by side</text>
+        </g>
+        <line x1="192" y1="272" x2="192" y2="300" stroke="#9CA3AF" stroke-width="1.5"/>
+      </svg>
+      <figcaption>How the calculator compares the three ways of paying for solar over 20 years.</figcaption>
+    </figure>
+  </div>
+  <div class="calc-chart">
+    <h2 class="calc-chart-title">Cumulative cost over 20 years</h2>
+    <p class="calc-chart-intro">This chart updates with your inputs. The blue line is paying cash, the yellow line is the loan (payments stop when the term ends), and the green dashed line is the lease/PPA monthly fee. The option that stays lowest over the full 20 years is your cheapest deal.</p>
+    <div class="calc-chart-canvas-wrap">
+      <canvas id="fn-curve" role="img" aria-label="Line chart comparing cumulative 20-year cost of cash, loan and lease financing options.">Cumulative cost of cash, loan and lease over 20 years.</canvas>
+    </div>
+  </div>
+  <article class="article">
+    <p>Paying for solar is a financing decision as much as an electrical one. The system produces the same electricity whether you pay cash, borrow, or lease — but the money you spend to get it there can differ by thousands of dollars over the system's lifetime. This calculator puts all three options on one 20-year chart so you can see the true cost of each.</p>
+    <h2>The three ways to pay</h2>
+    <p><strong>Cash</strong> means paying the full price up front. You own the system from day one, there is no interest, and every kilowatt-hour it produces is pure saving. The downside is simply the large initial outlay. <strong>A solar loan</strong> spreads the cost into fixed monthly payments; you still own the system, but the lender's interest adds 20–50% to the total depending on the rate and term. <strong>A lease or PPA</strong> puts a third party's system on your roof — you pay a monthly fee and they handle maintenance, but you never own it and the fees usually run for 20–25 years.</p>
+    <h2>What the calculator does</h2>
+    <p>For cash, the total is the system price plus yearly maintenance over 20 years — nothing else. For the loan, it computes the fixed monthly payment from your rate and term, multiplies by the number of payments, and adds maintenance. For the lease, it multiplies your monthly fee by 240 months. The chart then plots each option year by year so you can see exactly when the loan finishes its payments and how far ahead the lease line keeps climbing.</p>
+    <p style="font-family:monospace; background:var(--bg-soft); padding:14px 18px; border-radius:8px; font-size:0.95rem;">Loan payment = loan × rate/12 ÷ (1 − (1 + rate/12)^−months)</p>
+    <h2>Cash usually wins — but not for everyone</h2>
+    <p>On pure total cost, cash almost always wins because there is no interest and no fee. A loan at a modest rate is usually a good second choice: you keep your savings, cut the bill from month one, and still come out ahead of grid power. Leases only make sense in specific situations — for example if you have no tax liability to benefit from incentives, cannot raise the upfront money, and value zero maintenance responsibility. Always compare the real numbers, not the sales pitch.</p>
+    <h2>The fine print worth checking</h2>
+    <p>Before signing a lease or PPA, check: who owns the system and any incentives attached to it, what happens at the end of the term (renewal, removal, buyout price), whether the monthly fee escalates each year, and what the system's production guarantee is. For a loan, check the true annual percentage rate (APR), any origination fees, and whether early repayment is free — paying it off early after a few good summers can save a lot of interest.</p>
+    <h2>Related tools</h2>
+    <p>To work out what system size your bill justifies, start with the <a href="roi-calculator.html">ROI calculator</a>; to estimate annual production use the <a href="panel-calculator.html">panel calculator</a>; and to size the battery side of a financed system, the <a href="battery-calculator.html">battery calculator</a>. If you are going off-grid entirely, the <a href="home-backup-calculator.html">home backup calculator</a> covers that design.</p>
+    <h2>Frequently asked questions</h2>
+    <h3>What is the difference between buying solar with cash and a solar loan?</h3>
+    <p>With cash you pay the full system price up front and keep 100% of the savings from year one, with no interest charges. A solar loan spreads the cost over fixed monthly payments — you still own the system, but the interest you pay adds 20–50% to the total cost over a typical 10–20 year term. Cash usually wins on total cost; a loan wins if you prefer to keep your savings and still cut your bill immediately.</p>
+    <h3>How does a solar lease or PPA work?</h3>
+    <p>In a lease or power purchase agreement (PPA) a third-party company owns and maintains the system on your roof. You pay a fixed monthly fee (or a rate per kWh the system produces) instead of buying it. Monthly costs are predictable and there is usually no upfront payment, but you never own the system, you may get a smaller share of the savings, and the deal typically locks you in for 20–25 years.</p>
+    <h3>Which financing option saves the most money over 20 years?</h3>
+    <p>In almost every scenario, paying cash gives the lowest total 20-year cost because there is no interest. A solar loan comes second if the interest rate is moderate. Lease/PPA usually costs the most over 20 years, but it can suit people who cannot pay upfront and want zero maintenance responsibility. Use this calculator with your real numbers to see exactly how the options compare.</p>
+    <h3>What monthly payment should I expect for a solar loan?</h3>
+    <p>Monthly payments depend on the loan amount, interest rate and term. As a rough guide, a $15,000 system at 8% over 10 years costs about $182 per month; over 15 years about $144; over 20 years about $125. Enter your exact system price, rate and term in this calculator for a precise figure.</p>
+    <h3>Does a lease or PPA make sense without a tax credit?</h3>
+    <p>Leases and PPAs were popular partly because the installer could use the tax credit and pass some of it to you as a lower monthly rate. Without a tax credit, the economics of leases often weaken — the monthly fee stays high while the savings shrink. That is one reason more homeowners are comparing loans and cash carefully before signing any third-party deal.</p>
+    <h3>How do I use the 20-year cost comparison chart?</h3>
+    <p>The chart shows cumulative cost year by year: the cash line starts at the full system price and climbs slowly (maintenance only), the loan line adds monthly payments until the loan finishes, and the lease line adds monthly fees for the full term. The option whose line stays lowest over 20 years is your cheapest choice. All lines update live as you change the inputs.</p>
+  </article>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="panel-calculator.html">Panel calculator</a></li>
+          <li><a href="battery-calculator.html">Battery calculator</a></li>
+          <li><a href="inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="cable-calculator.html">Cable calculator</a></li>
+          <li><a href="roi-calculator.html">ROI calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script src="../js/share.js"></script>
+<script>
+  (function () {
+    var form = document.getElementById('fn-calc-form');
+    if (!form) return;
+    function calcFN() {
+      var cost = parseFloat(document.getElementById('fn-cost').value) || 0;
+      var rate = (parseFloat(document.getElementById('fn-rate').value) || 0) / 100 / 12;
+      var term = parseInt(document.getElementById('fn-term').value) || 10;
+      var lease = parseFloat(document.getElementById('fn-lease').value) || 0;
+      var maint = parseFloat(document.getElementById('fn-maintenance').value) || 0;
+      var months = term * 12;
+      var lm = 0;
+      if (months > 0) {
+        lm = (rate === 0) ? cost / months : cost * rate / (1 - Math.pow(1 + rate, -months));
+      }
+      var cashTotal = cost + maint * 20;
+      var loanTotal = lm * months + maint * 20;
+      var leaseTotal = lease * 240;
+      document.getElementById('fn-cash-total').textContent = cashTotal.toLocaleString('en-US', {maximumFractionDigits: 0});
+      document.getElementById('fn-loan-total').textContent = loanTotal.toLocaleString('en-US', {maximumFractionDigits: 0});
+      document.getElementById('fn-lease-total').textContent = leaseTotal.toLocaleString('en-US', {maximumFractionDigits: 0});
+      document.getElementById('fn-loan-monthly').textContent = lm.toLocaleString('en-US', {maximumFractionDigits: 2, minimumFractionDigits: 2});
+      var note = document.getElementById('fn-note');
+      if (cost <= 0) { note.textContent = ''; return; }
+      var totals = [['Cash', cashTotal], ['Loan', loanTotal], ['Lease/PPA', leaseTotal]];
+      totals.sort(function (a, b) { return a[1] - b[1]; });
+      note.textContent = '\u2713 ' + totals[0][0] + ' is cheapest over 20 years ($' + totals[0][1].toLocaleString('en-US', {maximumFractionDigits: 0}) + ') \u2014 ' + totals[2][0] + ' is the most expensive ($' + totals[2][1].toLocaleString('en-US', {maximumFractionDigits: 0}) + ').';
+      note.style.color = '#059669';
+    }
+    form.addEventListener('input', calcFN);
+    calcFN();
+    var pdfBtn = document.getElementById('fn-pdf-btn');
+    if (pdfBtn) {
+      pdfBtn.addEventListener('click', function () {
+        var inputs = [
+          ['System cost', '$' + document.getElementById('fn-cost').value],
+          ['Loan interest rate', document.getElementById('fn-rate').value + '% per year'],
+          ['Loan term', document.getElementById('fn-term').value + ' years'],
+          ['Lease / PPA monthly payment', '$' + document.getElementById('fn-lease').value],
+          ['Annual maintenance', '$' + document.getElementById('fn-maintenance').value]
+        ];
+        var results = [
+          ['Cash total (20 yrs)', '$' + document.getElementById('fn-cash-total').textContent],
+          ['Loan total (20 yrs)', '$' + document.getElementById('fn-loan-total').textContent],
+          ['Lease/PPA total (20 yrs)', '$' + document.getElementById('fn-lease-total').textContent],
+          ['Loan monthly payment', '$' + document.getElementById('fn-loan-monthly').textContent]
+        ];
+        generateSolarToolHubResultsPDF({
+          subtitle: 'Solar Financing Comparison — Results',
+          inputs: inputs,
+          resultsHeaders: ['Option / Metric', 'Value'],
+          results: results,
+          nextSteps: {
+            text: 'See what your system actually saves with our:',
+            linkText: 'Solar ROI Calculator',
+            url: 'https://ahmedtere44-coder.github.io/solartoolhub/tools/roi-calculator.html'
+          },
+          filename: 'solartoolhub-financing-results.pdf'
+        });
+      });
+    }
+  })();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+  (function () {
+    var canvas = document.getElementById('fn-curve');
+    if (!canvas || typeof Chart === 'undefined') return;
+    var costEl = document.getElementById('fn-cost'), rateEl = document.getElementById('fn-rate');
+    var termEl = document.getElementById('fn-term'), leaseEl = document.getElementById('fn-lease');
+    var maintEl = document.getElementById('fn-maintenance');
+    var years = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20];
+    function loanMonthly() {
+      var cost = parseFloat(costEl.value) || 0;
+      var rate = (parseFloat(rateEl.value) || 0) / 100 / 12;
+      var term = parseInt(termEl.value) || 10;
+      var months = term * 12;
+      if (rate === 0) return months > 0 ? cost / months : 0;
+      return cost * rate / (1 - Math.pow(1 + rate, -months));
+    }
+    function sd() {
+      var cost = parseFloat(costEl.value) || 0;
+      var months = (parseInt(termEl.value) || 10) * 12;
+      var lm = loanMonthly();
+      var lease = parseFloat(leaseEl.value) || 0;
+      var maint = parseFloat(maintEl.value) || 0;
+      var cash = [], loan = [], leasev = [];
+      years.forEach(function (y) {
+        var paidMonths = Math.min(y * 12, months);
+        cash.push(cost + maint * y);
+        loan.push(lm * paidMonths + maint * y);
+        leasev.push(lease * y * 12);
+      });
+      return { cash: cash, loan: loan, lease: leasev };
+    }
+    var d0 = sd();
+    var chart = new Chart(canvas, {
+      type: 'line',
+      data: {
+        labels: years,
+        datasets: [{
+          label: 'Cash', data: d0.cash, borderColor: '#1E3A8A',
+          backgroundColor: 'rgba(30,58,138,0.10)', borderWidth: 2, fill: false, tension: 0.25, pointRadius: 4
+        }, {
+          label: 'Loan', data: d0.loan, borderColor: '#CA8A04',
+          backgroundColor: 'rgba(202,138,4,0.10)', borderWidth: 2, fill: false, tension: 0.25, pointRadius: 4
+        }, {
+          label: 'Lease / PPA', data: d0.lease, borderColor: '#10B981',
+          backgroundColor: 'rgba(16,185,129,0.10)', borderWidth: 2, borderDash: [6, 4], fill: false, tension: 0.25, pointRadius: 4
+        }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false, animation: false,
+        plugins: { legend: { position: 'top' } },
+        scales: {
+          x: { title: { display: true, text: 'Year', color: '#4B5563' }, ticks: { color: '#9CA3AF' }, grid: { display: false } },
+          y: { title: { display: true, text: 'Cumulative cost ($)', color: '#4B5563' }, ticks: { color: '#9CA3AF', callback: function (v) { return '$' + v.toLocaleString(); } }, beginAtZero: true }
+        }
+      }
+    });
+    function refresh() {
+      var d = sd();
+      chart.data.datasets[0].data = d.cash;
+      chart.data.datasets[1].data = d.loan;
+      chart.data.datasets[2].data = d.lease;
+      chart.update();
+    }
+    [costEl, rateEl, termEl, leaseEl, maintEl].forEach(function (el) { if (el) el.addEventListener('input', refresh); });
+  })();
+</script>
+</body>
+</html>

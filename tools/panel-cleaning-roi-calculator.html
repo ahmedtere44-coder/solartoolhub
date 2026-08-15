@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solar Fuse & Breaker Size Calculator — Overcurrent Protection Sizing | SolarToolHub</title>
+<meta name="description" content="Free solar fuse and breaker size calculator. Enter circuit current or power and voltage to get the right overcurrent protection using the 1.25 factor.">
+<link rel="canonical" href="https://ahmedtere44-coder.github.io/solartoolhub/tools/fuse-breaker-sizing-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SolarToolHub">
+<meta property="og:title" content="Solar Fuse & Breaker Size Calculator — Overcurrent Protection Sizing | SolarToolHub">
+<meta property="og:description" content="Get the correct fuse or breaker size for a solar circuit using the standard 1.25 safety factor and the next standard rating.">
+<meta property="og:url" content="https://ahmedtere44-coder.github.io/solartoolhub/tools/fuse-breaker-sizing-calculator.html">
+<meta property="og:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Solar Fuse & Breaker Size Calculator | SolarToolHub">
+<meta name="twitter:description" content="Get the correct fuse or breaker size for a solar circuit using the standard 1.25 safety factor.">
+<meta name="twitter:image" content="https://ahmedtere44-coder.github.io/solartoolhub/icons/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SolarToolHub">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEKFL7NKZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-JEKFL7NKZE");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What size fuse do I need for my solar panel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Take the circuit's continuous current, multiply by 1.25 (the standard safety factor for continuous loads), then round up to the next standard fuse or breaker rating. For example, a string carrying 10 A needs 10 x 1.25 = 12.5 A, so you'd use the next standard size, a 15 A fuse. This calculator does the multiplication and rounding for you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why multiply by 1.25 for fuse sizing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Solar circuits are treated as continuous loads (running 3 or more hours), and electrical codes require overcurrent protection and conductors to be rated at 125% of the continuous current. The 1.25 factor gives that margin so the fuse doesn't nuisance-trip at normal full current while still protecting the circuit. For solar strings, the current used is usually the panel's short-circuit current (Isc), which itself is often multiplied by 1.25 first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are standard fuse and breaker sizes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Common standard ratings are 1, 2, 3, 6, 10, 15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90, 100, 110, 125, 150, 175, and 200 amps. After calculating your required current, you always round UP to the next standard size on this list, never down, so the protection is rated at or above your calculated value."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ahmedtere44-coder.github.io/solartoolhub/" },
+    { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools.html" },
+    { "@type": "ListItem", "position": 3, "name": "Fuse & breaker sizing calculator", "item": "https://ahmedtere44-coder.github.io/solartoolhub/tools/fuse-breaker-sizing-calculator.html" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Panel Cleaning ROI Calculator",
+  "description": "Estimate energy loss from dust and dirt on solar panels and compare it against the cost of professional or DIY cleaning.",
+  "applicationCategory": "UtilityApplication",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "How much energy do dirty solar panels actually lose?", "acceptedAnswer": { "@type": "Answer", "text": "Real-world studies show dust and dirt typically reduce output by 5% to 15% in most climates. In arid, sandy, or desert areas with frequent dust storms, losses of 20% to 30% have been measured between cleanings. Rain partially helps in some regions but does not remove sticky grime or bird droppings." } },
+    { "@type": "Question", "name": "Does rain clean solar panels automatically?", "acceptedAnswer": { "@type": "Answer", "text": "Rain removes loose dust but rarely restores full performance. Light rain can even leave streaks, and sticky deposits from pollen, bird droppings or salt spray need physical cleaning. In dry, dusty regions with little rainfall, panel cleaning matters most." } },
+    { "@type": "Question", "name": "How often should solar panels be cleaned?", "acceptedAnswer": { "@type": "Answer", "text": "A common rule is two to four times per year depending on environment. Dusty, sandy or agricultural areas benefit from quarterly cleaning; areas with regular rain and little dust can stretch to once or twice a year. The calculator below shows the payback of each cleaning frequency." } },
+    { "@type": "Question", "name": "Is professional panel cleaning worth the money?", "acceptedAnswer": { "@type": "Answer", "text": "If dust losses exceed the annual cleaning cost, cleaning pays for itself — and on larger systems the recovered energy often covers professional cleaning two or three times over. For small systems, DIY cleaning with water and a soft brush delivers most of the same benefit." } },
+    { "@type": "Question", "name": "Does cleaning improve solar panel lifespan?", "acceptedAnswer": { "@type": "Answer", "text": "Cleaning does not extend the physical life of the cells, but it prevents hot spots caused by uneven soiling. A dirty cell next to a partially shaded one can overheat and age faster, so regular cleaning is a small protective habit as well as an energy gain." } },
+    { "@type": "Question", "name": "What is the best way to clean solar panels safely?", "acceptedAnswer": { "@type": "Answer", "text": "Clean in the early morning or evening when panels are cool, use plain water and a soft brush or sponge — never abrasive pads or harsh chemicals. Avoid walking on the panels and never use high-pressure sprayers that can force water behind the frames." } }
+  ]
+}
+</script>
+</head><body>
+
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+      </span>
+      Solar<span class="accent">Tool</span>Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="../tools.html" class="active">Tools</a></li>
+      <li><a href="../articles.html">Guides</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button">Resources</button>
+        <ul class="nav-dropdown-menu">
+          <li><a href="../comparisons.html">Compare</a></li>
+      <li><a href="../cheat-sheets.html">Cheat sheets</a></li>
+      <li><a href="../glossary.html">Glossary</a></li>
+        </ul>
+      </li>
+      <li><a href="../solar-by-country.html">Solar by Country</a></li>
+      <li><a href="../real-examples.html">Real Examples</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="page-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H4z"/><path d="M8 16l-2 4"/><path d="M12 16v5"/><path d="M16 16l2 4"/><path d="M2 8l20 8"/></svg></div>
+    <h1>Panel cleaning ROI calculator</h1>
+    <p class="header-intro">Dust, sand and dirt quietly steal energy from your panels every day. This calculator estimates your losses and shows whether scheduled cleaning pays for itself.</p>
+  </div>
+</div>
+<div class="calc-layout">
+  <div class="container">
+    <div class="calc-card" style="max-width:720px;">
+      <form id="pc-calc-form">
+        <div class="field-group">
+          <label for="pc-kw">System size (kW)</label>
+          <input type="number" id="pc-kw" value="5" min="0.5" step="0.5">
+          <p class="helper-text">Your total installed solar capacity.</p>
+        </div>
+        <div class="field-group">
+          <label for="pc-psh">Peak sun hours per day</label>
+          <input type="number" id="pc-psh" value="5.5" min="2" max="9" step="0.1">
+          <p class="helper-text">Average daily peak sun hours where you live (4.5–6.5 in most sunny regions).</p>
+        </div>
+        <div class="field-group">
+          <label for="pc-rate">Electricity price ($/kWh)</label>
+          <input type="number" id="pc-rate" value="0.15" min="0.01" step="0.01">
+          <p class="helper-text">What each kWh from the grid costs you.</p>
+        </div>
+        <div class="field-group">
+          <label for="pc-loss">Dust loss if never cleaned (%)</label>
+          <input type="number" id="pc-loss" value="15" min="2" max="35" step="1">
+          <p class="helper-text">Typical 5–15% in mild climates, 20–30% in sandy or desert areas between cleanings.</p>
+        </div>
+        <div class="field-group">
+          <label for="pc-cost">Cleaning cost per session ($)</label>
+          <input type="number" id="pc-cost" value="60" min="0" step="5">
+          <p class="helper-text">Professional service price, or zero if you clean it yourself.</p>
+        </div>
+        <div class="field-group">
+          <label for="pc-freq">Sessions per year</label>
+          <select id="pc-freq">
+            <option value="1">Once a year</option>
+            <option value="2" selected>Twice a year</option>
+            <option value="3">Every 4 months</option>
+            <option value="4">Quarterly</option>
+          </select>
+          <p class="helper-text">How often the system gets cleaned.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="calc-layout">
+  <div class="container">
+    <div class="calc-card" style="max-width:720px;">
+      <div class="result-row" id="pc-results">
+        <div class="result-box">
+          <div class="result-value" id="pc-annual-loss-kwh">—</div>
+          <div class="result-label">Lost energy per year (kWh)</div>
+        </div>
+        <div class="result-box">
+          <div class="result-value" id="pc-annual-loss-usd">—</div>
+          <div class="result-label">Lost money per year ($)</div>
+        </div>
+        <div class="result-box">
+          <div class="result-value" id="pc-cleaning-cost-yr">—</div>
+          <div class="result-label">Cleaning cost per year ($)</div>
+        </div>
+        <div class="result-box">
+          <div class="result-value" id="pc-roi">—</div>
+          <div class="result-label">Net benefit vs cleaning ($/yr)</div>
+        </div>
+      </div>
+      <p class="helper-text" id="pc-note" style="margin-top:14px; font-weight:600;"></p>
+      <button type="button" id="pc-pdf-btn" class="btn btn-accent" style="margin-top:20px;">⬇️ Download results as PDF</button>
+    </div>
+  </div>
+</div>
+
+<div class="calc-layout">
+  <div class="container">
+    <div class="calc-card" style="max-width:720px;">
+      <div class="calc-diagram">
+        <h2>What the calculator measures</h2>
+        <p>Dust settles on panels and blocks light. The loss depends on your environment: mild climates see 5–15% losses, while sandy and desert areas can reach 20–30%. Regular cleaning recovers most of that energy — the question is whether the recovered value beats the cleaning bill.</p>
+        <div class="calc-diagram-svg">
+          <svg viewBox="0 0 480 120" role="img" aria-label="Diagram: clean panel produces full energy while a dusty panel loses energy to dust">
+            <g>
+              <rect x="20" y="40" width="130" height="56" rx="4" fill="none" stroke="#2563eb" stroke-width="2"/>
+              <line x1="32" y1="40" x2="138" y2="40" stroke="#2563eb" stroke-width="2"/>
+              <line x1="44" y1="40" x2="44" y2="96" stroke="#2563eb" stroke-width="1"/>
+              <line x1="66" y1="40" x2="66" y2="96" stroke="#2563eb" stroke-width="1"/>
+              <line x1="88" y1="40" x2="88" y2="96" stroke="#2563eb" stroke-width="1"/>
+              <line x1="110" y1="40" x2="110" y2="96" stroke="#2563eb" stroke-width="1"/>
+              <line x1="132" y1="40" x2="132" y2="96" stroke="#2563eb" stroke-width="1"/>
+              <text x="85" y="116" font-size="11" fill="#334155" text-anchor="middle">Clean panel</text>
+              <path d="M25 40 Q60 26 90 32 Q120 38 150 28" stroke="#059669" stroke-width="1.6" fill="none"/>
+              <path d="M152 26 l6 3 l-4 5" fill="none" stroke="#059669" stroke-width="1.6"/>
+              <text x="164" y="30" font-size="11" fill="#059669">100% output</text>
+            </g>
+            <g>
+              <rect x="330" y="40" width="130" height="56" rx="4" fill="none" stroke="#64748b" stroke-width="2"/>
+              <line x1="342" y1="40" x2="448" y2="40" stroke="#64748b" stroke-width="2"/>
+              <circle cx="350" cy="50" r="3" fill="#b45309"/>
+              <circle cx="372" cy="44" r="2.5" fill="#b45309"/>
+              <circle cx="400" cy="52" r="3" fill="#b45309"/>
+              <circle cx="424" cy="46" r="2.5" fill="#b45309"/>
+              <circle cx="440" cy="54" r="2" fill="#b45309"/>
+              <text x="395" y="116" font-size="11" fill="#334155" text-anchor="middle">Dusty panel</text>
+              <path d="M360 40 Q390 30 420 36" stroke="#dc2626" stroke-width="1.6" fill="none"/>
+              <path d="M422 34 l6 3 l-4 5" fill="none" stroke="#dc2626" stroke-width="1.6"/>
+              <text x="432" y="30" font-size="11" fill="#dc2626">loss</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <div class="calc-chart">
+        <h2 class="calc-chart-title">Annual recovery vs cleaning cost</h2>
+        <p class="calc-chart-intro">This chart updates with your inputs. The green bars show how much money the lost energy is worth each year if never cleaned; the blue dashed line is what cleaning costs per year at your chosen frequency. When the green bar towers over the blue line, cleaning clearly pays for itself.</p>
+        <div class="calc-chart-canvas-wrap">
+          <canvas id="pc-curve" role="img" aria-label="Bar chart comparing annual energy loss value against annual cleaning cost.">Annual energy loss value versus annual cleaning cost.</canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <article class="article">
+    <div class="container">
+      <h2>Panel cleaning ROI explained</h2>
+
+      <h3>Why dirty panels cost you money</h3>
+      <p>Every layer of dust on a solar panel blocks a little light. Individually the effect is small, but it compounds: by the time a storm-season layer builds up, the system may be producing 10–20% less than it should. On a 5 kW system in a sunny area, that can mean 1,000 kWh or more of wasted energy per year — often worth several hundred dollars.</p>
+
+      <h3>Does my region matter?</h3>
+      <p>Yes, more than almost anything else. Arid, sandy and desert regions with frequent dust storms see the fastest soiling, while humid areas with regular rainfall see slower buildup. Agricultural land adds pollen and straw dust, and coastal sites add salt spray. If you live near a dirt road, construction site or open field, expect faster losses.</p>
+
+      <h3>How often should you clean?</h3>
+      <p>A sensible starting point is twice a year — once after the dustiest season and once mid-year. Quarterly cleaning makes sense in heavy sand or agricultural areas. Use the frequency selector above to compare costs at each level and pick the frequency with the highest net benefit.</p>
+
+      <h3>Professional or DIY cleaning?</h3>
+      <p>Professional service typically costs $40–$150 per visit depending on system size and roof access. DIY cleaning with plain water and a soft brush costs almost nothing and recovers most of the same energy on ground-mounted or easily reached systems. The calculator treats your cost per session the same either way — put zero for DIY.</p>
+
+      <h3>Is cleaning really worth it?</h3>
+      <p>On most systems in dusty regions, yes — the recovered energy often exceeds the cleaning bill several times over, especially as electricity prices rise. On small systems in rainy climates the margin is thinner, which is why the calculator shows the net benefit directly instead of just the loss.</p>
+
+      <h3>Related tools and guides</h3>
+      <p>Plan the rest of your system around clean performance: the <a href="panel-calculator.html">solar panel calculator</a> sizes your array, the <a href="savings-calculator.html">savings calculator</a> projects long-term savings, and the <a href="roi-calculator.html">solar ROI calculator</a> compares full project economics. For storage planning, the <a href="battery-calculator.html">battery calculator</a> shows how much backup you need. On the buying side, the <a href="../articles/solar-inverter-buying-guide.html">inverter buying guide</a> and the <a href="../articles/solar-battery-bank-design-guide.html">battery bank design guide</a> cover matching equipment.</p>
+    </div>
+  </article>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" fill="#FFFFFF"/><rect x="13" y="3" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="3" y="13" width="8" height="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="13" y="13" width="8" height="8" fill="#FFFFFF"/></svg>
+          </span>
+          Solar<span class="accent">Tool</span>Hub
+        </div>
+        <p>Professional solar calculators and guides built from real installation engineering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="panel-calculator.html">Panel calculator</a></li>
+          <li><a href="battery-calculator.html">Battery calculator</a></li>
+          <li><a href="inverter-calculator.html">Inverter calculator</a></li>
+          <li><a href="cable-calculator.html">Cable calculator</a></li>
+          <li><a href="roi-calculator.html">ROI calculator</a></li>
+          <li><a href="../tools.html">All tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../install.html">Install app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SolarToolHub. All rights reserved.</span>
+      <span>Built with real solar field experience.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/pdf-export.js"></script>
+<script src="../js/share.js"></script>
+<script>
+(function () {
+  var kwEl = document.getElementById('pc-kw');
+  var pshEl = document.getElementById('pc-psh');
+  var rateEl = document.getElementById('pc-rate');
+  var lossEl = document.getElementById('pc-loss');
+  var costEl = document.getElementById('pc-cost');
+  var freqEl = document.getElementById('pc-freq');
+  var lossKwhEl = document.getElementById('pc-annual-loss-kwh');
+  var lossUsdEl = document.getElementById('pc-annual-loss-usd');
+  var cleanUsdEl = document.getElementById('pc-cleaning-cost-yr');
+  var roiEl = document.getElementById('pc-roi');
+  var note = document.getElementById('pc-note');
+  var canvas = document.getElementById('pc-curve');
+  var ctx = canvas.getContext('2d');
+  var chart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Annual energy loss', 'Annual cleaning cost'],
+      datasets: [{
+        label: 'Value ($ per year)',
+        data: [0, 0],
+        backgroundColor: ['#10b981', 'rgba(37,99,235,0.75)'],
+        borderColor: ['#059669', '#2563eb'],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      animation: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        y: { beginAtZero: true, ticks: { callback: function (v) { return '$' + v; } } }
+      }
+    }
+  });
+
+  function fmt(n) { return n.toLocaleString('en-US', { maximumFractionDigits: 0 }); }
+
+  function refresh() {
+    var kw = parseFloat(kwEl.value) || 0;
+    var psh = parseFloat(pshEl.value) || 0;
+    var rate = parseFloat(rateEl.value) || 0;
+    var loss = (parseFloat(lossEl.value) || 0) / 100;
+    var cost = parseFloat(costEl.value) || 0;
+    var freq = parseInt(freqEl.value) || 1;
+    var annualKwh = kw * psh * 365;
+    var lostKwh = annualKwh * loss;
+    var lostUsd = lostKwh * rate;
+    var cleanUsd = cost * freq;
+    var roi = lostUsd - cleanUsd;
+    lossKwhEl.textContent = fmt(lostKwh);
+    lossUsdEl.textContent = '$' + fmt(lostUsd);
+    cleanUsdEl.textContent = '$' + fmt(cleanUsd);
+    roiEl.textContent = (roi >= 0 ? '+' : '') + '$' + fmt(roi);
+    if (roi > 0) {
+      note.textContent = '✓ Cleaning pays for itself — you recover ~$' + fmt(lostUsd) + ' per year at a cost of ~$' + fmt(cleanUsd) + '.';
+      note.style.color = '#047857';
+    } else {
+      note.textContent = '◐ At these numbers cleaning costs more than the energy it recovers (~$' + fmt(Math.abs(roi)) + ' per year). DIY cleaning or fewer sessions would flip this.';
+      note.style.color = '#b45309';
+    }
+    chart.data.datasets[0].data = [lostUsd, cleanUsd];
+    chart.update();
+  }
+
+  ['pc-kw', 'pc-psh', 'pc-rate', 'pc-loss', 'pc-cost', 'pc-freq'].forEach(function (id) {
+    document.getElementById(id).addEventListener('input', refresh);
+  });
+
+  refresh();
+
+  document.getElementById('pc-pdf-btn').addEventListener('click', function () {
+    var doc = new jspdf.jsPDF();
+    doc.setFontSize(18);
+    doc.text('Panel Cleaning ROI Report', 20, 22);
+    doc.setFontSize(11);
+    doc.text('System size: ' + kwEl.value + ' kW  |  Peak sun hours: ' + pshEl.value + ' h/day', 20, 34);
+    doc.text('Electricity price: $' + rateEl.value + '/kWh  |  Dust loss: ' + lossEl.value + '%  |  Sessions/year: ' + freqEl.value, 20, 42);
+    doc.text('Cleaning cost per session: $' + costEl.value, 20, 50);
+    doc.setFontSize(13);
+    doc.text('Lost energy per year: ' + lossKwhEl.textContent + ' kWh (~$' + lossUsdEl.textContent.replace('$', '') + ')', 20, 64);
+    doc.text('Cleaning cost per year: ' + cleanUsdEl.textContent, 20, 72);
+    doc.text('Net benefit: ' + roiEl.textContent + ' per year', 20, 80);
+    doc.setFontSize(9);
+    doc.setTextColor(100);
+    doc.text('Generated by SolarToolHub — Panel Cleaning ROI Calculator', 20, 90);
+    doc.save('panel-cleaning-roi-report.pdf');
+  });
+
+  var shareBtn = document.createElement('button');
+  shareBtn.className = 'btn';
+  shareBtn.textContent = '🔗 Share';
+  shareBtn.addEventListener('click', function () {
+    if (navigator.share) {
+      navigator.share({ title: 'Panel cleaning ROI calculator', url: location.href });
+    } else {
+      navigator.clipboard.writeText(location.href).then(function () {
+        shareBtn.textContent = '✓ Link copied';
+      });
+    }
+  });
+  document.getElementById('pc-pdf-btn').after(shareBtn);
+  shareBtn.style.marginLeft = '10px';
+})();
+</script>
+</body>
+</html>
